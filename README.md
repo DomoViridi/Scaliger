@@ -10,7 +10,7 @@ days, connecting ancient and modern dating of documents, and converting dates be
 For centuries this work has been available in libraries for scholars to study.
 
 Since google books published a set of scans of this 1583 work (and later editions of 1598
-and 1629) it has become possible for anyone with reasonably fast access to the internet
+and 1629) it has become possible for anyone who can download a 75 MByte PDF from the internet
 to read it.
 
 Unfortunately these scans have a few limitations:
@@ -36,18 +36,28 @@ hopes to make the work available to a wider audience, by:
 
 Transcribing the original
 -------------------------
+File: `Latin transcript (lit).rtf`, the litteral transcript.
+
 Each page is typed in, staying as close to the original as possible.
 * Usage of 'v' and 'u' are copied from the original.
 * Ligatures like 'æ' and 'œ' are copied from the original.
 * Use of the long s 'ſ' is copied from the original.
 * Shortenings like 'quoq;' (for 'quoque') and 'nō' (for 'non') are copied from the original.
 
-To keep track of how the transcription matches with the original, the original pages are kept,
+To keep track of how the transcription matches with the original, a page in the original will match
+a page (or more) in the transcription,
 and the sentences are numbered, starting with number 1 on each new page.
 
+Rich Text File (rtf) is used to give us italic typeface, different point sizes, left/centre/right adjusted text,
+tables, and automatic line numbering by using numbered lists.
+
+UTF is required for the above mentioned ligatures and the long s, the Greek, Hebrew and Arabic texts, and for
+odd symbols like the ancient symbols for the planets.
 
 Transcribing to a modern typesetting
 ------------------------------------
+File: `Latin transcript (int).rtf`, the interpreted transcript.
+
 Using the transcription of the original, a version with modern typesetting is made.
 * 'v' and 'u' are converted, writing 'u' for a vowel and 'v' for a consonant.
 * Ligatures are expanded: 'æ' becomes 'ae', 'œ' becomes 'oe'
@@ -59,6 +69,9 @@ Translating into English
 ------------------------
 Using the modern typesetting, a translation is made. Being a translation from Latin, this might
 be a rather contorted use of English where a faithful translation is more important that readability.
+A sentence in the original will roughly match a sentence in the translation.
+
+We might want to add a second file, containing a more flowing translation.
 
 
 Re-publishing the work
@@ -67,7 +80,7 @@ As the most ambitious goal, we aim for a modern re-publishing as an electronic E
 This will include a Table of Contents, extensive index and list of references. There will be
 many annotations to clarify the translations or comment on the accuracy of Scaliger.
 
-For example in Book 1, page 4 (De horis et Partibus Diei Reliquis) in the first sentence he writes:
+For example: in Book 1, page 4 (De horis et Partibus Diei Reliquis) in the first sentence he writes:
 
 "ut poëta inquit, *Demeret emeritis cum iuga Phoebus equis*."
 
@@ -80,6 +93,8 @@ A full annotation would:
 * Give details of what is quoted (Ovid, Fasti IV, phrase 688 [April 19])
 * Give an external reference to an on-line document containing the work by Ovid
 * Give the original quote from Ovid
+* Give a translation (with reference) of Ovid: *Phoebus had already unyoked his weary horses.*
+* Explain to the modern reader why this quote is relevant.
 * Give a comment on why the quote by Scaliger is different from the original.
 
 In the index there will be links to:
