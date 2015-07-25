@@ -16,9 +16,18 @@
 \usepackage[greek,latin,english]{babel}
 
 %% Make special UTF-8 characters known to LaTeX
-\DeclareUnicodeCharacter{00A0}{ }     % no-break space
-\DeclareUnicodeCharacter{016B}{\={u}} % LATIN SMALL LETTER U WITH MACRON (shorthand for 'um')
-\DeclareUnicodeCharacter{0101}{\={a}} % LATIN SMALL LETTER A WITH MACRON (shorthand for 'am')
+%% Weird: if the code does not contain an A-F character, it is taken to be an octal code ("codes <00A0 connot
+%% be redefined".
+%% Odd: this problem went away again. Hex codes such as 0113 are now accepted.
+%% Suggestions from the manual such as:
+%% 0123 decimal, '0123 octal, "0123 hex
+%% do not work (complains about missing closing quote characters)
+\DeclareUnicodeCharacter{00A0}{~}     % no-break space
+\DeclareUnicodeCharacter{0101}{\={a}} % LATIN SMALL LETTER A WITH MACRON (hex 0101, shorthand for 'am')
+\DeclareUnicodeCharacter{0113}{\={e}} % LATIN SMALL LETTER E WITH MACRON (hex 0113, shorthand for 'em')
+\DeclareUnicodeCharacter{014D}{\={o}} % LATIN SMALL LETTER O WITH MACRON (hex 014D, shorthand for 'om')
+\DeclareUnicodeCharacter{016B}{\={u}} % LATIN SMALL LETTER U WITH MACRON (hex 016B, shorthand for 'um')
+\DeclareUnicodeCharacter{0229}{\,{e}} % LATIN SMALL LETTER E WITH CEDILLA (hex 0229, shorthand for 'ae')
 
 %% narrower margins to get more text on the page
 %\usepackage{fullpage}
@@ -63,45 +72,57 @@
 \newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
 % Define a command for 'Liber' first lines.
 \newcommand\dropcapbig[2]{%
-    \renewcommand{\LettrineFontHook}{\initfamily}
-    \lettrine[lines=5,nindent=0pt]{#1}{#2}
+    \renewcommand{\LettrineFontHook}{\initfamily}%
+    \lettrine[lines=5,nindent=0pt]{#1}{#2}%
 }
 % Define a command with preset arguments; for 'subject' first lines
 \newcommand\dropcap[2]{%
-    \renewcommand{\LettrineFontHook}{\normalfont}
-    \lettrine[lines=3,nindent=0pt]{#1}{#2}
+    \renewcommand{\LettrineFontHook}{\normalfont}%
+    \lettrine[lines=3,nindent=0pt]{#1}{#2}%
 }
 
-% list the parts we want to compile (does not appear to work)
-\includeonly{./tex/liber-primus}
+%% Prevent text from going outside the margins, by making the word spacing sloppy
+\sloppy
+
+%% list the parts we want to compile
+\includeonly{./tex/prolegomena,./tex/liber-primus}
 
 \begin{document}
 
-\frontmatter
-%\input{./tex/title}
-%\input{./tex/dedication}
-%\input{./tex/greek-quotes}
-%\input{./tex/prolegomena}
+%% "frontmatter" command throws up weird errors
+%% ! Missing \endcsname inserted.
+%% <to be read again> 
+%%                    \protect 
+%% l.10 
+%% Note: only ./tex/prolegomena included
+%\frontmatter
+\include{./tex/title}
+\include{./tex/dedication}
+\include{./tex/greek-quotes}
+\include{./tex/prolegomena}
+
+%% ToC generation gives obscure errors
 %\tableofcontents
 
 \mainmatter
-\input{./tex/liber-primus}
-%\input{./tex/liber-secundus}
-%\input{./tex/liber-tertius}
-%\input{./tex/liber-quartus}
-%\input{./tex/liber-quintus}
-%\input{./tex/liber-sextus}
-%\input{./tex/liber-septimus}
+
+\include{./tex/liber-primus}
+\include{./tex/liber-secundus}
+\include{./tex/liber-tertius}
+\include{./tex/liber-quartus}
+\include{./tex/liber-quintus}
+\include{./tex/liber-sextus}
+\include{./tex/liber-septimus}
 
 \appendix
-%\input{./tex/nomenclator}
-%\input{./tex/index-rerum-et-verborum}
-%\input{./tex/index-graecarum-vocum}
-%\input{./tex/index-orientalium-vocum}
-%\input{./tex/errata}
+\include{./tex/nomenclator}
+\include{./tex/index-rerum-et-verborum}
+\include{./tex/index-graecarum-vocum}
+\include{./tex/index-orientalium-vocum}
+\include{./tex/errata}
 
 \backmatter
-%\input{./tex/operis-finis}
-%\input{./tex/fragmenta-selecta}
+\include{./tex/operis-finis}
+\include{./tex/fragmenta-selecta}
 
 \end{document}
