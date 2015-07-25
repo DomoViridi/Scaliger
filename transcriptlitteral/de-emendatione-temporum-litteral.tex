@@ -1,0 +1,107 @@
+\documentclass{book}
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{3}
+
+\usepackage[utf8]{inputenc}
+\usepackage[LGR,T1]{fontenc}
+
+%% Kepler Fonts: Write with long s and other old-style typesetting
+% from http://tex.stackexchange.com/questions/9495/latex-font-for-18th-century-english
+% also http://ctan.org/pkg/kpfonts
+\usepackage[veryoldstyle]{kpfonts}
+
+%% load alphabeta after math setup and encoding setup!
+\usepackage{alphabeta}
+
+\usepackage[greek,latin,english]{babel}
+
+%% Make special UTF-8 characters known to LaTeX
+\DeclareUnicodeCharacter{00A0}{ }     % no-break space
+\DeclareUnicodeCharacter{016B}{\={u}} % LATIN SMALL LETTER U WITH MACRON (shorthand for 'um')
+\DeclareUnicodeCharacter{0101}{\={a}} % LATIN SMALL LETTER A WITH MACRON (shorthand for 'am')
+
+%% narrower margins to get more text on the page
+%\usepackage{fullpage}
+
+%% Trick to number paragraphs with no chapter/section/subsection numbers
+\usepackage{mparhack}   % get marginpars to always show up on the correct side (need to compile twice)
+\usepackage{lipsum}     % for dummy text
+
+\setlength\parindent{0cm}
+
+% Command \parnum to format the paragraph counter number (in bold, arabic numbers)
+\newcommand\parnum{%
+    \bfseries\arabic{parcount}%
+}
+
+% Special paragraph counter which resets with every 'subject' (represented as a subsection)
+\newcounter{parcount}[subsection]
+
+% Define an environment to use in the source.
+\newenvironment{parnumbers}{%
+   \par%
+   \everypar{\stepcounter{parcount}\leavevmode\marginpar[\hfill\parnum]{\parnum}}%
+}{}
+
+%% Our own cookup to put letters in the margin to indicate quarters of a page (A-D) as used in the original
+% Uses mparhack
+% Because of limitations of \marginpar{} the margin letters must go on the same side as the paragraph
+% numbers. We put them a bit further away from the body text to make them more distinct.
+\newcommand\mletter[1]{%
+    \leavevmode\marginpar[\hfill\textbf{#1}\hspace*{24pt}]{\hspace*{24pt}\textbf{#1}}%
+}
+
+%% Make drop caps (illuminated initial letters)
+% http://texblog.org/2011/05/21/drop-caps-with-lettrine/
+% Problem: only covers 1 paragraph. The next paragraph will be left-adjusted to the margin again
+\usepackage{type1cm}
+\usepackage{lettrine}
+%\usepackage{graphicx}
+% Add fancy font for Initials
+% https://www.lemald.org/blog/?p=108
+\input GoudyIn.fd
+\newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
+% Define a command for 'Liber' first lines.
+\newcommand\dropcapbig[2]{%
+    \renewcommand{\LettrineFontHook}{\initfamily}
+    \lettrine[lines=5,nindent=0pt]{#1}{#2}
+}
+% Define a command with preset arguments; for 'subject' first lines
+\newcommand\dropcap[2]{%
+    \renewcommand{\LettrineFontHook}{\normalfont}
+    \lettrine[lines=3,nindent=0pt]{#1}{#2}
+}
+
+% list the parts we want to compile (does not appear to work)
+\includeonly{./tex/liber-primus}
+
+\begin{document}
+
+\frontmatter
+%\input{./tex/title}
+%\input{./tex/dedication}
+%\input{./tex/greek-quotes}
+%\input{./tex/prolegomena}
+%\tableofcontents
+
+\mainmatter
+\input{./tex/liber-primus}
+%\input{./tex/liber-secundus}
+%\input{./tex/liber-tertius}
+%\input{./tex/liber-quartus}
+%\input{./tex/liber-quintus}
+%\input{./tex/liber-sextus}
+%\input{./tex/liber-septimus}
+
+\appendix
+%\input{./tex/nomenclator}
+%\input{./tex/index-rerum-et-verborum}
+%\input{./tex/index-graecarum-vocum}
+%\input{./tex/index-orientalium-vocum}
+%\input{./tex/errata}
+
+\backmatter
+%\input{./tex/operis-finis}
+%\input{./tex/fragmenta-selecta}
+
+\end{document}

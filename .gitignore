@@ -1,5 +1,11 @@
 # Object file
 *.o
 
-# Portable Document Format files (scanned books)
+# Portable Document Format files (scanned books, produced files)
 *.pdf
+
+# Files produced by LaTeX
+*.aux
+*.log
+*.toc
+log.err
