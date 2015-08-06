@@ -1,0 +1,19 @@
+\documentclass[a4paper,latin]{book}
+
+\usepackage{xltxtra} % Extra customizations for XeLaTeX;
+% xltxtra automatically loads fontspec and xunicode, both of which are needed
+
+\defaultfontfeatures{Mapping=tex-text}
+\newcommand{\old}[1]{\fontspec[Alternate=1,Ligatures={Common, Rare}, Contextuals={Inner}]{Hoefler Text}\fontsize{24pt}{30pt}\selectfont #1}%
+
+\begin{document}
+\old\begin{quote}
+
+\chapter{The first chapter}
+
+\subsection{A subsection}
+A line of text that is not a paragraph
+
+Just pressing newline twice does not make a paragraph
+\end{quote}
+\end{document}

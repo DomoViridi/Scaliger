@@ -1,0 +1,10 @@
+%%% Make special UTF-8 characters known to LaTeX
+%% First parameter is a (4-digit) hex code
+\DeclareUnicodeCharacter{00A0}{~}     % no-break space
+\DeclareUnicodeCharacter{0101}{\={a}} % LATIN SMALL LETTER A WITH MACRON (hex 0101, shorthand for 'am')
+\DeclareUnicodeCharacter{0113}{\={e}} % LATIN SMALL LETTER E WITH MACRON (hex 0113, shorthand for 'em')
+\DeclareUnicodeCharacter{014D}{\={o}} % LATIN SMALL LETTER O WITH MACRON (hex 014D, shorthand for 'om')
+\DeclareUnicodeCharacter{016B}{\={u}} % LATIN SMALL LETTER U WITH MACRON (hex 016B, shorthand for 'um')
+\DeclareUnicodeCharacter{0229}{\,{e}} % LATIN SMALL LETTER E WITH CEDILLA (hex 0229, shorthand for 'ae')
+
+\DeclareUnicodeCharacter{263E}{\char"263E}     % LAST QUARTER MOON (astrological symbol)

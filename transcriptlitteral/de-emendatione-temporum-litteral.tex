@@ -2,8 +2,10 @@
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{3}
 
-\usepackage[utf8]{inputenc}
+%%% fontenc *before* inputenc "will allow all displayable utf8 characters to be available as input." But this is probably not true.
+%% http://tex.stackexchange.com/questions/13067/utf8x-vs-utf8-inputenc
 \usepackage[LGR,T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 %%% Kepler Fonts: Write with long s and other old-style typesetting
 %% from http://tex.stackexchange.com/questions/9495/latex-font-for-18th-century-english
@@ -16,19 +18,10 @@
 
 \usepackage[greek,latin,english]{babel}
 
+\usepackage{wrapfig}
+
 %%% Make special UTF-8 characters known to LaTeX
-%% Weird: if the code does not contain an A-F character, it is taken to be an octal code ("codes <00A0 connot
-%% be redefined".
-%% Odd: this problem went away again. Hex codes such as 0113 are now accepted.
-%% Suggestions from the manual such as:
-%% 0123 decimal, '0123 octal, "0123 hex
-%% do not work (complains about missing closing quote characters)
-\DeclareUnicodeCharacter{00A0}{~}     % no-break space
-\DeclareUnicodeCharacter{0101}{\={a}} % LATIN SMALL LETTER A WITH MACRON (hex 0101, shorthand for 'am')
-\DeclareUnicodeCharacter{0113}{\={e}} % LATIN SMALL LETTER E WITH MACRON (hex 0113, shorthand for 'em')
-\DeclareUnicodeCharacter{014D}{\={o}} % LATIN SMALL LETTER O WITH MACRON (hex 014D, shorthand for 'om')
-\DeclareUnicodeCharacter{016B}{\={u}} % LATIN SMALL LETTER U WITH MACRON (hex 016B, shorthand for 'um')
-\DeclareUnicodeCharacter{0229}{\,{e}} % LATIN SMALL LETTER E WITH CEDILLA (hex 0229, shorthand for 'ae')
+\input{./declarecharacters}
 
 %%% narrower margins to get more text on the page
 %\usepackage{fullpage}
@@ -38,6 +31,7 @@
 \usepackage{mparhack}   % get marginpars to always show up on the correct side (need to compile twice)
 \usepackage{lipsum}     % for dummy text
 
+%% No indent on paragraphs, because we make a paragraph out of each sentence.
 \setlength\parindent{0cm}
 
 %% Command \parnum to format the paragraph counter number (in bold, arabic numbers)
@@ -105,7 +99,7 @@
 \sloppy
 
 %% list the parts we want to compile
-\includeonly{./tex/prolegomena,./tex/liber-primus}
+\includeonly{./tex/liber-primus}
 
 \begin{document}
 
@@ -122,7 +116,7 @@
 \include{./tex/prolegomena}
 
 %% ToC generation gives obscure errors
-%\tableofcontents
+%\tableofcontents{}
 
 \mainmatter
 

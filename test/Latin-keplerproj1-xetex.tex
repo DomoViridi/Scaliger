@@ -1,0 +1,119 @@
+\documentclass{book}
+
+\usepackage{xltxtra} % Extra customizations for XeLaTeX;% xltxtra automatically loads fontspec and xunicode, both of which you need
+
+% FONTS
+
+%\setmainfont{Junicode}
+
+% Kepler Fonts: Write with long s and other old-style typesetting
+% from http://tex.stackexchange.com/questions/9495/latex-font-for-18th-century-english
+% also http://ctan.org/pkg/kpfonts
+\usepackage[veryoldstyle,noamsmath]{kpfonts}
+
+% load alphabeta after math setup and encoding setup!
+%\usepackage{alphabeta}
+
+%\setmainfont{Arial Unicode MS}
+%\setmainfont{Kepler}
+%\setmainfont{Kp-Regular}
+\setmainfont{jkpmn8r.pfb}
+%\setmainfont{jkpvosbmi.vf}
+%\setmainfont{jkpvosbmi.tfm}
+%\setsansfont{jkpssvos}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{latin}
+\setotherlanguages{greek,hebrew,english}
+
+\newfontfamily\greekfont[Script=Greek]{Arial Unicode MS}
+
+%%% Commands to number paragraphs
+%% http://tex.stackexchange.com/questions/10513/automatically-assign-a-number-to-every-paragraph
+%\usepackage{mparhack}   % get marginpars to always show up on the correct side (need to compile twice)
+%\usepackage{lipsum}     % for dummy text
+
+%\setlength\parindent{0cm}
+
+%% Command \parnum to format the paragraph counter number (in bold, arabic numbers)
+%\newcommand\parnum{%
+%    \bfseries\arabic{parcount}%
+%}
+
+%% Special paragraph counter which resets with every 'subject' (represented as a subsection)
+%\newcounter{parcount}[subsection]
+
+%% Command for an isolated paragraph counter mark
+%% Useful e.g. for big, multi-paragraph spanning Initials
+%\newcommand\p{%
+%    \stepcounter{parcount}%
+%    \leavevmode\marginpar[\hfill\parnum]{\parnum}%
+%}
+
+%% Define an environment to use in the source.
+%\newenvironment{parnumbers}{%
+%    \par%
+%    \everypar{%
+%        \stepcounter{parcount}%
+%        \leavevmode\marginpar[\hfill\parnum]{\parnum}%
+%    }%
+%}{}
+
+% DOCUMENT
+\begin{document}
+
+\chapter{The first chapter}
+
+\subsection{First subsection}
+
+%\begin{parnumbers}
+%\lipsum[1-17]
+
+%\end{parnumbers}
+
+% Alternative way to get numbered paragraphs, using the same trick
+%\p \lipsum[100]
+
+%\begin{parnumbers}
+A line of text that is= not a paragraph.
+
+Inserting a blank line marks= a new paragraph in XeTeX, but it is= not marked
+as= a paragraph.
+
+And a third line separated with a blank line.
+
+Thanks= to the kpfonts= package we can have old-style typesetting and
+long esses= while typing the input as= simple flat text. Quick!
+
+This= package also allows= us= to write \textsc{small caps} text, such as=
+roman numerals=:\\
+Regular:	XXXVII\\
+small caps (2x) \textsc{XXVII x x v i i}\\
+Lower case: abcdefg xxvii.
+
+Original Kepler Fonts demo text:\\
+Where Fractions= are wanting, a Division serves= to distinguish the
+Numerator from the Denominator, by putting it thus=; viz.\ 3-8, 12-63, 
+16-50, though some other symbol might serve better for the purpose; and
+therefore we propose one that is= similar to an Italic~\textit{l}
+inverted, and whose figure takes= in the whole depth of its= body.
+Quite an achievement, don't you think?
+
+\section{Greek}
+Greek letters= using UTF-8 input encoding:\\
+%\begin{greek}[variant=ancient]
+αβγδεζηθικλμνξοπρςςτυφχψω\\
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρςςτυφχψω\\
+%\end{greek}
+%Alpha, beta, gamma, delta using macros=:\\
+%\alpha \beta \gamma \delta.
+
+Astrological symbols:\\
+Moon Sun Mercury Venus Mars Jupiter Saturn\\
+☾☉☿♀♂♃♄
+
+Nice, eh?
+
+%\end{parnumbers}
+\end{document}
