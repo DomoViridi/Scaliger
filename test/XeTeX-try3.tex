@@ -29,17 +29,17 @@
 
 %%% Use polyglossia to handle multiple languages
 %% We have (at least): latin, polytonic greek, hebrew, arabic, persian
-\usepackage[quiet]{polyglossia}
-\setmainlanguage{latin}
-\setotherlanguage{greek}
-\setotherlanguage{english}
+%\usepackage{polyglossia}
+%\setmainlanguage{latin}
+%\setotherlanguage{greek}
+%\setotherlanguage{english}
 
 %%% ucharclasses can not use fontspec commands directly. See
 %% http://michaelfranzl.com/2014/12/10/xelatex-unicode-font-fallback-unsupported-characters/
 \setDefaultTransitions{\latinfont}{}
 
 %\setTransitionsForLatin{}{}
-\setTransitionsForGreek{\textgreek}{}
+\setTransitionsForGreek{\greekfont}{}
 \setTransitionsForSymbols{\astrofont}{}
 
 %%% --------------------------------------------------------------------

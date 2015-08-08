@@ -9,3 +9,6 @@
 *.log
 *.toc
 log.err
+
+# Files produced by TexShop
+*.synctex.gz
