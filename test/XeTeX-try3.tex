@@ -1,0 +1,76 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% this template is specifically designed to be typeset with XeLaTeX;
+% it will not work with other engines, such as pdfLaTeX
+
+\documentclass[a4paper,latin]{book}
+
+%%% Disable chapter/section numbering.
+%%  Put Chapters/Sections/Subsections in the Table of Contents
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{3}
+
+\usepackage[Latin,Greek,Symbols]{ucharclasses}
+
+\usepackage{fontspec}
+\usepackage{xltxtra}
+
+\newfontfamily\latinfont{Hoefler Text}[
+    Alternate   = 1,
+    Ligatures   = {Common, Rare},
+    Contextuals = {Inner}
+]
+
+%%% Add a font that supports Greek
+\newfontfamily\greekfont{Menlo}
+
+%%% Add a font that has Astrological symbols
+\newfontfamily\astrofont{Menlo}
+
+%%% Use polyglossia to handle multiple languages
+%% We have (at least): latin, polytonic greek, hebrew, arabic, persian
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\setotherlanguage{english}
+
+%%% ucharclasses can not use fontspec commands directly. See
+%% http://michaelfranzl.com/2014/12/10/xelatex-unicode-font-fallback-unsupported-characters/
+\setDefaultTransitions{\latinfont}{}
+
+%\setTransitionsForLatin{}{}
+\setTransitionsForGreek{\textgreek}{}
+\setTransitionsForSymbols{\astrofont}{}
+
+%%% --------------------------------------------------------------------
+\begin{document}
+\chapter{The first chapter}
+\subsection{A subsection}
+A line of text that is not a paragraph
+
+Just pressing newline twice does not make a paragraph
+
+Original Kepler Fonts demo text:\\
+Where Fractions are wanting, a Division serves to distinguish the
+Numerator from the Denominator, by putting it thus; viz.\ 3-8, 12-63, 
+16-50, though some other symbol might serve better for the purpose; and
+therefore we propose one that is similar to an Italic~\textit{l}
+inverted, and whose figure takes in the whole depth of its body.
+Quite an achievement, don't you think?
+
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρσςτυφχψω\\
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΣΤΥΦΧΨΩ\\
+
+Moon Sun Mercury Venus Mars Jupiter Saturn\\
+☾☉☿♀♂♃♄
+
+Original Kepler Fonts demo text:\\
+Where Fractions are wanting, a Division serves to distinguish the
+Numerator from the Denominator, by putting it thus; viz.\ 3-8, 12-63, 
+16-50, though some other symbol might serve better for the purpose; and
+therefore we propose one that is similar to an Italic~\textit{l}
+inverted, and whose figure takes in the whole depth of its body.
+Quite an achievement, don't you think?
+
+\end{document}

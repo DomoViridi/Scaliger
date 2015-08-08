@@ -1,27 +1,51 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% this template is specifically designed to be typeset with XeLaTeX;
+% it will not work with other engines, such as pdfLaTeX
+
 \documentclass{book}
+
+%%% Disable chapter/section numbering.
+%%  Put Chapters/Sections/Subsections in the Table of Contents
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{3}
 
-%%% fontenc *before* inputenc "will allow all displayable utf8 characters to be available as input." But this is probably not true.
-%% http://tex.stackexchange.com/questions/13067/utf8x-vs-utf8-inputenc
-\usepackage[LGR,T1]{fontenc}
-\usepackage[utf8]{inputenc}
+\usepackage{fontspec} % Openfont specifications for XeTeX;
+% fontspec automatically loads xltxtra and xunicode, both of which are needed.
+% Though using \vfrac{}{} (part of xltxtra) without explicit loading of
+% xltxtra does not work.
+\usepackage{xltxtra}
 
-%%% Kepler Fonts: Write with long s and other old-style typesetting
-%% from http://tex.stackexchange.com/questions/9495/latex-font-for-18th-century-english
-%% also http://ctan.org/pkg/kpfonts
-\usepackage[veryoldstyle]{kpfonts}
+%%% Main body text is in latin. We want:
+%% The long s (automaticaly convert 's' in the text to long s, except at the end of words
+%% 'st' and 'ct' ligatures
+%% A capital 'Q' with a swish
+%% Common ligatures for 'fi' 'ffi' etcetera
+%% Similar ligatures for long s
+%% Allow (or convert to) 'ae' and 'oe' ligatures.
+%% Old style numbers
 
-%%% Handle Greek
-%% load alphabeta after math setup and encoding setup!
-\usepackage{alphabeta}
+\setmainfont{Hoefler Text}[
+    Alternate   = 2,
+    Ligatures   = {Common, Rare},
+    Contextuals = {Inner}
+]
 
-\usepackage[greek,latin,english]{babel}
+%%% Add a font that supports Greek
+\newfontfamily\greekfont{Menlo}
 
+%%% Add a font that has Astrological symbols
+\newfontfamily\astro{Menlo}
+
+%%% Use polyglossia to handle multiple languages
+%% We have (at least): latin, polytonic greek, hebrew, arabic, persian
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\setotherlanguage{english}
+
+%%% Allow the text to flow around tables and figures.
 \usepackage{wrapfig}
-
-%%% Make special UTF-8 characters known to LaTeX
-\input{./declarecharacters}
 
 %%% narrower margins to get more text on the page
 %\usepackage{fullpage}
@@ -98,8 +122,10 @@
 %% Prevent text from going outside the margins, by making the word spacing sloppy
 \sloppy
 
+%%%========================================================%%%
+
 %% list the parts we want to compile
-\includeonly{./tex/liber-primus}
+\includeonly{./tex/prolegomena,./tex/liber-primus}
 
 \begin{document}
 
@@ -109,14 +135,14 @@
 %%                    \protect 
 %% l.10 
 %% Note: only ./tex/prolegomena included
-%\frontmatter
+\frontmatter
 \include{./tex/title}
 \include{./tex/dedication}
 \include{./tex/greek-quotes}
 \include{./tex/prolegomena}
 
 %% ToC generation gives obscure errors
-%\tableofcontents{}
+\tableofcontents{}
 
 \mainmatter
 
