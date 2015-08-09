@@ -10,6 +10,10 @@
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{3}
 
+%%% Allow the text to flow around tables and figures.
+%% (Must load before bidi package, i.e. before polyglossia package)
+\usepackage{wrapfig}
+
 \usepackage{fontspec} % Openfont specifications for XeTeX;
 % fontspec automatically loads xltxtra and xunicode, both of which are needed.
 % Though using \vfrac{}{} (part of xltxtra) without explicit loading of
@@ -32,20 +36,13 @@
 ]
 
 %%% Add a font that supports Greek
-\newfontfamily\greekfont{Menlo}
+\newfontfamily\greekfont{Arial Unicode MS}
+
+%%% Add a font that supports Hebrew
+\newfontfamily\hebrewfont{Arial Unicode MS}
 
 %%% Add a font that has Astrological symbols
 \newfontfamily\astro{Menlo}
-
-%%% Use polyglossia to handle multiple languages
-%% We have (at least): latin, polytonic greek, hebrew, arabic, persian
-\usepackage[quiet]{polyglossia}
-\setmainlanguage{latin}
-\setotherlanguage{greek}
-\setotherlanguage{english}
-
-%%% Allow the text to flow around tables and figures.
-\usepackage{wrapfig}
 
 %%% narrower margins to get more text on the page
 %\usepackage{fullpage}
@@ -119,13 +116,25 @@
     \lettrine[lines=#1,nindent=0pt]{#2}{#3}%
 }
 
+%%% Use polyglossia to handle multiple languages
+%% We have (at least): latin, polytonic greek, hebrew, arabic, persian
+%% (Contains bidi package, and must be loaded *after*:
+%%  wrapfig, lettrine)
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\setotherlanguage{hebrew}
+\setotherlanguage{arabic}
+\setotherlanguage{english}
+
+
 %% Prevent text from going outside the margins, by making the word spacing sloppy
 \sloppy
 
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/prolegomena,./tex/liber-primus}
+\includeonly{./tex/prolegomena}
 
 \begin{document}
 
