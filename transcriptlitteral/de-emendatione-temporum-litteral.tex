@@ -41,8 +41,13 @@
 %%% Add a font that supports Hebrew
 \newfontfamily\hebrewfont{Arial Unicode MS}
 
+%%% Add a font that supports Arabic
+\newfontfamily\arabicfont{Arial Unicode MS}
+
 %%% Add a font that has Astrological symbols
-\newfontfamily\astro{Menlo}
+\newfontfamily\astrofont{Menlo}
+%% Command to allow "\astro{some text}"
+\newcommand\astro[1]{{\astrofont #1}}
 
 %%% narrower margins to get more text on the page
 %\usepackage{fullpage}
@@ -134,7 +139,7 @@
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/prolegomena}
+\includeonly{./tex/liber-primus}
 
 \begin{document}
 

@@ -35,7 +35,9 @@
 \newfontfamily\greekfont{Menlo}
 
 %%% Add a font that has Astrological symbols
-\newfontfamily\astro{Menlo}
+\newfontfamily\astrofont{Menlo}
+%% Command to allow "\astro{some text}"
+\newcommand\astro[1]{{\astrofont #1}}
 
 %%% Use polyglossia to handle multiple languages
 %% We have (at least): latin, polytonic greek, hebrew, arabic, persian
@@ -102,9 +104,17 @@ Quite an achievement, don't you think?
 
 \textgreek{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΣΤΥΦΧΨΩ}
 
-\astro{Astrological symbols:\\
+Astrological symbols:\\
 Moon Sun Mercury Venus Mars Jupiter Saturn\\
-☾☉☿♀♂♃♄}
+\astro{☾☉☿♀♂♃♄}
+
+Again the original Kepler Fonts demo text:\\
+Where Fractions are wanting, a Division serves to distinguish the
+Numerator from the Denominator, by putting it thus; viz.\ 3-8, 12-63, 
+16-50, though some other symbol might serve better for the purpose; and
+therefore we propose one that is similar to an Italic~\textit{l}
+inverted, and whose figure takes in the whole depth of its body.
+Quite an achievement, don't you think?
 
 \end{parnumbers}
 \end{document}
