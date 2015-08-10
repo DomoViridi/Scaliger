@@ -1,0 +1,253 @@
+% XeLaTeX can use any Mac OS X font. See the setromanfont command below.
+% Input to XeLaTeX is full Unicode, so Unicode characters can be typed directly into the source.
+
+% The next lines tell TeXShop to typeset with xelatex, and to open and save the source with Unicode encoding.
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{report}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+
+% Will Robertson's fontspec.sty can be used to simplify font choices.
+% To experiment, open /Applications/Font Book to examine the fonts provided on Mac OS X,
+% and change "Hoefler Text" to any of these choices.
+
+\usepackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+\title{Writing tips}
+\author{Hops Splurt}
+\date{\today}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+% For many users, the previous commands will be enough.
+% If you want to directly input Unicode, add an Input Menu or Keyboard to the menu bar 
+% using the International Panel in System Preferences.
+% Unicode must be typeset using a font containing the appropriate characters.
+% Remove the comment signs below for examples.
+
+% \newfontfamily{\A}{Geeza Pro}
+% \newfontfamily{\H}[Scale=0.9]{Lucida Grande}
+% \newfontfamily{\J}[Scale=0.85]{Osaka}
+
+% Here are some multilingual Unicode fonts: this is Arabic text: {\A السلام عليكم}, this is Hebrew: {\H שלום}, 
+% and here's some Japanese: {\J 今日は}.
+
+\chapter{Project setup}
+The final aim of this project is to produce a modern version of De Emendatione Temporum by Scaligeri. At the very
+least we want an easily readable translitteration in Latin and all the other languages used. At best we produce
+a full translation into English (and possibly other languages).
+
+\section{Transcription}
+In this first stage, we want to transcribe the scanned PDF original(s) into a computer file which can be searched, rendered
+and modified. We want to stay as close as possible to the original. This includes:
+\begin{itemize}
+\item Using a font that has the old-style ligatures (such as 'st' and 'ct'), the long s, and preferably a Q with a swish. These
+features should be available with as little special encoding as possible.
+\item A page in the transcription should match a page in the original and vice versa. If necessary we will insert an
+extra page in the transcription to hold the bit of text that does not fit on one page. Preferably we prevent this problem
+by making sure a transcription page can hold as least as much text as an original page, by adjusting the margins
+and the font size.
+\item The letters in the margin of the original should also be in the transcription, for easy cross-reference.
+\item All other languages (Greek, Hebrew, Arabic, Persian?, more?) and symbols (planet sybols) must be rendered
+as closely as possible to the original.
+\item The original Greek uses many, many, many ligatures. Preferably the transcription shows the same ligatures.
+\end{itemize}
+Each phrase will be numbered so it can be referred to.
+
+\section{Translitteration}
+In this second stage we create a document which has the same text as the original, but in a modern script.
+This document should be easy to read for the modern reader who knows Latin and Greek.
+\begin{itemize}
+\item All ligatures are expanded (e.g. æ to ae), including (especially) in the Greek bits.
+\item Long s is replaced with modern s.
+\item Abbreviated words (e.g. \verb+quoq;+) are written in full (\verb+quoque+).
+\item Interpunction is done in modern style, and more consistent.
+\item Text is divided into paragraphs to the best of our insights.
+\item Headers and footers will be generated in a modern style.
+\end{itemize}
+Extra features are added:
+\begin{itemize}
+\item Table of Contents, Index, Glossary and Bibliography are generated automatically.
+\item List of Tables and List of Figures added.
+\item Lots of annotations to clarify the text. For example: Scaliger habitually quotes classics without giving a reference.
+We will add:
+    \begin{itemize}
+    \item The exact reference (Author, title of the work, section/page/verse)
+    \item If possible a link to an on-line version.
+    \item If misquoted, the actual quote.
+    \item An explanation why this quote is appropriate.
+    \end{itemize}
+\end{itemize}
+
+
+\section{Translation}
+A translation of all the text. A reader should be able to read and understand everything without knowledge of ancient
+lanugages. The layout will be in a similar modern style as the translitteration. In addition there will be many notes 
+(footnotes?) giving clarifications and annotations to the vagaries of the translation process.
+
+In principle each phrase in the original wil correspond to a phrase in the translation, but this is not a strict rule.
+We may even change our mind and go for a smooth running translation.
+
+\chapter{Implemented features}
+\section{Unicode}
+After using Mac OS TextEdit with RTF, which did not give enough control over formatting, and \LaTeX{}, which
+has bad support for Unicode, we switched to \XeLaTeX{}. This directly accepts UTF-8 as source input and allows
+putting pieces of Greek, Hebrew, Arabic and other languages in their original form in the source. The breaking point
+came when \LaTeX made it impossible to produce the astrological signs for the planets.
+
+\texttt{fontspec}
+
+\section{Smaller margins}
+\texttt{geometry}
+
+\section{Wrapping around tables}
+\texttt{wrapfig}
+
+\section{Phrase numbering}
+We start every phrase from the source on a new line, and give every phrase a number. Numbering starts at 1 for
+a new chapter or section and can run over several pages. These numbers will serve to connect the translitterated
+and translated versions back to the original.
+
+It is unfeasable to try to match the layout of the original line-by-line, going to a new line on the exact same word
+or hyphenation as the original. This is because the font will not have identical properties to the original. Also,
+the original has some very odd spacing, especially around interpuction. Once we let go of this requirement, we can
+choose a layout which suits our needs.
+
+We could emulate the original and let the text run for pages on end without any paragraphs, but this has
+several disadvantages.
+\begin{itemize}
+\item The transcription will also be a wall of text. This makes it hard to compare the transcription to the original, because
+we need to search for the start of a phrase in both versions.
+\item This makes it hard to correlate the translitteration with the transcription. As the transcription generally expands
+a lot of characters, words and punctuation (e.g. \&) a 'free-hand' layout in the translitteration will not match the transcription
+line-by-line.
+\end{itemize}
+We chose for a solution where even the transcription has each phrase starting on a new line. Advantages:
+\begin{itemize}
+\item We can add numbers to identify each phrase. These numbers can then be used to easily compare the translitteration
+to the transcription.
+\item The translation can use these phrase numbers to refer to the original. Having each phrase start on a new line
+in the transcription start on a new line makes it easier to find the phrase being referred to.
+\end{itemize}
+
+\subsecton{Problems}
+\begin{itemize}
+\item Punctuation in the original is very sloppy.
+\item Some parts are very long, without any subdevision. E.g. the Prolegomena runs for
+50 pages with an estimated 900 phrases.
+\item As we start counting from 1 with each new section, the phrase number alone does not identify the phase. This will
+also require the chapter/section name or number.
+\end{itemize}
+
+
+\texttt{mparhack}, with special commands defined
+
+Counter \texttt{parcount}
+
+Command \verb;\p;: put an isolated paragraph counter mark in the margin.
+
+Environment \texttt{parnumbers}: Automatically put paragraph counter marks in the margin
+
+\chapter{Features we want to add}
+\section{Spaced small caps}
+In the original, all occurences of small caps (in chapter/section titles, in roman numerals) have extra spacing between
+the characters. We can probably do this by setting a font feature for small caps fonts.
+
+\section{Margin letters on the same side as in the original}
+Due to limitations of the \verb;\marginpar{}; command, the margin letters must go on the same side as the
+paragraph numbers. We would like to have a system where we have better control over text in the margins.
+
+\section{Formatting chapter/section headers}
+We would like the headers at the start of each chapter (Pars) and each subsection (subject) to immitate the original.
+Scaliger has a rather idiosyncratic way of titeling his chapters, e.g. introducing his Liber Primus with:
+\begin{itemize}
+\item His full name, on three lines
+\item The title of the book: De Emendatione Temporum
+\item "Liber Primus." rather small below that.
+\end{itemize}
+All this is written in centered, spaced out capitals in various sizes.
+
+Scaliger's subjects have multi-line headers in centered, spaced out capitals. The first line has a bigger font size than
+subsequent lines (see e.g. pdf page 87)
+
+\section{Putting the right titles in the ToC}
+
+\section{A mechanism to mark and reference pages in the original PDF}
+
+\section{Page headers}
+Scaliger uses as a header in the main body text:
+\begin{description}
+\item[On the left page] \hfill
+    \begin{description}
+    \item[Left] Page number (on the outside)
+    \item[Centre] His name (centered, small caps) \\
+      \textsc{Iosephi Scaligeri}
+    \item[Right] <nothing>
+    \end{description}
+\item[On the right page] \hfill
+    \begin{description}
+    \item[Left] <nothing>
+    \item[Centre] Book title + Chapter title (centered, small caps, abbreviated) \\
+       \textsc{De Emendat. Temporvm Lib. I}
+    \item[Right] Page number (on the outside)
+    \end{description}
+\end{description}
+
+In the Prolegomena it is similar, but with roman numerals for the page numbers and only the chapter title
+\textsc{(Prolegomena.)} on both pages. 
+
+The Dedication has no headers.
+
+The only package that gives sufficiently detailed control of the headers (and footers) is probably \texttt{titlesec}.
+
+\section{Footers}
+In the original, the footer has a link word on the right on each page. A link word is the same as the first word on the
+next page, which helped the setter and printer to make sure the pages appear in the right order.
+
+Most right-hand pages also have a Greek or Latin letter + sheet number before the link word.
+These were probably used to identify the gathering (a binding unit).
+
+The count goes:
+G, G 2, G 3, G 4, blank, blank, H, H 2, H 3, H 4, blank, blank, I, I 2, etcetera.
+This suggests that there are 3 sheets (bifolios) per gathering,
+with G, G 2 and G 3 on the front and G 4 on the back of the bifolio that has G 3 on the front.
+
+The count starts on the title page (PDF p. 16) with alpha. As the title page does not have a footer,
+the first actual mark is alpha 2 on PDF p. 18.
+This continues with
+beta (PDF p. 28, start of the Prolegomena), gamma, delta and epsilon.
+It ends with zeta (PDF p. 76), zeta 2 and finaly zeta 3 (PDF p. 80, start of the ToC). PDF p. 82 does not have a zeta 4, against expectations. Also missing are the two blank pages in the zeta group. This leads to the conclusion that the zeta gathering only has two sheets, that is 8 pages
+(namely PDF p. 76-83).
+
+Liber I starts on PDF p. 84 with a chapter header, and has the Latin letter A as a mark. This continues with A 2, A 3,
+A 4, blank, blank, B, B 2, B 3, etcetera.
+
+After Z 4 (PDF p. 354) the sequence continues with Aa (PDF p. 360), Aa 2 (PDF p. 362), Aa 3, Aa 4, Bb (PDF p. 372), Bb 2 etc.
+
+After Zz 4 (PDF p. 630) it continues with Aaa (PDF p. 636), Aaa 2, etc.
+
+After Zzz 4 (PDF p. 912, page 7 of Index Orientalium vocum) we get PDF p. 918: the title page of "Veterum Graecorum Fragmenta Selecta", no footer, and then 'a 2' (PDF p. 920), 'a 3', 'a 4', blank, blank, 'b' (PDF p. 930), 'b 2', 'b 3', 'b 4', blank, blank, 'c', 'c 1', 'c 2', 'c 3', 'c 4' (PDF p. 972), which is the last mark in the book, which ends on PDF p. 976.
+
+Policy: because the footers in the original only contain information for the printer, we will leave this information out.
+We might use the footer space for our own information, e.g. for a PDF file page reference, a title of our transcription,
+and/or a version number of the transcription.
+
+\section{Indents for multi-line Greek quotes}
+
+\section{Exact ligature transcription for Greek}
+
+\texttt{RGreekl2 ?}
+
+\end{document}  

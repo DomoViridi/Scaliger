@@ -3,7 +3,10 @@
 % this template is specifically designed to be typeset with XeLaTeX;
 % it will not work with other engines, such as pdfLaTeX
 
-\documentclass{book}
+\documentclass[12pt,twoside,a4paper,draft]{book}
+
+%%% Geometry package to make the margins better match the original
+\usepackage[top=15mm, bottom=40mm, inner=21mm, outer=35mm]{geometry}
 
 %%% Disable chapter/section numbering.
 %%  Put Chapters/Sections/Subsections in the Table of Contents
@@ -139,7 +142,7 @@
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/liber-primus}
+\includeonly{./tex/prolegomena,./tex/liber-primus}
 
 \begin{document}
 
