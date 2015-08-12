@@ -3,6 +3,10 @@
 % this template is specifically designed to be typeset with XeLaTeX;
 % it will not work with other engines, such as pdfLaTeX
 
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+
 \documentclass[12pt,twoside,a4paper,draft]{book}
 
 %%% Geometry package to make the margins better match the original
@@ -24,7 +28,8 @@
 \usepackage{xltxtra}
 
 %%% Main body text is in latin. We want:
-%% The long s (automaticaly convert 's' in the text to long s, except at the end of words
+%% The long s (automaticaly convert 's' in the text to long s, except at 
+%% the end of words).
 %% 'st' and 'ct' ligatures
 %% A capital 'Q' with a swish
 %% Common ligatures for 'fi' 'ffi' etcetera
@@ -52,23 +57,22 @@
 %% Command to allow "\astro{some text}"
 \newcommand\astro[1]{{\astrofont #1}}
 
-%%% narrower margins to get more text on the page
-%\usepackage{fullpage}
-
 %%% Commands to number paragraphs
 %% http://tex.stackexchange.com/questions/10513/automatically-assign-a-number-to-every-paragraph
-\usepackage{mparhack}   % get marginpars to always show up on the correct side (need to compile twice)
-\usepackage{lipsum}     % for dummy text
+%% get marginpars to always show up on the correct side (need to compile twice)
+\usepackage{mparhack}
 
 %% No indent on paragraphs, because we make a paragraph out of each sentence.
 \setlength\parindent{0cm}
 
-%% Command \parnum to format the paragraph counter number (in bold, arabic numbers)
+%% Command \parnum to format the paragraph counter number
+%% (in bold, arabic numbers)
 \newcommand\parnum{%
     \bfseries\arabic{parcount}%
 }
 
-%% Special paragraph counter which resets with every 'subject' (represented as a subsection)
+%% Special paragraph counter which resets with every 'subject'
+%% (represented as a subsection)
 \newcounter{parcount}[subsection]
 
 %% Command for an isolated paragraph counter mark
@@ -87,17 +91,21 @@
     }%
 }{}
 
-%% Our own cookup to put letters in the margin to indicate quarters of a page (A-D) as used in the original
-% Uses mparhack
-% Because of limitations of \marginpar{} the margin letters must go on the same side as the paragraph
-% numbers. We put them a bit further away from the body text to make them more distinct.
+%% Our own cookup to put letters in the margin to indicate quarters of a
+%% page (A-D) as used in the original.
+%% Uses mparhack.
+%% Because of limitations of \marginpar{} the margin letters must go
+%% on the same side as the paragraph numbers. We put them a bit further
+%% away from the body text to make them more distinct.
 \newcommand\mletter[1]{%
-    \leavevmode\marginpar[\hfill\textbf{#1}\hspace*{24pt}]{\hspace*{24pt}\textbf{#1}}%
+    \leavevmode\marginpar[\hfill\textbf{#1}\hspace*{24pt}]%
+    {\hspace*{24pt}\textbf{#1}}%
 }
 
 %%% Make drop caps (illuminated initial letters)
 %% http://texblog.org/2011/05/21/drop-caps-with-lettrine/
-%% Problem: only covers 1 paragraph. The next paragraph will be left-adjusted to the margin again
+%% Problem: only covers 1 paragraph. The next paragraph will be left-adjusted
+%% to the margin again
 \usepackage{type1cm}
 \usepackage{lettrine}
 %\usepackage{graphicx}
@@ -136,13 +144,16 @@
 \setotherlanguage{english}
 
 
-%% Prevent text from going outside the margins, by making the word spacing sloppy
+%% Prevent text from going outside the margins, by making
+%% the word spacing sloppy
 \sloppy
+
+\usepackage{lipsum}     % for dummy text
 
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/prolegomena,./tex/liber-primus}
+\includeonly{./tex/liber-primus}
 
 \begin{document}
 

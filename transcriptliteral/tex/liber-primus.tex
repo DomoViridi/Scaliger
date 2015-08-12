@@ -3,6 +3,10 @@
 % this template is specifically designed to be typeset with XeLaTeX;
 % it will not work with other engines, such as pdfLaTeX
 
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+
 \chapter*{}
 \addcontentsline{toc}{chapter}{Primus Liber  - De anno aequabili minore}
 \begin{center}
@@ -202,7 +206,6 @@ Stoicus scriptor apud Stobæum loquens de Socratis iudicio capitali: [Greek Gree
 
 Idem censeas de veteribus Hebræis, \mletter{A} qui diei nullas alias partes, quam mane, meridiem, \& vesperam norant. \& ita dies diuiditur Psalmo L V, commate X V I I I.
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 \end{parnumbers}
 \clearpage
 p. 5 [pdf 88]
@@ -646,98 +649,134 @@ Sunt \& secundum hebdomadas vt infra subiecimus.
 \clearpage
 p. 8 [pdf 91]
 
+\mletter{A}
+%% Can't put \mletter{} next to a table. It needs to be in a paragraph level
+%% So we skip B and C
+
+\begin{table}[h]
+\large
+\begin{tabular*}%
+{\textwidth}{%
+@{\extracolsep{\fill} } r r r @{\hspace{4pt}} || r @{\hspace{4pt}} | @{} l 
+}
+\multicolumn{3}{c}{\textsc{DIES HEBDOMADIS}} &
+\multicolumn{2}{c}{\textsc{ALITER PERSICE.}}
+\\
+\multicolumn{3}{c}{\textsc{persicæ.}} & \multicolumn{2}{c}{}
+\\
+\hline
+\texthebrew{שנב}
+& \textarabic{شزذيثب}
+& \textarabic{ل}
+& 1
+& \textit{Ruz iache}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Persian]}
+& \textarabic{ب}
+& 2
+& \textit{Ruz duiemi}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Persian]}
+& \textarabic{ج}
+& 3
+& \textit{Ruz siumi}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Persian]}
+& \textarabic{ﺩ}
+& 4
+& \textit{Ruz tzeharmi}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Persian]}
+& \textarabic{م}
+& 5
+& \textit{Ruz pengemin}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Persian]}
+& \textarabic{و}
+& 6
+& \textit{Ruz schesmin}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Persian]}
+& \textarabic{ز}
+& 7
+& \textit{Ruz haphthemi}
+\end{tabular*}
+
+\vspace{\baselineskip}
+
+\begin{tabular*}
+{\textwidth}{%
+    @{\extracolsep{\fill} } r r @{\hspace{4pt}} || r @{\hspace{4pt}} r c
+}
+\multicolumn{2}{c}{\textsc{TVRCIÆ HEBDOMADIS}} & \multicolumn{3}{c}{\textsc{SECVNDVM PLANETAS.}}
+\\
+\multicolumn{2}{c}{\textsc{dies.}} & \multicolumn{3}{c}{}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \astro{♄}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \astro{♃}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \astro{♂}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \astro{☉}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \astro{♀}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \astro{☿}
+\\
+\texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \texthebrew{[Hebrew]}
+& \textarabic{[Arabic]}
+& \astro{☾}
+\end{tabular*}
+\end{table}
+
 \begin{parnumbers}
-
-[Table: Dies hebdomadis Persicae, Aliter Persica, Turcicae hebdomadis dies, Secundum planetas] \mletter{A} \mletter{B} \mletter{C}
-DIES HEBDOMADIS PERSICÆ
-ALITER PERSICE
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-[A. num]
-1
-Ruz iache
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-[A. num]
-2
-Ruz duiemi
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-[A. num]
-3
-Ruz siumi
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-[A. num]
-4
-Ruz tzeharmi
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-[A. num]
-5
-Ruz pengemin
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-[A. num]
-6
-Ruz schesmin
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-[A. num]
-7
-Ruz haphthemi
-
-TVRCIÆ HEBDOMADIS DIES.
-SECVNDVM PLANETAS.
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\astro{♄}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\astro{♃}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\astro{♂}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\astro{☉}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\astro{♀}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\astro{☿}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\texthebrew{[Hebrew]}
-\textarabic{[Arabic]}
-\astro{☾}
-
 Cur autem dies cognomines Planetarum non sequuntur ordinem \& situm siderum, quorum cognomines sunt, vt scilicet post diem Saturni non sequatur dies Iouis, sed dies Solis, hæc caussa est.
 
-[Diagram: circle with heptagram, with planets at the points: Moon \astro{☾}, mercury \astro{☿}, venus \astro{♀}, sun \astro{☉}, mars \astro{♂}, jupiter \astro{♃}, saturn \astro{♄}]
+%[Diagram: circle with heptagram, with planets at the points: Moon \astro{☾}, mercury \astro{☿}, venus \astro{♀}, sun \astro{☉}, mars \astro{♂}, jupiter \astro{♃}, saturn \astro{♄}]
+\begin{wrapfigure}[9]{r}{9\baselineskip}
+\end{wrapfigure}
 
-Septem Planetæ per circulum secumdum ordinem suum dispositæ, æquabili interuallo constituunt septem Triangula isoscele ad peripheriā, \mletter{D} quorum bases sunt latera Heptagoni circulo inscripti, vt habes in circulo proposito, ad cuius peripheriam septem errantes sunt secundum feriē suam sitæ, constituentes triangula isoscele \astro{♄♀♃}, \astro{♃☿♂}, \astro{♂☽☉}, \astro{☉♄♀}, \astro{♀♃☿}, \astro{☿♂☽}, \astro{☽☉♄} [saturn-venus-jupiter, jupiter-mercury-mars, mars-moon-sun, sun-saturn-venus, venus-jupiter-mercury, mercury-mars-moon, moon-sun-saturn].
-
-In quibus Triangulis dexter angulus ad basim est prima stella Trianguli, secunda in angulo ad verticem, tertia angulus sinister ad basim: ita vt omnis stella anguli dextri habeat oppositam stellam anguli in vertice, stella autem anguli à vertice stellæ anguli sinistri ad basim sit opposita.
+Septem Planetæ per circulum secumdum ordinem suum dispositæ, æquabili interuallo constituunt septem Triangula isoscele ad peripheriā, \mletter{D} quorum bases sunt latera Heptagoni circulo inscripti, vt habes in circulo proposito, ad cuius peripheriam septem errantes sunt secundum feriē suam sitæ, constituentes triangula isoscele \astro{♄♀♃}, \astro{♃☿♂}, \astro{♂☽☉}, \astro{☉♄♀}, \astro{♀♃☿}, \astro{☿♂☽}, \astro{☽☉♄}.
 
 \end{parnumbers}
 \clearpage
 p. 9 [pdf 92]
 
 \begin{parnumbers}
+In quibus Triangulis dexter angulus ad basim est prima stella Trianguli, secunda in angulo ad verticem, tertia angulus sinister ad basim: ita vt omnis stella anguli dextri habeat oppositam \mletter{A} stellam anguli in vertice, stella autem anguli à vertice stellæ anguli sinistri ad basim sit opposita.
 
 Sequentur igitur sese omnes septem Planetæ non per seriem suam, sed per interualla laterum, quæ veræ sunt oppositiones.
 
