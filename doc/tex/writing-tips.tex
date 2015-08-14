@@ -11,10 +11,15 @@
 % 345678901234567890123456789012345678901234567890123456789012345678901234567890
 
 \documentclass[12pt]{report}
-\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
-\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
-%\geometry{landscape}                % Activate for for rotated page geometry
-%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage[showframe]{geometry}
+%% See geometry.pdf to learn the layout options. There are lots.
+
+\geometry{a4paper}         %% ... or a4paper or a5paper or ... 
+%\geometry{landscape}      %% Activate for rotated page geometry
+
+%\usepackage[parfill]{parskip}
+%% Activate to begin paragraphs with an empty line rather than an indent
 %\usepackage{graphicx}
 %\usepackage{amssymb}
 
@@ -205,8 +210,12 @@ Scaligeri has a rather idiosyncratic way of titling his chapters, e.g. introduci
 \end{itemize}
 All this is written in centered, spaced out capitals in various sizes.
 
+The standard \LaTeX chapter titles for the book style are placed with lots of white space above and below them. Scaligeri has no space above the chapter titles.
+
 Scaligeri's subjects have multi-line headers in centered, spaced out capitals. The first line has a bigger font size than
 subsequent lines (see e.g. pdf page 87)
+
+The \texttt{titlesec} package may work here.
 
 \section{Putting the right titles in the ToC}
 

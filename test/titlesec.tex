@@ -1,0 +1,51 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% this template is specifically designed to be typeset with XeLaTeX;
+% it will not work with other engines, such as pdfLaTeX
+
+% Minimal example to show conflict between titlesec and bidi (in the form
+% of polyglossia).
+% When bidi is loaded (by e.g. a \setotherlanguage{hebrew} or
+% \setotherlanguage{arabic} command, the changes made with the 
+% first set of titlesec commands disappear.
+% Without bidi, the titlesec commands work as normal.
+
+\documentclass{book}
+
+%%% Control the layout of chapter headers
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+  {\normalfont\tiny\bfseries}{}{0em}{\Huge}
+\titlespacing*{\chapter}{0pt}{-10pt}{0.5cm}
+
+
+%%% Use polyglossia to handle multiple languages
+%% We have (at least): latin, polytonic greek, hebrew, arabic, persian
+%% (Contains bidi package, and must be loaded *after*:
+%%  wrapfig, lettrine)
+\usepackage{polyglossia}
+\setmainlanguage{latin}
+
+\setotherlanguage{hebrew}   %% <=== THIS IS THE BASTARD ======================
+%%% Enabling it will load bidi, and mess up the titlesec commands
+
+% The solution:
+% 1) put \usepackage{titlesec} before \usepackage{polyglossia}
+%    This is required by polyglossia.
+% 2) Put the *commands* from titlesec after the commands from polyglossia
+\titleformat{\chapter}[hang]
+  {\normalfont\tiny\bfseries}{}{0em}{\Huge}
+\titlespacing*{\chapter}{0pt}{-10pt}{0.5cm}
+
+%%%========================================================%%%
+
+\begin{document}
+
+
+\mainmatter
+
+\chapter{Zak door de stront}
+En krijg nou een stel tieten.
+
+
+\end{document}

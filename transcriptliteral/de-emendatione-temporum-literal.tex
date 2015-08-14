@@ -7,10 +7,15 @@
 % 000000011111111112222222222333333333344444444445555555555666666666677777777778
 % 345678901234567890123456789012345678901234567890123456789012345678901234567890
 
-\documentclass[12pt,twoside,a4paper,draft]{book}
+%% use [draft] for a draft version with boxes instead of images
+\documentclass[12pt,twoside,a4paper]{book}
 
 %%% Geometry package to make the margins better match the original
-\usepackage[top=15mm, bottom=40mm, inner=21mm, outer=35mm]{geometry}
+%% use [showframe] to show the frames
+\usepackage[top=15mm, bottom=40mm, inner=21mm, outer=35mm, showframe]{geometry}
+
+%%% Control the layout of chapter headers
+\usepackage{titlesec}
 
 %%% Disable chapter/section numbering.
 %%  Put Chapters/Sections/Subsections in the Table of Contents
@@ -143,12 +148,27 @@
 \setotherlanguage{arabic}
 \setotherlanguage{english}
 
+%%% Reduce the white space above and below a chapter title
+%%% The word "Chapter" (or "Caput") and the number are removed by making
+%%% the third parameter empty.
+%% Note: these commands must be given *after* plyglossia is loaded and
+%% its commands (\setotherlanguage{}) are given
+\titleformat{\chapter}[hang]
+  {\normalfont\tiny\bfseries}{}{0em}{\Huge}
+\titlespacing*{\chapter}{0pt}{-10pt}{0.5cm}
+
+%%% Reduce the white space above and below figures
+\setlength\intextsep{0pt}
 
 %% Prevent text from going outside the margins, by making
 %% the word spacing sloppy
 \sloppy
 
-\usepackage{lipsum}     % for dummy text
+%%% Tell XeTeX where to look for graphics files
+%% Note: all file paths are relative to the root document, i.e.
+%% the tex file that is passed as an argument to the compiler.
+%% In other words: this file.
+\graphicspath{{./img/}}
 
 %%%========================================================%%%
 
