@@ -83,7 +83,7 @@
 %% Command \parnum to format the paragraph counter number
 %% (in bold, arabic numbers)
 \newcommand\parnum{%
-    \bfseries\arabic{parcount}%
+    \bfseries\footnotesize\arabic{parcount}%
 }
 
 %% Special paragraph counter which resets with every 'subject'
@@ -144,7 +144,7 @@
 %% Parameters: same as \dropcapil
 \newcommand\dropcap[3]{%
     \renewcommand{\LettrineFontHook}{\normalfont}%
-    \lettrine[lines=#1,nindent=0pt]{#2}{#3}%
+    \lettrine[lines=#1,nindent=0pt,lraise=0.1]{#2}{#3}%
 }
 
 %%% Use polyglossia to handle multiple languages
