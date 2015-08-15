@@ -10,7 +10,7 @@
 % 000000011111111112222222222333333333344444444445555555555666666666677777777778
 % 345678901234567890123456789012345678901234567890123456789012345678901234567890
 
-\documentclass[12pt]{report}
+\documentclass{report}
 
 \usepackage[showframe]{geometry}
 %% See geometry.pdf to learn the layout options. There are lots.
@@ -191,10 +191,15 @@ Command \verb;\p;: put an isolated paragraph counter mark in the margin.
 
 Environment \texttt{parnumbers}: Automatically put paragraph counter marks in the margin
 
-\chapter{Features we want to add}
+\chapter{Desired Features}
 \section{Spaced small caps}
 In the original, all occurrences of small caps (in chapter/section titles, in roman numerals) have extra spacing between
 the characters. We can probably do this by setting a font feature for small caps fonts.
+Maybe use the \texttt{LetterSpace} font teature (\texttt{fontspec.pdf} sect 11.2)
+
+\section{Fractions}
+See \textt{fontspec.pdf} section 12.6
+
 
 \section{Margin letters on the same side as in the original}
 Due to limitations of the \verb;\marginpar{}; command, the margin letters must go on the same side as the

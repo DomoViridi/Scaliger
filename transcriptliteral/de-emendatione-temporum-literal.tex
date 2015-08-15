@@ -14,6 +14,9 @@
 %% use [showframe] to show the frames
 \usepackage[top=15mm, bottom=40mm, inner=21mm, outer=35mm, showframe]{geometry}
 
+%%% Array package so we can use m{'width'} in tables
+\usepackage{array}
+
 %%% Control the layout of chapter headers
 \usepackage{titlesec}
 
@@ -34,18 +37,22 @@
 
 %%% Main body text is in latin. We want:
 %% The long s (automaticaly convert 's' in the text to long s, except at 
-%% the end of words).
-%% 'st' and 'ct' ligatures
-%% A capital 'Q' with a swish
+%% the end of words): Contextuals = {Inner}
+%% 'ct' ligatures (not 'st'; use 'ſt' instead)
+%% A capital 'Q' with a swish: Alternate = 1,
+%%  but this makes the wrong '&' and too fancy italics. We suppress this
+%%  by adding 'ItalicFeatures={Alternative=0}'
 %% Common ligatures for 'fi' 'ffi' etcetera
 %% Similar ligatures for long s
 %% Allow (or convert to) 'ae' and 'oe' ligatures.
 %% Old style numbers
 
 \setmainfont{Hoefler Text}[
-    Alternate   = 2,
-    Ligatures   = {Common, Rare},
-    Contextuals = {Inner}
+    Alternate   = 1,
+    Ligatures   = {Common},
+    Contextuals = {Inner},
+    ItalicFeatures = {Alternate=0},
+    SmallCapsFeatures = {LetterSpace=5.0}
 ]
 
 %%% Add a font that supports Greek
