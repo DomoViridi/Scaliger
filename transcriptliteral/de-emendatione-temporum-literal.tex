@@ -8,13 +8,16 @@
 % 345678901234567890123456789012345678901234567890123456789012345678901234567890
 
 %% use [draft] for a draft version with boxes instead of images
-\documentclass[12pt,twoside,a4paper]{book}
+%% Paper size: a4paper (modern size) or legalpaper (close to original)
+%% Original size = 217.6 x 338.3 mm
+%% Legal size    = 215.9 x 355.6 mm
+\documentclass[12pt,twoside,legalpaper]{book}
 
 %%% Geometry package to make the margins better match the original
 %% use [showframe] to show the frames
-\usepackage[top=15mm, bottom=40mm, inner=21mm, outer=35mm, showframe]{geometry}
+\usepackage[top=18mm, bottom=55mm, inner=24mm, outer=38mm, showframe]{geometry}
 
-%%% Array package so we can use m{'width'} in tables
+%%% Array package so we can use m{'width'} and adjust the row spacing in tables
 \usepackage{array}
 
 %%% Control the layout of chapter headers
