@@ -55,7 +55,8 @@
     Ligatures   = {Common},
     Contextuals = {Inner},
     ItalicFeatures = {Alternate=0},
-    SmallCapsFeatures = {LetterSpace=5.0}
+    SmallCapsFeatures = {Color=FF4422,LetterSpace=30.0},
+    LetterSpace = 1.0
 ]
 
 %%% Add a font that supports Greek
@@ -71,6 +72,12 @@
 \newfontfamily\astrofont{Menlo}
 %% Command to allow "\astro{some text}"
 \newcommand\astro[1]{{\astrofont #1}}
+
+\newfontfamily\headone{Hoefler Text}[
+    Scale = 2.5,
+    LetterSpace = 40.0
+]
+\newcommand\head[1]{{\Large\headone #1}}
 
 %%% Commands to number paragraphs
 %% http://tex.stackexchange.com/questions/10513/automatically-assign-a-number-to-every-paragraph
