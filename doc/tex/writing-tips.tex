@@ -12,7 +12,7 @@
 
 \documentclass{report}
 
-\usepackage[showframe]{geometry}
+\usepackage{geometry}
 %% See geometry.pdf to learn the layout options. There are lots.
 
 \geometry{a4paper}         %% ... or a4paper or a5paper or ... 
@@ -114,7 +114,7 @@ We may even change our mind and go for a smooth running translation.
 After using Mac OS TextEdit with RTF, which did not give enough control over formatting, and \LaTeX, which
 has bad support for Unicode, we switched to \XeLaTeX. This directly accepts UTF-8 as source input and allows
 putting pieces of Greek, Hebrew, Arabic and other languages in their original form in the source. The breaking point
-came when \LaTeX made it impossible to produce the astrological signs for the planets.
+came when \LaTeX  made it impossible to produce the astrological signs for the planets.
 
 \texttt{fontspec}
 
@@ -140,11 +140,26 @@ does haven an 'e' with ogonek. (Dead key: Alt-m)
 The only special code required is for the ampersand character "\&", which is frequently used in the original. Because
 this character has special meaning in \XeTeX, it must be escaped with a backslash, like so: \verb;\&;.
 
-\section{Smaller margins}
-\texttt{geometry}
+\section{Bigger paper, smaller margins}
+In order to get at least the same amount of text on a page in the litteral
+transcription as in the original, we would like to have matching paper size
+and margins.
 
-\section{Wrapping around tables}
-\texttt{wrapfig}
+The paper size of the original is 217.6 x 338.3 mm. The closest available 
+standard paper size is legal, at 215.9 x 355.6 mm. This is 1.7 mm narrower
+(so almost the same width),
+and 17.3 mm longer. The \texttt{legalpaper} size is chosen with an option
+to the \verb;\documentclass{}; command.
+
+The standard margins of \texttt{legalpaper} are rather wide compared to the original. This has been adjusted with the \texttt{geometry} package, by setting new margin sizes explicitly in the options. These sizes have been measured from
+the original. The bottom margin has been enlarged to compensate for the above mentioned difference of 17.3 mm in the length of the paper.
+
+\section{Wrapping around tables and figures}
+The original contains some tables (e.g. PDF p. 88) and figures (e.g. PDF p. 91)
+where the text continues on the side of the table/figure, or "wraps" around it.
+We can get this effect by using the \texttt{wrapfig} package. This gives us the
+\texttt{wraptable} and \texttt{wrapfigure} commands. These replace the
+\texttt{tabular} and \texttt{figure} commands respectively.
 
 \section{Phrase numbering}
 We start every phrase from the source on a new line, and give every phrase a number. Numbering starts at 1 for
@@ -191,15 +206,14 @@ Command \verb;\p;: put an isolated paragraph counter mark in the margin.
 
 Environment \texttt{parnumbers}: Automatically put paragraph counter marks in the margin
 
-\chapter{Desired Features}
 \section{Spaced small caps}
 In the original, all occurrences of small caps (in chapter/section titles, in roman numerals) have extra spacing between
 the characters. We can probably do this by setting a font feature for small caps fonts.
 Maybe use the \texttt{LetterSpace} font teature (\texttt{fontspec.pdf} sect 11.2)
 
+\chapter{Desired Features}
 \section{Fractions}
-See \textt{fontspec.pdf} section 12.6
-
+See \texttt{fontspec.pdf} section 12.6
 
 \section{Margin letters on the same side as in the original}
 Due to limitations of the \verb;\marginpar{}; command, the margin letters must go on the same side as the
