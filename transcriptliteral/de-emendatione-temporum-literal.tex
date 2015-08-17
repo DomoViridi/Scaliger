@@ -73,11 +73,15 @@
 %% Command to allow "\astro{some text}"
 \newcommand\astro[1]{{\astrofont #1}}
 
-\newfontfamily\headone{Hoefler Text}[
-    Scale = 2.5,
-    LetterSpace = 40.0
-]
-\newcommand\head[1]{{\Large\headone #1}}
+%%% Command to make header of any size
+%% use: head{<scalesize>}{<spacing>}{<text>}
+%% <scalesize> is a sizefactor relative to normal size
+%% <spacing> is the LetterSpace parameter
+\newcommand\head[3]{{\normalsize\fontspec{Hoefler Text}[
+    Scale=#1,
+    LetterSpace=#2,
+    Color=4422FF
+] #3}}
 
 %%% Commands to number paragraphs
 %% http://tex.stackexchange.com/questions/10513/automatically-assign-a-number-to-every-paragraph
@@ -144,7 +148,7 @@
 %%    'caps' = letters to follow the initial to be made small caps
 \newcommand\dropcapil[3]{%
     \renewcommand{\LettrineFontHook}{\initfamily}%
-    \lettrine[lines=#1,nindent=0pt]{#2}{#3}%
+    \lettrine[lines=#1,nindent=0pt,lraise=0.03]{#2}{#3}%
 }
 %% Define a command for non-illuminated first lines.
 %% Syntax: \dropcap{lines}{initial}{caps}
@@ -190,7 +194,7 @@
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/liber-primus}
+\includeonly{./tex/prolegomena,./tex/liber-primus}
 
 \begin{document}
 

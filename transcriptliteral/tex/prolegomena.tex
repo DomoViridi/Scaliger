@@ -3,20 +3,25 @@
 % this template is specifically designed to be typeset with XeLaTeX;
 % it will not work with other engines, such as pdfLaTeX
 
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+
 \chapter[Prolegomena]{}
-\begin{center}
-\begin{textsc}
-\\
-\Huge PROLEGOMENA\\
-\Large IN\\
-LIBROS\\
-DE\\
-\Huge EMENDATIONE\\
-\Large TEMPORUM.\\
-\end{textsc}
+\begin{center} \vspace{-18mm}
+{\scshape
+\head{3.0}{35}{PROLEGOMENA}\\ \vspace{6mm}
+\head{1.5}{60}{IN}\\ \vspace{5mm}
+\head{2.0}{50}{LIBROS}\\ \vspace{9mm}
+\head{1.5}{60}{DE}\\ \vspace{6mm}
+\head{3.3}{25}{EMENDATIONE}\\ \vspace{7mm}
+\head{2.0}{40}{TEMPORVM}\\ \vspace{7mm}
+} % scshape
 \em{Ad candidum Lectorem.}
 \end{center}
 \normalsize
+
+\setcounter{parcount}{0}
 \begin{parnumbers}
 \dropcapil{8}{Q}{uintusdecimus} hic annus agitur, candide Lector, postquam opus nostrum de Emendatione Temporum emisimus.
 \\ \p
