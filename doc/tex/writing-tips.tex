@@ -53,11 +53,13 @@
 % Here are some multilingual Unicode fonts: this is Arabic text: {\A السلام عليكم}, this is Hebrew: {\H שלום}, 
 % and here's some Japanese: {\J 今日は}.
 
+%%=====
 \chapter{Project setup}
 The aim of this project is to produce a modern version of De Emendatione Temporum by Scaligeri. At the very
 least we want an easily readable transliteration in Latin and all the other languages used. At best we produce
 a full translation into English (and possibly other languages).
 
+%---
 \section{Transcription}
 In this first stage, we want to transcribe the scanned PDF original(s) into a computer file which can be searched, rendered
 and modified. We want to stay as close as possible to the original. This includes:
@@ -75,6 +77,7 @@ as closely as possible to the original.
 \end{itemize}
 Each phrase will be numbered so it can be referred to.
 
+%---
 \section{Transliteration}
 In this second stage we create a document which has the same text as the original, but in a modern script.
 This document should be easy to read for the modern reader who knows Latin and Greek.
@@ -101,6 +104,7 @@ We will add:
 \end{itemize}
 
 
+%---
 \section{Translation}
 A translation of all the text. A reader should be able to read and understand everything without knowledge of ancient
 languages. The layout will be in a similar modern style as the transliteration. In addition there will be many notes 
@@ -109,6 +113,134 @@ languages. The layout will be in a similar modern style as the transliteration. 
 In principle each phrase in the original will correspond to a phrase in the translation, but this is not a strict rule.
 We may even change our mind and go for a smooth running translation.
 
+%%=====
+\chapter{Litteral transcription}
+\section{Tools}
+\XeLaTeX{} part of \TeX{} package. Editing source with TeXShop. Can also
+be done with any other editor of flat text. 
+Compilation must be done with \texttt{xelatex}. Can be done from TeXShop.
+Note: use the Typeset button on the root document
+(which has the \verb;\documentclass{}; command in it).
+Sources kept on \texttt{GitHub}.
+
+%---
+\section{Entering text}
+\subsection{Flat text}
+Enter the text as simple flat text. Most of the text will consist of Latin,
+with bits of Greek (words, short phrases, sometimes longer quotes) and words
+in Hebrew, Arabic or Persian. There are several special characters:
+\begin{itemize}
+\item The long s: 'ſ'. This can simply be entered as an 's'. The right glyph
+will appear due to the selected font features.
+\item The ampersand: '\&'. This must be escaped in the source with a backslash, like so: \verb;\&;
+\item Ligatures 'æ' and 'œ': These can be entered as Unicode characters. On a Mac~OS keyboard use Alt-' for æ and Alt-q for œ.
+\item Other ligatures: these are handled by the font features and need not be entered in the source.
+\item  Capital Q with swash: this is handled by the font features. Simply type a Q in the source.
+\item Vowel with bar ā, ē, ī, ō, ū: These can be entered as Unicode characters. The diacritical bar (macron) can be entered on Mac~OS (U.S. Extended keyboard must be selected) with Alt-a followed by the vowel.
+\item Vowel with ogonek ę: This can be entered as a Unicode character. Can be entered on Mac~OS (U.S. Extended keyboard must be selected) with Alt-m followed by the vowel.
+\end{itemize}
+Some special text must be surrounded by commands:
+\begin{itemize}
+\item Roman numerals: \textsc{vii}. Enter them as lower case characters, surrounded by the \verb;\textsc{}; command to make them small caps. The extra spacing between the characters is handled with a font feature.
+\item Greek, Hebrew, Arabic and Persian: First enter these as a placeholder, like so: \verb;\greektext{[Greek]};, \verb;\hebrewtext{[Hebrew]};, \verb;\arabicfont{[Arabic]};, \verb;\arabicfont{[Persian]}; (there is no specific command for Persian, as it uses the same font and settings as Arabic).
+\\
+The commands will handle the selection of a suitable font for that language. In
+later phase the placeholders will be filled in with the actual text, which can
+be entered as Unicode characters.
+\item Astrological symbols: For the astrological symbols used to represent the
+sun, moon and planets there is the \verb;\astro{}; command, which will select
+a suitable font. The symbols themselves can be entered in Unicode.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c | c}
+\begin{tabular}{r l}
+Sun & U+2609 \\
+Moon & U+263E \\
+Mercury & U+263F \\
+Venus & U+2640
+\end{tabular}
+&
+\begin{tabular}{r l}
+Mars & U+2642 \\
+Jupiter & U+2643 \\
+Saturn & U+2644
+\end{tabular}
+\end{tabular}
+\end{center}
+\end{table}%
+
+\end{itemize}
+
+%
+\subsection{Chapter titles}
+The multi-line chapter titles can be immitated using the \verb;\head;
+command. It has three parameters:
+\begin{enumerate}
+\item {\ttfamily\bfseries scalesize}: A factor by which the size of the font is multiplied. Usual values: 1.5, 2.0, 3.0, 3.3.
+\item {\ttfamily\bfseries spacing}: Influenzes the spacing between letters. The value is passed to the LetterSpacing fontfacility. Usual values: 25, 35, 40, 50, 60.
+\item {\ttfamily\bfseries text}: The text to put on the line.
+\end{enumerate}
+Steps to make the lines match the original:
+\begin{enumerate}
+\item Set up a frame for each line of the form
+ \verb;\vspace{0mm}\head{1.0}{0}{}\\;
+\item Surround the block with a command for small caps
+(\verb;{scshape … };) and for centering (\verb;\begin{center} … \end{center};)
+\item Fill in the text for all lines in the 3rd parameter of the \verb;\head;
+commands.
+\item For each line, adjust the scale so the height of the result matches the height of the original.
+\item For each line, adjust the spacing so the width of the result matches the width of the original.
+\item Working from top to bottom, adjust values of the \verb;\vspace; commands
+to match the vertical position of each line to the original. For the first line
+use a negative value (usually -18mm) to move the line up.
+\end{enumerate}
+Spaces in these title lines will not come out well, because the LetterSpacing
+does not make the space itself wider. This gives the impression that as the
+spacing between the characters gets bigger, the space character disappears. Replace spaces with \verb;\hspace{1.0em};.
+
+
+%
+\subsection{Drop caps}
+Extra large initials in the first line of a chapter or section can be made
+with one of two commands: \verb;\dropcap; for normal drop caps,
+and \verb;\dropcapil; for illuminated drop caps.
+
+Both have the same three parameters:
+\begin{enumerate}
+\item \texttt{lines}: The desired hight of the dropcap expressed as a number of lines. Count the lines in the original to find this value.
+\item \texttt{initial}: The initial letter.
+\item \texttt{caps}: The short bit of text after the initial which will be set as small caps. The first of these is usually upper case, the rest lower case.
+\end{enumerate}
+After setting up the drop cap you may find several lines of the text running
+into the drop cap. You can solve this by making artificial paragraphs by
+using \verb;\\ \p; instead of a blank line between the paragraphs. Do this
+for enough lines to clear the drop cap.\footnote{This problem might be solved
+by cooking our own lettrine command. This should be easy since we are already
+using the \texttt{wrapfig} package.}
+
+%
+\subsection{New page}
+A new page in the original should be reflected in the transcription by a
+\verb;\clearpage; command. This puts a page break in the transcription.
+Also put a line with the page number and PDF source page number in the form:\\
+\indent\texttt{p. 2 [pdf 85]}\\
+Make sure there are no blank lines around this command and this line. Otherwise
+the paragraph counter will be incremented. You may want to put a comment line
+here, which will show up as a marker in a different colour in a suitable
+source editor.
+
+%---
+\section{Common error messages}
+\begin{description}
+\item[Undefined control sequence.] \hfill \\
+A common or normal command such as \verb;\chapter;
+is not recognised. You attempted to compile a source file meant for inclusion. Compile the root file (the one that has the \verb;\documentclass{}; command in it) instead. Often happens by pressing the TeXShop \texttt{Typeset} button in the window you are entering text in. Open the window with the root document and hit \texttt{Typeset} there.
+
+\item[Misplaced alignment tab character \&.] \hfill \\
+You forgot to escape the ampersand \& with a backslash, like so: \verb;\&;. The program expects the ampersand to be part of a table definition.
+\end{description}
+
+%%=====
 \chapter{Implemented features}
 \section{Unicode}
 After using Mac OS TextEdit with RTF, which did not give enough control over formatting, and \LaTeX, which
@@ -118,6 +250,7 @@ came when \LaTeX  made it impossible to produce the astrological signs for the p
 
 \texttt{fontspec}
 
+%---
 \section{Latin ligatures and long s}
 These are handled by choosing a suitable font and selecting the right font features. The text can than be entered
 as simple text with no extra codes and the font will automatically put in the 'st' and 'ct' ligatures, the long s (where
@@ -140,6 +273,7 @@ does haven an 'e' with ogonek. (Dead key: Alt-m)
 The only special code required is for the ampersand character "\&", which is frequently used in the original. Because
 this character has special meaning in \XeTeX, it must be escaped with a backslash, like so: \verb;\&;.
 
+%---
 \section{Bigger paper, smaller margins}
 In order to get at least the same amount of text on a page in the litteral
 transcription as in the original, we would like to have matching paper size
@@ -154,6 +288,7 @@ to the \verb;\documentclass{}; command.
 The standard margins of \texttt{legalpaper} are rather wide compared to the original. This has been adjusted with the \texttt{geometry} package, by setting new margin sizes explicitly in the options. These sizes have been measured from
 the original. The bottom margin has been enlarged to compensate for the above mentioned difference of 17.3 mm in the length of the paper.
 
+%---
 \section{Wrapping around tables and figures}
 The original contains some tables (e.g. PDF p. 88) and figures (e.g. PDF p. 91)
 where the text continues on the side of the table/figure, or "wraps" around it.
@@ -161,6 +296,7 @@ We can get this effect by using the \texttt{wrapfig} package. This gives us the
 \texttt{wraptable} and \texttt{wrapfigure} commands. These replace the
 \texttt{tabular} and \texttt{figure} commands respectively.
 
+%---
 \section{Phrase numbering}
 We start every phrase from the source on a new line, and give every phrase a number. Numbering starts at 1 for
 a new chapter or section and can run over several pages. These numbers will serve to connect the transliterated
@@ -206,6 +342,7 @@ Command \verb;\p;: put an isolated paragraph counter mark in the margin.
 
 Environment \texttt{parnumbers}: Automatically put paragraph counter marks in the margin
 
+%---
 \section{Spaced small caps}
 In the original, all occurrences of small caps (in chapter/section titles, in roman numerals) have extra spacing between
 the characters. We can probably do this by setting a font feature for small caps fonts.
@@ -215,10 +352,12 @@ Maybe use the \texttt{LetterSpace} font teature (\texttt{fontspec.pdf} sect 11.2
 \section{Fractions}
 See \texttt{fontspec.pdf} section 12.6
 
+%---
 \section{Margin letters on the same side as in the original}
 Due to limitations of the \verb;\marginpar{}; command, the margin letters must go on the same side as the
 paragraph numbers. We would like to have a system where we have better control over text in the margins.
 
+%---
 \section{Formatting chapter/section headers}
 We would like the headers at the start of each chapter (Pars) and each subsection (subject) to imitate the original.
 Scaligeri has a rather idiosyncratic way of titling his chapters, e.g. introducing his Liber Primus with:
@@ -236,10 +375,13 @@ subsequent lines (see e.g. pdf page 87)
 
 The \texttt{titlesec} package may work here.
 
+%---
 \section{Putting the right titles in the ToC}
 
+%---
 \section{A mechanism to mark and reference pages in the original PDF}
 
+%---
 \section{Page headers}
 Scaligeri uses as a header in the main body text:
 \begin{description}
@@ -266,6 +408,7 @@ The Dedication has no headers.
 
 The only package that gives sufficiently detailed control of the headers (and footers) is probably \texttt{titlesec}.
 
+%---
 \section{Footers}
 In the original, the footer has a link word on the right on each page. A link word is the same as the first word on the
 next page, which helped the setter and printer to make sure the pages appear in the right order.
@@ -299,8 +442,10 @@ Policy: because the footers in the original only contain information for the pri
 We might use the footer space for our own information, e.g. for a PDF file page reference, a title of our transcription,
 and/or a version number of the transcription.
 
+%---
 \section{Indents for multi-line Greek quotes}
 
+%---
 \section{Exact ligature transcription for Greek}
 
 \texttt{RGreekl2 ?}
