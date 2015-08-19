@@ -139,34 +139,11 @@
 }
 
 %%% Make drop caps (illuminated initial letters)
-%% http://texblog.org/2011/05/21/drop-caps-with-lettrine/
-%% Problem: only covers 1 paragraph. The next paragraph will be left-adjusted
-%% to the margin again
-\usepackage{type1cm}
-\usepackage{lettrine}
-%\usepackage{graphicx}
+
 %% Add fancy font for Initials
 %% https://www.lemald.org/blog/?p=108
 \input GoudyIn.fd
 \newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
-
-%% Define a command for illuminated first lines.
-%% Syntax: \dropcapil{lines}{initial}{caps}
-%% Parameters:
-%%    'lines'=how high to make the initial letter, in lines
-%%    'initial' = initial letter
-%%    'caps' = letters to follow the initial to be made small caps
-\newcommand\dropcapil[3]{%
-    \renewcommand{\LettrineFontHook}{\initfamily}%
-    \lettrine[lines=#1,nindent=0pt,lraise=0.03]{#2}{#3}%
-}
-%% Define a command for non-illuminated first lines.
-%% Syntax: \dropcap{lines}{initial}{caps}
-%% Parameters: same as \dropcapil
-\newcommand\dropcap[3]{%
-    \renewcommand{\LettrineFontHook}{\normalfont}%
-    \lettrine[lines=#1,nindent=0pt,lraise=0.1]{#2}{#3}%
-}
 
 %% Variables used by the dropcap commands to calculate the scaling required
 %% to make the initial the right hight
@@ -177,12 +154,13 @@
 %% wrap around the text (unlike the \lettrine command)
 %% This works for all upper case characters that do not have a descender
 %% (i.e. all letters except Q)
-%% Syntax: \dropcapw{lines}{initial}{caps}
-\newcommand\dropcapw[3]{%
+%% Syntax: \dropcap{lines}{initial}{caps}
+\newcommand\dropcap[3]{%
+    \setlength{\intextsep}{-0.2ex}%
     \setlength{\DCunit}{1.4\baselineskip}%
     \setlength{\DCscale}{#1\DCunit}%
     \addtolength{\DCscale}{-0.5\DCunit}%
-    \setlength{\columnsep}{30pt}\begin{wrapfigure}[#1]{l}{0mm}{\dropcapfont\fontsize{\DCscale}{1em}\selectfont #2}\end{wrapfigure}%
+    \setlength{\columnsep}{1pt}\begin{wrapfigure}[#1]{l}{0mm}{\dropcapfont\fontsize{\DCscale}{1em}\selectfont #2}\end{wrapfigure}%
     \textsc{#3}%
 }
 
@@ -202,13 +180,13 @@
 %% Define a command for illuminated dropcaps where multiple paragraphs
 %% automatically wrap around the text (unlike the \lettrine command).
 %%
-%% Syntax: \dropcapwi{lines}{initial}{caps}
-\newcommand\dropcapwi[3]{%
+%% Syntax: \dropcapil{lines}{initial}{caps}
+\newcommand\dropcapil[3]{%
     \setlength{\intextsep}{-0.2ex}%
-    \setlength{\dcunit}{1.25\baselineskip}%
-    \setlength{\dcscale}{#1\dcunit}%
-    \addtolength{\dcscale}{-0.5\baselineskip}%
-    \setlength{\columnsep}{1pt}\begin{wrapfigure}[#1]{l}{#1\baselineskip}{\initfamily\fontsize{\dcscale}{1em}\selectfont\uppercase{#2}}\end{wrapfigure}%
+    \setlength{\DCunit}{1.25\baselineskip}%
+    \setlength{\DCscale}{#1\DCunit}%
+    \addtolength{\DCscale}{-0.5\baselineskip}%
+    \setlength{\columnsep}{1pt}\begin{wrapfigure}[#1]{l}{#1\baselineskip}{\initfamily\fontsize{\DCscale}{1em}\selectfont\uppercase{#2}}\end{wrapfigure}%
     \textsc{#3}%
 }
 
@@ -248,13 +226,13 @@
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{}
+\includeonly{./tex/prolegomena,./tex/liber-primus}
 
 \begin{document}
 
 %% Source file for testing. Comment out when not testing
 %% Does not need to be mentioned in the above \includeonly{}
-\input{../test/dropcap}
+%\input{../test/dropcap}
 
 %% "frontmatter" command throws up weird errors
 %% ! Missing \endcsname inserted.
