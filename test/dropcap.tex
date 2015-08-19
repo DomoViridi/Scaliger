@@ -39,9 +39,13 @@ Columnsep: \the\columnsep
 Columnsep: \the\columnsep
 
 \dropcapw{8}{Q}{Vintusdecimus} hic annus agitur, candide Lector, postquam opus nostrum de Emendatione Temporum emisimus.
+
 Persuaseram mihi, homines studiosos aliquam nobis gratiam habituros tot rerum, quas \& scitu dignas, \& a nobis primum indicatas negare non poterant.
+
 Sed longe aliter animatos experti sumus: atque adeo rem potius inuidiosam atque obtrectationi opportunam, quam illis gratam me suscepisse intellexi.
+
 Denique nihil aliud quam significarunt, quiduis potius se ignorare malle, quam a nobis aliquid discere.
+
 In quibusdam candorem, in aliis studium, in omnibus sensum bonarum rerum desideraui.
 Columnsep: \the\columnsep
 
@@ -65,6 +69,7 @@ Denique nihil aliud quam significarunt, quiduis potius se ignorare malle, quam a
 In quibusdam candorem, in aliis studium, in omnibus sensum bonarum rerum desideraui.
 \end{parnumbers}
 
+\chapter{Q dropcap (with descender)}
 \setcounter{parcount}{0}
 \begin{parnumbers}
 
@@ -83,10 +88,66 @@ Sed longe aliter animatos experti sumus: atque adeo rem potius inuidiosam atque 
 Denique nihil aliud quam significarunt, quiduis potius se ignorare malle, quam a nobis aliquid discere.
 
 In quibusdam candorem, in aliis studium, in omnibus sensum bonarum rerum desideraui.
-\end{parnumbers}
 
 Columnsep: \the\columnsep\\
 \setlength{\columnsep}{1pt}
 Columnsep: \the\columnsep\\
 
-\dropcapQ{9}{Vamquam} \lipsum[1]
+\dropcapQ{9}{Q}{Vamquam} V a m q u a m lorem ipsum dolor ſit amet, consectetuer adipiscing elit. 
+
+Ut purus elit, veſtibulum ut, placerat ac, adipiscing vitae, felis. 
+
+Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. 
+
+Pellentesque habitant morbi triſtique se- nectus et netus et malesuada fames ac turpis egeſtas. Mauris ut leo. 
+
+Cras viverra metus rhoncus sem. Nulla et lectus veſtibulum urna fringilla ultrices. Phasellus eu tellus ſit amet tortor gravida placerat. 
+
+Integer sapien eſt, iaculis in, pretium quis, viverra ac,nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. 
+
+Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci ſit amet orci digniſſim rutrum.
+\end{parnumbers}
+
+\chapter{Illuminated dropcap}
+\begin{parnumbers}
+\dropcapil{16}{Q}{Vintusdecimus} hic annus agitur, candide Lector, postquam opus nostrum de Emendatione Temporum emisimus.
+\\ \p
+Persuaseram mihi, homines studiosos aliquam nobis gratiam habituros tot rerum, quas \& scitu dignas, \& a nobis primum indicatas negare non poterant.
+\\ \p
+Sed longe aliter animatos experti sumus: atque adeo rem potius inuidiosam atque obtrectationi opportunam, quam illis gratam me suscepisse intellexi.
+\\ \p
+Denique nihil aliud quam significarunt, quiduis potius se ignorare malle, quam a nobis aliquid discere.
+\\ \p
+In quibusdam candorem, in aliis studium, in omnibus sensum bonarum rerum desideraui.
+
+%\begin{wrapfigure}[<nr of lines>]{<placement: r l ...>}[<overhang>]{<width>} 〈figure〉 \end{wrapfigure}
+% nr of lines: force height of figure in nr of lines
+% width: set the width reserved for the figure. Zero (0pt) means use width of <figure>
+\setlength{\intextsep}{-0.2ex}
+\setlength{\dcunit}{1.25\baselineskip}
+\setlength{\dcscale}{9\dcunit}
+\addtolength{\dcscale}{-0.5\baselineskip}
+\setlength{\columnsep}{1pt}\begin{wrapfigure}[9]{l}{0mm}{\initfamily\fontsize{\dcscale}{1em}\selectfont Q}\end{wrapfigure}
+\textsc{Vintusdecimus} hic annus agitur, candide Lector, postquam opus nostrum de Emendatione Temporum emisimus.
+
+Persuaseram mihi, homines studiosos aliquam nobis gratiam habituros tot framebox{rerum, quas \& scitu dignas,} \& a nobis primum indicatas negare non poterant. Sed longe aliter
+
+Sed longe aliter animatos experti sumus: atque adeo rem potius inuidiosam atque obtrectationi opportunam, quam illis gratam me suscepisse intellexi.
+
+Denique nihil aliud quam significarunt, quiduis potius se ignorare malle, quam a nobis aliquid discere.
+
+In quibusdam candorem, in aliis studium, in omnibus sensum bonarum rerum desideraui.
+
+{\initfamily XABCDEFX}XABCDEFX
+
+\dropcapwi{9}{Q}{Vintsdecimus} hic annus agitur, candide Lector, postquam opus nostrum de Emendatione Temporum emisimus.
+
+Persuaseram mihi, homines studiosos aliquam nobis gratiam habituros tot framebox{rerum, quas \& scitu dignas,} \& a nobis primum indicatas negare non poterant. Sed longe aliter
+
+Sed longe aliter animatos experti sumus: atque adeo rem potius inuidiosam atque obtrectationi opportunam, quam illis gratam me suscepisse intellexi.
+
+Denique nihil aliud quam significarunt, quiduis potius se ignorare malle, quam a nobis aliquid discere.
+
+In quibusdam candorem, in aliis studium, in omnibus sensum bonarum rerum desideraui.
+
+\end{parnumbers}
