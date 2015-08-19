@@ -1,0 +1,92 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% this template is specifically designed to be typeset with XeLaTeX;
+% it will not work with other engines, such as pdfLaTeX
+
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+\chapter[Dropcap]{Dropper Capper}
+
+\setcounter{parcount}{0}
+\begin{parnumbers}
+\dropcap{12}{Q}{Vintusdecimus} hic annus agitur, candide Lector, postquam opus nostrum de Emendatione Temporum emisimus.
+\\ \p
+Persuaseram mihi, homines studiosos aliquam nobis gratiam habituros tot rerum, quas \& scitu dignas, \& a nobis primum indicatas negare non poterant.
+\\ \p
+Sed longe aliter animatos experti sumus: atque adeo rem potius inuidiosam atque obtrectationi opportunam, quam illis gratam me suscepisse intellexi.
+
+Denique nihil aliud quam significarunt, quiduis potius se ignorare malle, quam a nobis aliquid discere.
+
+In quibusdam candorem, in aliis studium, in omnibus sensum bonarum rerum \framebox[1.0\width]{desideraui}.
+
+Normal font:\\
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz\\
+Quistactum solissima
+
+Dropcap font:\\
+{\dropcapfont
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz\\
+Quistactum solissima
+}
+
+\end{parnumbers}
+Columnsep: \the\columnsep
+\setlength{\columnsep}{30pt} \\
+Columnsep: \the\columnsep
+
+\dropcapw{8}{Q}{Vintusdecimus} hic annus agitur, candide Lector, postquam opus nostrum de Emendatione Temporum emisimus.
+Persuaseram mihi, homines studiosos aliquam nobis gratiam habituros tot rerum, quas \& scitu dignas, \& a nobis primum indicatas negare non poterant.
+Sed longe aliter animatos experti sumus: atque adeo rem potius inuidiosam atque obtrectationi opportunam, quam illis gratam me suscepisse intellexi.
+Denique nihil aliud quam significarunt, quiduis potius se ignorare malle, quam a nobis aliquid discere.
+In quibusdam candorem, in aliis studium, in omnibus sensum bonarum rerum desideraui.
+Columnsep: \the\columnsep
+
+\setcounter{parcount}{0}
+\begin{parnumbers}
+
+\newlength{\dcunit}\setlength{\dcunit}{1.4\baselineskip}
+\newlength{\dcscale}\setlength{\dcscale}{12\dcunit}
+\addtolength{\dcscale}{-0.5\dcunit}
+Dcheight: \the\dcscale
+
+\setlength{\columnsep}{1pt}\begin{wrapfigure}[12]{l}{0mm}{\fontsize{\dcscale}{1em}\selectfont Q}\end{wrapfigure}
+\textsc{Vintusdecimus} hic annus agitur, candide Lector, postquam opus nostrum de Emendatione Temporum emisimus.
+
+Persuaseram mihi, homines studiosos aliquam nobis gratiam habituros tot rerum, quas \& scitu dignas, \& a nobis primum indicatas negare non poterant.
+
+Sed longe aliter animatos experti sumus: atque adeo rem potius inuidiosam atque obtrectationi opportunam, quam illis gratam me suscepisse intellexi.
+
+Denique nihil aliud quam significarunt, quiduis potius se ignorare malle, quam a nobis aliquid discere.
+
+In quibusdam candorem, in aliis studium, in omnibus sensum bonarum rerum desideraui.
+\end{parnumbers}
+
+\setcounter{parcount}{0}
+\begin{parnumbers}
+
+\setlength{\dcunit}{1.1\baselineskip}
+\setlength{\dcscale}{3\dcunit}
+\addtolength{\dcscale}{-0.5\dcunit}
+DCscale: \the\dcscale
+
+\setlength{\columnsep}{1pt}\begin{wrapfigure}[3]{l}{0mm}{\dropcapfont\fontsize{\dcscale}{1em}\selectfont Q}\end{wrapfigure}
+\textsc{Vintusdecimus} hic annus agitur, candide Lector, postquam opus nostrum de Emendatione Temporum emisimus.
+
+Persuaseram mihi, homines studiosos aliquam nobis gratiam habituros tot rerum, quas \& scitu dignas, \& a nobis primum indicatas negare non poterant.
+
+Sed longe aliter animatos experti sumus: atque adeo rem potius inuidiosam atque obtrectationi opportunam, quam illis gratam me suscepisse intellexi.
+
+Denique nihil aliud quam significarunt, quiduis potius se ignorare malle, quam a nobis aliquid discere.
+
+In quibusdam candorem, in aliis studium, in omnibus sensum bonarum rerum desideraui.
+\end{parnumbers}
+
+Columnsep: \the\columnsep\\
+\setlength{\columnsep}{1pt}
+Columnsep: \the\columnsep\\
+
+\dropcapQ{9}{Vamquam} \lipsum[1]
