@@ -40,6 +40,8 @@
 \begin{document}
 \maketitle
 
+\tableofcontents{}
+
 % For many users, the previous commands will be enough.
 % If you want to directly input Unicode, add an Input Menu or Keyboard to the menu bar 
 % using the International Panel in System Preferences.
@@ -134,7 +136,9 @@ in Hebrew, Arabic or Persian. There are several special characters:
 will appear due to the selected font features.
 \item The ampersand: '\&'. This must be escaped in the source with a backslash, like so: \verb;\&;
 \item Ligatures 'æ' and 'œ': These can be entered as Unicode characters. On a Mac~OS keyboard use Alt-' for æ and Alt-q for œ.
-\item Other ligatures: these are handled by the font features and need not be entered in the source.
+\item The double-s character 'ß', sometimes seen in italic text (e.g. PDF p.45). Enter this with Alt-s.
+\item The 'ct' ligature, where a little loop is added that connects the tops of the c and the t. This is handled by a font feature. You can simply enter 'ct' in the source. Note that the original does not contain any 'st' ligatures in the same style as the 'ct' ligature. Many fonts will try to render them anyway.
+\item Other ligatures (ffi, ſt, etc): these are handled by the font and need not be entered in the source.
 \item  Capital Q with swash: this is handled by the font features. Simply type a Q in the source.
 \item Vowel with bar ā, ē, ī, ō, ū: These can be entered as Unicode characters. The diacritical bar (macron) can be entered on Mac~OS (U.S. Extended keyboard must be selected) with Alt-a followed by the vowel.
 \item Vowel with ogonek ę: This can be entered as a Unicode character. Can be entered on Mac~OS (U.S. Extended keyboard must be selected) with Alt-m followed by the vowel.
