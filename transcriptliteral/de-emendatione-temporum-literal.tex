@@ -226,7 +226,7 @@
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/prolegomena}
+\includeonly{./tex/liber-primus}
 
 \begin{document}
 
@@ -234,20 +234,15 @@
 %% Does not need to be mentioned in the above \includeonly{}
 %\input{../test/dropcap}
 
-%% "frontmatter" command throws up weird errors
-%% ! Missing \endcsname inserted.
-%% <to be read again> 
-%%                    \protect 
-%% l.10 
-%% Note: only ./tex/prolegomena included
 \frontmatter
 \include{./tex/title}
 \include{./tex/dedication}
 \include{./tex/greek-quotes}
 \include{./tex/prolegomena}
 
-%% ToC generation gives obscure errors
-%\tableofcontents{}
+%% ToC generation gives obscure errors; solution: delete the .aux files
+%% and re-compile (twice)
+\tableofcontents{}
 
 \mainmatter
 \include{./tex/liber-primus}
