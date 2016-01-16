@@ -20,8 +20,7 @@ out of focus or moved, fine details that are lost.
 * The Latin spelling is irregular, with 'u' and 'v' used interchangeably, and manuscript
 shorthands such as 'quoq;' for 'quoque' remaining in the typeset book.
 * The text is in Latin, a language not mastered by many researchers of today.
-* The text is peppered with Greek fragments. These were not typeset but inserted as strips
-of handwriting, making them even harder to read than the typeset Latin.
+* The text is peppered with Greek fragments. These were typeset to immitate the handwriting as closely as possible, making them even harder to read than the typeset Latin.
 * There are also (though fewer) Hebrew and Arabic fragments, with the same problems as the Greek
 fragments.
 * Most of the book is a wall of text, with no paragraphs and hardly any sectioning.
@@ -36,7 +35,7 @@ hopes to make the work available to a wider audience, by:
 
 Transcribing the original
 -------------------------
-File: `Latin transcript (lit).rtf`, the litteral transcript.
+File: `transcriptliteral/de-emendatione-temporum-literal.tex`, the litteral transcript.
 
 Each page is typed in, staying as close to the original as possible.
 * Usage of 'v' and 'u' are copied from the original.
@@ -48,21 +47,23 @@ To keep track of how the transcription matches with the original, a page in the 
 a page (or more) in the transcription,
 and the sentences are numbered, starting with number 1 on each new page.
 
-Rich Text File (rtf) is used to give us italic typeface, different point sizes, left/centre/right adjusted text,
-tables, and automatic line numbering by using numbered lists.
+The transcription is kept as a XeLaTeX source. This gives us allmost complete control over the layout, and also extra facilities such as automatic TOC and index generation. This source can be rendered into various forms with a full layout, e.g. as a PDF.
 
 UTF is required for the above mentioned ligatures and the long s, the Greek, Hebrew and Arabic texts, and for
-odd symbols like the ancient symbols for the planets.
+odd symbols like the ancient symbols for the planets. This requires the choice of XeLaTeX over LaTeX.
+
 
 Transcribing to a modern typesetting
 ------------------------------------
-File: `Latin transcript (int).rtf`, the interpreted transcript.
+File: `transscriptinterpret/de-emendatione-temporum-interpret.tex`, the interpreted transcript.
 
-Using the transcription of the original, a version with modern typesetting is made.
+Using the transcription of the original, or the scanned original, a version with modern typesetting is made.
 * 'v' and 'u' are converted, writing 'u' for a vowel and 'v' for a consonant.
 * Ligatures are expanded: 'æ' becomes 'ae', 'œ' becomes 'oe'
 * All long s-s are converted to the modern 's'.
 * Shortenings are expanded to full words.
+* Quotes in Greek are converted to a modern writing style with only 25 different lower case glyphs.
+* A similar simplification will be done with quotes in other languages.
 
 
 Translating into English
@@ -113,13 +114,13 @@ So far (October 2013) the following copies have become available on Google books
 * 1629 Geneva - Opus_de_emendatione_temporum_hac_postrem.pdf (Universiteitsbibliotheek Gent 900000184892)
 * 1629 Genevae - Iosephi_Scaligeri_Iuli_Caesaris_F_Opus_d.pdf (Bibliotheca S. J. Maison Saint-Augustin, Enghien)
 
-As time progresses, move copies will become available on Google Books.
+As time progresses, more copies will become available on Google Books.
 In June 2015, a search of "emandatione temporum" on Google books gives 10 results, with 6 of the 4 giving "More editions".
 
 Hopefully we can compile a full list of publications. Possibly we can create an overview of the differences between the editions.
 
 For this transcription we will focus on the latest edition available at the start of the project. Presumably in the latest edition the author will have made the most corrections and additions, and best reflect his intentions.
 
-We will be using `1629 Geneva - Opus_de_emendatione_temporum_hac_postrem.pdf`
+We will be using `1629 Geneva - Opus_de_emendatione_temporum_hac_postrem.pdf`. To allow references to page numbers in the scanned PDF, a copy of this file is included in the source package.
 
 
