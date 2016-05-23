@@ -57,45 +57,53 @@
 
 %%=====
 \chapter{Project setup}
-The aim of this project is to produce a modern version of De Emendatione Temporum by Scaligeri. At the very
-least we want an easily readable transliteration in Latin and all the other languages used. At best we produce
+The aim of this project is to produce a modern version of
+De Emendatione Temporum by Scaligeri.
+At the very least we want an easily readable transliteration
+in the original Latin and all the other languages used.
+At best we produce
 a full translation into English (and possibly other languages).
 
 %---
-\section{Transcription}
-In this first stage, we want to transcribe the scanned PDF original(s) into a computer file which can be searched, rendered
-and modified. We want to stay as close as possible to the original. This includes:
-\begin{itemize}
-\item Using a font that has the old-style ligatures (such as 'st' and 'ct'), the long s, and preferably a Q with a swish. These
-features should be available with as little special encoding as possible.
-\item A page in the transcription should match a page in the original and vice versa. If necessary we will insert an
-extra page in the transcription to hold the bit of text that does not fit on one page. Preferably we prevent this problem
-by making sure a transcription page can hold as least as much text as an original page, by adjusting the margins
-and the font size.
-\item The letters in the margin of the original should also be in the transcription, for easy cross-reference.
-\item All other languages (Greek, Hebrew, Arabic, Persian?, more?) and symbols (planet symbols) must be rendered
-as closely as possible to the original.
-\item The original Greek uses many, many, many ligatures. Preferably the transcription shows the same ligatures.
-\end{itemize}
-Each phrase will be numbered so it can be referred to.
+\section{Interpreted Transcription}
+In this first stage, we intend to transcribe the scanned PDF original(s)
+into a computer file which can be searched, rendered
+and modified.
 
-%---
-\section{Transliteration}
-In this second stage we create a document which has the same text as the original, but in a modern script.
-This document should be easy to read for the modern reader who knows Latin and Greek.
+Originally we wanted to stay as close as possible to the original
+in the first stage.
+This turned out to be a lot more work than we bargained for.
+As a result the priority has shifted to producing
+an interpreted transcription first.
+
+In this stage we create a document which has the same text as the original,
+but in a modern script.
+This document should be easy to read for the modern reader who knows
+Latin and Greek.
 \begin{itemize}
-\item All ligatures are expanded (e.g. æ to ae), including (especially) in the Greek bits.
+\item All ligatures are expanded (e.g. æ to ae).
 \item Long s is replaced with modern s.
 \item Abbreviated words (e.g. \verb+quoq;+) are written in full (\verb+quoque+).
 \item Interpunction is done in modern style, and more consistent.
-\item Text is divided into paragraphs to the best of our insights.
+\item Often sentences starting with a \verb+q+ won't have this q capitalised.
+We will start each sentence with a capitalised word.
+\item All Greek phrases will be rendered using modern polytonic Greek
+script with Unicode encoding.
+This has about 49 base glyphs (24 upper case, 24 normal lower case
+plus the word-final sigma) and about 233 extra glyps for
+the polytonic diacriticals and iota subscripts.
+The original uses a Byzantine Minuskel script which has about 1500 glyphs.
+\item Text will be divided into paragraphs to the best of our insights.
 \item Headers and footers will be generated in a modern style.
 \end{itemize}
 Extra features are added:
 \begin{itemize}
-\item Table of Contents, Index, Glossary and Bibliography are generated automatically.
+\item Text will be divided into paragraphs to the best of our insights.
+\item Table of Contents, Index, Glossary and Bibliography are generated
+automatically.
 \item List of Tables and List of Figures added.
-\item Lots of annotations to clarify the text. For example: Scaligeri habitually quotes classics without giving a reference.
+\item Lots of annotations to clarify the text.
+For example: Scaligeri habitually quotes classics without giving a reference.
 We will add:
     \begin{itemize}
     \item The exact reference (Author, title of the work, section/page/verse)
@@ -105,19 +113,73 @@ We will add:
     \end{itemize}
 \end{itemize}
 
+Before the fancy stuff, the initial big work will be the actual transcribing,
+i.e. reading from the scanned original and typing in the Latin text.
+
+To correlate this transcript to the original, we intend to number the lines
+in the PDF of the original.
+The numbers will start with 1 on each page, and every 5th line will be marked
+with its number in the margin.
+In the transcript each beginning of a line will be marked with that number
+in parentheses.
+
+Study of how lines are commonly numbered in long transcribed documents
+will be required.
+
+%---
+\section{Litteral Transcription}
+
+To make references to the original easier, we plan to produce a version that
+resembles the original as closely as possible.
+
+This includes:
+\begin{itemize}
+\item Using a font that has the old-style ligatures (such as 'st' and 'ct'),
+the long s, and preferably a Q with a swish.
+These features should be available with as little special encoding as possible.
+This will require the selection of a suitable font.
+\item A page in the transcription should match a page in the original and
+vice versa.
+If necessary we will insert an
+extra page in the transcription to hold the bit of text that does not fit
+on one page.
+Preferably we prevent this problem
+by making sure a transcription page can hold as least as much text as an
+original page, by adjusting the margins
+and the font size.
+\item Though it is very hard to match the newlines in the original, an effort
+should be made to maintain a close relation with the original.
+This way the line numbering we intend to add to the PDF scan can be maintained
+in this transcription.
+An effort should be made to find a way to force XeLaTeX to put a linebreak
+in a word.
+\item The letters in the margin of the original should also be in the
+transcription, for easy cross-reference.
+\item All other languages (Greek, Hebrew, Arabic, Persian?, more?)
+and symbols (planet symbols) must be rendered
+as closely as possible to the original.
+\item The original Greek uses many, many, many ligatures.
+Preferably the transcription shows the same ligatures.
+This will require a search for (and possibly implementation of) a specialised
+font for this purpose.
+\end{itemize}
 
 %---
 \section{Translation}
-A translation of all the text. A reader should be able to read and understand everything without knowledge of ancient
-languages. The layout will be in a similar modern style as the transliteration. In addition there will be many notes 
-(footnotes?) giving clarifications and annotations to the vagaries of the translation process.
+A translation of all the text.
+A reader should be able to read and understand everything without knowledge
+of ancient languages.
+The layout will be in a similar modern style as the transliteration.
+In addition there will be many notes 
+(footnotes?) giving clarifications and annotations to the vagaries of the
+translation process.
 
-In principle each phrase in the original will correspond to a phrase in the translation, but this is not a strict rule.
+In principle each phrase in the original will correspond to a phrase in the
+translation, but this is not a strict rule.
 We may even change our mind and go for a smooth running translation.
 
 %%=====
-\chapter{Litteral transcription}
-\section{Tools}
+\chapter{Tools}
 \XeLaTeX{} part of \TeX{} package. Editing source with TeXShop. Can also
 be done with any other editor of flat text. 
 Compilation must be done with \texttt{xelatex}. Can be done from TeXShop.
@@ -125,33 +187,74 @@ Note: use the Typeset button on the root document
 (which has the \verb;\documentclass{}; command in it).
 Sources kept on \texttt{GitHub}.
 
-%---
+%%=====
+\chapter{Interpreted transcription}
+
+%%=====
+\chapter{Litteral transcription}
 \section{Entering text}
 \subsection{Flat text}
-Enter the text as simple flat text. Most of the text will consist of Latin,
+Enter the text as simple flat text.
+Most of the text will consist of Latin,
 with bits of Greek (words, short phrases, sometimes longer quotes) and words
-in Hebrew, Arabic or Persian. There are several special characters:
+in Hebrew, Arabic or Persian.
+In the Latin body text there are several special characters:
 \begin{itemize}
 \item The long s: 'ſ'. This can simply be entered as an 's'. The right glyph
 will appear due to the selected font features.
-\item The ampersand: '\&'. This must be escaped in the source with a backslash, like so: \verb;\&;
-\item Ligatures 'æ' and 'œ': These can be entered as Unicode characters. On a Mac~OS keyboard use Alt-' for æ and Alt-q for œ.
-\item The double-s character 'ß', sometimes seen in italic text (e.g. PDF p.45). Enter this with Alt-s.
-\item The 'ct' ligature, where a little loop is added that connects the tops of the c and the t. This is handled by a font feature. You can simply enter 'ct' in the source. Note that the original does not contain any 'st' ligatures in the same style as the 'ct' ligature. Many fonts will try to render them anyway.
-\item Other ligatures (ffi, ſt, etc): these are handled by the font and need not be entered in the source.
-\item  Capital Q with swash: this is handled by the font features. Simply type a Q in the source.
-\item Vowel with bar ā, ē, ī, ō, ū: These can be entered as Unicode characters. The diacritical bar (macron) can be entered on Mac~OS (U.S. Extended keyboard must be selected) with Alt-a followed by the vowel.
-\item Vowel with ogonek ę: This can be entered as a Unicode character. Can be entered on Mac~OS (U.S. Extended keyboard must be selected) with Alt-m followed by the vowel.
+\item The ampersand: '\&'. This must be escaped in the source with a backslash,
+like so: \verb;\&;
+\item Ligatures 'æ' and 'œ': These can be entered as Unicode characters.
+On a Mac~OS keyboard use \verb;Alt-'; for æ and \verb;Alt-q; for œ.
+\item The double-s character 'ß', sometimes seen in italic text (e.g. PDF p.45).
+Enter this with Alt-s.
+\item The 'ct' ligature, where a little loop is added that connects the tops
+of the c and the t.
+This is handled by a font feature.
+You can simply enter 'ct' in the source.
+Note that the original does not contain any 'st' ligatures in the same style
+as the 'ct' ligature, but many fonts will try to render them anyway.
+\item Other ligatures (ffi, ſt, etc): these are handled by the font and need
+not be entered as special codes in the source.
+Simply use the sequence of normal characters (\verb;ffi;, \verb;st;, etc).
+\item  Capital Q with swash: this is handled by the font features.
+Simply type a Q in the source.
+\item Vowel with bar ā, ē, ī, ō, ū: These can be entered as Unicode characters.
+The diacritical bar (macron) can be entered on Mac~OS (U.S. Extended or
+ABC Extended keyboard must be
+selected\footnote{The U.S. Extended keyboard layout was renamed to
+ABC Extended with the introduction of Mac OS X 10.11 El Capitan})
+with Alt-a followed by the vowel.
+\item Vowel with ogonek ę: This can be entered as a Unicode character.
+Can be entered on Mac~OS (U.S. Extended or ABC Extended keyboard must be
+selected\footnotemark[\value{footnote}]) with Alt-m followed by the vowel.
 \item It appears that sometimes a final 's' in a word is printed as what looks like a small question mark. E.g. Prolegomena p.XXIII (PDF p.50) has "Ioſephu?" and "Ioſepho?" near the bottom. For the time being, try to use a question mark here.
 \end{itemize}
 Some special text must be surrounded by commands:
 \begin{itemize}
-\item Roman numerals: \textsc{vii}. Enter them as lower case characters, surrounded by the \verb;\textsc{}; command to make them small caps. The extra spacing between the characters is handled with a font feature.
-\item Greek, Hebrew, Arabic and Persian: First enter these as a placeholder, like so: \verb;\greektext{[Greek]};, \verb;\hebrewtext{[Hebrew]};, \verb;\arabicfont{[Arabic]};, \verb;\arabicfont{[Persian]}; (there is no specific command for Persian, as it uses the same font and settings as Arabic).
+\item Roman numerals: \textsc{vii}.
+Enter them as lower case characters, surrounded by the \verb;\textsc{};
+command to make them small caps.
+The extra spacing between the characters is handled with a font feature.
+\item Greek, Hebrew, Arabic and Persian: First enter these as a placeholder,
+like so:
+\begin{itemize}
+\item\verb;\greektext{[Greek]};
+\item\verb;\hebrewtext{[Hebrew]};
+\item\verb;\arabicfont{[Arabic]};
+\item\verb;\arabicfont{[Persian]};
+\end{itemize}
+There is no specific command for Persian, as it uses the same font
+and settings as Arabic.
 \\
 The commands will handle the selection of a suitable font for that language. In
 later phase the placeholders will be filled in with the actual text, which can
 be entered as Unicode characters.
+\\
+For the Greek ligatures we will probably 
+have to resort to a special coding scheme, such as \verb+2<epsilon><iota>B;+ for
+"a 2 character ligature representing <epsilon><iota>,
+using the second ('B') of the available ligatures".
 \item Astrological symbols: For the astrological symbols used to represent the
 sun, moon and planets there is the \verb;\astro{}; command, which will select
 a suitable font. The symbols themselves can be entered in Unicode.
@@ -168,7 +271,8 @@ Venus & U+2640
 \begin{tabular}{r l}
 Mars & U+2642 \\
 Jupiter & U+2643 \\
-Saturn & U+2644
+Saturn & U+2644 \\
+\parbox[c]{1cm}{}
 \end{tabular}
 \end{tabular}
 \end{center}
@@ -181,8 +285,11 @@ Saturn & U+2644
 The multi-line chapter titles can be immitated using the \verb;\head;
 command. It has three parameters:
 \begin{enumerate}
-\item {\ttfamily\bfseries scalesize}: A factor by which the size of the font is multiplied. Usual values: 1.5, 2.0, 3.0, 3.3.
-\item {\ttfamily\bfseries spacing}: Influenzes the spacing between letters. The value is passed to the LetterSpacing fontfacility. Usual values: 25, 35, 40, 50, 60.
+\item {\ttfamily\bfseries scalesize}: A factor by which the size of
+the font is multiplied. Usual values: 1.5, 2.0, 3.0, 3.3.
+\item {\ttfamily\bfseries spacing}: Influenzes the spacing between letters.
+The value is passed to the LetterSpacing fontfacility.
+Usual values: 25, 35, 40, 50, 60.
 \item {\ttfamily\bfseries text}: The text to put on the line.
 \end{enumerate}
 Steps to make the lines match the original:
@@ -193,15 +300,18 @@ Steps to make the lines match the original:
 (\verb;{scshape … };) and for centering (\verb;\begin{center} … \end{center};)
 \item Fill in the text for all lines in the 3rd parameter of the \verb;\head;
 commands.
-\item For each line, adjust the scale so the height of the result matches the height of the original.
-\item For each line, adjust the spacing so the width of the result matches the width of the original.
+\item For each line, adjust the scale so the height of the result matches 
+the height of the original.
+\item For each line, adjust the spacing so the width of the result matches
+the width of the original.
 \item Working from top to bottom, adjust values of the \verb;\vspace; commands
 to match the vertical position of each line to the original. For the first line
 use a negative value (usually -18mm) to move the line up.
 \end{enumerate}
 Spaces in these title lines will not come out well, because the LetterSpacing
 does not make the space itself wider. This gives the impression that as the
-spacing between the characters gets bigger, the space character disappears. Replace spaces with \verb;\hspace{1.0em};.
+spacing between the characters gets bigger, the space character disappears.
+Replace spaces with \verb;\hspace{1.0em};.
 
 
 %
@@ -212,9 +322,13 @@ and \verb;\dropcapil; for illuminated drop caps.
 
 Both have the same three parameters:
 \begin{enumerate}
-\item \texttt{lines}: The desired hight of the dropcap expressed as a number of lines. Count the lines in the original to find this value.
+\item \texttt{lines}: The desired hight of the dropcap expressed as
+a number of lines.
+Count the lines in the original to find this value.
 \item \texttt{initial}: The initial letter.
-\item \texttt{caps}: The short bit of text after the initial which will be set as small caps. The first of these is usually upper case, the rest lower case.
+\item \texttt{caps}: The short bit of text after the initial which will be
+set as small caps.
+The first of these is usually upper case, the rest lower case.
 \end{enumerate}
 After setting up the drop cap you may find several lines of the text running
 into the drop cap. You can solve this by making artificial paragraphs by
