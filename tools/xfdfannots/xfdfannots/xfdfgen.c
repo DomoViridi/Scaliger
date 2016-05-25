@@ -260,11 +260,11 @@ int parseconfig(char * fconfname)
 
         retval = fgets(lb, MAX_CONFIG_LINELEN, fconf);
         confline++;
-        if(feof(fconf)) { // Reached the end of the config file
-            return configerr;
-        }
         if(retval == NULL) {
-            // Error while reading line
+            if(feof(fconf)) { // Reached the end of the config file
+                return configerr;
+            }
+            // Not EOF but no data: Error while reading line
             fprintf(stderr, "Error while reading line %d in configuration file: %s\n", confline, fconfname);
             perror(NULL);
             configerr = 1;
@@ -276,7 +276,6 @@ int parseconfig(char * fconfname)
         // Detect lines that are longer than the limit
         if(lb[strlen(lb)-1] != '\n') {
             char c;
-            fprintf(stderr, "Line %d: too long (more than %d characters). Rest ignored.\n", confline, MAX_CONFIG_LINELEN-1);
             // Advance to newline so next fgets() call reads the next line, not the rest of the current line
             c = fgetc(fconf);
             while(c != '\n') {
@@ -287,6 +286,9 @@ int parseconfig(char * fconfname)
                 }
                 c = fgetc(fconf);
             }
+            // This comes after the while loop. Otherwise this error will be printed if the last line in the file
+            // is not terminated with a newline.
+            fprintf(stderr, "Line %d: too long (more than %d characters). Rest ignored.\n", confline, MAX_CONFIG_LINELEN-1);
         }
 
         // Ignore comment lines and empty lines
