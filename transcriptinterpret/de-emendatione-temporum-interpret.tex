@@ -67,6 +67,9 @@
 %% Command to allow "\astro{some text}"
 \newcommand\astro[1]{{\astrofont #1}}
 
+%%% Add a font for the references to line numbers in the original
+\newfontfamily\nrfont{Arial Unicode MS}
+
 %%% Dummy Command to make header of any size
 %% use: head{<scalesize>}{<spacing>}{<text>}
 %% <scalesize> is a sizefactor relative to normal size
@@ -79,7 +82,7 @@
 \usepackage{mparhack}
 
 %% No indent on paragraphs, because we make a paragraph out of each sentence.
-\setlength\parindent{0cm}
+%\setlength\parindent{0cm}
 
 %% Command \parnum to format the paragraph counter number
 %% (in bold, arabic numbers)
@@ -94,18 +97,41 @@
 %% Command for an isolated paragraph counter mark
 %% Useful e.g. for big, multi-paragraph spanning Initials
 \newcommand\p{%
-    \stepcounter{parcount}%
-    \leavevmode\marginpar[\hfill\parnum]{\parnum}%
+%    \stepcounter{parcount}%
+%    \leavevmode\marginpar[\hfill\parnum]{\parnum}%
 }
 
 %% Define an environment to use in the source.
 \newenvironment{parnumbers}{%
-    \par%
-    \everypar{%
-        \stepcounter{parcount}%
-        \leavevmode\marginpar[\hfill\parnum]{\parnum}%
-    }%
+%    \par%
+%    \everypar{%
+%        \stepcounter{parcount}%
+%        \leavevmode\marginpar[\hfill\parnum]{\parnum}%
+%    }%
 }{}
+
+%%% Commands to refer to line numbers in the original
+%% Each beginning of a sentence is marked with the line number in the original
+%% where the sentence begins. Together with the page number in the original
+%% (and chapter name for those parts that are outside the normal page numbers)
+%% this uniquely identifies a line in the document.
+%% In the interpreted transcription, this number can be printed before
+%% the sentence, between parentheses. Example:
+%%  "(7) Sed longe aliter animatos experti sumus ..."
+%% In the litteral transcription we can leave these numbers out. Example:
+%%  "Sed longe aliter animatos experti sumus ..."
+%% We might, for clarity, add the page number to the first sentence on a page.
+%% Example:
+%%  "(II:2) Iam quemadmodum Epochae sunt notationes, ..."
+
+%% Command \ln{number} to show the line number
+\newcommand{\lnr}[1]{{\nrfont({#1}) }}
+
+%% Command \pln{page,number} to show the page and the line number
+\newcommand{\plnr}[2]{{\nrfont({#1}:{#2}) }}
+
+%% Register the current page number (dummy for now)
+\newcommand{\pnr}[1]{}
 
 %% (dummy)
 %% Our own cookup to put letters in the margin to indicate quarters of a
