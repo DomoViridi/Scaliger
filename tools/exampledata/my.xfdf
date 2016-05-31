@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xfdf xmlns="http://ns.adobe.com/xfdf/" xml:space="preserve">
+    <annots>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="83"
+            rect="500,877,512,889"
+        >
+            <contents>1</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="83"
+            rect="500,801,512,813"
+        >
+            <contents>5</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="83"
+            rect="500,706,512,718"
+        >
+            <contents>10</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="83"
+            rect="500,611,512,623"
+        >
+            <contents>15</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="83"
+            rect="500,516,512,528"
+        >
+            <contents>20</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="83"
+            rect="500,421,512,433"
+        >
+            <contents>25</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="83"
+            rect="500,326,512,338"
+        >
+            <contents>30</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="83"
+            rect="500,231,512,243"
+        >
+            <contents>35</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="83"
+            rect="500,136,512,148"
+        >
+            <contents>40</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="84"
+            rect="106,877,118,889"
+        >
+            <contents>1</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="84"
+            rect="106,801,118,813"
+        >
+            <contents>5</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="84"
+            rect="106,706,118,718"
+        >
+            <contents>10</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="84"
+            rect="106,611,118,623"
+        >
+            <contents>15</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="84"
+            rect="106,516,118,528"
+        >
+            <contents>20</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="84"
+            rect="106,421,118,433"
+        >
+            <contents>25</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="84"
+            rect="106,326,118,338"
+        >
+            <contents>30</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="84"
+            rect="106,231,118,243"
+        >
+            <contents>35</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="84"
+            rect="106,136,118,148"
+        >
+            <contents>40</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="85"
+            rect="500,877,512,889"
+        >
+            <contents>1</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="85"
+            rect="500,801,512,813"
+        >
+            <contents>5</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="85"
+            rect="500,706,512,718"
+        >
+            <contents>10</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="85"
+            rect="500,611,512,623"
+        >
+            <contents>15</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="85"
+            rect="500,516,512,528"
+        >
+            <contents>20</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="85"
+            rect="500,421,512,433"
+        >
+            <contents>25</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="85"
+            rect="500,326,512,338"
+        >
+            <contents>30</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="85"
+            rect="500,231,512,243"
+        >
+            <contents>35</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="85"
+            rect="500,136,512,148"
+        >
+            <contents>40</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="86"
+            rect="106,877,118,889"
+        >
+            <contents>1</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="86"
+            rect="106,801,118,813"
+        >
+            <contents>5</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="86"
+            rect="106,706,118,718"
+        >
+            <contents>10</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="86"
+            rect="106,611,118,623"
+        >
+            <contents>15</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="86"
+            rect="106,516,118,528"
+        >
+            <contents>20</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="86"
+            rect="106,421,118,433"
+        >
+            <contents>25</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="86"
+            rect="106,326,118,338"
+        >
+            <contents>30</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="86"
+            rect="106,231,118,243"
+        >
+            <contents>35</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="86"
+            rect="106,136,118,148"
+        >
+            <contents>40</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="87"
+            rect="500,877,512,889"
+        >
+            <contents>1</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="87"
+            rect="500,801,512,813"
+        >
+            <contents>5</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="87"
+            rect="500,706,512,718"
+        >
+            <contents>10</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="87"
+            rect="500,611,512,623"
+        >
+            <contents>15</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="87"
+            rect="500,516,512,528"
+        >
+            <contents>20</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="87"
+            rect="500,421,512,433"
+        >
+            <contents>25</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="87"
+            rect="500,326,512,338"
+        >
+            <contents>30</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="87"
+            rect="500,231,512,243"
+        >
+            <contents>35</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="87"
+            rect="500,136,512,148"
+        >
+            <contents>40</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="88"
+            rect="106,877,118,889"
+        >
+            <contents>1</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="88"
+            rect="106,801,118,813"
+        >
+            <contents>5</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="88"
+            rect="106,706,118,718"
+        >
+            <contents>10</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="88"
+            rect="106,611,118,623"
+        >
+            <contents>15</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="88"
+            rect="106,516,118,528"
+        >
+            <contents>20</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="88"
+            rect="106,421,118,433"
+        >
+            <contents>25</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="88"
+            rect="106,326,118,338"
+        >
+            <contents>30</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="88"
+            rect="106,231,118,243"
+        >
+            <contents>35</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="88"
+            rect="106,136,118,148"
+        >
+            <contents>40</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="89"
+            rect="500,877,512,889"
+        >
+            <contents>1</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="89"
+            rect="500,801,512,813"
+        >
+            <contents>5</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="89"
+            rect="500,706,512,718"
+        >
+            <contents>10</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="89"
+            rect="500,611,512,623"
+        >
+            <contents>15</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="89"
+            rect="500,516,512,528"
+        >
+            <contents>20</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="89"
+            rect="500,421,512,433"
+        >
+            <contents>25</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="89"
+            rect="500,326,512,338"
+        >
+            <contents>30</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="89"
+            rect="500,231,512,243"
+        >
+            <contents>35</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="89"
+            rect="500,136,512,148"
+        >
+            <contents>40</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="90"
+            rect="106,877,118,889"
+        >
+            <contents>1</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="90"
+            rect="106,801,118,813"
+        >
+            <contents>5</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="90"
+            rect="106,706,118,718"
+        >
+            <contents>10</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="90"
+            rect="106,611,118,623"
+        >
+            <contents>15</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="90"
+            rect="106,516,118,528"
+        >
+            <contents>20</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="90"
+            rect="106,421,118,433"
+        >
+            <contents>25</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="90"
+            rect="106,326,118,338"
+        >
+            <contents>30</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="90"
+            rect="106,231,118,243"
+        >
+            <contents>35</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+        <freetext width="0"
+            flags="print"
+            justification="right"
+            page="90"
+            rect="106,136,118,148"
+        >
+            <contents>40</contents>
+            <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+        </freetext>
+    </annots>
+    <f href="../Documents/work/Temp/1629-Geneva-1(orig)-Opus_de_emendatione_temporum_hac_postrem copy.pdf"/>
+    <ids original="27E63E7C58902FD49EF0C376902BEEA7"
+         modified="27E63E7C58902FD49EF0C376902BEEA7"/>
+</xfdf>
