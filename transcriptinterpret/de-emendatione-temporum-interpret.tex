@@ -68,7 +68,7 @@
 \newcommand\astro[1]{{\astrofont #1}}
 
 %%% Add a font for the references to line numbers in the original
-\newfontfamily\nrfont{Arial Unicode MS}
+\newfontfamily\nrfont{Helvetica}
 
 %%% Dummy Command to make header of any size
 %% use: head{<scalesize>}{<spacing>}{<text>}
@@ -124,11 +124,13 @@
 %% Example:
 %%  "(II:2) Iam quemadmodum Epochae sunt notationes, ..."
 
-%% Command \ln{number} to show the line number
-\newcommand{\lnr}[1]{{\nrfont({#1}) }}
+%% Command \ln{number} to show the line number, followed by a
+%% non-breaking space.
+\newcommand{\lnr}[1]{{\nrfont({#1})~}}
 
-%% Command \pln{page,number} to show the page and the line number
-\newcommand{\plnr}[2]{{\nrfont({#1}:{#2}) }}
+%% Command \pln{page,number} to show the page and the line number,
+%% followed by a non-breaking space.
+\newcommand{\plnr}[2]{{\nrfont({#1}:{#2})~}}
 
 %% Register the current page number (dummy for now)
 \newcommand{\pnr}[1]{}
