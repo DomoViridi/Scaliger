@@ -15,3 +15,6 @@ log.err
 
 # Files produced by TexShop
 *.synctex.gz
+
+# Files for the internal configuration of Xcode projects
+*.xcodeproj/
