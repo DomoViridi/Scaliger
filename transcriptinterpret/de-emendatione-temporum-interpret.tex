@@ -120,22 +120,39 @@
 %%  "(7) Sed longe aliter animatos experti sumus ..."
 %% In the litteral transcription we can leave these numbers out. Example:
 %%  "Sed longe aliter animatos experti sumus ..."
-%% We might, for clarity, add the page number to the first sentence on a page.
+%% For clarity we add the page number to the first sentence on a page.
 %% Example:
 %%  "(II:2) Iam quemadmodum Epochae sunt notationes, ..."
+%% (page numbers in Roman for the Prolegomena, arabic for the rest)
+
+%% Counter to contain the source page number, as written on the page of the book
+\newcounter{sourcepagenr}
+
+%% Counter to contain the PDF page number
+\newcounter{pdfpagenr}
 
 %% Command \ln{number} to show the line number, followed by a
 %% non-breaking space.
 \newcommand{\lnr}[1]{{\nrfont({#1})~}}
 
-%% Command \pln{page,number} to show the page and the line number,
+%% Command \plnr{PDFpage]{page}{linenumber}
+%% Register and the PDF page number and the source page number
+%% Show the source page number and the line number,
 %% followed by a non-breaking space.
-\newcommand{\plnr}[2]{{\nrfont({#1}:{#2})~}}
+\newcommand{\plnr}[3]{%
+	\setcounter{pdfpagenr}{{#1}}%
+	\setcounter{sourcepagenr}{{#2}}%
+	{\nrfont(\arabic{sourcepagenr}:{{#3}})~}%
+}
 
-%% Register the current page number (dummy for now)
-\newcommand{\pnr}[1]{}
+%% Command \Rplnr{PDFpage]{page}{linenumber}
+%% Same as \plnr{}{}{}, but printing the page as a Roman number
+\newcommand{\Rplnr}[3]{%
+	\setcounter{pdfpagenr}{{#1}}%
+	\setcounter{sourcepagenr}{{#2}}%
+	{\nrfont(\Roman{sourcepagenr}:{{#3}})~}%
+}
 
-%% (dummy)
 %% Our own cookup to put letters in the margin to indicate quarters of a
 %% page (A-D) as used in the original.
 %% Uses mparhack.
