@@ -35,7 +35,9 @@
 
 %%% Allow the text to flow around tables and figures.
 %% (Must load before bidi package, i.e. before polyglossia package)
-%\usepackage{wrapfig}
+% We might need this for chapters with actual figures (in contrast to just
+% dropcaps)
+\usepackage{wrapfig}
 
 \usepackage{fontspec} % Openfont specifications for XeTeX;
 % fontspec automatically loads xltxtra and xunicode, both of which are needed.
@@ -162,6 +164,10 @@
 \newcommand\mletter[1]{}
 
 %%% No drop caps (illuminated initial letters)
+%% Dummy commands that just print the text
+\newcommand\dropcap[3]{{#2}{#3}}
+\newcommand\dropcapQ[3]{{#2}{#3}}
+\newcommand\dropcapil[3]{{#2}{#3}}
 
 %%% Use polyglossia to handle multiple languages
 %% We have (at least): latin, polytonic greek, hebrew, arabic, persian
@@ -199,7 +205,7 @@
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/prolegomena}
+\includeonly{./tex/liber-primus}
 
 \begin{document}
 
