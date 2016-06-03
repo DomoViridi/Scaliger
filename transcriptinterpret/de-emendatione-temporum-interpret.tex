@@ -135,7 +135,7 @@
 
 %% Command \ln{number} to show the line number, followed by a
 %% non-breaking space.
-\newcommand{\lnr}[1]{{\nrfont({#1})~}}
+\newcommand{\lnr}[1]{\nrfont({#1})~\normalfont}
 
 %% Command \plnr{PDFpage]{page}{linenumber}
 %% Register and the PDF page number and the source page number
@@ -144,7 +144,7 @@
 \newcommand{\plnr}[3]{%
 	\setcounter{pdfpagenr}{{#1}}%
 	\setcounter{sourcepagenr}{{#2}}%
-	{\nrfont(\arabic{sourcepagenr}:{{#3}})~}%
+	\nrfont(\arabic{sourcepagenr}:{{#3}})~\normalfont%
 }
 
 %% Command \Rplnr{PDFpage]{page}{linenumber}
@@ -152,7 +152,7 @@
 \newcommand{\Rplnr}[3]{%
 	\setcounter{pdfpagenr}{{#1}}%
 	\setcounter{sourcepagenr}{{#2}}%
-	{\nrfont(\Roman{sourcepagenr}:{{#3}})~}%
+	\nrfont(\Roman{sourcepagenr}:{{#3}})~\normalfont%
 }
 
 %% Our own cookup to put letters in the margin to indicate quarters of a
