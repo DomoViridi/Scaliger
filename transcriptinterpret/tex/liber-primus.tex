@@ -471,6 +471,7 @@ nobis adductor constat.
 singulis, ut suo loco referetur.
 \lnr{34}Sunt et secundum hebdomadas
 ut infra subiecimus.
+% Insert table
 \input{./tables/dies_hebdomadis}
 
 % 8
@@ -481,13 +482,13 @@ non sequatur dies Iovis, sed dies Solis, haec caussa est.
 % Diagram: circle with heptagram, with planets at the points:
 % Moon ☾, mercury ☿, venus ♀, sun ☉,
 % mars ♂, jupiter ♃, saturn ♄
-%\begin{wrapfigure}[9]{r}{10\baselineskip}
-\begin{wrapfigure}[9]{R}{9\baselineskip}
+\begin{figure}[h]
   \centering
   \def\svgwidth{9\baselineskip}
   {\astrofont\input{./img/planets.pdf_tex}}
-\end{wrapfigure}
-
+%  \caption{Septem Planetae}
+  \label{fig:planetae}
+\end{figure}
 \lnr{3}Septem Planetae
 per circulum secumdum ordinem suum
 dispositae, aequabili intervallo constituunt septem
@@ -498,7 +499,6 @@ peripheriam septem errantes sunt secundum
 feriem suam sitae, constituentes triangula
 isoscele \astro{♄♀♃}, \astro{♃☿♂}, \astro{♂☽☉},
  \astro{☉♄♀}, \astro{♀♃☿}, \astro{☿♂☽}, \astro{☽☉♄}.
-
 \lnr{12}In quibus Triangulis dexter angulus ad basim
 est prima stella Trianguli, secunda in angulo ad verticem, tertia angulus
 sinister ad basim: ita ut omnis stella anguli dextri habeat oppositam
@@ -759,15 +759,12 @@ Germanicus pro Septembri, Domitianus pro Octobri.
 % "Idus Commodas Eliano consulibus"
 % tr: The ides of the month of Commodus Aelius, consul, i.e. the 13th of August
 %% ===
-\begin{wrapfigure}{R}{0.5\textwidth}
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.5\textwidth]{lapis_lavinii}
   \caption{Lapis Lavinii}
   \label{fig:lapis_lavinii}
-\end{wrapfigure}
-
-% Empty line (new paragraph) needed here to make sure the image is placed
-% here and the text flows around it. See Issue #1.
+\end{figure}
 \lnr{25}Martialis:
  \textit{Dum Ianus hiemes, Domitianus
 autumnos}, etc.
