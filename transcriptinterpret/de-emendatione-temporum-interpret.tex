@@ -45,13 +45,16 @@
 % xltxtra does not work.
 \usepackage{xltxtra}
 
+%%% Control the way page headers look
+%\userpackage{fancyheadings}
+%% Package needs to be downloaded specially
+
 %%% Main body text is in latin. We want:
 %% Modern typesetting
 %% The long s shown as 's'
 %% No ligatures
 %% No swishes, not on 'Q' nor on anything else
 %% Modern numbers
-
 \setmainfont{Hoefler Text}[
 ]
 
@@ -206,12 +209,31 @@
 \renewcommand{\contentsname}{Conspectus omnium capitum}
 % === Does not appear to work
 
+%%% Pre-define a string to use in the left-page header
+\newcommand{\shorttitle}{De Emendatione Temporum}
+%%% Same for right-page header
+\newcommand{\shortauthor}{Iosephi Scaligeri}
+
+%%% Command to set the headers at the start of a new chapter
+%% Put them in small caps
+%% Center them using \hfill{}
+\newcommand{\setheaders}[2]{%
+\markboth{\sc{\hfill{}#1\hfill}}%
+         {\sc{\hfill{}#2\hfill}}%
+}
+
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/liber-primus}
+\includeonly{./tex/prolegomena,./tex/liber-primus}
 
 \begin{document}
+
+%% Top matter
+\title{De Emendatione Temporum}
+\author{Julius J. Scaliger}
+\pagestyle{myheadings}
+\setheaders{}{}
 
 %% Source file for testing. Comment out when not testing
 %% Does not need to be mentioned in the above \includeonly{}
@@ -222,6 +244,9 @@
 \include{./tex/dedication}
 \include{./tex/greek-quotes}
 \include{./tex/prolegomena}
+
+% Clear our self-defined headers
+\setheaders{}{}
 
 %% ToC generation gives obscure errors; solution: delete the .aux files
 %% and re-compile (twice)
