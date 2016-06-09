@@ -293,6 +293,12 @@ make links to the original PDF file.
  as page numbers, such as the Prolegomena.
 \end{itemize}
 
+Note: \emph{Do not put spaces or newlines between these commands and the
+text that follows!} That would put an extra space in the output after the no-break-space that is programmed into the command. The text should always follow
+directly after the command. Correct example:\begin{quote}
+\verb+\lnr{23}Lore ipsum dolor savit+
+\end{quote}
+
 %---
 \section{General guidelines for the \XeLaTeX code}
 The following guidelines are intended to make it easier to compare the
