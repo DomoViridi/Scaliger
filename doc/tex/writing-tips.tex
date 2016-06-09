@@ -80,8 +80,9 @@ In this stage we create a document which has the same text as the original,
 but in a modern script.
 This document should be easy to read for the modern reader who knows
 Latin and Greek.
+
 \begin{itemize}
-\item All ligatures are expanded (e.g. æ to ae).
+\item All ligatures and diacriticals are expanded (e.g. æ to ae).
 \item Long s is replaced with modern s.
 \item Abbreviated words (e.g. \verb+quoq;+) are written in full (\verb+quoque+).
 \item Interpunction is done in modern style, and more consistent.
@@ -89,20 +90,30 @@ Latin and Greek.
 We will start each sentence with a capitalised word.
 \item All Greek phrases will be rendered using modern polytonic Greek
 script with Unicode encoding.
-This has about 49 base glyphs (24 upper case, 24 normal lower case
-plus the word-final sigma) and about 233 extra glyps for
-the polytonic diacriticals and iota subscripts.
-The original uses a Byzantine Minuskel script which has about 1500 glyphs.
-\item Text will be divided into paragraphs to the best of our insights.
-\item Headers and footers will be generated in a modern style.
 \end{itemize}
-Extra features are added:
+
+\subsection{Line number references}
+To correlate this transcript to the original, the lines
+in the original PDF will be numbered.
+The numbers will start with 1 on each page, and this and every 5th line
+will be marked with its number in the margin.
+
+In the transcript each beginning of a line will be marked with that number
+in parentheses. The first sentence on each page will also give the page
+number in that mark.
+
+As a result each line in the transcript can easily be found in the original,
+and vice versa.
+
+\subsection{Extra features}
+Features will be added that are not in the original text.
 \begin{itemize}
-\item Text will be divided into paragraphs to the best of our insights.
-\item Table of Contents, Index, Glossary and Bibliography are generated
+\item The text will be divided into paragraphs to the best of our insights.
+\item Headers and footers will be generated in a modern style.
+\item Table of Contents, Index, Glossary and Bibliography will be generated
 automatically.
-\item List of Tables and List of Figures added.
-\item Lots of annotations to clarify the text.
+\item List of Tables and List of Figures will be added.
+\item Lots of annotations will be added to clarify the text.
 For example: Scaligeri habitually quotes classics without giving a reference.
 We will add:
     \begin{itemize}
@@ -113,18 +124,9 @@ We will add:
     \end{itemize}
 \end{itemize}
 
-Before the fancy stuff, the initial big work will be the actual transcribing,
+Note that before we get to the fancy stuff, the initial big work will be
+ the actual transcribing,
 i.e. reading from the scanned original and typing in the Latin text.
-
-To correlate this transcript to the original, we intend to number the lines
-in the PDF of the original.
-The numbers will start with 1 on each page, and every 5th line will be marked
-with its number in the margin.
-In the transcript each beginning of a line will be marked with that number
-in parentheses.
-
-Study of how lines are commonly numbered in long transcribed documents
-will be required.
 
 %---
 \section{Litteral Transcription}
@@ -189,6 +191,187 @@ Sources kept on \texttt{GitHub}.
 
 %%=====
 \chapter{Interpreted transcription}
+\section{Textual cleanup}
+\begin{itemize}
+\item All ligatures are expanded
+	\begin{enumerate}
+	\item æ to ae
+	\item Æ to Ae (e.g. Aegyptica)
+	\end{enumerate}
+\item Long s is replaced with modern s. Tricky, as the long s looks almost
+exactly like an 'f'.
+\item Diacriticals will be expanded
+	\begin{itemize}
+	\item ā to am (sometimes an)
+	\item ō to on (sometimes om)
+	\item ē to en (sometimes em)
+	\item à (as a whole word) to ab
+	\item ë in poëta will be unchanged for now
+	\end{itemize}
+\item Abbreviated words (e.g. \verb+quoq;+) are written in full (\verb+quoque+).
+\item Interpunction is done in modern style, and more consistent.
+\item Often sentences starting with a \verb+q+ won't have this q capitalised.
+We will start each sentence with a capitalised word. Sometimes other initial
+letters won't have been capitalised either.
+\item All Greek phrases will be rendered using modern polytonic Greek
+script with Unicode encoding.
+This has about 49 base glyphs (24 upper case, 24 normal lower case
+plus the word-final sigma) and about 233 extra glyps for
+the polytonic diacriticals and iota subscripts.
+The original uses a Byzantine Minuskel script which has about 1500 glyphs.
+\end{itemize}
+
+\section{Special things to pay attention to}
+\begin{itemize}
+\item Numbers with fractions: Put a non-break space \verb+~+ between the number
+and the fraction, e.g. \verb+7~1/2+ to give 7~1/2.
+\item Reading the interpunction can be very tricky where numbers are involved.
+Often there will be a period after an arabic or roman number, while the
+construction of the phrases suggest that it is not intended as the end of 
+the sentence. E.g. Liber Primus, p 17, line 10 and further.
+\end{itemize}
+
+\section{Extra features to be added}
+\begin{itemize}
+\item Text will be divided into paragraphs to the best of our insights.
+\item Headers and footers will be generated in a modern style.
+\item Table of Contents, Index, Glossary and Bibliography are generated
+automatically.
+\item List of Tables and List of Figures added.
+\item Lots of annotations to clarify the text.
+For example: Scaligeri habitually quotes classics without giving a reference.
+We will add:
+    \begin{itemize}
+    \item The exact reference (Author, title of the work, section/page/verse)
+    \item If possible a link to an on-line version.
+    \item If misquoted, the actual quote.
+    \item An explanation why this quote is appropriate.
+    \end{itemize}
+\end{itemize}
+
+\section{Line number references}
+To correlate this transcript to the original,  the lines
+in the PDF of the original will be numbered.
+The numbers will start with 1 on each page, and every 5th line will be marked
+with its number in the margin.
+In the transcript each beginning of a line will be marked with that number
+in parentheses.
+
+Study of how lines are commonly numbered in long transcribed documents
+will be required.
+
+The line numbers in the PDF will have the form of annotations. To save work
+a program has been developed to automaticaly generate the numbers in roughly
+the correct position for sets of pages. Note that the original has over 900
+pages of text, and each page requires 9 notes (sometimes less), requiring
+about 8100 notes to be generated.
+
+Doing this by hand in a PDF reading program (like Acrobat Reader or OSX Preview)
+would be tedious, especialy since these programs become extremely slow when
+trying to handle annotations.
+
+\subsection{Commands for line numbers}
+Commands were created to add the line- and pagenumbers:
+\begin{itemize}
+\item \verb+\lnr{<line number>}+ to add the line number to the beginning of
+a sentence.
+\item \verb+\plnr{<PDF page>}{<page nr>}{<line nr>}+ to use at the beginning of the first sentence on a new page in the source. Parameters are:
+\begin{enumerate}
+\item The PDF page number of the page in this particular scan of this particular
+copy of this particular edition of the book.
+This value is only used internally for now. Intended to be used to
+make links to the original PDF file.
+\item The page number as shown on the page. This will be printed in the output.
+\item The line number in the original where de sentence starts.
+\end{enumerate}
+\item \verb+\Rplnr{<PDF page>}{<page nr>}{<line nr>}+. This is the same as the
+ \verb+\plnr+ command, except that the page number will be printed as a roman
+ numeral rather than an arabic number. Used for chapters that use roman numerals
+ as page numbers, such as the Prolegomena.
+\end{itemize}
+
+\section{General guidelines for the \XeLaTeX code}
+The following guidelines are intended to make it easier to compare the
+tex file to the original.
+\begin{itemize}
+\item A new sentence in the original should start at a new line in the tex file.
+\item The first word on a line in the original should be at the start of a line
+in the tex file.
+\item No line in the tex file should be longer than 80 characters.
+\item If the above rules are followed, sometimes a tex line will come out
+longer than 80 characters. In that case, split the line in two (or more),
+where each extra line is indented by one space.
+\end{itemize}
+Note that \LaTeX treats a new line as if it is a space. This means that
+breaking up a line in the tex file will not affect the outcome.
+A new paragraph is marked by a double newline (i.e. an empty line) in the
+tex file.
+
+\subsection{Wrapping text around figures}
+Attempts to use \verb+wrapfigure+ to make the text flow around figures were
+more trouble then its worth. In particular, the text would not start to
+flow until a new paragraph is started. Because we seldom start a new paragraph,
+we would have to start a paragraph on purpose (causing an indent) just for the
+wrapping. We will simply put the figures on their own, without wrapping.
+
+\section{Specific issues per chapter}
+\subsection{Prolegomena}
+\begin{itemize}
+\item
+The pages are numbered with roman numerals rather than arabic numbers.
+The \verb+\Rplnr{}{}{}+ command
+was created to print the page numbers in roman numerals in the text.
+\item
+The Prolegomena in the original is basicaly a fifty page wall of text. Some attempts have been made to find places where the text changes the subject and insert a new paragraph there, but further work is needed. We may want to
+introduce sections or subsections. See Issue \#12.
+\end{itemize}
+
+\subsection{Liber Primus}
+\begin{itemize}
+\item
+There is frequent use of "à" as a word. After some consideration this
+is transcribed as the word "ab". Each occurence is marked in comment.
+\item
+The word "scrupulus" (Lit: "small pebble"; also: 1/24 of an ounce)
+is often abbreviated. To expand these, the proper
+declination must be determined in each case. See Issue \#2 on GitHub.
+\item
+Wrapping text around figures turned out to be impractical. We now will
+simply use a floating object for figures and tables.
+\item
+The tables imported from the litteral transcription can be simplified
+a lot, because we no longer need to immitate the original. E.g. the headers
+for the Ostenta/Sexagesima conversion tables (Table 1.1) can now be written
+as a simple line of text.
+\item
+For the same tables: the text in it can be a lot bigger, as the tables
+will now appear on a separate page anyway.
+\item
+To fine-tune the placement of tables and figures it turned out to be
+neccesary to move the location where they are defined slightly foreward or
+backward in the tex file. To make this easier, we put the code for tables
+ (and some figures) in separate files.
+This way we don't have to cut and paste large pieces of code if we want to
+move the definition of the table or figure. We now only have to move the
+\verb+\include{}+ command.
+\item
+All tables and figures will be given a caption and a label, so they can
+appear in a List of Tables/Figures, and can be referred to from within the
+text.
+\item
+The \verb+\begin{blockquote}...\end{blockquote}+ command has shown to be
+very useful to represent multi-line Greek quotes, e.g. p. 4, line 21.
+\item
+The word "poëta/poëtae" is used on page 4, lines 7 and 14. We are not sure
+what to do with the trema.
+\item
+The image on page 11 (Figure 1.1: Lapis Levinii). We made a cleaned-up copy
+from an enlarged PDF page by editing nearly at the pixel level. It looks like
+Scaliger had an representation made for his book using typeset letters.
+E.g. the text "A latere dextro saxi" is obviously not on the stone itself.
+There is no indication
+of how he knew what the original looked like.
+\end{itemize}
 
 %%=====
 \chapter{Litteral transcription}
