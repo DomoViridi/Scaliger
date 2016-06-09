@@ -206,7 +206,7 @@ exactly like an 'f'.
 	\item ō to on (sometimes om)
 	\item ē to en (sometimes em)
 	\item à (as a whole word) to ab
-	\item ë in poëta will be unchanged for now
+	\item ë in poëta (p4,7) or Laërtius (p23,36) will be unchanged for now
 	\end{itemize}
 \item Abbreviated words (e.g. \verb+quoq;+) are written in full (\verb+quoque+).
 \item Interpunction is done in modern style, and more consistent.
@@ -221,6 +221,7 @@ the polytonic diacriticals and iota subscripts.
 The original uses a Byzantine Minuskel script which has about 1500 glyphs.
 \end{itemize}
 
+%---
 \section{Special things to pay attention to}
 \begin{itemize}
 \item Numbers with fractions: Put a non-break space \verb+~+ between the number
@@ -231,6 +232,7 @@ construction of the phrases suggest that it is not intended as the end of
 the sentence. E.g. Liber Primus, p 17, line 10 and further.
 \end{itemize}
 
+%---
 \section{Extra features to be added}
 \begin{itemize}
 \item Text will be divided into paragraphs to the best of our insights.
@@ -249,6 +251,7 @@ We will add:
     \end{itemize}
 \end{itemize}
 
+%---
 \section{Line number references}
 To correlate this transcript to the original,  the lines
 in the PDF of the original will be numbered.
@@ -290,6 +293,7 @@ make links to the original PDF file.
  as page numbers, such as the Prolegomena.
 \end{itemize}
 
+%---
 \section{General guidelines for the \XeLaTeX code}
 The following guidelines are intended to make it easier to compare the
 tex file to the original.
@@ -298,14 +302,23 @@ tex file to the original.
 \item The first word on a line in the original should be at the start of a line
 in the tex file.
 \item No line in the tex file should be longer than 80 characters.
-\item If the above rules are followed, sometimes a tex line will come out
-longer than 80 characters. In that case, split the line in two (or more),
+\item If the first two rules are followed, sometimes a tex line will come out
+longer than 80 characters. In that case, split the line in two or more,
 where each extra line is indented by one space.
 \end{itemize}
-Note that \LaTeX treats a new line as if it is a space. This means that
+Note that \LaTeX treats a single newline as if it is a space. This means that
 breaking up a line in the tex file will not affect the outcome.
 A new paragraph is marked by a double newline (i.e. an empty line) in the
 tex file.
+
+The effect of these guidelines is that a non-indented new line
+in the tex file corresponds
+to either:
+\begin{itemize}
+\item The beginning of a sentence (marked with a \verb+\lnr{}+ command or
+its siblings)
+\item The first word of a line in the source text.
+\end{itemize}
 
 \subsection{Wrapping text around figures}
 Attempts to use \verb+wrapfigure+ to make the text flow around figures were
@@ -314,6 +327,7 @@ flow until a new paragraph is started. Because we seldom start a new paragraph,
 we would have to start a paragraph on purpose (causing an indent) just for the
 wrapping. We will simply put the figures on their own, without wrapping.
 
+%---
 \section{Specific issues per chapter}
 \subsection{Prolegomena}
 \begin{itemize}
@@ -359,7 +373,7 @@ All tables and figures will be given a caption and a label, so they can
 appear in a List of Tables/Figures, and can be referred to from within the
 text.
 \item
-The \verb+\begin{blockquote}...\end{blockquote}+ command has shown to be
+The \verb+\begin{quote}...\end{quote}+ command has shown to be
 very useful to represent multi-line Greek quotes, e.g. p. 4, line 21.
 \item
 The word "poëta/poëtae" is used on page 4, lines 7 and 14. We are not sure
@@ -371,6 +385,14 @@ Scaliger had an representation made for his book using typeset letters.
 E.g. the text "A latere dextro saxi" is obviously not on the stone itself.
 There is no indication
 of how he knew what the original looked like.
+\item
+Abbreviations:
+\begin{description}
+\item[scrup.]See above at "scrupulus".
+\item[Odyss.]For some declination of "Odysius" (by Homer). p4. ln 21.
+\item[Kal.]As in "Kalends Septembris" or somesuch.
+\end{description}
+
 \end{itemize}
 
 %%=====
