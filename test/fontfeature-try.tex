@@ -1,0 +1,84 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% this template is specifically designed to be typeset with XeLaTeX;
+% it will not work with other engines, such as pdfLaTeX
+
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+%% use [draft] for a draft version with boxes instead of images
+%% Paper size: a4paper (modern size) or legalpaper (close to original)
+%% Original size = 217.6 x 338.3 mm
+%% Legal size    = 215.9 x 355.6 mm
+\documentclass[12pt,twoside,a4paper]{book}
+
+%%% Geometry package to make the margins better match the original
+%% use [showframe] to show the frames
+%\usepackage[top=18mm, bottom=55mm, inner=24mm, outer=38mm]{geometry}
+
+%%% Allow generation of pseudo-latin body text for testing
+%% Optional parameter [x-y] where x and y are numbers: generate paragraph
+%% number x through y (150 paragraphs available).
+%\usepackage{lipsum}
+
+%%% Array package so we can use m{'width'} and adjust the row spacing in tables
+\usepackage{array}
+
+
+\usepackage{fontspec} % Openfont specifications for XeTeX;
+% fontspec automatically loads xltxtra and xunicode, both of which are needed.
+% Though using \vfrac{}{} (part of xltxtra) without explicit loading of
+% xltxtra does not work.
+\usepackage{xltxtra}
+
+%%% Main body text is in latin. We want:
+%% Modern typesetting
+%% The long s shown as 's'
+%% No ligatures
+%% No swishes, not on 'Q' nor on anything else
+%% Modern numbers
+\setmainfont{Hoefler Text}[
+]
+
+%%% Add a font that supports Greek
+\newfontface\greekfont{Arial Unicode MS}
+
+%%% Fart about with the RGreekL2 font
+\newfontfamily\G{Rgreekl2}
+
+%%% Use polyglossia to handle multiple languages
+%% We have (at least): latin, polytonic greek, hebrew, arabic, persian
+%% (Contains bidi package, and must be loaded *after*:
+%%  wrapfig, lettrine)
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\setotherlanguage{hebrew}
+\setotherlanguage{arabic}
+\setotherlanguage{english}
+
+%% Prevent text from going outside the margins, by making
+%% the word spacing sloppy
+\sloppy
+
+%%% Tell XeTeX where to look for graphics files
+%% Note: all file paths are relative to the root document, i.e.
+%% the tex file that is passed as an argument to the compiler.
+%% In other words: this file.
+\graphicspath{{./img/}}
+
+
+%%%========================================================%%%
+
+
+\begin{document}
+
+\mainmatter
+Just some standard text
+
+\G ABCDEFG abcdefg
+
+\XeTeXglyph 544
+
+\end{document}
