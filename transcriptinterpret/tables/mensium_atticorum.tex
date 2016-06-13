@@ -1,0 +1,59 @@
+%%% Liber I p33
+%% Table more horizontally spread out to make it look better without
+%% text wrapping.
+%
+%% Names copied from Wikipedia: Attic calendar
+%% then modified to match the original
+%% - declension of quarter names θέρος -> θΕΡΙΝΟΙ
+%% - no accents on the capitals
+%% - Autumn: Φθινόπωρον -> ΟΠΩΡΙΝΟΙ
+%% - Μουνιχιών -> Μουνυχιών (ι -> υ)
+%% - Σκιροφοριών -> Σκιῤῥροφοριών (double ρ)
+%% Added numbers to ensure the reader knows the order of the months
+%%
+%% For testing, uncomment the folowing lines and the lines at the end of the file
+%% Test ==>
+%\documentclass{book}
+%\usepackage{fontspec}
+%\setmainfont{Hoefler Text}[]
+%\newfontfamily\greekfont{Arial Unicode MS}
+%\usepackage[quiet]{polyglossia}
+%\setmainlanguage{latin}
+%\setotherlanguage{greek}
+%\begin{document}
+%% <== Test
+%%
+%% Nested tables: two tables side-by-side, each containing two seasons
+\begin{tabular}{cc}
+\begin{tabular}{ c l }
+\multicolumn{2}{c}{\textgreek{ΘΕΡΙΝΟΙ ΜΗΝΕΣ}} \\
+1. &\textgreek{Εκατομβαιών} \\
+2. &\textgreek{Μεταγειτνιών} \\
+3. &\textgreek{Βοηδρομιών} \\
+%% empty line between the seasons
+~ & ~ \\
+%%
+\multicolumn{2}{c}{\textgreek{ΟΠΩΡΙΝΟΙ ΜΗΝΕΣ}} \\
+4. &\textgreek{Πυανεψιών} \\
+5. &\textgreek{Μαιμακτηριών} \\
+6. &\textgreek{Ποσειδεών} \\
+\end{tabular}
+%% next column
+&
+%%
+\begin{tabular}{ c l }
+\multicolumn{2}{c}{\textgreek{ΧΕΙΜΕΡΙΝΟΙ ΜΗΝΕΣ}} \\
+7. &\textgreek{Γαμηλιών} \\
+8. &\textgreek{Ανθεστηριών} \\
+9. &\textgreek{Ελαφηβολιών} \\
+%% empty line between the seasons
+~ & ~ \\
+%%
+\multicolumn{2}{c}{\textgreek{ΕΑΡΙΝΟΙ ΜΗΝΕΣ}} \\
+10. &\textgreek{Μουνυχιών} \\
+11. &\textgreek{Θαργηλιών} \\
+12. &\textgreek{Σκιῤῥοφοριών} \\
+\end{tabular}
+\end{tabular}
+%% Test ==>
+%\end{document}
