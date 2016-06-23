@@ -44,6 +44,37 @@
  r  r  r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l
 r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 }
+% Oddly, the folowing row is rendered *shorter* than the rest of the table
+%‡ & 88 & 33&Aug & 33&Aug & 33&Oct & 33&Nov & 33&Nov & 33&Dec &
+% 8&Ian & 33&Feb & 33&Mar & 33&Mar & 33&Apr & 33&Mai & 33&Iun & 88
+%\\
+\caption{Tabula neomeniarum Atticarum in mensibus Iulianis}\\
+~ &
+\begin{rotate}{75}Anni periodi\end{rotate} &
+
+\begin{rotate}{75}\textgreek{Εκατομβαιών}\end{rotate} & &
+\begin{rotate}{75}\textgreek{Μεταγειτνιών}\end{rotate} & &
+\begin{rotate}{75}\textgreek{Βοηδρομιών}\end{rotate} & &
+
+\begin{rotate}{75}\textgreek{Πυανεψιών}\end{rotate} & &
+\begin{rotate}{75}\textgreek{Μαιμακτηριών}\end{rotate} & &
+\begin{rotate}{75}\textgreek{Ποσειδεών α}\end{rotate} & &
+
+\begin{rotate}{75}\textgreek{Ποσειδεών β}\end{rotate} & &
+
+\begin{rotate}{75}\textgreek{Γαμηλιών}\end{rotate} & &
+\begin{rotate}{75}\textgreek{Ανθεστηριών}\end{rotate} & &
+\begin{rotate}{75}\textgreek{Ελαφηβολιών}\end{rotate} & &
+
+\begin{rotate}{75}\textgreek{Μουνυχιών}\end{rotate} & &
+\begin{rotate}{75}\textgreek{Θαργηλιών}\end{rotate} & &
+\begin{rotate}{75}\textgreek{Σκιῤῥοφοριών}\end{rotate} & &
+
+\multicolumn{2}{l}{\begin{turn}{75}\textgreek{περιτταὶ ἡμέραι}\end{turn}}
+\\
+\cline{2-29}
+\endfirsthead
+\caption*{Residuum tabulae neomeniarum Atticarum in mensibus Iulianis}\\
 ~ &
 \begin{rotate}{75}Anni periodi\end{rotate} &
 
@@ -70,26 +101,21 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \cline{2-29}
 \endhead
 \\
-  & & & \multicolumn{11}{l}{† \textgreek{ἐξαιρ.}}
-& & & & \multicolumn{11}{l}{‡ \textgreek{δισεξαιρεσιμαῖος [?]}} \\
-\caption{Tabula neomeniarum Atticarum in mensibus Iulianis}
+  & & & \multicolumn{11}{l}{† \textgreek{ἐξαιρεσίμαίων [?]}}
+& & & & \multicolumn{11}{l}{‡ \textgreek{δισέξαιρεσιμαίων [?]}}
 \endfoot
-\\
-  & & & \multicolumn{11}{l}{† \textgreek{ἐξαιρ.}}
-& & & & \multicolumn{11}{l}{‡ \textgreek{δισεξαιρεσιμαῖος [?]}} \\
-\caption*{Residuum tabulae neomeniarum Atticarum in mensibus Iulianis}
-\endlastfoot
   &  1 &  9&Iul &  8&Aug &  7&Sep &  7&Oct &  6&Nov &  6&Dec & 
  5&Ian &  6&Feb &  8&Mar &  7&Apr &  7&Mai &  6&Iun &  6&Iul &  0 \\
 \nopagebreak
 ~ &  2 &  5&Aug &  4&Sep &  5&Oct &  3&Nov &  3&Dec &  2&Ian &
-  &    &  2&Feb &  5&Mar &  4&Apr &  4&Mai &  3&Iun &  3&Iul & 27 \\
+  &    &  3&Feb &  5&Mar &  4&Apr &  4&Mai &  3&Iun &  3&Iul & 27 \\
 \nopagebreak
 ~ &  3 &  2&Aug &  1&Sep &  1&Oct & 31&Oct & 30&Nov & 30&Dec &
   &    & 31&Ian &  1&Mar & 31&Mar & 30&Apr & 30&Mai & 29&Iun & 24 \\
 \nopagebreak
 ‡ &  4 & 29&Iul & 28&Aug & 27&Sep & 25&Oct & 24&Nov & 24&Dec &
   &    & 25&Ian & 24&Feb & 26&Mar & 25&Apr & 25&Mai & 24&Iun & 20 \\
+\nopagebreak
 \cline{2-29}
 ~ &  5 & 24&Iul & 23&Aug & 22&Sep & 22&Oct & 21&Nov & 21&Dec & 
   &    & 22&Ian & 21&Feb & 23&Mar & 22&Apr & 22&Mai & 21&Iun & 15 \\
@@ -102,6 +128,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † &  8 & 14&Iul & 13&Aug & 12&Sep & 11&Oct & 10&Nov & 10&Dec &
   &    & 11&Ian & 10&Feb & 12&Mar & 11&Apr & 11&Mai & 10&Iun &  5 \\
+\nopagebreak
 \cline{2-29}
 ~ &  9 & 10&Iul &  9&Aug &  8&Sep &  8&Oct &  7&Nov &  7&Dec &
  6&Ian &  5&Feb &  7&Mar &  6&Apr &  6&Mai &  5&Iun &  5&Iul &  1 \\
@@ -114,6 +141,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 12 & 30&Iul & 29&Aug & 28&Sep & 27&Oct & 26&Nov & 26&Dec &
   &    & 27&Ian & 26&Feb & 28&Mar & 27&Apr & 27&Mai & 26&Iun & 21 \\
+\nopagebreak
 \cline{2-29}
 ~ & 13 & 26&Iul & 25&Aug & 24&Sep & 24&Oct & 23&Nov & 23&Dec &
   &    & 24&Ian & 23&Feb & 25&Mar & 24&Apr & 24&Mai & 23&Iun & 17 \\
@@ -126,6 +154,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 16 & 16&Iul & 15&Aug & 14&Sep & 13&Oct & 12&Nov & 12&Dec &
   &    & 13&Ian & 12&Feb & 14&Mar & 13&Apr & 13&Mai & 12&Iun &  7 \\
+\nopagebreak
 \cline{2-29}
 ~ & 17 & 12&Iul & 11&Aug & 10&Sep & 10&Oct &  9&Nov &  9&Dec &
   &    & 10&Ian &  9&Feb & 11&Mar & 10&Apr & 10&Mai &  9&Iun &  3 \\
@@ -138,6 +167,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 ‡ & 20 &  1&Aug & 31&Aug & 30&Sep & 28&Oct & 27&Nov & 27&Dec &
   &    & 28&Ian & 27&Feb & 29&Mar & 28&Apr & 28&Mai & 27&Iun & 23 \\
+\nopagebreak
 \cline{2-29}
 ~ & 21 & 27&Iul & 26&Aug & 25&Sep & 25&Oct & 24&Nov & 24&Dec &
   &    & 25&Ian & 24&Feb & 26&Mar & 25&Apr & 25&Mai & 24&Iun & 18 \\
@@ -150,6 +180,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 24 & 17&Iul & 16&Aug & 15&Sep & 14&Oct & 13&Nov & 13&Dec &
   &    & 14&Ian & 13&Feb & 15&Mar & 14&Apr & 14&Mai & 13&Iun &  8 \\
+\nopagebreak
 \cline{2-29}
 ~ & 25 & 13&Iul & 12&Aug & 11&Sep & 11&Oct & 10&Nov & 10&Dec &
   &    & 11&Ian & 10&Feb & 12&Mar & 11&Apr & 11&Mai & 10&Iun &  4 \\
@@ -162,6 +193,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 28 &  2&Aug &  1&Sep &  1&Oct & 30&Oct & 29&Nov & 29&Dec &
   &    & 30&Ian &  1&Mar & 31&Mar & 30&Apr & 30&Mai & 29&Iun & 24 \\
+\nopagebreak
 \cline{2-29}
 ~ & 29 & 29&Iul & 28&Aug & 27&Sep & 27&Oct & 26&Nov & 26&Dec &
   &    & 27&Ian & 26&Feb & 28&Mar & 27&Apr & 27&Mai & 26&Iun & 20 \\
@@ -174,6 +206,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 32 & 19&Iul & 18&Aug & 17&Sep & 16&Oct & 15&Nov & 15&Dec &
   &    & 16&Ian & 15&Feb & 17&Mar & 16&Apr & 16&Mai & 15&Iun & 10 \\
+\nopagebreak
 \cline{2-29}
 ~ & 33 & 15&Iul & 14&Aug & 13&Sep & 13&Oct & 12&Nov & 12&Dec &
   &    & 13&Ian & 12&Feb & 14&Mar & 13&Apr & 13&Mai & 12&Iun &  6 \\
@@ -186,6 +219,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 36 &  4&Aug &  3&Sep &  3&Oct &  1&Nov &  1&Dec & 31&Dec &
   &    &  1&Feb &  3&Mar &  2&Apr &  2&Mai &  1&Iun &  1&Iul & 26 \\
+\nopagebreak
 \cline{2-29}
 ~ & 37 & 31&Iul & 30&Aug & 29&Sep & 29&Oct & 28&Nov & 28&Dec &
   &    & 29&Ian & 28&Feb & 30&Mar & 29&Apr & 29&Mai & 28&Iun & 22 \\
@@ -198,6 +232,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 ‡ & 40 & 21&Iul & 20&Aug & 19&Sep & 17&Oct & 16&Nov & 16&Dec &
   &    & 17&Ian & 16&Feb & 18&Mar & 17&Apr & 17&Mai & 16&Iun & 12 \\
+\nopagebreak
 \cline{2-29}
 ~ & 41 & 16&Iul & 15&Aug & 14&Sep & 14&Oct & 13&Nov & 13&Dec &
   &    & 14&Ian & 13&Feb & 15&Mar & 14&Apr & 14&Mai & 13&Iun &  7 \\
@@ -208,8 +243,9 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 43 & 10&Iul &  9&Aug &  8&Sep &  8&Oct &  7&Nov &  7&Dec &
  6&Ian &  7&Feb &  8&Mar &  7&Apr &  7&Mai &  6&Iun &  6&Iul &  1 \\
 \nopagebreak
-‡ & 44 &  5&Aug &  4&Sep &  4&Oct &  2&Nov &  2&Dec &  1&Ian &
+† & 44 &  5&Aug &  4&Sep &  4&Oct &  2&Nov &  2&Dec &  1&Ian &
   &    &  2&Feb &  4&Mar &  3&Apr &  3&Mai &  2&Iun &  2&Iul & 25 \\
+\nopagebreak
 \cline{2-29}
 ~ & 45 &  1&Aug & 31&Aug & 30&Sep & 30&Oct & 29&Nov & 29&Dec &
   &    & 30&Ian &  1&Mar & 31&Mar & 30&Apr & 30&Mai & 29&Iun & 23 \\
@@ -222,6 +258,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 48 & 22&Iul & 21&Aug & 20&Sep & 19&Oct & 18&Nov & 18&Dec &
   &    & 19&Ian & 18&Feb & 20&Mar & 19&Apr & 19&Mai & 18&Iun & 13 \\
+\nopagebreak
 \cline{2-29}
 ~ & 49 & 18&Iul & 17&Aug & 16&Sep & 16&Oct & 15&Nov & 15&Dec &
   &    & 16&Ian & 15&Feb & 17&Mar & 16&Apr & 16&Mai & 15&Iun &  9 \\
@@ -234,9 +271,10 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 52 &  7&Aug &  6&Sep &  6&Oct &  4&Nov &  4&Dec &  3&Jan &
   &    &  4&Feb &  6&Mar &  5&Apr &  5&Mai &  4&Iun &  4&Iul & 29 \\
+\nopagebreak
 \cline{2-29}
 ~ & 53 &  3&Aug &  2&Sep &  2&Oct &  1&Nov &  1&Dec &
- 31&Dec\footnote{Erratum in originalis: Ian} &
+ 31&Dec\footnote{Erratum in originalis: Ian.} &
   &    &  1&Feb &  3&Mar &  2&Apr &  2&Mai &  1&Iun &  1&Iul & 25 \\
 \nopagebreak
 ~ & 54 & 31&Iul & 30&Aug & 29&Sep & 29&Oct & 28&Nov & 28&Dec &
@@ -247,6 +285,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 56 & 24&Iul & 23&Aug & 22&Sep & 21&Oct & 20&Nov & 20&Dec &
   &    & 21&Ian & 20&Feb & 22&Mar & 21&Apr & 21&Mai & 20&Iun & 14 \\
+\nopagebreak
 \cline{2-29}
 ~ & 57 & 20&Iul & 19&Aug & 18&Sep & 18&Oct & 17&Nov & 17&Dec &
   &    & 18&Ian & 17&Feb & 19&Mar & 18&Apr & 18&Mai & 17&Iun & 11 \\
@@ -259,6 +298,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 ‡ & 60 & 10&Iul &  9&Aug &  8&Sep &  6&Oct &  5&Nov &  5&Dec &
  4&Ian &  5&Feb &  7&Mar &  6&Apr &  6&Mai &  5&Iun &  5&Iul &  1 \\
+\nopagebreak
 \cline{2-29}
 ~ & 61 &  4&Aug &  3&Sep &  3&Oct &  2&Nov &  2&Dec &  1&Ian &
   &    &  2&Feb &  4&Mar &  3&Apr &  3&Mai &  2&Iun &  2&Iul & 26 \\
@@ -271,8 +311,9 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 64 & 25&Iul & 24&Aug & 23&Sep & 22&Oct & 21&Nov & 21&Dec &
   &    & 22&Ian & 21&Feb & 23&Mar & 22&Apr & 22&Mai & 21&Iun & 16 \\
+\nopagebreak
 \cline{2-29}
-~ & 65 & 25&Iul & 20&Aug & 19&Sep & 19&Oct & 18&Nov & 18&Dec &
+~ & 65 & 21&Iul & 20&Aug & 19&Sep & 19&Oct & 18&Nov & 18&Dec &
   &    & 19&Ian & 18&Feb & 20&Mar & 19&Apr & 19&Mai & 18&Iun & 12 \\
 \nopagebreak
 ~ & 66 & 18&Iul & 17&Aug & 16&Sep & 16&Oct & 15&Nov & 15&Dec &
@@ -283,6 +324,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 68 & 11&Iul & 10&Aug &  9&Sep &  8&Oct &  7&Nov &  7&Dec &
  6&Ian &  7&Feb &  9&Mar &  8&Apr &  8&Mai &  7&Iun &  7&Iul &  2 \\
+\nopagebreak
 \cline{2-29}
 ~ & 69 &  6&Aug &  5&Sep &  5&Oct &  4&Nov &  4&Dec &  3&Ian &
   &    &  4&Feb &  6&Mar &  5&Apr &  5&Mai &  4&Iun &  4&Iul & 28 \\
@@ -295,6 +337,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 72 & 27&Iul & 26&Aug & 25&Sep & 24&Oct & 23&Nov & 23&Dec &
   &    & 24&Ian & 23&Feb & 25&Mar & 24&Apr & 24&Mai & 23&Iun & 18 \\
+\nopagebreak
 \cline{2-29}
 ~ & 73 & 23&Iul & 22&Aug & 21&Sep & 21&Oct & 20&Nov & 20&Dec &
   &    & 21&Ian & 20&Feb & 22&Mar & 21&Apr & 21&Mai & 20&Iun & 14 \\
@@ -307,6 +350,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 \nopagebreak
 † & 76 & 13&Iul & 12&Aug & 11&Sep & 10&Oct &  9&Nov &  9&Dec &
   &    & 10&Ian &  9&Feb & 11&Mar & 10&Apr & 10&Mai &  9&Iun &  4 \\
+\nopagebreak
 \cline{2-29}
 \end{longtable}
 \endgroup
