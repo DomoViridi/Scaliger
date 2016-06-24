@@ -1,0 +1,52 @@
+%%% Liber I p47
+%%
+%% Menses Macedonum names copied from Wikipedia: Ancient Macedonian calendar
+%% then modified to match the original
+%% Note that Ὑπερβερεταῖος is normally considered the last month in the Macedonian
+%% calendar, but appears first in this table.
+%% - Initial capitals on all month names, though the original uses minusculs
+%% - Πάνεμος is written with an ε in the book, not an η or an α as given
+%%   on Wikipedia
+%% - Wikipedia gives Λώιος while the book appears to have Λῶος (with a
+%%   circumflex rather than an acute accent over the omega and without the iota)
+%%
+%% Menses Atheniensium names copied from Wikipedia: Attic calendar
+%% then modified to match the original
+%% - Μουνιχιών -> Μουνυχιών (ι -> υ)
+%% - Σκιροφοριών -> Σκιῤῥροφοριών (double ρ)
+%% Added numbers to ensure the reader knows the order of the months
+%%
+%% For testing, uncomment the folowing lines and the lines at the end of the file
+%% Test ==>
+%\documentclass{book}
+%\usepackage{fontspec}
+%\setmainfont{Hoefler Text}[]
+%\newfontfamily\greekfont{Arial Unicode MS}
+%\usepackage[quiet]{polyglossia}
+%\setmainlanguage{latin}
+%\setotherlanguage{greek}
+%\begin{document}
+%% <== Test
+%%
+\begin{tabular}{ l  l }
+Menses                    & Menses\\
+Macedonum                 & Atheniensium \\
+\hline
+\textgreek{Ὑπερβερεταῖος } &\textgreek{Ἑκατομβαιών} \\
+\textgreek{Δίος}           &\textgreek{Μεταγειτνιών} \\
+\textgreek{Ἀπελλαῖος}      &\textgreek{Βοηδρομιών} \\
+%
+\textgreek{Αὐδυναῖος}      &\textgreek{Πυανεψιών} \\
+\textgreek{Περίτιος}        &\textgreek{Μαιμακτηριών} \\
+\textgreek{Δύστρος}        &\textgreek{Ποσειδεών} \\
+%
+\textgreek{Ξανθικός}       &\textgreek{Γαμηλιών} \\
+\textgreek{Ἀρτεμίσιος}     &\textgreek{Ανθεστηριών} \\
+\textgreek{Δαίσιος}        &\textgreek{Ελαφηβολιών} \\
+%
+\textgreek{Πάνεμος}        &\textgreek{Μουνυχιών} \\
+\textgreek{Λῶος}          &\textgreek{Θαργηλιών} \\
+\textgreek{Γορπιαῖος}      &\textgreek{Σκιῤῥοφοριών} \\
+\end{tabular}
+%% Test ==>
+%\end{document}
