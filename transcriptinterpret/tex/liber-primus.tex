@@ -333,8 +333,15 @@ et aliae Orientis nationes utuntur.
 \plnr{89}{6}{1}Quorum in sexagesimas, et
 contra, sexagesimarum in haec convertendarum, Tabellas duas posuimus
  (p. \pageref{tab:convertendi_ostenta}).
-\input{./tables/convertendi_ostenta}
+\begin{table}
+\centering
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.1}
+\input{./tables/006_convertendi_ostenta}
 % Filename relative to the main tex file.
+\caption{Tabula convertendi ostenta in sexagesimas et vice versa}
+\label{tab:convertendi_ostenta}
+\end{table}
 % Suggested improvements for tables:
 % - Split in two tables
 % - Bigger letters/numbers
@@ -482,7 +489,12 @@ singulis, ut suo loco referetur.
 \lnr{34}Sunt et secundum hebdomadas
 ut infra subiecimus.
 % Insert table
-\input{./tables/dies_hebdomadis}
+\begin{table}[h]
+%\large
+\input{./tables/008_dies_hebdomadis}
+\caption{Dies Hebdomadis}
+\label{tab:dies_hebdomadis}
+\end{table}
 
 % 8
 % {PDF page nr}{source page nr}{line nr}
@@ -495,7 +507,7 @@ non sequatur dies Iovis, sed dies Solis, haec caussa est.
 \begin{figure}[h]
   \centering
   \def\svgwidth{9\baselineskip}
-  {\astrofont\input{./img/planets.pdf_tex}}
+  {\astrofont\input{./img/008_planets.pdf_tex}}
 %  \caption{Septem Planetae}
   \label{fig:planetae}
 \end{figure}
@@ -727,7 +739,12 @@ imperatorum Romanorum, ut Cypriis \textgreek{[Greek]}.
 \lnr{24}Romanis ipsus Iulius, Augustus: et temporibus Domitiani
 Germanicus pro Septembri, Domitianus pro Octobri.
 % Insert: image of latin text "M. AVR. AVG. LIB."
-\input{./img/lapis_lavinii}
+\begin{figure}[t]
+  \centering
+  \includegraphics[scale=0.125]{011_lapis_lavinii}
+  \caption{Lapis Lavinii}
+  \label{fig:lapis_lavinii}
+\end{figure}
 \lnr{25}Martialis:
  \textit{Dum Ianus hiemes, Domitianus
 autumnos}, et cetera.
@@ -1877,7 +1894,12 @@ tertii primo quarti.
 \lnr{25}Quo nomine confecimus tibi Tabellam, ut
 quota die mensis novilunium fieret, possis citra laborem assequi.
 %% Insert table "Novilunia in mensibus Tetraeteridis Graecae"
-\input{./tables/novilunia_h}
+\begin{table}[htbp]
+ \centering
+ \input{./tables/027_novilunia}
+ \caption{Novilunia in mensibus Tetraetirides Graecae}
+ \label{tab:novilunia}
+\end{table}
 
 \lnr{26}Quia
 igitur in diebus 1417. sunt 48 syzygiae, necessario
@@ -2283,7 +2305,7 @@ Laterculo perspicere potes.
 %% Table: Laterculum mensium Atticorum secundum anni quadrantes.
 \begin{table}[htbp]
 \centering
-\input{./tables/mensium_atticorum}
+\input{./tables/033_mensium_atticorum}
 \caption{Laterculum mensium Atticorum secundam anni quadrantes}
 \label{tab:mensium_atticorum}
 \end{table}
@@ -2361,10 +2383,10 @@ ieiunium Ester observatur.
 Metonicus intercalatur, ergo et Tetraetericus.
 % Table: Laterculum neomeniarum lunarium in mensibus Atticis
 \begin{table}[htbp]
-\centering
-\input{./tables/neomeniarum_lunarium}
-\caption{Laterculum neomeniarum lunarium in mensibus Atticis}
-\label{tab:neomeniarum_lunarium}
+ \centering
+ \input{./tables/034_neomeniarum_lunarium}
+ \caption{Laterculum neomeniarum lunarium in mensibus Atticis}
+ \label{tab:neomeniarum_lunarium}
 \end{table}
 \lnr{14}Subiecimus vero mensium Atticorum
 laterculum cum neomeniis Lunaribus
@@ -2643,13 +2665,13 @@ expansis (p. \pageref{tab:neomenia_elidensis}).
 % Insert table:
 % Tabula Neomeniarum primi mensis Εlidensis in annis periodi Olympicae
 \begin{table}[htbp]
-%\tiny
-%\scriptsize
-\footnotesize
-\centering
-\input{./tables/neomenia_elidensis}
-\caption{Tabula neomeniarum primi mensis Elidensis in annis periodi Olympicae}
-\label{tab:neomenia_elidensis}
+% \tiny
+% \scriptsize
+ \footnotesize
+ \centering
+ \input{./tables/038_neomenia_elidensis}
+ \caption{Tabula neomeniarum primi mensis Elidensis in annis periodi Olympicae}
+ \label{tab:neomenia_elidensis}
 \end{table}
 %
 \lnr{4}Primus ordo habeat numerum annorum periodi expansorum:
@@ -2968,7 +2990,7 @@ periodi instar Olympicae, quam auximus omnibus neomeniis,
 et earum epochis in mensibus iulianis: quare nulla magis necessaria
 in ratione temporum Atticorum.
 % Insert Table: "Tabula neomeniarum Atticarum in mensibus Iulianis"
-\input{tables/neomeniarum_atticarum}
+\input{tables/043_neomeniarum_atticarum}
 
 
 % 44
@@ -3210,7 +3232,7 @@ sive Munychione Attico, tam Metonis, quam Tetraeterico.
 % Insert table: Menses Macedomum et Atheniesium
 \begin{table}[htbp]
 \centering
-\input{./tables/p047_menses_macedonum}
+\input{./tables/047_menses_macedonum}
 \caption{Menses Macedonum et Atheniensium}
 \label{tab:menses_macedonum}
 \end{table}

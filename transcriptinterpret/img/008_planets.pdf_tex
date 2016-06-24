@@ -49,7 +49,7 @@
   \global\let\svgscale\undefined%
   \makeatother%
   \begin{picture}(1,0.96057314)%
-    \put(0,0){\includegraphics[width=\unitlength]{planets.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength]{008_planets.pdf}}%
     \put(0.71619362,0.02703104){\color[rgb]{0,0,0}\rotatebox{25.71400023}{\makebox(0,0)[b]{\smash{♀}}}}%
     \put(0.83748168,0.7357599){\color[rgb]{0,0,0}\rotatebox{-51.42799982}{\makebox(0,0)[b]{\smash{☾}}}}%
     \put(0.50353511,0.89842872){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{♄}}}%
