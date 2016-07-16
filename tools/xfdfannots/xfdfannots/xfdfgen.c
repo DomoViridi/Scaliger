@@ -414,12 +414,20 @@ int parseconfig(char * fconfname)
     return configerr;
 }
 
+void usage(void)
+{
+    fprintf(stderr, "Usage: %s <config file>\n", getprogname());
+}
+
 int main(int argc, char *argv[])
 {
     char * fconfname;
     int parseresult;
 
     fout = stdout; // Use stdout as default output stream
+
+    // Initialise the program name
+    setprogname(argv[0]);
 
     if(argc == 2) {
         // Single argument is taken as configuration file name
@@ -438,7 +446,12 @@ int main(int argc, char *argv[])
         if(parseresult != 0) {
             exit(parseresult);
         }
+        outfile();
+    } else {
+        // Wrong nr of arguments: show usage and exit with error code
+        fprintf(stderr, "No configuration file given\n");
+        usage();
+        exit(1);
     }
-    outfile();
     return 0;
 }
