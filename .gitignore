@@ -1,3 +1,6 @@
+# OS X directory info files
+.DS_Store
+
 # Object file
 *.o
 
