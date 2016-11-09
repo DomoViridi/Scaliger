@@ -1,0 +1,67 @@
+%%% Liber II p65
+%%
+%% For testing, uncomment the folowing lines and the lines at the end
+%% of the file
+%% Test ==>
+%\documentclass[draft,a4paper]{book}
+%\usepackage{rotating}
+%\usepackage{fontspec}
+%\setmainfont{Hoefler Text}[]
+%%\setmainfont{Times New Roman}[]
+%\newfontfamily\greekfont{Times New Roman}
+%\usepackage[quiet]{polyglossia}
+%\setmainlanguage{latin}
+%\setotherlanguage{greek}
+%\begin{document}
+%Itaque deprehenso capite Hecatombaeonis, quot
+%\textgreek{[Greek]} supersint de Scirrhophorione in anno Iuliano, nobis quidem
+%deprehendere facile est, qui rationem tantum habemus anni nostri
+%iuliani.
+%\begin{table}
+%%\tiny
+%%\scriptsize
+%\centering
+%%\setlength{\tabcolsep}{3pt}
+%\renewcommand{\arraystretch}{1.1}
+%% <== Test
+%%
+%\begin{tabular}{lc}
+\begin{tabular}[t]{r rrccr}
+~ & \multicolumn{5}{c}{\textsc{Octaeteris Cleostrati}}\\
+\\ % Clumsily make room for the rotated headers
+\\
+\\
+\\
+\\
+~ &
+\begin{rotate}{60}Anni octaeteridis\end{rotate} &
+\begin{rotate}{60}Cyclus Lunnae\end{rotate} &
+\begin{rotate}{60}Litera Dominicalis\end{rotate} &
+~ &
+%\begin{rotate}{60}\hspace{5pt}\parbox[t]{3.5cm}{Neomenia\\1. mensis}\end{rotate} &
+\multicolumn{1}{l}{\begin{rotate}{60}Dies collecti\end{rotate}}
+\\
+\cline{2-6}
+\scriptsize{†}
+  &  1 & 18 &  E &  8 Ianua. &  384 \\
+~ &  2 & 19 & DC & 27 Ian.   &  738 \\
+\footnotesize{†}
+  &  3 &  1 &  B & 15 Ian.   & 1122 \\
+~ &  4 &  2 &  A &  3 Febr.  & 1476 \\
+%\cline{2-6}
+~ &  5 &  3 &  G & 23 Ian.   & 1830 \\
+\footnotesize{†}
+  &  6 &  4 & FE & 12 Ian.   & 2214 \\
+~ &  7 &  5 &  D & 30 Ian.   & 2568 \\
+~ &  8 &  6 &  C & 19 Ian.   & 2922 \\
+%\cline{2-6}
+\\
+~ & \multicolumn{5}{l}{\footnotesize \super{†} \textgreek{Εμβολ.}}\\
+\end{tabular}
+%% Test ==>
+%\end{table}
+%Itaque deprehenso capite Hecatombaeonis, quot
+%\textgreek{[Greek]} supersint de Scirrhophorione in anno Iuliano, nobis quidem
+%deprehendere facile est, qui rationem tantum habemus anni nostri
+%iuliani.
+%\end{document}
