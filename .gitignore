@@ -13,6 +13,7 @@
 *.aux
 *.log
 *.toc
+*.lot
 log.err
 
 # Files produced by TexShop

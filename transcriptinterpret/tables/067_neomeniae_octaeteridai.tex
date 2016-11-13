@@ -1,0 +1,204 @@
+%%% Liber II p67, PDF 150
+%%
+%% Dates of the new moon for each year in the octaeterida
+%% Translated version with Arabic numerals instead of Greek numerals,
+%% and Roman numerals representing the months
+%%
+%% For testing, uncomment the folowing lines and the lines at the end of the file
+%% Test ==>
+\documentclass{book}
+\usepackage{fontspec}
+\setmainfont{Hoefler Text}[]
+\newfontfamily\greekfont{Arial Unicode MS}
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\usepackage{booktabs} % To get nice table layout
+\begin{document}
+Just some text on top of the table.
+Ideo neomeniam Lunaris Gamelionis cum neomenia
+Gamelionis aequabilis in primo anno composuimus: non quod
+ita fecerit Harpalus: (Nullus enim Gamelion aequabilis eo seculo
+Lunaris fuit:) sed quia deprehenso anno primo Octaeteridis Harpali,
+non operosum erit divinare quotae diei Gemelionis aequabilis
+competat neomenia Gamelionis Lunaris.
+
+\begin{table}[htbp]
+ \centering
+%% <== Test
+%%
+\normalsize
+%\small
+%\footnotesize
+%\scriptsize
+%\tiny
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.2}
+%% Modify separation between columns
+\setlength{\tabcolsep}{2.0pt}
+%
+\begin{tabular}{@{}cl llllllll@{}}
+\toprule
+\multicolumn{2}{ c }{~} &
+\multicolumn{8}{ c }{annum}
+\\
+\cmidrule{3-10}
+\multicolumn{2}{ c }{Mensis lunaris} &
+\multicolumn{1}{c}{1} &
+\multicolumn{1}{c}{2} &
+\multicolumn{1}{c}{3} &
+\multicolumn{1}{c}{4} &
+\multicolumn{1}{c}{5} &
+\multicolumn{1}{c}{6} &
+\multicolumn{1}{c}{7} &
+\multicolumn{1}{c}{8}
+\\
+\midrule
+\textsc{vii} & \textgreek{γαμηλιών} &
+ 1.\textsc{vii} &
+25.\textsc{vi} &
+18.\textsc{vi} &
+ 8.\textsc{vii} &
+ 1.\textsc{vii} &
+26.\textsc{vi} &
+16.\textsc{vii} &
+ 8.\textsc{vii}
+\\
+\textsc{viii} & \textgreek{ανθεστηριών} &
+ 1.\textsc{viii} &
+23.\textsc{vii} &
+15.\textsc{vii} &
+ 8.\textsc{viii} &
+ 1.\textsc{viii} &
+23.\textsc{vii} &
+15.\textsc{viii} &
+ 8.\textsc{viii}
+\\
+\textsc{ix} & \textgreek{ἐλαφηβολιών} &
+ 1.\textsc{ix} &
+23.\textsc{viii} &
+15.\textsc{viii} &
+ 7.\textsc{ix} &
+30.\textsc{viii} &
+23.\textsc{viii} &
+15.\textsc{ix} &
+ 7.\textsc{ix}
+\\
+\midrule
+\textsc{x} & \textgreek{μυονυχιών} &
+30.\textsc{ix} &
+22.\textsc{ix} &
+14.\textsc{ix} &
+ 7.\textsc{x} &
+30.\textsc{ix} &
+22.\textsc{ix} &
+14.\textsc{x} &
+ 7.\textsc{x}
+\\
+\textsc{xi} & \textgreek{θαργηλιών} &
+30.\textsc{x} &
+22.\textsc{x} &
+14.\textsc{x} &
+ 6.\textsc{xi} &
+29.\textsc{x} &
+22.\textsc{x} &
+14.\textsc{xi} &
+ 6.\textsc{xi}
+\\
+\textsc{xii} & \textgreek{σκιῤῥοφοριών} &
+29.\textsc{xi} &
+21.\textsc{xi} &
+14.\textsc{xi} &
+ 6.\textsc{xii} &
+24.\textsc{xi} &
+21.\textsc{xi} &
+13.\textsc{xii} &
+ 6.\textsc{xii}
+\\
+\midrule
+\textsc{i} & \textgreek{ἑκατομβαιών} &
+29.\textsc{xii} &
+21.\textsc{xii} &
+13.\textsc{xii} &
+ 6.\textsc{i} &
+29.\textsc{xii} &
+21.\textsc{xii} &
+13.\textsc{i} &
+ 5.\textsc{i}
+\\
+\textsc{ii} & \textgreek{μεταγειτνιών} &
+28.\textsc{i} &
+20.\textsc{i} &
+13.\textsc{i} &
+ 5.\textsc{ii} &
+28.\textsc{i} &
+20.\textsc{i} &
+12.\textsc{ii} &
+ 5.\textsc{ii}
+\\
+\textsc{iii} & \textgreek{βοηδρομιών} &
+28.\textsc{ii} &
+20.\textsc{ii} &
+12.\textsc{ii} &
+ 5.\textsc{iii} &
+28.\textsc{ii} &
+20.\textsc{ii} &
+12.\textsc{iii} &
+ 4.\textsc{iii}
+\\
+\midrule
+\textsc{iv} & \textgreek{πυανεψιών} &
+27.\textsc{iii} &
+19.\textsc{iii} &
+12.\textsc{iii} &
+ 5.\textsc{iv} &
+27.\textsc{iii} &
+20.\textsc{iii} &
+11.\textsc{iv} &
+ 4.\textsc{iv}
+\\
+\textsc{v} & \textgreek{μαιμακτηριών} &
+27.\textsc{iv} &
+19.\textsc{iv} &
+11.\textsc{iv} &
+ 4.\textsc{v} &
+27.\textsc{iv} &
+19.\textsc{iv} &
+11.\textsc{v} &
+ 3.\textsc{v}
+\\
+\textsc{vi} & \textgreek{ποσειδεών} $\overline{\alpha}$&
+26.\textsc{v} &
+18.\textsc{v} &
+11.\textsc{v} &
+ 3.\textsc{vi} &
+26.\textsc{v} &
+19.\textsc{v} &
+11.\textsc{vi} &
+ 3.\textsc{vi}
+\\
+\textsc{vi} & \textgreek{ποσειδεών} $\overline{\beta}$&
+26.\textsc{vi} $\overline{\alpha}$ &
+    \multicolumn{1}{c}{$\circ$} &
+10.\textsc{vi} &
+    \multicolumn{1}{c}{$\circ$} &
+    \multicolumn{1}{c}{$\circ$} &
+18.\textsc{vi} &
+    \multicolumn{1}{c}{$\circ$} &
+\multicolumn{1}{c}{~}\\
+\bottomrule
+\end{tabular}
+%% Test ==>
+\caption{Neomeniae octaeteridai Harpali per annum}
+\end{table}
+
+Just some text below the table.
+Ideo neomeniam Lunaris Gamelionis cum neomenia
+Gamelionis aequabilis in primo anno composuimus: non quod
+ita fecerit Harpalus: (Nullus enim Gamelion aequabilis eo seculo
+Lunaris fuit:) sed quia deprehenso anno primo Octaeteridis Harpali,
+non operosum erit divinare quotae diei Gemelionis aequabilis
+competat neomenia Gamelionis Lunaris.
+
+\listoftables
+\end{document}
