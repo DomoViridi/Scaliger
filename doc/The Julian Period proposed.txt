@@ -1,3 +1,15 @@
+Liber Primus, page 22 (PDF 105)
+===============================
+(22:4) Excogitemus igitur periodum, quae et utrunque cyclum, et Indictionem contineat: quod fiet, si periodum Dionysii Exigui quindecies multiplicemus: qui fient anni 7980. (7) Ita periodus illa incipiet ab anno primo tum utriusque cycli, tum Indictionis: et proinde eiusdem ultimus annus definit in ultimis utriusque cycli, et Indictionis. (9) Sed annus Christi, ut vulgo putamus, 3267 desinet in ultimum utriusque cycli, et Indictionis. (10) Ergo deductis 3267 de 7980 annis, relinquetur epocha anni ante vulgarem Christi, nempe 4713. (12) Ita ut 4714 sit primus annus Christi vulgaris cyclo Solis X, Lunae 2, Indictionis 4, ab Kal. Ianuarii: quamuis et Indictio autumno proxime antecedenti, Cyclus autem Lunae Martio sequenti caeperit. (15) Quare annus iste, qui ex errore vulgi putatur 1594, est 6307. periodi huius,
+
+quam Iulianam vocamus, quod ad Iulianam anni formam accommodata sit.
+
+(17) Ideo 6307 divisis per 28, per 19, per 15 habebimus huius anni 6307 periodi Iulianae, vel vulgaris Christi 1594, cyclum Solis septimum ab Kal. Ianuarii: (19) Lunae decimumoctavum ab Martio sequente: (20) Indictionis septimum Caesarianae quidem ab ante d. VIII Kal. Octobris antecedentis anni 6306: (21) Pontificiae vero ab Kalendis Ianuarii anni propositi 6307.
+
+
+
+Translation:
+===========
 (22:4) Then let us devise a period, which contains each cycle and the Indiction: what happens if we multiply by the period of Dionysius Exiguus by fifteen: we get a period of 7980 years. (7) This period will start from the first year of each cycle and of the Indiction: and similarly the end of each cycle and the Indiction defines the end of the period. (9) But the Christian year, which is in common use, is 3267 years less than the last year of the cycles and the Indiction. (10) So we substract 3267 from 7980 years to get the epoch of the common Christian year, being 4713. (12) Thus year one in the common Christian count is year 4714 in the period, year 10 in the solar cycle, year 2 in the lunar cycle, year 4 in the Indiction, on the first of Januari: Although the Indiction starts in the preceding autumn, and the next lunar cycle starts in the following March. (15) Therefore the current year, which erroniously purports to be 1594, is year 6307 in the period.
 
 We will call this period the Julian Period, because it accomodates the form of the Julian year.
