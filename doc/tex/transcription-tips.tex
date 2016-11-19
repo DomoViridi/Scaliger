@@ -65,7 +65,9 @@
 
 \begin{itemize}
 \item Base document is the most recent copy of the most recent edition:
-% \texttt{1629 Geneva - Opus_de_emendatione_temporum_hac_postrem.pdf}
+\begin{quote}
+  \verb+1629-Geneva-1-Opus_de_emendatione_temporum_hac_postrem.pdf+
+\end{quote}
 \item A page of the transcription matches a page of the original
 \item In the transcription, each sentence is a new paragraph, and is numbered.
 \item If a sentence in the original flows over to the next page, all of it will be put at the top of the next page in the transcription.  This is so that the letters in the margin will always start with "A" at the top of the page.
@@ -83,14 +85,14 @@ There will be two transcriptions:
 \section{Particular tips}
 \begin{itemize}
 \item "u" and "v" are used exchangeably in the original. In the litteral, always transcribe "u" as "u" and "v" as "v". In the interpreted, convert to "u" if a vowel, and to a "v" if a consonnant.
-\item With the Kepler Font package in LaTeX, the character "s" is automatically rendered as the "ſ" (long s). To get a normal 's' (e.g. at the end of words) write "s=" in the LaTeX source.
+\item With the Kepler Font package in LaTeX, the character "s" is automatically rendered as the "ſ" (long s). To get a normal 's' (e.g. at the end of words) write \verb"s=" in the LaTeX source.
 \item Some words are shortened in the original.  Keep shortened in the litteral, transcribe as full word in the interpreted:
 \begin{itemize}
 \item "Quoq;" becomes "Quoque"
 \item "propagatā" becomes "propagatam". Enter the line above the character using Alt-a (U. S. Extended keyboard required)
 \item "nō" becomes "non"
 \item "à" becomes "ab"
-\item "Iulianae" is sometimes rendered as "Iulianȩ". Use a cedille (Alt-C) in litteral.
+\item "Iulianae" is sometimes rendered with an 'e' with a cedille underneath it instead of the 'ae' at the end. Use a cedille (Alt-C) in litteral.
 \item Occasionaly words are shortened using a period.
 \end{itemize}
 \item When the original uses "\&" (short for "et"), use "\verb+\&+" in the litteral (backslash is needed for LaTeX) and "et" in the interpreted.
@@ -101,22 +103,28 @@ There will be two transcriptions:
 \item Try to enter the bits of Greek using the 'Greek Polytonic' keyboard.
 \item When not transcribing the Greek or Hebrew, replace with "[Greek]" or "[Hebrew]".
 \item Any extra notes and remarks should go between square brackets
-\item Roman numerals: Use single unbreakable spaces (Alt-Space) between the symbols. After entering, make small caps using \texttt{\\textsc}, e.g. \texttt{\\textsc{XXVII x x v i i}}
+\item Roman numerals: Make small caps using \verb+\textsc+,
+ e.g. \verb+\textsc{xxvii}+
 \item Use other editions to compare the transcription. They often give a different or no abbriviation, or different spacing.
 \end{itemize}
 
 %---
 \section{Obsolete, but informative}
-To facilitate entering the 'long s' (ſ) character, a change has been made to the Mac OS X configuration. The file:
+To facilitate entering the 'long s' (ſ) character, a change has been made to the Mac~OS~X configuration. The file:
+\begin{quote}
 \texttt{/System/Library/Input Methods/PressAndHold.app/Contents/Resources/Keyboard-en.plist}
+\end{quote}
 has been modified so that when you press and hold 's', the list of accented characters presented to the user now starts with the long s.
-
+\\
+\\
 To enter the long s either:
 \begin{itemize}
 \item press-and-hold s, then press 1 (to select the first item on the list)
 \item press-and-hold s, then press TAB (to select the next, and in this case the first, item on the list), then press ENTER to confirm the selection.
 \end{itemize}
-
+~
+\\
+To enter a double long s, either:
 \begin{itemize}
 \item press-and-hold s, then press 2 (to select the second item on the list)
 \item press-and-hold s, then press TAB twice, then press ENTER to confirm the selection.
@@ -144,7 +152,7 @@ The structure goes as follows (numbers on the left are PDF file page numbers; ev
   \item[355] Secunda pars (pp 272-293, 5 subjects)
   \item[376] Tertia pars ("De periodis solaribus.", pp 293-303, 5 subjects)
   \item[386] Quarta pars ("De annis tropicis et lunaribus emendatis.", pp 303-353,  9 subjects)
-  \item[436] Omissa Lib. II & IV (p 353, two additions: to page 141 and to page 272)
+  \item[436] Omissa Lib. II \& IV (p 353, two additions: to page 141 and to page 272)
 \end{description}
 \item[437] Liber Quintus ("Prior de epochis temporum", pp 354-530, 106 subjects, 117 pages)
 \item[614] Liber Sextus ("Posterior de epochis temporum, in duas partes tributus", pp 531-624, 94 pages)
@@ -175,11 +183,11 @@ For the transcription we can equate the subdivisions as follows:
 \begin{itemize}
 \item Liberi will be represented by LaTeX Chapters
 \item Subjects will be represented by LaTeX Subsections
-\item Partes will not be directly represented. Maybe by a special command which inserts the Pars text in the body (optional) and the ToC ("\\addcontentslline", in the Section style). Or maybe create a special kind of Chapter that has a Parts thing between Chapter and Section.
-\item The bits before Primus Liber will go in the LaTeX Top matter, and be preceded by the "\\frontmatter" command.
-\item The Prolegomena is a special Chapter with roman page numbers and no entry in the ToC (accomplished with the "\\frontmatter" command.
-\item The four indices and the errata page will be represented as Appendices (precede by "\\appendix").
-\item The "Finis" page and the Veterum Graecorum part will be preceded by "\\backmatter"
+\item Partes will not be directly represented. Maybe by a special command which inserts the Pars text in the body (optional) and the ToC (\verb+\addcontentslline+, in the Section style). Or maybe create a special kind of Chapter that has a Parts thing between Chapter and Section.
+\item The bits before Primus Liber will go in the LaTeX Top matter, and be preceded by the \verb+\frontmatter+ command.
+\item The Prolegomena is a special Chapter with roman page numbers and no entry in the ToC (accomplished with the \verb+\frontmatter+ command).
+\item The four indices and the errata page will be represented as Appendices (precede by \verb+\appendix+).
+\item The "Finis" page and the Veterum Graecorum part will be preceded by \verb+\backmatter+.
 \end{itemize}
 
 
