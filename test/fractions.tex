@@ -45,9 +45,8 @@
 % xltxtra does not work.
 \usepackage{xltxtra}
 
-%%% Numerical fractions
-%% Supplies the \sfrac{<num>}[<separator>]{<denom>} command
 \usepackage{xfrac}
+\usepackage{nicefrac}
 
 %% Required to keep captions to tables normal sized
 %% Used in table in Liber Primus, page 43
@@ -194,16 +193,6 @@
 \newcommand\dropcapQ[3]{{#2}{#3}}
 \newcommand\dropcapil[3]{{#2}{#3}}
 
-%%% Show numerical fractions.
-%% Usage: \myfrac{<num>}{<den>}
-%% Adjust the separator character and the spacing depending on the font used
-%% to whatever looks nice
-%% The fraction slash (U+2044) and spacings of 0.25ex/0.1ex
-%% works rather well with Hoefler Text, Times New Roman and SBL BibLit
-\newcommand{\myfrac}[2]{%
-\sfrac{#1}[\hspace{0.25ex}⁄\hspace{0.1ex}]{#2}%
-}
-
 %%% Use polyglossia to handle multiple languages
 %% We have (at least): latin, polytonic greek, hebrew, arabic, persian
 %% (Contains bidi package, and must be loaded *after*:
@@ -254,55 +243,140 @@
          {\sc{\hfill{}#2\hfill}}%
 }
 
+%%% Command to show fractions.
+%% Adjust the separator character and the spacing depending on the font used
+%% to whatever looks nice
+\newcommand{\myfrac}[2]{%
+\sfrac{#1}[\hspace{0.25ex}⁄\hspace{0.1ex}]{#2}%
+}
+% works rather well with Hoefler Text, Times New Roman and SBL BibLit
+
+
 %%%========================================================%%%
-
-%% list the parts we want to compile
-\includeonly{./tex/liber-secundus}
-
 \begin{document}
-
-%% Top matter
-\title{De Emendatione Temporum}
-\author{Julius J. Scaliger}
-\pagestyle{myheadings}
-\setheaders{}{}
-
-%% Source file for testing. Comment out when not testing
-%% Does not need to be mentioned in the above \includeonly{}
-%\input{../test/dropcap}
-
-\frontmatter
-\include{./tex/title}
-\include{./tex/dedication}
-\include{./tex/greek-quotes}
-\include{./tex/prolegomena}
 
 % Clear our self-defined headers
 \setheaders{}{}
 
 %% ToC generation gives obscure errors; solution: delete the .aux files
 %% and re-compile (twice)
-\tableofcontents{}
+%\tableofcontents{}
 
 \mainmatter
-\include{./tex/liber-primus}
-\include{./tex/liber-secundus}
-\include{./tex/liber-tertius}
-\include{./tex/liber-quartus}
-\include{./tex/liber-quintus}
-\include{./tex/liber-sextus}
-\include{./tex/liber-septimus}
 
-\appendix
-\include{./tex/nomenclator}
-\include{./tex/index-rerum-et-verborum}
-\include{./tex/index-graecarum-vocum}
-\include{./tex/index-orientalium-vocum}
-\include{./tex/errata}
-\listoftables
+\fontspec{SBL BibLit}
+% No Diagonal or Alternate. 'On' makes tighter fraction using fraction slash
+% where source uses simple fraction. Tight fraction is ugly
 
-\backmatter
-\include{./tex/operis-finis}
-\include{./tex/fragmenta-selecta}
+\fontspec{Times New Roman}
+% Does not support any Fractions= setting. Simple fraction looks better
+% than Fraction Slash
+
+%\fontspec{Menlo}
+% Does not support any Fractions= setting. Does not have Fraction Slash
+
+%\fontspec{Arial Unicode MS}
+% Does not support any Fractions= setting. Simple fraction looks better
+% than Fraction Slash
+
+%\fontspec{Skia}
+% Supports all Fractions= settings
+% This font will demonstrate all these features
+
+\fontspec{Hoefler Text}
+
+\section{No font features}
+%\subsection{No special font settings}
+
+Simple fraction U+002F: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43/76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Fraction slash U+2044: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43⁄76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+\verb+\vfrac{}{}+ from \verb+xltxtra+: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~\vfrac{43}{76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. This method in fact uses \verb+Fraction=+ properties.
+
+\verb+\nicefrac{}{}+ from \verb+nicefrac+: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~\nicefrac{43}{76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+\verb+\sfrac{}[]{}+ from \verb+xfrac+, default separator: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~\sfrac{43}{76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+\verb+\sfrac{}[]{}+ with explicit U+002F separator: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+12~\sfrac{43}[/]{76}
+laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+12~\sfrac{1}[/]{0}
+12~\sfrac{2}[/]{1}
+12~\sfrac{3}[/]{2}
+12~\sfrac{4}[/]{3}
+12~\sfrac{5}[/]{4}
+12~\sfrac{6}[/]{5}
+12~\sfrac{7}[/]{6}
+12~\sfrac{8}[/]{7}
+12~\sfrac{9}[/]{8}
+12~\sfrac{10}[/]{9}
+
+\verb+\sfrac{}[]{}+ with explicit U+2044 separator: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+12~\sfrac{43}[⁄]{76}
+laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+12~\sfrac{1}[⁄]{0}
+12~\sfrac{2}[⁄]{1}
+12~\sfrac{3}[⁄]{2}
+12~\sfrac{4}[⁄]{3}
+12~\sfrac{5}[⁄]{4}
+12~\sfrac{6}[⁄]{5}
+12~\sfrac{7}[⁄]{6}
+12~\sfrac{8}[⁄]{7}
+12~\sfrac{9}[⁄]{8}
+12~\sfrac{10}[⁄]{9}
+
+My own command \verb+\myfrac{}{}+ based on \verb+\sfrac+: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~\myfrac{43}{76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+12~\myfrac{1}{0}
+12~\myfrac{2}{1}
+12~\myfrac{3}{2}
+12~\myfrac{4}{3}
+12~\myfrac{5}{4}
+12~\myfrac{6}{5}
+12~\myfrac{7}{6}
+12~\myfrac{8}{7}
+12~\myfrac{9}{8}
+12~\myfrac{10}{9}
+1278~\myfrac{1023456798}{92345678101}
+
+\section{Font Features}
+These font features don't work very well, and most fonts do not support them.
+
+\subsection{Fractions=On}
+\addfontfeature{Fractions=On}
+
+Simple fraction U+002F: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43/76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Fraction slash U+2044: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43⁄76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+\addfontfeature{Fractions=Off}
+
+\subsection{Fractions=Diagonal}
+\addfontfeature{Fractions=Diagonal}
+%\fontspec[Fractions=Diagonal]{SBL BibLit}
+
+Simple fraction U+002F: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43/76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Fraction slash U+2044: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43⁄76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+\addfontfeature{Fractions=Off}
+
+\subsection{Fractions=Alternate}
+\addfontfeature{Fractions=Alternate}
+%\fontspec[Fractions=Alternate]{SBL BibLit}
+
+Simple fraction U+002F: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43/76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Fraction slash U+2044: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43⁄76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+\addfontfeature{Fractions=Off}
+
+%\fontspec{Skia}
+%\fontspec{SBL BibLit}
+\subsection{VerticalPosition=Superior/Inferior}
+
+%\fontspec[Fractions=Alternate]{SBL BibLit}
+
+Simple fraction U+002F: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque {12~\addfontfeature{VerticalPosition=Superior}43/\addfontfeature{VerticalPosition=Inferior}76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Fraction slash U+2044: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque {12~\addfontfeature{VerticalPosition=Superior}43⁄\addfontfeature{VerticalPosition=Inferior}76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+\addfontfeature{Fractions=Off}
 
 \end{document}
