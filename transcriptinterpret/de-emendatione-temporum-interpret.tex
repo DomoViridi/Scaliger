@@ -45,6 +45,10 @@
 % xltxtra does not work.
 \usepackage{xltxtra}
 
+%%% Numerical fractions
+%% Supplies the \sfrac{<num>}[<separator>]{<denom>} command
+\usepackage{xfrac}
+
 %% Required to keep captions to tables normal sized
 %% Used in table in Liber Primus, page 43
 \usepackage[normalsize]{caption}
@@ -189,6 +193,16 @@
 \newcommand\dropcap[3]{{#2}{#3}}
 \newcommand\dropcapQ[3]{{#2}{#3}}
 \newcommand\dropcapil[3]{{#2}{#3}}
+
+%%% Show numerical fractions.
+%% Usage: \myfrac{<num>}{<den>}
+%% Adjust the separator character and the spacing depending on the font used
+%% to whatever looks nice
+%% The fraction slash (U+2044) and spacings of 0.25ex/0.1ex
+%% works rather well with Hoefler Text, Times New Roman and SBL BibLit
+\newcommand{\myfrac}[2]{%
+\sfrac{#1}[\hspace{0.25ex}⁄\hspace{0.1ex}]{#2}%
+}
 
 %%% Use polyglossia to handle multiple languages
 %% We have (at least): latin, polytonic greek, hebrew, arabic, persian
