@@ -34,6 +34,12 @@
 %\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
 %\setmonofont[Scale=MatchLowercase]{Andale Mono}
 
+% Allow hypertext links to external documents/websites
+\usepackage{hyperref}
+
+% Use color to mark the hyperlinks
+\usepackage{color}
+
 \title{Writing tips}
 \author{Erik Groenhuis}
 \date{\today}                                           % Activate to display a given date or no date
@@ -76,7 +82,7 @@ Originally we wanted to stay as close as possible to the original
 in the first stage.
 This turned out to be a lot more work than we bargained for.
 As a result the priority has shifted to producing
-an interpreted transcription first.
+an interpreted transcription.
 
 In this stage we create a document which has the same text as the original,
 but in a modern script.
@@ -92,6 +98,7 @@ Latin and Greek.
 We will start each sentence with a capitalised word.
 \item All Greek phrases will be rendered using modern polytonic Greek
 script with Unicode encoding.
+\item The layout of tables will be done in a modern style.
 \end{itemize}
 
 \subsection{Line number references}
@@ -100,7 +107,7 @@ in the original PDF will be numbered.
 The numbers will start with 1 on each page, and this and every 5th line
 will be marked with its number in the margin.
 
-In the transcript each beginning of a line will be marked with that number
+In the transcript each beginning of a line will be marked with the line number
 in parentheses. The first sentence on each page will also give the page
 number in that mark.
 
@@ -131,44 +138,6 @@ Note that before we get to the fancy stuff, the initial big work will be
 i.e. reading from the scanned original and typing in the Latin text.
 
 %---
-\section{Litteral Transcription}
-
-To make references to the original easier, we plan to produce a version that
-resembles the original as closely as possible.
-
-This includes:
-\begin{itemize}
-\item Using a font that has the old-style ligatures (such as 'st' and 'ct'),
-the long s, and preferably a Q with a swish.
-These features should be available with as little special encoding as possible.
-This will require the selection of a suitable font.
-\item A page in the transcription should match a page in the original and
-vice versa.
-If necessary we will insert an
-extra page in the transcription to hold the bit of text that does not fit
-on one page.
-Preferably we prevent this problem
-by making sure a transcription page can hold as least as much text as an
-original page, by adjusting the margins
-and the font size.
-\item Though it is very hard to match the newlines in the original, an effort
-should be made to maintain a close relation with the original.
-This way the line numbering we intend to add to the PDF scan can be maintained
-in this transcription.
-An effort should be made to find a way to force XeLaTeX to put a linebreak
-in a word.
-\item The letters in the margin of the original should also be in the
-transcription, for easy cross-reference.
-\item All other languages (Greek, Hebrew, Arabic, Persian?, more?)
-and symbols (planet symbols) must be rendered
-as closely as possible to the original.
-\item The original Greek uses many, many, many ligatures.
-Preferably the transcription shows the same ligatures.
-This will require a search for (and possibly implementation of) a specialised
-font for this purpose.
-\end{itemize}
-
-%---
 \section{Translation}
 A translation of all the text.
 A reader should be able to read and understand everything without knowledge
@@ -192,7 +161,7 @@ Note: use the Typeset button on the root document
 Sources kept on \texttt{GitHub}.
 
 %%=====
-\chapter{Interpreted transcription}
+\chapter{Transcription}
 \section{Textual cleanup}
 \begin{itemize}
 \item All ligatures are expanded
@@ -217,7 +186,9 @@ exactly like an 'f'.
 \item \verb+&c.+ should be expanded as "et cetera" (two words). Though
  "etcetera" (one word) is a word in English, in Latin it was two words.
 \item Abbreviated words (e.g. \verb+quoq;+) are written in full (\verb+quoque+).
-\item Interpunction is done in modern style, and more consistent.
+\item Interpunction is done in modern style, and more consistent, e.g.:
+No space before a comma, period, colon, semicolon,
+ question mark or exclamation mark. One space after them.
 \item Often sentences starting with a \verb+q+ won't have this q capitalised.
 We will start each sentence with a capitalised word. Sometimes other initial
 letters won't have been capitalised either.
@@ -232,8 +203,13 @@ The original uses a Byzantine Minuskel script which has about 1500 glyphs.
 %---
 \section{Special things to pay attention to}
 \begin{itemize}
-\item Numbers with fractions: Put a non-break space \verb+~+ between the number
-and the fraction, e.g. \verb+7~1/2+ to give 7~1/2.
+\item Numbers with fractions:
+\begin{itemize}
+\item Use the \verb+\myfrac{numerator}{denominator}+ command to render fractions.
+\item If a whole number precedes the fraction,
+put a non-break space \verb+~+ (not a regular space) between the number
+and the fraction.
+\end{itemize}
 \item Reading the interpunction can be very tricky where numbers are involved.
 Often there will be a period after an arabic or roman number, while the
 construction of the phrases suggest that it is not intended as the end of 
@@ -263,6 +239,13 @@ We will add:
     \item If misquoted, the actual quote.
     \item An explanation why this quote is appropriate.
     \end{itemize}
+\item Shape of tables in modern style, with fewer horizontal lines and no
+vertical lines. Possibly use the \verb+booktabs+ package, which has
+\verb+\toprule+,
+\verb+\midrule+ and
+\verb+\bottomrule+ commands.
+The documentation of the package also gives information on a good way
+to layout tables.
 \end{itemize}
 
 %---
@@ -287,6 +270,7 @@ Doing this by hand in a PDF reading program (like Acrobat Reader or OSX Preview)
 would be tedious, especialy since these programs become extremely slow when
 trying to handle annotations.
 
+%--
 \subsection{Commands for line numbers}
 Commands were created to add the line- and pagenumbers:
 \begin{itemize}
@@ -313,13 +297,17 @@ directly after the command. Correct example:\begin{quote}
 \verb+\lnr{23}Lore ipsum dolor savit+
 \end{quote}
 
+%--
+\subsection{How to generate the line numbering notes in PDF}
+How to generate: one-time job by administrator. xsltproc command, annotform.xslt file, .xfdf files, use Adobe Acrobat (Preview chockes)
+
 %---
 \section{General guidelines for the \XeLaTeX code}
 The following guidelines are intended to make it easier to compare the
 tex file to the original.
 \begin{itemize}
 \item A new sentence in the original should start at a new line in the tex file.
-\item The first word on a line in the original should be at the start of a line
+\item The first full word on a line in the original should be at the start of a line
 in the tex file.
 \item No line in the tex file should be longer than 80 characters.
 \item If the first two rules are followed, sometimes a tex line will come out
@@ -340,15 +328,18 @@ its siblings)
 \item The first word of a line in the source text.
 \end{itemize}
 
+%--
 \subsection{Wrapping text around figures}
 Attempts to use \verb+wrapfigure+ to make the text flow around figures were
-more trouble then its worth. In particular, the text would not start to
+more trouble then their worth. In particular, the text would not start to
 flow until a new paragraph is started. Because we seldom start a new paragraph,
 we would have to start a paragraph on purpose (causing an indent) just for the
 wrapping. We will simply put the figures on their own, without wrapping.
 
 %---
 \section{Specific issues per chapter}
+
+%--
 \subsection{Prolegomena}
 \begin{itemize}
 \item
@@ -360,6 +351,7 @@ The Prolegomena in the original is basicaly a fifty page wall of text. Some atte
 introduce sections or subsections. See Issue \#12.
 \end{itemize}
 
+%--
 \subsection{Liber Primus}
 \begin{itemize}
 \item
@@ -373,13 +365,14 @@ declination must be determined in each case. See Issue \#2 on GitHub.
 Wrapping text around figures turned out to be impractical. We now will
 simply use a floating object for figures and tables.
 \item
-The tables imported from the litteral transcription can be simplified
-a lot, because we no longer need to immitate the original. E.g. the headers
+The tables can be simplified
+a lot, because there is no urgent need to immitate the original text.
+E.g. the headers
 for the Ostenta/Sexagesima conversion tables (Table 1.1) can now be written
 as a simple line of text.
 \item
-For the same tables: the text in it can be a lot bigger, as the tables
-will now appear on a separate page anyway.
+Also for tables: the text in it can be a lot bigger, as the tables
+will now take up the whole width of a page anyway.
 \item
 To fine-tune the placement of tables and figures it turned out to be
 neccesary to move the location where they are defined slightly foreward or
@@ -393,15 +386,32 @@ All tables and figures will be given a caption and a label, so they can
 appear in a List of Tables/Figures, and can be referred to from within the
 text.
 \item
-The \verb+\begin{quote}...\end{quote}+ command has shown to be
-very useful to represent multi-line Greek quotes, e.g. p. 4, line 21.
+Multi-line Greek and Latin quotes, e.g. p. 4, line 21
+can be done with the \verb+quote+ environment.
+\begin{verbatim}
+\begin{quote}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit,\\
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\\
+Ut enim ad minim veniam, quis nostrud exercitation ullamco\\
+laboris nisi ut aliquip ex ea commodo consequat.
+\end{quote}
+\end{verbatim}
+Which gives:
+\begin{quote}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit,\\
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\\
+Ut enim ad minim veniam, quis nostrud exercitation ullamco\\
+laboris nisi ut aliquip ex ea commodo consequat.
+\end{quote}
+This is nicely indented. New lines must be forced with \verb+\\+.
+Also available are the \verb+quotation+ and \verb+verse+ environments.
 \item
 The word "poëta/poëtae" is used on page 4, lines 7 and 14. We are not sure
 what to do with the trema.
 \item
 The image on page 11 (Figure 1.1: Lapis Levinii). We made a cleaned-up copy
 from an enlarged PDF page by editing nearly at the pixel level. It looks like
-Scaliger had an representation made for his book using typeset letters.
+Scaliger had a representation made for his book using typeset letters.
 E.g. the text "A latere dextro saxi" is obviously not on the stone itself.
 There is no indication
 of how he knew what the original looked like.
@@ -417,6 +427,10 @@ word. In Latin it is two separate words.
 \item[Olynth.]p 32, line 21.
 \item[Oecon.]p 33, line 10.
 \end{description}
+See \textcolor{blue}{%
+\href{https://github.com/DomoViridi/Scaliger/issues/2}
+{Issue \#2}%
+}.
 \item
 Some pages have loads of Greek text (several sentences in a row) with many
 Byzantine style ligatures and diacritics. It is most impractical to set up
@@ -452,9 +466,14 @@ the last one to be so.
 \end{itemize}
 \end{itemize}
 
+
 %%=====
 \chapter{Litteral transcription}
+
+%---
 \section{Entering text}
+
+%--
 \subsection{Flat text}
 Enter the text as simple flat text.
 Most of the text will consist of Latin,
@@ -462,36 +481,10 @@ with bits of Greek (words, short phrases, sometimes longer quotes) and words
 in Hebrew, Arabic or Persian.
 In the Latin body text there are several special characters:
 \begin{itemize}
-\item The long s: 'ſ'. This can simply be entered as an 's'. The right glyph
-will appear due to the selected font features.
-\item The ampersand: '\&'. This must be escaped in the source with a backslash,
-like so: \verb;\&;
-\item Ligatures 'æ' and 'œ': These can be entered as Unicode characters.
-On a Mac~OS keyboard use \verb;Alt-'; for æ and \verb;Alt-q; for œ.
-\item The double-s character 'ß', sometimes seen in italic text (e.g. PDF p.45).
-Enter this with Alt-s.
-\item The 'ct' ligature, where a little loop is added that connects the tops
-of the c and the t.
-This is handled by a font feature.
-You can simply enter 'ct' in the source.
-Note that the original does not contain any 'st' ligatures in the same style
-as the 'ct' ligature, but many fonts will try to render them anyway.
-\item Other ligatures (ffi, ſt, etc): these are handled by the font and need
-not be entered as special codes in the source.
-Simply use the sequence of normal characters (\verb;ffi;, \verb;st;, etc).
-\item  Capital Q with swash: this is handled by the font features.
-Simply type a Q in the source.
-\item Vowel with bar ā, ē, ī, ō, ū: These can be entered as Unicode characters.
-The diacritical bar (macron) can be entered on Mac~OS (U.S. Extended or
-ABC Extended keyboard must be
-selected\footnote{The U.S. Extended keyboard layout was renamed to
-ABC Extended with the introduction of Mac OS X 10.11 El Capitan})
-with Alt-a followed by the vowel.
-\item Vowel with ogonek ę: This can be entered as a Unicode character.
-Can be entered on Mac~OS (U.S. Extended or ABC Extended keyboard must be
-selected\footnotemark[\value{footnote}]) with Alt-m followed by the vowel.
-\item It appears that sometimes a final 's' in a word is printed as what looks like a small question mark. E.g. Prolegomena p.XXIII (PDF p.50) has "Ioſephu?" and "Ioſepho?" near the bottom. For the time being, try to use a question mark here.
+
+\item It appears that sometimes a final 's' in a word is printed as what looks like a small question mark. E.g. Prolegomena p.XXIII (PDF p.50) has "Ioſephu?" and "Ioſepho?" near the bottom. Translitterate as 's'.
 \end{itemize}
+
 Some special text must be surrounded by commands:
 \begin{itemize}
 \item Roman numerals: \textsc{vii}.
@@ -512,11 +505,6 @@ and settings as Arabic.
 The commands will handle the selection of a suitable font for that language. In
 later phase the placeholders will be filled in with the actual text, which can
 be entered as Unicode characters.
-\\
-For the Greek ligatures we will probably 
-have to resort to a special coding scheme, such as \verb+2<epsilon><iota>B;+ for
-"a 2 character ligature representing <epsilon><iota>,
-using the second ('B') of the available ligatures".
 \item Astrological symbols: For the astrological symbols used to represent the
 sun, moon and planets there is the \verb;\astro{}; command, which will select
 a suitable font. The symbols themselves can be entered in Unicode.
@@ -542,74 +530,6 @@ Saturn & U+2644 \\
 
 \end{itemize}
 
-%
-\subsection{Chapter titles}
-The multi-line chapter titles can be immitated using the \verb;\head;
-command. It has three parameters:
-\begin{enumerate}
-\item {\ttfamily\bfseries scalesize}: A factor by which the size of
-the font is multiplied. Usual values: 1.5, 2.0, 3.0, 3.3.
-\item {\ttfamily\bfseries spacing}: Influenzes the spacing between letters.
-The value is passed to the LetterSpacing fontfacility.
-Usual values: 25, 35, 40, 50, 60.
-\item {\ttfamily\bfseries text}: The text to put on the line.
-\end{enumerate}
-Steps to make the lines match the original:
-\begin{enumerate}
-\item Set up a frame for each line of the form
- \verb;\vspace{0mm}\head{1.0}{0}{}\\;
-\item Surround the block with a command for small caps
-(\verb;{scshape … };) and for centering (\verb;\begin{center} … \end{center};)
-\item Fill in the text for all lines in the 3rd parameter of the \verb;\head;
-commands.
-\item For each line, adjust the scale so the height of the result matches 
-the height of the original.
-\item For each line, adjust the spacing so the width of the result matches
-the width of the original.
-\item Working from top to bottom, adjust values of the \verb;\vspace; commands
-to match the vertical position of each line to the original. For the first line
-use a negative value (usually -18mm) to move the line up.
-\end{enumerate}
-Spaces in these title lines will not come out well, because the LetterSpacing
-does not make the space itself wider. This gives the impression that as the
-spacing between the characters gets bigger, the space character disappears.
-Replace spaces with \verb;\hspace{1.0em};.
-
-
-%
-\subsection{Drop caps}
-Extra large initials in the first line of a chapter or section can be made
-with one of two commands: \verb;\dropcap; for normal drop caps,
-and \verb;\dropcapil; for illuminated drop caps.
-
-Both have the same three parameters:
-\begin{enumerate}
-\item \texttt{lines}: The desired hight of the dropcap expressed as
-a number of lines.
-Count the lines in the original to find this value.
-\item \texttt{initial}: The initial letter.
-\item \texttt{caps}: The short bit of text after the initial which will be
-set as small caps.
-The first of these is usually upper case, the rest lower case.
-\end{enumerate}
-After setting up the drop cap you may find several lines of the text running
-into the drop cap. You can solve this by making artificial paragraphs by
-using \verb;\\ \p; instead of a blank line between the paragraphs. Do this
-for enough lines to clear the drop cap.\footnote{This problem might be solved
-by cooking our own lettrine command. This should be easy since we are already
-using the \texttt{wrapfig} package.}
-
-%
-\subsection{New page}
-A new page in the original should be reflected in the transcription by a
-\verb;\clearpage; command. This puts a page break in the transcription.
-Also put a line with the page number and PDF source page number in the form:\\
-\indent\texttt{p. 2 [pdf 85]}\\
-Make sure there are no blank lines around this command and this line. Otherwise
-the paragraph counter will be incremented. You may want to put a comment line
-here, which will show up as a marker in a different colour in a suitable
-source editor.
-
 %---
 \section{Common error messages}
 \begin{description}
@@ -618,11 +538,15 @@ A common or normal command such as \verb;\chapter;
 is not recognised. You attempted to compile a source file meant for inclusion. Compile the root file (the one that has the \verb;\documentclass{}; command in it) instead. Often happens by pressing the TeXShop \texttt{Typeset} button in the window you are entering text in. Open the window with the root document and hit \texttt{Typeset} there.
 
 \item[Misplaced alignment tab character \&.] \hfill \\
-You forgot to escape the ampersand \& with a backslash, like so: \verb;\&;. The program expects the ampersand to be part of a table definition.
+You forgot to escape the ampersand (\&) with a backslash, like so: \verb;\&;.
+The program expects the ampersand to be part of a table definition.
+Note that an ampersand should almost always be translitterated as 'et'.
 \end{description}
+
 
 %%=====
 \chapter{Implemented features}
+%---
 \section{Unicode}
 After using Mac OS TextEdit with RTF, which did not give enough control over formatting, and \LaTeX, which
 has bad support for Unicode, we switched to \XeLaTeX. This directly accepts UTF-8 as source input and allows
@@ -631,163 +555,38 @@ came when \LaTeX  made it impossible to produce the astrological signs for the p
 
 \texttt{fontspec}
 
-%---
-\section{Latin ligatures and long s}
-These are handled by choosing a suitable font and selecting the right font features. The text can than be entered
-as simple text with no extra codes and the font will automatically put in the 'st' and 'ct' ligatures, the long s (where
-appropriate) and the 'Q' with a swish.
 
-Other ligatures and special characters must be entered manually. Select the U. S. Extended keyboard on Mac OS
-to enter these with an Alt-key combination. Use the 'Show Keyboard Viewer' feature to find out what Alt key combinations
-to use.
-\begin{itemize}
-\item 'æ' and 'Æ' (Alt-' and Shift-Alt-', i.e. the single quote key next to the semicolon key).
-\item 'œ' and 'Œ' (Alt-q and Shift-Alt-q)
-\item ā, ē, ō, ū: vowels with a bar (macron) over them. The original sometimes uses these at the end of words
-as an abbreviation. Use the 'dead' key Alt-a first, followed by the vowel.
-\item The occasional 'regular' accented letter, e.g. á, à, ä, can be made with common Alt dead key combinations.
-\item Occasionally there is an abbreviation in the source that looks like a cedilla under the letter. E.g. "Iulianę" for "Iulianae".
-Use an Ogonek (looks like a mirrored cedilla) there, because our favourite font does not have an 'e' with a cedilla, but
-does haven an 'e' with ogonek. (Dead key: Alt-m)
-\end{itemize}
-
-The only special code required is for the ampersand character "\&", which is frequently used in the original. Because
-this character has special meaning in \XeTeX, it must be escaped with a backslash, like so: \verb;\&;.
-
-%---
-\section{Bigger paper, smaller margins}
-In order to get at least the same amount of text on a page in the litteral
-transcription as in the original, we would like to have matching paper size
-and margins.
-
-The paper size of the original is 217.6 x 338.3 mm. The closest available 
-standard paper size is legal, at 215.9 x 355.6 mm. This is 1.7 mm narrower
-(so almost the same width),
-and 17.3 mm longer. The \texttt{legalpaper} size is chosen with an option
-to the \verb;\documentclass{}; command.
-
-The standard margins of \texttt{legalpaper} are rather wide compared to the original. This has been adjusted with the \texttt{geometry} package, by setting new margin sizes explicitly in the options. These sizes have been measured from
-the original. The bottom margin has been enlarged to compensate for the above mentioned difference of 17.3 mm in the length of the paper.
-
-%---
-\section{Wrapping around tables and figures}
-The original contains some tables (e.g. PDF p. 88) and figures (e.g. PDF p. 91)
-where the text continues on the side of the table/figure, or "wraps" around it.
-We can get this effect by using the \texttt{wrapfig} package. This gives us the
-\texttt{wraptable} and \texttt{wrapfigure} commands. These replace the
-\texttt{tabular} and \texttt{figure} commands respectively.
-
-%---
-\section{Phrase numbering}
-We start every phrase from the source on a new line, and give every phrase a number. Numbering starts at 1 for
-a new chapter or section and can run over several pages. These numbers will serve to connect the transliterated
-and translated versions back to the original.
-
-It is unfeasible to try to match the layout of the original line-by-line, going to a new line on the exact same word
-or hyphenation as the original. This is because the font will not have identical properties to the original. Also,
-the original has some very odd spacing, especially around interpunction. Once we let go of this requirement, we can
-choose a layout which suits our needs.
-
-We could emulate the original and let the text run for pages on end without any paragraphs, but this has
-several disadvantages.
-\begin{itemize}
-\item The transcription will also be a wall of text. This makes it hard to compare the transcription to the original, because
-we need to search for the start of a phrase in both versions.
-\item This makes it hard to correlate the transliteration with the transcription. As the transcription generally expands
-a lot of characters, words and punctuation (e.g. \&) a 'free-hand' layout in the transliteration will not match the transcription
-line-by-line.
-\end{itemize}
-We chose for a solution where even the transcription has each phrase starting on a new line. Advantages:
-\begin{itemize}
-\item We can add numbers to identify each phrase. These numbers can then be used to easily compare the transliteration
-to the transcription.
-\item The translation can use these phrase numbers to refer to the original. Having each phrase start on a new line
-in the transcription start on a new line makes it easier to find the phrase being referred to.
-\end{itemize}
-
-\subsection{Problems}
-\begin{itemize}
-\item Punctuation in the original is very sloppy.
-\item Some parts are very long, without any subdivision. E.g. the Prolegomena runs for
-50 pages with an estimated 900 phrases.
-\item As we start counting from 1 with each new section, the phrase number alone does not identify the phase. This will
-also require the chapter/section name or number.
-\end{itemize}
-
-
-\texttt{mparhack}, with special commands defined
-
-Counter \texttt{parcount}
-
-Command \verb;\p;: put an isolated paragraph counter mark in the margin.
-
-Environment \texttt{parnumbers}: Automatically put paragraph counter marks in the margin
-
-%---
-\section{Spaced small caps}
-In the original, all occurrences of small caps (in chapter/section titles, in roman numerals) have extra spacing between
-the characters. We can probably do this by setting a font feature for small caps fonts.
-Maybe use the \texttt{LetterSpace} font teature (\texttt{fontspec.pdf} sect 11.2)
-
+%===
 \chapter{Desired Features}
+%---
 \section{Fractions}
-See \texttt{fontspec.pdf} section 12.6
+See \texttt{fontspec.pdf} section 12.6.
+Solved with \verb+\myfrac{}{}+ based on \verb+\sfrac{}[]{}+
+from the \verb+xfrac+ package.
 
 %---
-\section{Margin letters on the same side as in the original}
-Due to limitations of the \verb;\marginpar{}; command, the margin letters must go on the same side as the
-paragraph numbers. We would like to have a system where we have better control over text in the margins.
-
-%---
-\section{Formatting chapter/section headers}
-We would like the headers at the start of each chapter (Pars) and each subsection (subject) to imitate the original.
-Scaligeri has a rather idiosyncratic way of titling his chapters, e.g. introducing his Liber Primus with:
+\section{Roman numerals}
+Introduce a command like \verb+\rn{}+ to format roman numerals, to replace
+the \verb+\textsc{}+ small caps command. Features:
 \begin{itemize}
-\item His full name, on three lines
-\item The title of the book: De Emendatione Temporum
-\item "Liber Primus." rather small below that.
+\item Small caps
+\item Possibly wider spacing
+\item A suitable font with
+\begin{itemize}
+\item Serifs
+\item Support for small caps
+\item Support for U+2183 ROMAN NUMERAL REVERSED ONE HUNDRED, which is used
+in Liber Secundus.
 \end{itemize}
-All this is written in centered, spaced out capitals in various sizes.
 
-The standard \LaTeX chapter titles for the book style are placed with lots of white space above and below them. Scaligeri has no space above the chapter titles.
+\end{itemize}
 
-Scaligeri's subjects have multi-line headers in centered, spaced out capitals. The first line has a bigger font size than
-subsequent lines (see e.g. pdf page 87)
-
-The \texttt{titlesec} package may work here.
 
 %---
 \section{Putting the right titles in the ToC}
 
 %---
 \section{A mechanism to mark and reference pages in the original PDF}
-
-%---
-\section{Page headers}
-Scaligeri uses as a header in the main body text:
-\begin{description}
-\item[On the left page] \hfill
-    \begin{description}
-    \item[Left] Page number (on the outside)
-    \item[Centre] His name (centered, small caps) \\
-      \textsc{Iosephi Scaligeri}
-    \item[Right] <nothing>
-    \end{description}
-\item[On the right page] \hfill
-    \begin{description}
-    \item[Left] <nothing>
-    \item[Centre] Book title + Chapter title (centered, small caps, abbreviated) \\
-       \textsc{De Emendat. Temporvm Lib. I}
-    \item[Right] Page number (on the outside)
-    \end{description}
-\end{description}
-
-In the Prolegomena it is similar, but with roman numerals for the page numbers and only the chapter title
-\textsc{(Prolegomena.)} on both pages. 
-
-The Dedication has no headers.
-
-The only package that gives sufficiently detailed control of the headers (and footers) is probably \texttt{titlesec}.
 
 %---
 \section{Footers}
@@ -826,10 +625,6 @@ and/or a version number of the transcription.
 %---
 \section{Indents for multi-line Greek quotes}
 
-%---
-\section{Exact ligature transcription for Greek}
-
-\texttt{RGreekl2 ?}
 
 \end{document}
  
