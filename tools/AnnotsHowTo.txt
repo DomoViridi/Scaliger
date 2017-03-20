@@ -1,0 +1,44 @@
+The line numbers in the PDF will have the form of annotations. To save work
+a program has been developed to automatically generate the numbers in roughly
+the correct position for sets of pages. As the original has over 900
+pages of text, and each page requires 9 notes (sometimes less), this requires
+about 8100 notes to be generated.
+
+Doing this by hand in a PDF reading program (like Acrobat Reader or OSX Preview)
+would be tedious, especially since these programs become extremely slow when
+trying to handle annotations.
+
+To avoid this, a system has been developed which uses XFDF files to automate
+most of the hard work. Though a lot of tedious and careful work is required,
+the line numbers only need to be added once per source-PDF.
+
+The procedure to add the line numbers to the source PDF goes roughly as follows:
+
+- 'xfdfgen' is a program written in C by domoviridi which generates an xfdf file.
+  This xfdf file describes all the annotations to be added to one or more chapters
+  of the PDF original, based on a configuration file (usually called
+  'annots.cfg'.
+     These annotations are of the "freetext" type, with the simple "content" subtype.
+
+- Adobe Acrobat is used to load the PDF original and import the xfdf file.
+  Then the annotations need to be manually adjusted to match the scanned
+  text.
+     Most commonly the line numbers need to be moved up or down slightly.
+  Sometimes tables, images or section headings make it necessary to remove
+  some of the higher line numbers.
+  This adjustment needs to be done page-by-page, by hand.
+
+- The annotations can then be exported again from Adobe Acrobat as an xfdf file.
+  These exported annotations wil be of the "freetext" type, but with the
+  "contents-richtext" subtype.
+    Note: do not simply save the PDF from Adobe Acrobat, as this will give a very
+    bloated version of the file	(800 MB rather than 78 MB.}
+
+- 'annotform.xslt'+ is a script that will transform the xfdf output
+  of Adobe Acrobat into a much simpler and compact form, using the
+  "freetext/content" type again.
+
+- Adobe Acrobat can then be used to load the source PDF and import the simplified
+  xfdf, and, without making any changes, save the PDF. If all went well, you
+  now have a PDF with the new line numbers added, which is still less than
+  100 MB in size.
