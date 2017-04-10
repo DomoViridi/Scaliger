@@ -369,6 +369,20 @@ in Liber Secundus.
 
 \end{itemize}
 
+%--
+\subsection{Greek numerals}
+The original sometimes uses numbers represented by Greek letters
+(e.g. Liber Secundus page 81, PDF 164). To show that it is a number, the
+letters have a bar over them, like this: $\overline{\kappa\delta}$.
+
+For the time being, we use math mode with overline to represent this.
+E.g. the above example is encoded as $\overline{\kappa\delta}$.
+The main disadvantage of this method is that math mode uses a different
+font for the greek letters.
+
+If possible we could set the math mode font to the same font we use in the
+body text. Otherwise we might need to construct a special command which gives
+the same effect as overline, but uses the Greek font we set for the document.
 
 %--
 \subsection{Putting the right titles in the ToC}
@@ -458,6 +472,11 @@ with the appropriate spacing.
 Note: Before the introduction of the \verb;\rnum{}; command,
 the \verb;\textsc{}; command was used. Older parts of the \TeX{} source
 may still use this command. These instances will be replaced eventually.
+
+\item Greek numerals, such as $\overline{\kappa\delta}$ can be entered using
+the overline command in math mode, like this: \verb+$\overline{\kappa\delta}$+.
+For this command the Greek letters need to be spelled out. Note that the
+end-of-word sigma '$\varsigma$' is represented by \verb+\varsigma+.
 
 \item Numbers with fractions:
 \begin{itemize}
