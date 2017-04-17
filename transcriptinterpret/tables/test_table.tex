@@ -1,0 +1,49 @@
+%%% Test a table
+%
+% Set the \input{} to the table you want to test, then typeset this file
+%
+\documentclass[draft,a4paper]{book}
+\usepackage{rotating}
+\usepackage{fontspec}
+\setmainfont{Hoefler Text}[]
+\setmainfont{Times New Roman}[]
+\newfontfamily\greekfont{Times New Roman}
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\usepackage{booktabs} % To get nice table layout
+\begin{document}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+deserunt mollit anim id est laborum.
+\begin{table}[htbp]
+%\tiny
+%\scriptsize
+\centering
+%\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.3}
+%%
+%\input{067_neomeniai_tes_oktaeteridos.tex}
+\input{082_linea_metaptoseos_metonicae.tex}
+%%
+\end{table}
+%
+Donec maximus, leo nec accumsan laoreet, nulla nibh posuere neque, at malesuada
+mauris leo vitae magna. Mauris vel nisl vitae est congue finibus.
+Praesent suscipit suscipit erat sit amet aliquam. Maecenas nunc metus, varius at
+sodales eget, pellentesque in risus.
+Donec vel nisi eget arcu condimentum blandit non non urna.
+Phasellus quis fermentum lacus.
+Cras orci nulla, venenatis vitae sapien eu, cursus pulvinar erat.
+Suspendisse facilisis orci eget ante cursus rhoncus vel quis neque.
+Integer eu commodo tellus.
+Nullam sed tortor id lacus imperdiet accumsan.
+Sed malesuada nisi vel justo pretium bibendum.
+Nulla ultrices, turpis sed finibus finibus, tortor libero fermentum dolor,
+in mollis ante magna ut neque.
+\end{document}
