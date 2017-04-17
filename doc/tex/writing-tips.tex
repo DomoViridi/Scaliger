@@ -29,6 +29,10 @@
 
 \usepackage{fontspec,xltxtra,xunicode}
 %\setmainfont{Hoefler Text}
+
+\setmainfont{Times New Roman}
+% Chosen font needs to be able to show Greek characters koppa and sampi.
+
 %\defaultfontfeatures{Mapping=tex-text}
 %\setromanfont[Mapping=tex-text]{Hoefler Text}
 %\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
@@ -39,6 +43,9 @@
 
 % Use color to mark the hyperlinks
 \usepackage{color}
+
+%%% Booktabs package for nice looking tables
+\usepackage{booktabs}
 
 %% Command to create a hyperlink to an Issue on GitHub
 %% Parameter: the issue number on GitHub
@@ -383,6 +390,55 @@ font for the greek letters.
 If possible we could set the math mode font to the same font we use in the
 body text. Otherwise we might need to construct a special command which gives
 the same effect as overline, but uses the Greek font we set for the document.
+
+\begin{table}[htbp]
+\centering
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{} clc c clc c clc @{} }
+%\toprule
+Greek & Code & Value &&
+Greek & Code & Value &&
+Greek & Code & Value \\
+\cmidrule(r){1-3}\cmidrule(lr){5-7}\cmidrule(l){9-11}
+$\overline\alpha$		& \verb+\alpha+		&   1 &&
+$\overline\iota$		& \verb+\iota+		&  10 &&
+$\overline\rho$			& \verb+\rho+		& 100 \\
+$\overline\beta$		& \verb+\beta+		&   2 &&
+$\overline\kappa$		& \verb+\kappa+		&  20 &&
+$\overline\sigma$		& \verb+\sigma+		& 200 \\
+$\overline\gamma$		& \verb+\gamma+		&   3 &&
+$\overline\lambda$		& \verb+\lambda+	&  30 &&
+$\overline\tau$			& \verb+\tau+		& 300 \\
+$\overline\delta$		& \verb+\delta+		&   4 &&
+$\overline\mu$			& \verb+\mu+		&  40 &&
+$\overline\upsilon$		& \verb+\upsilon+	& 400 \\
+$\overline\epsilon$		& \verb+\epsilon+	&   5 &&
+$\overline\nu$			& \verb+\nu+		&  50 &&
+$\overline\phi$			& \verb+\phi+		& 500 \\
+$\overline\varsigma$	& \verb+\varsigma+	&   6 &&
+$\overline\xi$			& \verb+\xi+		&  60 &&
+$\overline\chi$			& \verb+\chi+		& 600 \\
+$\overline\zeta$		& \verb+\zeta+		&   7 &&
+$\overline o$			& \verb+o+			&  70 &&
+$\overline\psi$			& \verb+\psi+		& 700 \\
+$\overline\eta$			& \verb+\eta+		&   8 &&
+$\overline\pi$			& \verb+\pi+		&  80 &&
+$\overline\omega$		& \verb+\omega+		& 800 \\
+$\overline\theta$		& \verb+\theta+		&   9 &&
+ҁ						& \verb+<koppa>+	&  90 &&
+Ϡ						& \verb+<sampi>+	& 900 \\
+\end{tabular}
+\end{table}
+Notes:
+\begin{itemize}
+\item Math mode does not have a code for the omicron (value 70).
+Use a small 'o' instead.
+\item The values 90 and 900 are represented by the koppa and sampi characters
+respectively. These are not part of the math mode and so the \verb+\overline+
+code will not work on them.
+If this becomes a problem we may need to cook our own command after all.
+\end{itemize}
 
 %--
 \subsection{Putting the right titles in the ToC}
