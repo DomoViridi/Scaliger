@@ -3,17 +3,18 @@
 % Set the \input{} to the table you want to test, then typeset this file
 %
 \documentclass[draft,a4paper]{book}
-% Package to split the table over more than one page
-\usepackage{longtable}
-\usepackage{rotating}
+\usepackage{longtable}% Allow for split of the table over more than one page
+\usepackage{rotating} % Make it possible to rotate headers
+\usepackage{booktabs} % To get nice table layout
+%% Settings from the main text we also need for the test
 \usepackage{fontspec}
 \setmainfont{Hoefler Text}[]
-\setmainfont{Times New Roman}[]
+%\setmainfont{Times New Roman}[]
 \newfontfamily\greekfont{Times New Roman}
 \usepackage[quiet]{polyglossia}
 \setmainlanguage{latin}
 \setotherlanguage{greek}
-\usepackage{booktabs} % To get nice table layout
+%
 \begin{document}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua.
@@ -23,7 +24,8 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
 eu fugiat nulla pariatur.
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
 deserunt mollit anim id est laborum.
-%\begin{table}[htbp]
+
+\begin{table}[htb]
 %\tiny
 %\scriptsize
 %\footnotesize
@@ -38,8 +40,8 @@ deserunt mollit anim id est laborum.
 \input{079_characterismi_neomeniarum.tex}
 %\input{082_linea_metaptoseos_metonicae.tex}
 %%
-%\end{table}
-%
+\end{table}
+
 Donec maximus, leo nec accumsan laoreet, nulla nibh posuere neque, at malesuada
 mauris leo vitae magna. Mauris vel nisl vitae est congue finibus.
 Praesent suscipit suscipit erat sit amet aliquam. Maecenas nunc metus, varius at
