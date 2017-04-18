@@ -3,6 +3,8 @@
 % Set the \input{} to the table you want to test, then typeset this file
 %
 \documentclass[draft,a4paper]{book}
+% Package to split the table over more than one page
+\usepackage{longtable}
 \usepackage{rotating}
 \usepackage{fontspec}
 \setmainfont{Hoefler Text}[]
@@ -21,17 +23,22 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
 eu fugiat nulla pariatur.
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
 deserunt mollit anim id est laborum.
-\begin{table}[htbp]
+%\begin{table}[htbp]
 %\tiny
 %\scriptsize
-\centering
+%\footnotesize
+%\small
+%\normalsize
+%\centering
 %\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.3}
+%\renewcommand{\arraystretch}{1.3}
 %%
+%\input{043_neomeniarum_atticarum.tex}
 %\input{067_neomeniai_tes_oktaeteridos.tex}
-\input{082_linea_metaptoseos_metonicae.tex}
+\input{079_characterismi_neomeniarum.tex}
+%\input{082_linea_metaptoseos_metonicae.tex}
 %%
-\end{table}
+%\end{table}
 %
 Donec maximus, leo nec accumsan laoreet, nulla nibh posuere neque, at malesuada
 mauris leo vitae magna. Mauris vel nisl vitae est congue finibus.
