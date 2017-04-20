@@ -14,6 +14,12 @@
 \usepackage[quiet]{polyglossia}
 \setmainlanguage{latin}
 \setotherlanguage{greek}
+%%% Special command for roman numerals
+%% Usage: \rnum{<roman numeral>}
+%% Example: \rnum{mdclxviii}
+\newcommand{\rnum}[1]{%
+\textsc{#1}%
+}
 %
 \begin{document}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -38,6 +44,10 @@ deserunt mollit anim id est laborum.
 %\input{043_neomeniarum_atticarum.tex}
 %\input{067_neomeniai_tes_oktaeteridos.tex}
 \input{079_characterismi_neomeniarum.tex}
+\end{table}
+
+\begin{table}[htb]
+\input{079_characterismi_periodorum.tex}
 %\input{082_linea_metaptoseos_metonicae.tex}
 %%
 \end{table}
