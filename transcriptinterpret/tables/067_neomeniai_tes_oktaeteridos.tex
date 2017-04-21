@@ -1,30 +1,21 @@
 %%% Liber II p67, PDF 150
 %%
-%% Dates of the new moon for each year in the octaeterida
-%%
-%% For testing, uncomment the folowing lines and the lines
-%% at the end of the file
-%% Test ==>
-%\documentclass{book}
-%\usepackage{fontspec}
-%\setmainfont{Hoefler Text}[]
-%\newfontfamily\greekfont{Arial Unicode MS}
-%\usepackage[quiet]{polyglossia}
-%\setmainlanguage{latin}
-%\setotherlanguage{greek}
-%\begin{document}
-%Just some text on top of the table.
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
 %
-%\begin{table}[htbp]
-% \centering
-%%\footnotesize
-%%\scriptsize
+%% Select a general font size (uncomment one from the list)
 %\tiny
+%\scriptsize
+%\footnotesize
+%\small
+%\normalsize
+%% Center the whole table left-right
+\centering
 %% Modify distance between rows
 %\renewcommand{\arraystretch}{1.8}
 %% Modify separation between columns
 %\setlength{\tabcolsep}{2.0pt}
-%% <== Test
 %%
 \begin{tabular}{l llllllll}
 \multicolumn{9}{ c }{\large\textgreek{ΝΕΟΜΗΝΙΑΙ ΤΗΣ ΟΚΤΑΕΤΗΡΙΔΟΣ}}\\
@@ -178,8 +169,5 @@ $\overline{\iota\eta}$       \textgreek{ποσειδ.} &
 ~
 \\
 \end{tabular}
-%% Test ==>
-%\end{table}
 %
-%Just some text below the table.
-%\end{document}
+\caption{Neomeniai tes oktaeteridos kath ekaston etos}
