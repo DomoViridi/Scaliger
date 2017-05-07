@@ -1,0 +1,126 @@
+%%% Liber II p84, PDF 167
+%%
+%% Table that gives the names of the month in the Macedonian, Philippeian
+%% and Attic calenders.
+%%
+%% The original table does not have a title
+%% In the original, the first column does not have a header.
+%%
+%% The names of the month are very hard to read in the PDF scan.
+%% The table is small and the scan tends to blurr the details
+%%
+%% From wikipedia, Ancient Greek calendars:
+%%
+%% Macedonian: 
+%%    Dios - Δίος
+%%    Apellaios - Ἀπελλαῖος
+%%    Audunaios or Audnaios - Αὐδυναῖος or Αὐδναῖος
+%% +  Peritios - Περίτιος
+%%    Dystros - Δύστρος
+%%    Xandikos or Xanthikos - Ξανδικός or Ξανθικός
+%%    Artemisios or Artamitios - Ἀρτεμίσιος or Ἀρταμίτιος
+%% -  Daisios - Δαίσιος
+%%    Panemos or Panamos - Πάνημος or Πάναμος
+%%    Loios - Λώιος
+%%    Gorpiaios - Γορπιαῖος
+%%    Hyperberetaios - Ὑπερβερεταῖος
+%%
+%% The '-' indicates first month listed in the table in de Macedonici column
+%%
+%% The Philippei column has the same months listed as the Macedonici column
+%% but starts at Peritios (marked with a '+')
+%%
+%% The Attici column has the same months as the first column, but offset
+%% by 4 places.
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+\footnotesize
+%\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{1.6pt}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.3}
+%%
+\begin{tabular}{@{}l l c ll@{}}
+% Dummy column (c) added to separate cmidrules
+\toprule
+ \multicolumn{2}{c}{Menses Tetraeterici} & &
+ \multicolumn{2}{c}{Menses Metonici} \\
+\cmidrule{1-2}\cmidrule{4-5}
+ ?? & Macedonici & & Philippei & Attici \\
+\midrule[\heavyrulewidth]
+ \textgreek{ἑκατομβαιών} &
+ \textgreek{δαίσιος} & &
+ \textgreek{περίτιος} &
+ \textgreek{ἐλαφηβολιών}
+\\
+ \textgreek{μεταγειτνιών} &
+ \textgreek{πάνεμοσ} & &
+ \textgreek{δῦστρος[?]} &
+ \textgreek{μυονυχιών}
+\\
+ \textgreek{βοηδρομιών} &
+ \textgreek{λῶος[?]} & & % In Emandatione: without the iota 
+ \textgreek{ξανθικὸς} &
+ \textgreek{θαργηλιών}
+\\
+\midrule
+ \textgreek{πυανεψιών} &
+ \textgreek{γορπιαῖος} & &
+ \textgreek{ἀρτεμίσιος} &
+ \textgreek{σκιῤῥοφοριών}
+\\
+ \textgreek{μαιμακτηριών} &
+ \textgreek{ὑπερβερεταῖοσ} & &
+ \textgreek{δαίσιος} &
+ \textgreek{ἑκατομβαιών}
+\\
+ \textgreek{ποσειδεών} &
+ \textgreek{δίοσ} & &
+ \textgreek{πάνεμοσ} &
+ \textgreek{μεταγειτνιών}
+\\
+\midrule
+ \textgreek{γαμηλιών} &
+ \textgreek{ἀπελλαῖος} & &
+ \textgreek{λῶος[?]} &
+ \textgreek{βοηδρομιών}
+\\
+ \textgreek{ανθεστηριών} &
+ \textgreek{ἀυδυναῖος} & &
+ \textgreek{γορπιαῖος} &
+ \textgreek{πυανεψιών}
+\\
+ \textgreek{ἐλαφηβολιών} &
+ \textgreek{περίτιος} & &
+ \textgreek{ὑπερβερεταῖοσ} &
+ \textgreek{μαιμακτηριών}
+\\
+\midrule
+ \textgreek{μυονυχιών} &
+ \textgreek{δῦστρος[?]} & & % Tonal over upsilon: ύ or ῦ ?
+ \textgreek{δίοσ} &
+ \textgreek{ποσειδεών}
+\\
+ \textgreek{θαργηλιών} &
+ \textgreek{ξανθικός} & &
+ \textgreek{ἀπελλαῖος} &
+ \textgreek{γαμηλιών}
+\\
+ \textgreek{σκιῤῥοφοριών} &
+ \textgreek{ἀρτεμίσιος} & &
+ \textgreek{ἀυδυναῖος} &
+ \textgreek{ἀνθεστηριών}
+\\
+\bottomrule
+\end{tabular}
+%
