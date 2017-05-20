@@ -361,6 +361,7 @@ line numbers before every sentence.
 \section{Desired Features}
 %--
 \subsection{Roman numerals}
+\label{subsec:roman_numerals}
 Introduce a command like \verb+\rnum{}+ to format roman numerals, to replace
 the \verb+\textsc{}+ small caps command. Features:
 \begin{itemize}
@@ -378,6 +379,7 @@ in Liber Secundus.
 
 %--
 \subsection{Greek numerals}
+\label{subsec:greek_numerals}
 The original sometimes uses numbers represented by Greek letters
 (e.g. Liber Secundus page 81, PDF 164). To show that it is a number, the
 letters have a bar over them, like this: $\overline{\kappa\delta}$.
@@ -432,8 +434,11 @@ $\overline\theta$		& \verb+\theta+		&   9 &&
 \end{table}
 Notes:
 \begin{itemize}
+\item The number 6 should be represented by the stigma character 'ϛ'.
+Math mode does not support this character, so we use the sigma variant
+(which looks similar) instead.
 \item Math mode does not have a code for the omicron (value 70).
-Use a small 'o' instead.
+A small 'o' must be used.
 \item The values 90 and 900 are represented by the koppa and sampi characters
 respectively. These are not part of the math mode and so the \verb+\overline+
 code will not work on them.
@@ -442,6 +447,7 @@ If this becomes a problem we may need to cook our own command after all.
 
 %--
 \subsection{Putting the right titles in the ToC}
+[Something here about chapter and section headings]
 
 %%---
 \section{Common error messages}
@@ -495,6 +501,7 @@ be entered as Unicode characters.
 
 If you feel so inclined, you can enter the foreign text, replacing the
 "\verb+[Greek]+" etcetera. If you have entered some foreign text but are
+unsure
 if it is correct, leave a question mark in brackets, like so: \verb+[?]+.
 
 \item Astrological symbols: For the astrological symbols used to represent the
@@ -525,15 +532,14 @@ Saturn & U+2644 \\
 Enter them as lower case characters, surrounded by the \verb;\rnum{};
 command. This command will show the numeral in small caps,
 with the appropriate spacing.
+See also section~\ref{subsec:roman_numerals} for details on this command.
 Note: Before the introduction of the \verb;\rnum{}; command,
 the \verb;\textsc{}; command was used. Older parts of the \TeX{} source
 may still use this command. These instances will be replaced eventually.
 
 \item Greek numerals, such as $\overline{\kappa\delta}$ can be entered using
 the overline command in math mode, like this: \verb+$\overline{\kappa\delta}$+.
-For this command the Greek letters need to be spelled out. Note that the
-end-of-word sigma '$\varsigma$' is represented by \verb+\varsigma+.
-
+For this command the Greek letters need to be spelled out. See section~\ref{subsec:greek_numerals} for details.
 \item Numbers with fractions:
 \begin{itemize}
 \item Use the \verb+\myfrac{numerator}{denominator}+ command to render fractions.
@@ -565,6 +571,7 @@ exactly like an 'f'.
 	\item ē to en (sometimes em)
 	\item à (as a whole word) to ab
 	\item ë in poëta (p4,7) or Laërtius (p23,36) will be unchanged for now
+	\item è to ex? (p88)
 	\end{itemize}
 
 \item "u" and "v" are used exchangeably in the original.
