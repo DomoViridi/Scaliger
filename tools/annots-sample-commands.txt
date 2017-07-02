@@ -1,0 +1,53 @@
+
+plank:Scaliger erik$ xsltproc tools/annotform.xslt 1629-export.xfdf >nuts.xfdf
+
+plank:Scaliger erik$ xsltproc tools/annotform.xslt 1629-export.xfdf 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xfdf xmlns="http://ns.adobe.com/xfdf/" xml:space="preserve">
+  <annots>
+    <freetext width="0" flags="print" page="27" justification="right" rect="500,614,512,626">
+      <contents>1</contents>
+      <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+    </freetext>
+    <freetext width="0" flags="print" page="27" justification="right" rect="500,536.200000,512,548.200000">
+      <contents>5</contents>
+      <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+    </freetext>
+...
+[pages and pages]
+...
+    <freetext width="0" flags="print" page="269" justification="right" rect="532.713000,235.200000,544.713000,247.200000">
+      <contents>35</contents>
+      <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+    </freetext>
+  </annots>
+  <f href="1629-Geneva-1-Opus_de_emendatione_temporum_hac_postrem.pdf"/>
+  <ids original="18D2015A455F4CCA84F6023B5032697E" modified="18D2015A455F4CCA84F6023B5032697E"/>
+</xfdf>
+
+plank:Scaliger erik$ head 1629-Geneva-1-Notes-084*.xfdf
+<?xml version="1.0" encoding="UTF-8"?>
+<xfdf xmlns="http://ns.adobe.com/xfdf/" xml:space="preserve">
+  <annots>
+    <freetext width="0" flags="print" page="83" justification="right" rect="524.267029,640.000000,536.267029,652.000000">
+      <contents>1</contents>
+      <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+    </freetext>
+    <freetext width="0" flags="print" page="83" justification="right" rect="524.267029,562.400024,536.267029,574.400024">
+      <contents>5</contents>
+      <defaultstyle>font: Helvetica 10.0pt; text-align:right; color:#FF0000</defaultstyle>
+
+plank:Scaliger erik$ head 1629-export.xfdf
+<?xml version="1.0" encoding="UTF-8"?>
+<xfdf xmlns="http://ns.adobe.com/xfdf/" xml:space="preserve"
+><annots
+><freetext width="0" flags="print" name="d3664007-6632-2e47-baac-63ab0ebdefcf" page="27" justification="right" rect="500,614,512,626"
+><contents-richtext
+><body xmlns="http://www.w3.org/1999/xhtml" xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/" xfa:APIVersion="Acrobat:15.16.0" xfa:spec="2.0.2" style="font-size:10.0pt;text-align:right;color:#FF0000;font-weight:normal;font-style:normal;font-family:Helvetica;font-stretch:normal"
+><p
+>1</p
+></body
+></contents-richtext
+
+plank:Scaliger erik$ xsltproc tools/annotform.xslt 1629-export.xfdf >nuts.xfdf
