@@ -1,0 +1,193 @@
+%%% Liber I p43
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+%%
+\begingroup
+%\tiny
+%\scriptsize
+\footnotesize
+%\small
+%\normalsize
+%% Modify separation between columns
+\setlength{\tabcolsep}{2.4pt}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%% Local command to define small header
+\newcommand{\sh}[1]{\multicolumn{1}{c}{\tiny{#1}}}
+%% Names of the months, to save us a lot of typing
+\newcommand{\rabx}{Rabie prior}
+\newcommand{\rabz}{Rabie posterior}
+\newcommand{\giux}{Giumadi prior}
+\newcommand{\giuz}{Giumadi posterior}
+\newcommand{\rege}{Regeb}
+\newcommand{\saha}{Sahaben}
+\newcommand{\rama}{Ramadhan}
+\newcommand{\scew}{Scewal}
+\newcommand{\dulk}{Dulkaidathi}
+\newcommand{\dulc}{Dulchagiathi}
+\newcommand{\muha}{Muharam}
+\newcommand{\seph}{Sephar}
+%% Let longtable process the whole table in one go
+\setcounter{LTchunksize}{100}
+\begin{longtable}[c]{@{}r  c  c  c  c  r@{~}l l l l l@{}}
+\toprule
+% Put a reference to the first page of the table in the List of Tables
+% Tables in the LoT are listed on the 'section' level
+% '\numberline{\thetable}' puts the number of the table before the
+% title, correctly indented.
+% '\protect' helps pass these commands without error.
+\addcontentsline{lot}{section}{%
+\protect\numberline{\thetable}Periodi magnae Hagarenorum}
+ & \multicolumn{9}{c}{\Large\textsc{Tabula periodi magnae Hagarenorum}}\\
+\toprule
+~ &
+ \sh{Anni} &
+ \sh{Cyclus} &
+ \sh{Character} &
+ \sh{Cyclus} \\
+~ &
+ \sh{periodi} &
+ \sh{Lunae} &
+ \sh{anni} &
+ \sh{Solis} &
+~ & & % 31 Martii
+Periodus prima &
+Periodus secunda &
+Periodus tertia
+\\
+\midrule
+\endfirsthead
+\toprule
+&
+\multicolumn{9}{c}{\Large\textsc{Residuum tabulae periodi magnae Hagarenorum}}\\
+\toprule
+~ &
+ \sh{Anni} &
+ \sh{Cyclus} &
+ \sh{Character} &
+ \sh{Cyclus} \\
+~ &
+ \sh{periodi} &
+ \sh{Lunae} &
+ \sh{anni} &
+ \sh{Solis} &
+~ & & % 31 Martii
+Periodus prima &
+Periodus secunda &
+Periodus tertia
+\\
+\midrule
+\endhead
+\bottomrule
+  \addlinespace
+  & \multicolumn{6}{l}{† \textgreek{ἐμβολ.[?]}}
+  & \multicolumn{3}{l}{‡ \textgreek{ὑπερή.[?]}}
+\endfoot
+\bottomrule
+  \addlinespace
+  & \multicolumn{6}{l}{† \textgreek{ἐμβολ.[?]}}
+  & \multicolumn{3}{l}{‡ \textgreek{ὑπερή.[?]}} \\
+  \addlinespace
+  % Put the table nr and title below the table, without entry in the LoT
+  \caption[]{Periodi magnae Hagarenorum}
+  \label{tab:p112}
+\endlastfoot
+  & ~1 & 14 & 1 & F   & 31&Martii & \seph & \giuz & \scew \\
+  & ~2 & 15 & 5 & E   & 20&Martii & \seph & \giuz & \scew & ‡\\
+† & ~3 & 16 & 3 & D C &  9&Martii & \seph & \giuz & \scew \\
+  & ~4 & 17 & 2 & B   & 28&Martii & \rabx & \rege & \dulk \\
+\cmidrule{2-10}
+  & ~5 & 18 & 6 & A   & 17&Martii & \rabx & \rege & \dulk \\
+† & ~6 & 19 & 3 & G   &  6&Martii & \rabx & \rege & \dulk \\
+  & ~7 & ~1 & 2 & F E & 24&Martii & \rabz & \saha & \dulc \\
+† & ~8 & ~2 & 6 & D   & 13&Martii & \rabz & \saha & \dulc \\
+\cmidrule{2-10}
+  & ~9 & ~3 & 5 & C   &  1&April. & \giux & \rama & \muha & ‡\\
+  & 10 & ~4 & 3 & B   & 22&Martii & \giux & \rama & \muha \\
+† & 11 & ~5 & 7 & A G & 10&Martii & \giux & \rama & \muha \\
+  & 12 & ~6 & 6 & F   & 29&Martii & \giuz & \scew & \seph \\
+\cmidrule{2-10}
+  & 13 & ~7 & 3 & E   & 18&Martii & \giuz & \scew & \seph & ‡\\
+† & 14 & ~8 & 1 & D   &  8&Martii & \giuz & \scew & \seph \\
+  & 15 & ~9 & 7 & C B & 26&Martii & \rege & \dulk & \rabx \\
+† & 16 & 10 & 4 & A   & 15&Martii & \rege & \dulk & \rabx \\
+\cmidrule{2-10}
+  & 17 & 11 & 3 & G   &  3&April. & \saha & \dulc & \rabz \\
+  & 18 & 12 & 7 & F   & 23&Martii & \saha & \dulc & \rabz & ‡\\
+† & 19 & 13 & 5 & E D & 12&Martii & \saha & \dulc & \rabz \\
+  & 20 & 14 & 4 & C   & 31&Martii & \rama & \muha & \giux \\
+\cmidrule{2-10}
+  & 21 & 15 & 4 & B   & 20&Martii & \rama & \muha & \giux \\
+† & 22 & 16 & 1 & A   &  9&Martii & \rama & \muha & \giux \\
+  & 23 & 17 & 5 & G F & 27&Martii & \scew & \seph & \giuz & ‡\\
+  & 24 & 18 & 4 & E   & 17&Martii & \scew & \seph & \giuz \\
+\cmidrule{2-10}
+† & 25 & 19 & 6 & D   &  6&Martii & \scew & \seph & \giuz \\
+  & 26 & ~1 & 5 & C   & 25&Martii & \dulk & \rabx & \rege \\
+† & 27 & ~2 & 2 & B A & 13&Martii & \dulk & \rabx & \rege \\
+  & 28 & ~3 & 1 & G   &  1&April. & \dulc & \rabz & \saha \\
+\cmidrule{2-10}
+  & 29 & ~4 & 5 & F   & 21&Martii & \dulc & \rabz & \saha & ‡\\
+† & 30 & ~5 & 3 & E   & 11&Martii & \dulc & \rabz & \saha \\
+  & 31 & ~6 & 2 & D C & 29&Martii & \muha & \giux & \rama \\
+  & 32 & ~7 & 6 & B   & 18&Martii & \muha & \giux & \rama \\
+\cmidrule{2-10}
+† & 33 & ~8 & 3 & A   &  7&Martii & \muha & \giux & \rama \\
+  & 34 & ~9 & 3 & G   & 27&Martii & \seph & \giuz & \scew & ‡\\
+† & 35 & 10 & 7 & F E & 15&Martii & \seph & \giuz & \scew \\
+  & 36 & 11 & 6 & D   &  2&April. & \rabx & \rege & \dulk \\
+\cmidrule{2-10}
+  & 37 & 12 & 3 & C   & 23&Martii & \rabx & \rege & \dulk \\
+† & 38 & 13 & 7 & B   & 12&Martii & \rabx & \rege & \dulk \\
+  & 39 & 14 & 6 & A G & 30&Martii & \rabz & \saha & \dulc & ‡\\
+  & 40 & 15 & 4 & F   & 20&Martii & \rabz & \saha & \dulc \\
+\cmidrule{2-10}
+† & 41 & 16 & 1 & E   &  9&Martii & \rabz & \saha & \dulc \\
+  & 42 & 17 & 7 & D   & 28&Martii & \giux & \rama & \muha \\
+  & 43 & 18 & 4 & C B & 16&Martii & \giux & \rama & \muha & ‡\\
+† & 44 & 19 & 2 & A   &  6&Martii & \giux & \rama & \muha \\
+\cmidrule{2-10}
+  & 45 & ~1 & 1 & G   & 25&Martii & \giuz & \scew & \seph \\
+† & 46 & ~2 & 5 & F   & 14&Martii & \giuz & \scew & \seph \\
+  & 47 & ~3 & 4 & E D &  1&April. & \rege & \dulk & \rabx \\
+  & 48 & ~4 & 1 & C   & 21&Martii & \rege & \dulk & \rabx \\
+\cmidrule{2-10}
+† & 49 & ~5 & 5 & B   & 10&Martii & \rege & \dulk & \rabx \\
+  & 50 & ~6 & 4 & A   & 29&Martii & \saha & \dulc & \rabz & ‡\\
+  & 51 & ~7 & 2 & G F & 18&Martii & \saha & \dulc & \rabz \\
+† & 52 & ~8 & 6 & E   &  7&Martii & \saha & \dulc & \rabz \\
+\cmidrule{2-10}
+  & 53 & ~9 & 5 & D   & 26&Martii & \rama & \muha & \giux \\
+† & 54 & 10 & 2 & C   & 15&Martii & \rama & \muha & \giux \\
+  & 55 & 11 & 1 & B A &  2&April. & \scew & \seph & \giuz & ‡\\
+  & 56 & 12 & 6 & G   & 23&Martii & \scew & \seph & \giuz \\
+\cmidrule{2-10}
+† & 57 & 13 & 3 & F   & 12&Martii & \scew & \seph & \giuz \\
+  & 58 & 14 & 2 & E   & 31&Martii & \dulk & \rabx & \rege \\
+  & 59 & 15 & 6 & D C & 19&Martii & \dulk & \rabx & \rege & ‡\\
+† & 60 & 16 & 4 & B   &  9&Martii & \dulk & \rabx & \rege \\
+\cmidrule{2-10}
+  & 61 & 17 & 3 & A   & 28&Martii & \dulc & \rabz & \saha \\
+  & 62 & 18 & 7 & G   & 17&Martii & \dulc & \rabz & \saha \\
+† & 63 & 19 & 4 & F E &  5&Martii & \dulc & \rabz & \saha \\
+  & 64 & ~1 & 3 & D   & 24&Martii & \muha & \giux & \rama & ‡\\
+\cmidrule{2-10}
+† & 65 & ~2 & 1 & C   & 14&Martii & \muha & \giux & \rama \\
+  & 66 & ~3 & 7 & B   &  2&April. & \seph & \giuz & \scew \\
+  & 67 & ~4 & 4 & A G & 21&Martii & \seph & \giuz & \scew \\
+† & 68 & ~5 & 1 & F   & 10&Martii & \seph & \giuz & \scew \\
+\cmidrule{2-10}
+  & 69 & ~6 & 7 & E   & 29&Martii & \rabx & \rege & \dulk & ‡\\
+  & 70 & ~7 & 5 & D   & 18&Martii & \rabx & \rege & \dulk \\
+† & 71 & ~8 & 2 & C B &  7&Martii & \rabx & \rege & \dulk \\
+  & 72 & ~9 & 1 & A   & 26&Martii & \rabz & \saha & \dulc \\
+\cmidrule{2-10}
+† & 73 & 10 & 5 & G   & 15&Martii & \rabz & \saha & \dulc \\
+  & 74 & 11 & 4 & F   &  3&April. & \giux & \rama & \muha \\
+  & 75 & 12 & 1 & E D & 22&Martii & \giux & \rama & \muha \\
+† & 76 & 13 & 5 & C   & 11&Martii & \giux & \rama & \muha & ‡\\
+\end{longtable}
+\endgroup

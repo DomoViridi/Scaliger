@@ -2,13 +2,13 @@
 %
 % Set the \input{} to the table you want to test, then typeset this file
 %
-\documentclass[a4paper]{book}
+\documentclass[12pt,twoside,a4paper]{book}
 %\documentclass[draft,a4paper]{book}
 %% use [showframe] to show the frames
 \usepackage[showframe]{geometry}
 \usepackage{longtable}% Allow for split of the table over more than one page
 \usepackage{rotating} % Make it possible to rotate headers
-\usepackage[normal]{caption} % Keep captions to (long)tables normal sized
+\usepackage[normalsize]{caption} % Keep captions to (long)tables normal sized
 % must go *after* rotating package
 \usepackage{booktabs} % To get nice table layout
 %
@@ -44,20 +44,16 @@ eu fugiat nulla pariatur.
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
 deserunt mollit anim id est laborum.
 
-\begin{table}[htbp]
-  \input{tables/110_periodo_hagarena.tex}
-  \caption{Periodo Hagarena}
-\end{table}
+%% Longtable version
+\input{tables/112_periodi_magnae_hagarenorum.tex}
+%% Regular table version
 %\begin{table}[htbp]
-%\input{079_characterismi_periodorum.tex}
-%\input{080_neomeniarum_metonicarum.tex}
-%\input{082_linea_metaptoseos_metonicae.tex}
-%%
-%%
+%  \input{tables/110_periodo_hagarena.tex}
+%  \caption{Periodo Hagarena}
 %\end{table}
-
+%% Multiple tables
 %\begin{table}[htbp]
-%\input{067_neomeniae_octaeteridai.tex}
+%  \input{tables/067_neomeniae_octaeteridai.tex}
 %\end{table}
 
 Donec maximus, leo nec accumsan laoreet, nulla nibh posuere neque, at malesuada
@@ -73,4 +69,6 @@ Nullam sed tortor id lacus imperdiet accumsan.
 Sed malesuada nisi vel justo pretium bibendum.
 Nulla ultrices, turpis sed finibus finibus, tortor libero fermentum dolor,
 in mollis ante magna ut neque.
+
+\listoftables
 \end{document}
