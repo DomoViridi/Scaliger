@@ -770,6 +770,146 @@ flow until a new paragraph is started. Because we seldom start a new paragraph,
 we would have to start a paragraph on purpose (causing an indent) just for the
 wrapping. We will simply put the figures on their own, without wrapping.
 
+%%---
+\section{Tables}
+Scaliger uses many tables in his book, from very small ones to tables that
+span multiple pages.
+To ensure a uniform style and rendition of these tables, several techniques
+have been developed.
+
+%--
+\subsection{Naming scheme and testing}
+The body of each table is contained in a file in the "table" subdirectory.
+The name of each file has the form \verb+nnn_name_with_underscores+, where
+\verb+nnn+ is the three-digit page number (with leading zeroes as reguired)
+where the table appears in the original.
+This form ensures that the table files appear in the same order in the
+directory as they do in the book.
+\verb+name_with_underscores+ represents a short version of
+the title of the table, in all lower case
+with underscores for spaces.
+This is for better compatibility with operating
+systems which do no allow diferent letter cases or spaces in their file names.
+
+To quickly develop and test a new table, a \verb+test_table.tex+ file has
+been developped.
+This contains a minimal set of the document preamble, some "Lore ipsum"
+filler text, and an \verb+\include{}+ command to include the table.
+The main advantage of this setup is that compiling the test file (with only
+the one table under test) is a lot faster than re-compiling the whole
+chapter for each time you want to see the result of your changes.
+The test file also allows for experimenting with changes to the preamble
+without affecting the main file.
+
+If you are satisfied with the result you can copy and past the inclusion
+code into the chapter file and see how the table looks in the main document.
+
+%--
+\subsection{Including the table in the body text}
+Use the \verb+\begin{table}[htbp]+ - \verb+\end{table}+ combination
+to float the tables (except for long tables).
+The letters suggest the location of the table on the page, in order:
+\begin{description}
+\item[h "Here"] Try to put the table at the location of the command.
+Good typography (and presumably the rules of \TeX{}) does this only for very
+small tables (less than 1/3 of the hight of the page).
+\item[t "Top"] Try to put the table at the top of a page, with body text
+underneath it.
+\item[b "Bottom"] Try to put the table at the bottom of a page, allowing for
+some body text above it.
+\item[p "Page"] Put the table on a special separate page for tables and figures.
+This should happen to tables which are more than 2/3 of the hight of the page.
+\end{description}
+Tables are floated at paragraph breaks, but the body text of the original
+hardly has any paragraph breaks.
+To guide the placement of the floating tables try to insert a paragraph break
+(in the form of a blank line) near the location in the text where you want
+the table to appear.
+
+%--
+\subsection{booktabs}
+For a better and more uniform appearance of the tables we use the
+\verb+booktabs+ package. This features (among others) the
+\verb+\toprule+, \verb+\midrule+ and \verb+\bottomrule+ commands.
+We also follow the rules given in the \verb+booktabs+ documentation, namely:
+\begin{enumerate}
+\item Never use vertical rules
+\item Never use double rules
+\end{enumerate}
+This is quite different from the tables Scaliger uses.
+Nevertheless we will stick to them.
+
+To make the horizontal rules stick out less, put a \verb+@{}+ at the beginning
+and the end of the list of column alignment descriptors, e.g.
+\begin{verbatim}
+\begin{longtable}[c]{@{}r  c  c  c  c  r@{~}l l l l l@{}}
+\end{verbatim}
+
+%--
+\subsection{Titles}
+If a title is written above the table in the original then put it over the
+table using:
+\begin{verbatim}
+\toprule
+\multicolumn{n}{c}{\Large\textsc{First line of header}}\\
+\multicolumn{n}{c}{\large\textsc{second line of header}}\\
+\toprule
+\end{verbatim}
+where \verb+n+ is the total number of columns.
+This makes the title appear in large size small caps.
+Note the capital \verb+Large+
+on the first line and the small \verb+large+ on the second line.
+The second line is of course only needed for long titles.
+
+If there is no title given in the original, simply put a \verb+\toprule+
+as the first line in the table.
+
+%%--
+\subsection{Column headers}
+Each column header should be in a \verb+\multicolumn{1}{c}{column header}+
+to centre it.
+Column headers might become so wide that the table becomes ungainly, or simply
+too wide for the page.
+You can then split them over two or three lines (Scaliger often does this).
+In that case make two (or three) lines of headers with the first line containing
+the first part of each header and the second line the second parts, etc.
+Headers with fewer lines should be alligned to the bottom, not the top.
+For instance: if there is one header with two lines and one header with one line,
+the one-line header should go into the second, lowest line of headers.
+
+Put a \verb+\midrule+ below the headers.
+
+%%-
+\subsubsection{Vertical or slanted headers}
+Big tables with many columns will often have little room for the column headers.
+Schaliger will frequently write headers vertically.
+Try to avoid using vertical headers as much as possible.
+For those cases where it is unavoidable, we use the \verb+rotating+ package.
+This package provides the \verb+rotate+ and \verb+turn+ environments.
+Use \verb+\begin{rotate}{75}...\end{rotate}+ (75 is the amount of rotation,
+in degrees) for all headers you want to rotate except the rightmost.
+For the rightmost header use \verb+\begin{turn}{75}...\hspace{3em}\end{turn}+.
+
+The \verb+rotate+ environment allows for overlap of the boxes occupied by
+the adjacent headers and anything above it.
+The \verb+turn+ environment reserves the box space for itself.
+Using a single \verb+turn+ will make sure the headers will not bleed into
+whatever is above them.
+This works best if the rightmost header is the longest of them all, but this
+is generaly not the case. To make it longer use the above mentioned
+\verb+\hspace{}+ command, and adjust the space reserved so the headers no longer
+bleed over, but without creating too much white space above the headers. 
+
+%--
+\subsection{Long tables}
+For tables which are too large to fit on one page we use the \verb+longtable+
+package.
+Long tables should \emph{not} be surrounded by a
+\verb+\begin{table}[htbp]+ - \verb+\end{table}+ combination.
+To replace this combo and keep any settings and changes local to this table,
+surround it with a \verb+\begingroup+ - \verb+\endgroup+ combination.
+
+
 %%====
 \chapter{Specific issues per chapter}
 
