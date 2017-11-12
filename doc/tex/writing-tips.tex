@@ -886,19 +886,45 @@ Schaliger will frequently write headers vertically.
 Try to avoid using vertical headers as much as possible.
 For those cases where it is unavoidable, we use the \verb+rotating+ package.
 This package provides the \verb+rotate+ and \verb+turn+ environments.
-Use \verb+\begin{rotate}{75}...\end{rotate}+ (75 is the amount of rotation,
-in degrees) for all headers you want to rotate except the rightmost.
-For the rightmost header use \verb+\begin{turn}{75}...\hspace{3em}\end{turn}+.
+Use 
+\begin{quote}
+\verb+\begin{rotate}{75}...\end{rotate}+
+\end{quote}
+for all headers you want to rotate except the rightmost.
+(75 is the amount of rotation, in degrees) 
+For the rightmost header use
+\begin{quote}
+\verb+\begin{turn}{75}...\hspace*{3em}\end{turn}+
+\end{quote}
+
 
 The \verb+rotate+ environment allows for overlap of the boxes occupied by
-the adjacent headers and anything above it.
+the adjacent headers (and anything above it).
 The \verb+turn+ environment reserves the box space for itself.
 Using a single \verb+turn+ will make sure the headers will not bleed into
 whatever is above them.
 This works best if the rightmost header is the longest of them all, but this
 is generaly not the case. To make it longer use the above mentioned
-\verb+\hspace{}+ command, and adjust the space reserved so the headers no longer
-bleed over, but without creating too much white space above the headers. 
+\verb+\hspace*{}+ command, and adjust the space reserved so the headers no longer
+bleed over, but without creating too much white space above the headers.
+The star (\verb+*+) in the command is required to make it have effect at
+the end of the line (i.e. the end of the column header).
+
+%--
+\subsection{Column alignment}
+Use the following general rules for the alignment of the columns:
+\begin{itemize}
+\item Numbers should be right aligned
+\item Short numbers can be centred, but use padding with \verb+~+ for missing
+leading digits.
+\item Text should be left aligned (right aligned for right-to-left scripts).
+\item Very short text can be centred
+\item For dates (such as "15 Martii") use two columns with the code
+\verb+r@{~}l+.
+This will make the separation between the day and the month line up
+over all rows.
+\end{itemize}
+
 
 %--
 \subsection{Long tables}
@@ -908,6 +934,75 @@ Long tables should \emph{not} be surrounded by a
 \verb+\begin{table}[htbp]+ - \verb+\end{table}+ combination.
 To replace this combo and keep any settings and changes local to this table,
 surround it with a \verb+\begingroup+ - \verb+\endgroup+ combination.
+
+%-
+\subsubsection{First header}
+The part before the \verb+\endfirsthead+ command should contain:
+\begin{itemize}
+\item A \verb+\toprule+
+\item An addcontents line to put a reference to the first page of the table
+into the List of Tables (LoT), of the form
+\begin{quote}
+\verb+\addcontentsline{lot}{section}{\protect\numberline{\thetable}Title}+
+\end{quote}
+The \verb+\numberline{\thetable}+ combination will put the number of the
+table into the list, the same way other tables are listed.
+The \verb+\protect+ command prevents an error from using the \verb+\numberline+
+command here.
+\item The table header in the form
+\begin{quote}
+\verb+\multicolumn{n}{c}{\Large\textsc{Tabula ...}}+
+\end{quote}
+where \verb+n+ is the total number of columns. Adjust the text size
+(\verb+\Large+ in the example) so the header fits in a line and looks nice.
+\item A \verb+\toprule+ below the header
+\item The column headers
+\item A \verb+\midrule+
+\end{itemize}
+
+%-
+\subsubsection{Following headers}
+The part before the \verb+\endhead+ command should contain:
+\begin{itemize}
+\item A \verb+\toprule+
+\item The continuation table header in the form
+\begin{quote}
+\verb+\multicolumn{n}{c}{\Large\textsc{Residuum tabulae ...}}+
+\end{quote}
+where \verb+n+ is again the total number of columns.
+The text size
+(\verb+\Large+ in the example) should normally be the same as for the first
+header.
+Because this header is usually longer, you may need to make this header one
+size smaller.
+\item A \verb+\toprule+ below the header
+\item The column headers
+\item A \verb+\midrule+
+\end{itemize}
+
+%-
+\subsubsection{Footers}
+The part before the \verb+\endfoot+ command should contain:
+\begin{itemize}
+\item A \verb+\bottomrule+
+\item A legendum for any substitution symbols used in the table,
+such as \super† and \super‡.
+Precede these with an \verb+\addlinespace+ to separate them from the bottom
+rule.
+\end{itemize}
+
+%-
+\subsubsection{Last footer}
+The part before the \verb+\endlastfoot+ command should contain:
+\begin{itemize}
+\item A The same as what went before \verb+\endfoot+.
+\item An \verb+\addlinespace+
+\item A \verb+\caption[]{...}+ command to put the title of the table below it.
+The square brackets (\verb+[]+) prevent this command from adding to the List
+of Tables. That entry is handled in the First Header.
+\item A \verb+\label{tab:...}+ command to make it possible to refer to this
+table from the body text.
+\end{itemize}
 
 
 %%====
