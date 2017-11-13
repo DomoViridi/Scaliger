@@ -323,11 +323,7 @@ alternis sunt pleni et cavi: \textgreek{Ποσειδεὼν[?]}
 %    In concordance with table
 %    038_neomenia_elidensis it might be "Neomenia 1. mensis" or similar.
 \begin{table}[htbp]
- \centering
- \renewcommand{\arraystretch}{1.3}
  \input{./tables/065_octaeteris_cleostrati_w}
- \caption{Octaeteris Cleostrati}
- \label{tab:octaeteris_cleostrati}
 \end{table}
 %
 \lnr{17}Scripta est
@@ -491,25 +487,12 @@ animadvertere.
 
 % Table: ΜΗΝΕΣ ΚΟΙΛΟΙ
 \begin{table}[htbp]
- \centering
- \footnotesize
- \renewcommand{\arraystretch}{1.3}
- \input{./tables/067_menes_koiloi}
- \caption{\textgreek{Μενες κοιλοι}}
- \label{tab:menes_koiloi}
+ \input{./tables/067a_menes_koiloi}
 \end{table}
 
 % Table: ΝΕΟΜΗΝΙΑΙ ΤΗΣ ΟΚΤΑΕΤΗΡΙΔΟΣ
 \begin{table}[htbp]
- \centering
- \scriptsize
- %% Modify distance between rows
- \renewcommand{\arraystretch}{1.8}
- %% Modify separation between columns
- \setlength{\tabcolsep}{2.0pt}
- \input{./tables/067_neomeniai_tes_oktaeteridos}
- \caption{\textgreek{Νεομηνιαι της Οκταετηριδος}}
- \label{tab:neomeniai_tes_oktaeteridos}
+ \input{./tables/067b_neomeniai_tes_oktaeteridos}
 \end{table}
 
 % 67
@@ -1386,11 +1369,11 @@ undecim, quae cum 220 syzygiis compositae dant tantum 231
 syzygias plenas.
 % Tabula Characterismi neomeniarum enneadecaeteridis metonicae
 \begin{table}[htbp]
-\input{tables/079_characterismi_neomeniarum.tex}
+\input{tables/079a_characterismi_neomeniarum.tex}
 \end{table}
 % Tabella Characterismi periodorum
 \begin{table}[htbp]
-\input{tables/079_characterismi_periodorum.tex}
+\input{tables/079b_characterismi_periodorum.tex}
 \end{table}
 % Tabula neomeniarum metonicarum in mensibus iulianis
 \begin{table}[htbp]
@@ -1682,12 +1665,12 @@ Lunari differre non putant.
 
 % Table: Menses Tetraeterici et Metonici
 \begin{table}[htbp]
- \input{./tables/084_menses_tetraeterici}
+ \input{./tables/084a_menses_tetraeterici}
 \end{table}
 
 % Table: Cyclus Metonis Philippeus
 \begin{table}[htb]
- \input{./tables/084_cyclus_metonis_philippeus}
+ \input{./tables/084b_cyclus_metonis_philippeus}
 \end{table}
 
 \lnr{30}Paucis ante excessum Philippi annis, qui contigit Olympiade
@@ -2339,6 +2322,22 @@ Rex tum ipsi Lysiae, tum Iudaeis, mense Xanthico.
 \lnr{41}En intercalatum
 inter Autumnum et Xanthicum, et quidem longe ante Xanthicum.
 
+% Two tables 
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c c}
+    \begin{minipage}[][0.44\linewidth][t]{0.4\linewidth}
+      \input{tables/095a_menses_syrorum.tex}
+    \end{minipage}
+&
+    \begin{minipage}[][0.44\linewidth][t]{0.4\linewidth}
+      \input{tables/095b_characterismi_periodorum_syriacarum.tex}
+    \end{minipage} \\
+    \addlinespace[0.85in] % force a lot of space to make room for the captions
+  \end{tabular}
+\end{table}
+
 % 95
 % {PDF page nr}{source page nr}{line nr}
 \plnr{178}{95}{2}Non enim tam repentino ea impetrari potuerunt.
@@ -2378,28 +2377,13 @@ nisi mavis propter annos Diocletiani, quorum caput a 29
 Augusti, ita ut September totum pene Thoth Diocletiani vindicet sibi
 utrosque autem nomine Alexandri, quamuis duodecim annis solidis
 a morte Alexandri caeperit.
-% Two tables 
-
-\begin{table}[htbp]
-  \centering
-  \begin{tabular}{c c}
-    \begin{minipage}[][0.44\linewidth][t]{0.4\linewidth}
-      \input{tables/095_menses_syrorum.tex}
-    \end{minipage}
-&
-    \begin{minipage}[][0.44\linewidth][t]{0.4\linewidth}
-      \input{tables/095_characterismi_periodorum_syriacarum.tex}
-    \end{minipage}
-  \end{tabular}
-\end{table}
-
 % 96
 % {PDF page nr}{source page nr}{line nr}
 % Table: Tabula periodi Syrorum Alexandreae
 \begin{table}[htbp]
  \input{tables/096_periodi_syrorum.tex}
 \end{table}
-%
+
 \plnr{179}{96}{1}En tabulam periodi Syromacedonum, quae etiam Chaldaeis, et
 Iudaeis communis fuit cum parapegmate \textgreek{φαινομένων[?]}, quod veteres
 \textgreek{παράπηγμα ἀσσύριον[?]} vocaverunt.
@@ -3172,12 +3156,12 @@ funt dierum 111036.
 \lnr{4}Comparatione
 igitur cyclorum \rnum{xvi} Metonis, Calippi et Hipparchi facta, non magnus
 labor est differentiam eorum  constituere.
-
+%
 % Table p109
 \begin{table}[htbp]
   \input{tables/109_hyparchi_calippi_metonis.tex}
 \end{table}
-
+%
 \lnr{6}Scribit igitur Hipparchus
 \textgreek{ἐν τῷ πὲρι ἐνιαυσίου χρόνου[?]}.
 \lnr{7}\textgreek{Ημεῖς δὲ μῆνας μὲν ὅλους ἑυρίσκομεν, περιεχομενύις

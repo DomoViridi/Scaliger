@@ -1,31 +1,23 @@
 %%% Liber II p65
 %%
-%% For testing, uncomment the folowing lines and the lines at the end
-%% of the file
-%% Test ==>
-%\documentclass[draft,a4paper]{book}
-%\usepackage{rotating}
-%\usepackage{fontspec}
-%\setmainfont{Hoefler Text}[]
-%%\setmainfont{Times New Roman}[]
-%\newfontfamily\greekfont{Times New Roman}
-%\usepackage[quiet]{polyglossia}
-%\setmainlanguage{latin}
-%\setotherlanguage{greek}
-%\begin{document}
-%Itaque deprehenso capite Hecatombaeonis, quot
-%\textgreek{[Greek]} supersint de Scirrhophorione in anno Iuliano, nobis quidem
-%deprehendere facile est, qui rationem tantum habemus anni nostri
-%iuliani.
-%\begin{table}
-%%\tiny
-%%\scriptsize
-%\centering
-%%\setlength{\tabcolsep}{3pt}
-%\renewcommand{\arraystretch}{1.1}
-%% <== Test
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{1.6pt}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{0.90}
+%% Angle to rotate the headers
+\newcommand{\ang}{60}
 %%
-%\begin{tabular}{lc}
 \begin{tabular}[t]{r rrccr}
 ~ & \multicolumn{5}{c}{\textsc{Octaeteris Cleostrati}}\\
 \\ % Clumsily make room for the rotated headers
@@ -34,12 +26,12 @@
 \\
 \\
 ~ &
-\begin{rotate}{60}Anni octaeteridis\end{rotate} &
-\begin{rotate}{60}Cyclus Lunnae\end{rotate} &
-\begin{rotate}{60}Litera Dominicalis\end{rotate} &
+\begin{rotate}{\ang}Anni octaeteridis\end{rotate} &
+\begin{rotate}{\ang}Cyclus Lunnae\end{rotate} &
+\begin{rotate}{\ang}Litera Dominicalis\end{rotate} &
 ~ &
-%\begin{rotate}{60}\hspace{5pt}\parbox[t]{3.5cm}{Neomenia\\1. mensis}\end{rotate} &
-\multicolumn{1}{l}{\begin{rotate}{60}Dies collecti\end{rotate}}
+%\begin{rotate}{\ang}\hspace{5pt}\parbox[t]{3.5cm}{Neomenia\\1. mensis}\end{rotate} &
+\multicolumn{1}{l}{\begin{rotate}{\ang}Dies collecti\end{rotate}}
 \\
 \cline{2-6}
 \scriptsize{†}
@@ -58,10 +50,6 @@
 \\
 ~ & \multicolumn{5}{l}{\footnotesize \super{†} \textgreek{Εμβολ.}}\\
 \end{tabular}
-%% Test ==>
-%\end{table}
-%Itaque deprehenso capite Hecatombaeonis, quot
-%\textgreek{[Greek]} supersint de Scirrhophorione in anno Iuliano, nobis quidem
-%deprehendere facile est, qui rationem tantum habemus anni nostri
-%iuliani.
-%\end{document}
+\caption{Octaeteris Cleostrati}
+\label{tab:p065}
+%

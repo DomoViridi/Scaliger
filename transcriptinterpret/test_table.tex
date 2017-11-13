@@ -22,11 +22,16 @@
 \newfontfamily\greekfont{Times New Roman}
 \newfontfamily\hebrewfont{Arial Hebrew}
 \newfontfamily\arabicfont{Arial Unicode MS}
+\newfontfamily\astrofont{Menlo}
+\newcommand\astro[1]{{\astrofont #1}}
+%%
 \usepackage[quiet]{polyglossia}
 \setmainlanguage{latin}
 \setotherlanguage{greek}
 \setotherlanguage{hebrew}
 \setotherlanguage{arabic}
+%
+\usepackage{lipsum} % Provide random filler Lore ipsum text
 %%% Special command for roman numerals
 %% Usage: \rnum{<roman numeral>}
 %% Example: \rnum{mdclxviii}
@@ -35,84 +40,149 @@
 }
 %
 \begin{document}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-deserunt mollit anim id est laborum.
 
 %% Longtable version
 %\input{tables/112_periodi_magnae_hagarenorum.tex}
 %% Regular table version
-\begin{table}[htbp]
-  \input{tables/079_characterismi_neomeniarum.tex}
-\end{table}
-%% Multiple tables
 
+\lipsum[1]
 \begin{table}[htbp]
-  \input{tables/079_characterismi_periodorum.tex}
+  \input{tables/006_convertendi_ostenta.tex}
 \end{table}
 
+\lipsum[4]
+\begin{table}[htbp]
+  \input{tables/008_dies_hebdomadis.tex}
+\end{table}
+
+\lipsum[5]
+\begin{table}[htbp]
+  \input{tables/027_novilunia_v.tex}
+\end{table}
+
+\lipsum[6]
+\begin{table}[htbp]
+  \input{tables/027_novilunia.tex}
+\end{table}
+
+\lipsum[7]
+\begin{table}[htbp]
+  \input{tables/033_mensium_atticorum.tex}
+\end{table}
+
+\lipsum[8]
+\begin{table}[htbp]
+  \input{tables/034_neomeniarum_lunarium.tex}
+\end{table}
+
+\lipsum[9]
+\begin{table}[htbp]
+  \input{tables/038_neomenia_elidensis.tex}
+\end{table}
+
+\lipsum[10]
+\begin{table}[htbp]
+  \input{tables/043_neomeniarum_atticarum.tex}
+\end{table}
+
+\lipsum[11]
+\begin{table}[htbp]
+  \input{tables/047_menses_macedonum.tex}
+\end{table}
+
+\lipsum[12]
+\begin{table}[htbp]
+  \input{tables/050a_menses_alexandreae.tex}
+\end{table}
+
+\lipsum[13]
+\begin{table}[htbp]
+  \input{tables/050b_menses_bithyniorum.tex}
+\end{table}
+
+
+% Lib 2
+\lipsum[20]
+\begin{table}[htbp]
+  \input{tables/079a_characterismi_neomeniarum.tex}
+\end{table}
+
+\lipsum[21]
+\begin{table}[htbp]
+  \input{tables/079b_characterismi_periodorum.tex}
+\end{table}
+
+\lipsum[22]
 \begin{table}[htbp]
   \input{tables/080_neomeniarum_metonicarum.tex}
 \end{table}
 
+\lipsum[23]
 \begin{table}[htbp]
   \input{tables/082_linea_metaptoseos_metonicae.tex}
 \end{table}
 
+\lipsum[24]
 \begin{table}[htbp]
-  \input{tables/084_cyclus_metonis_philippeus.tex}
+  \input{tables/084a_menses_tetraeterici.tex}
 \end{table}
 
+\lipsum[25]
 \begin{table}[htbp]
-  \input{tables/084_menses_tetraeterici.tex}
+  \input{tables/084b_cyclus_metonis_philippeus.tex}
 \end{table}
 
+\lipsum[26]
 \begin{table}[htbp]
   \input{tables/087_characteris_periodorum_calippi.tex}
 \end{table}
 
+\lipsum[27]
 \begin{table}[htbp]
   \input{tables/091_menses_macedonici_attici.tex}
 \end{table}
 
+\lipsum[28]
 \begin{table}[htbp]
   \centering
   \begin{tabular}{c c}
     \begin{minipage}[][0.44\linewidth][t]{0.4\linewidth}
-      \input{tables/095_menses_syrorum.tex}
+      \input{tables/095a_menses_syrorum.tex}
     \end{minipage}
 &
     \begin{minipage}[][0.44\linewidth][t]{0.4\linewidth}
-      \input{tables/095_characterismi_periodorum_syriacarum.tex}
+      \input{tables/095b_characterismi_periodorum_syriacarum.tex}
     \end{minipage}
+    \addlinespace[0.85in] % force a lot of space to make room for the captions
   \end{tabular}
 \end{table}
 
+\lipsum[29]
 \begin{table}[htbp]
   \input{tables/096_periodi_syrorum.tex}
 \end{table}
 
+\lipsum[30]
 \begin{table}[htbp]
   \input{tables/099_menses_chaldaei.tex}
 \end{table}
 
+\lipsum[31]
 \begin{table}[htbp]
   \input{tables/101_nomina_annorum_schaichun.tex}
 \end{table}
 
+\lipsum[32]
 \begin{table}[htbp]
   \input{tables/105_mensium_iudaicorum.tex}
 \end{table}
 
+\lipsum[33]
 \begin{table}[htbp]
   \input{tables/109_hyparchi_calippi_metonis.tex}
 \end{table}
 
+\lipsum[34]
 \begin{table}[htbp]
   \input{tables/110_periodo_hagarena.tex}
 \end{table}
@@ -121,19 +191,8 @@ deserunt mollit anim id est laborum.
 %  \input{tables/067_neomeniae_octaeteridai.tex}
 %\end{table}
 
-Donec maximus, leo nec accumsan laoreet, nulla nibh posuere neque, at malesuada
-mauris leo vitae magna. Mauris vel nisl vitae est congue finibus.
-Praesent suscipit suscipit erat sit amet aliquam. Maecenas nunc metus, varius at
-sodales eget, pellentesque in risus.
-Donec vel nisi eget arcu condimentum blandit non non urna.
-Phasellus quis fermentum lacus.
-Cras orci nulla, venenatis vitae sapien eu, cursus pulvinar erat.
-Suspendisse facilisis orci eget ante cursus rhoncus vel quis neque.
-Integer eu commodo tellus.
-Nullam sed tortor id lacus imperdiet accumsan.
-Sed malesuada nisi vel justo pretium bibendum.
-Nulla ultrices, turpis sed finibus finibus, tortor libero fermentum dolor,
-in mollis ante magna ut neque.
+\lipsum[40]
+
 
 \listoftables
 \end{document}
