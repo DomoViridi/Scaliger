@@ -6,6 +6,7 @@
 %\documentclass[draft,a4paper]{book}
 %% use [showframe] to show the frames
 \usepackage[showframe]{geometry}
+\usepackage{lipsum} % Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
 \usepackage{longtable}% Allow for split of the table over more than one page
 \usepackage{rotating} % Make it possible to rotate headers
 \usepackage[normalsize]{caption} % Keep captions to (long)tables normal sized
@@ -104,45 +105,75 @@
 % Lib 2
 \lipsum[20]
 \begin{table}[htbp]
+  \input{tables/065_octaeteris_cleostrati_h.tex}
+\end{table}
+
+\lipsum[12]
+\begin{table}[htbp]
+  \input{tables/065_octaeteris_cleostrati_w.tex}
+\end{table}
+
+\lipsum[13]
+\begin{table}[htbp]
+  \input{tables/065_octaeteris_cleostrati.tex}
+\end{table}
+
+\lipsum[14]
+\begin{table}[htbp]
+  \input{tables/067a_menes_koiloi.tex}
+\end{table}
+
+\lipsum[15]
+\begin{table}[htbp]
+  \input{tables/067b_neomeniae_octaeteridai.tex}
+\end{table}
+
+\lipsum[16]
+\begin{table}[htbp]
+  \input{tables/067b_neomeniai_tes_oktaeteridos.tex}
+\end{table}
+
+\lipsum[17]
+\begin{table}[htbp]
   \input{tables/079a_characterismi_neomeniarum.tex}
 \end{table}
 
-\lipsum[21]
+\lipsum[18]
 \begin{table}[htbp]
   \input{tables/079b_characterismi_periodorum.tex}
 \end{table}
 
-\lipsum[22]
+\lipsum[19]
 \begin{table}[htbp]
   \input{tables/080_neomeniarum_metonicarum.tex}
 \end{table}
 
-\lipsum[23]
+\lipsum[20]
 \begin{table}[htbp]
   \input{tables/082_linea_metaptoseos_metonicae.tex}
 \end{table}
 
-\lipsum[24]
+\lipsum[21]
 \begin{table}[htbp]
   \input{tables/084a_menses_tetraeterici.tex}
 \end{table}
 
-\lipsum[25]
+\lipsum[22]
 \begin{table}[htbp]
   \input{tables/084b_cyclus_metonis_philippeus.tex}
 \end{table}
 
-\lipsum[26]
+\lipsum[23]
 \begin{table}[htbp]
   \input{tables/087_characteris_periodorum_calippi.tex}
 \end{table}
 
-\lipsum[27]
+\lipsum[24]
 \begin{table}[htbp]
   \input{tables/091_menses_macedonici_attici.tex}
 \end{table}
 
-\lipsum[28]
+\lipsum[25]
 \begin{table}[htbp]
   \centering
   \begin{tabular}{c c}
@@ -153,46 +184,43 @@
     \begin{minipage}[][0.44\linewidth][t]{0.4\linewidth}
       \input{tables/095b_characterismi_periodorum_syriacarum.tex}
     \end{minipage}
-    \addlinespace[0.85in] % force a lot of space to make room for the captions
+    \\[2in]
+%    Blie & BLah
+%    \addlinespace[0.85in] % force a lot of space to make room for the captions
   \end{tabular}
 \end{table}
 
-\lipsum[29]
+\lipsum[26]
 \begin{table}[htbp]
   \input{tables/096_periodi_syrorum.tex}
 \end{table}
 
-\lipsum[30]
+\lipsum[27]
 \begin{table}[htbp]
   \input{tables/099_menses_chaldaei.tex}
 \end{table}
 
-\lipsum[31]
+\lipsum[28]
 \begin{table}[htbp]
   \input{tables/101_nomina_annorum_schaichun.tex}
 \end{table}
 
-\lipsum[32]
+\lipsum[29]
 \begin{table}[htbp]
   \input{tables/105_mensium_iudaicorum.tex}
 \end{table}
 
-\lipsum[33]
+\lipsum[30]
 \begin{table}[htbp]
   \input{tables/109_hyparchi_calippi_metonis.tex}
 \end{table}
 
-\lipsum[34]
+\lipsum[31]
 \begin{table}[htbp]
   \input{tables/110_periodo_hagarena.tex}
 \end{table}
 
-%\begin{table}[htbp]
-%  \input{tables/067_neomeniae_octaeteridai.tex}
-%\end{table}
-
-\lipsum[40]
-
+\lipsum[32]
 
 \listoftables
 \end{document}
