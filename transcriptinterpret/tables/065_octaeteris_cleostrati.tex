@@ -16,38 +16,34 @@
 %% Modify distance between rows
 %\renewcommand{\arraystretch}{0.90}
 %% Angle to rotate the headers
-\newcommand{\ang}{60}
+\newcommand{\ang}{70}
 %%
-\begin{tabular}[t]{r rrccr}
-~ & \multicolumn{5}{c}{\textsc{Octaeteris Cleostrati}}\\
-\\ % Clumsily make room for the rotated headers
-\\
-\\
-\\
-\\
+\begin{tabular}[t]{r ccc r@{~}l r}
+\toprule
+\multicolumn{7}{c}{\Large\textsc{Octaeteris Cleostrati}}\\
+\toprule
 ~ &
-\begin{rotate}{\ang}Anni octaeteridis\end{rotate} &
-\begin{rotate}{\ang}Cyclus Lunnae\end{rotate} &
-\begin{rotate}{\ang}Litera Dominicalis\end{rotate} &
-~ &
+\begin{rotate}{\ang}\parbox[b]{4em}{\footnotesize Anni\\octaeteridis}\end{rotate} &
+\begin{turn}{\ang}\parbox[b]{4em}{\footnotesize Cyclus\\Lunnae}\end{turn} &
+\begin{rotate}{\ang}\parbox[b]{4em}{\footnotesize Litera\\Dominicalis}\end{rotate} &
+~ & &
 %\begin{rotate}{\ang}\hspace{5pt}\parbox[t]{3.5cm}{Neomenia\\1. mensis}\end{rotate} &
-\multicolumn{1}{l}{\begin{rotate}{\ang}Dies collecti\end{rotate}}
+\parbox[b]{2em}{\footnotesize Dies\\collecti}
 \\
-\cline{2-6}
+\midrule
 \scriptsize{†}
-  &  1 & 18 &  E &  8 Ianua. &  384 \\
-~ &  2 & 19 & DC & 27 Ian.   &  738 \\
-\footnotesize{†}
-  &  3 &  1 &  B & 15 Ian.   & 1122 \\
-~ &  4 &  2 &  A &  3 Febr.  & 1476 \\
-%\cline{2-6}
-~ &  5 &  3 &  G & 23 Ian.   & 1830 \\
-\footnotesize{†}
-  &  6 &  4 & FE & 12 Ian.   & 2214 \\
-~ &  7 &  5 &  D & 30 Ian.   & 2568 \\
-~ &  8 &  6 &  C & 19 Ian.   & 2922 \\
-%\cline{2-6}
-\\
+  &  1 & 18 &  E  &  8&Ianua. &  384 \\
+~ &  2 & 19 & D C & 27&Ian.   &  738 \\
+\scriptsize{†}
+  &  3 &  1 &  B  & 15&Ian.   & 1122 \\
+~ &  4 &  2 &  A  &  3&Febr.  & 1476 \\
+~ &  5 &  3 &  G  & 23&Ian.   & 1830 \\
+\scriptsize{†}
+  &  6 &  4 & F E & 12&Ian.   & 2214 \\
+~ &  7 &  5 &  D  & 30&Ian.   & 2568 \\
+~ &  8 &  6 &  C  & 19&Ian.   & 2922 \\
+\bottomrule
+\addlinespace
 ~ & \multicolumn{5}{l}{\footnotesize \super{†} \textgreek{Εμβολ.}}\\
 \end{tabular}
 \caption{Octaeteris Cleostrati}

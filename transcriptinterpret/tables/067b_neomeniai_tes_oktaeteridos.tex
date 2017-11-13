@@ -15,14 +15,15 @@
 %% Modify distance between rows
 \renewcommand{\arraystretch}{1.8}
 %% Modify separation between columns
-\setlength{\tabcolsep}{2.0pt}
+\setlength{\tabcolsep}{4.0pt}
 %%
-\begin{tabular}{l llllllll}
+\begin{tabular}{@{}l llllllll@{}}
+\toprule
 \multicolumn{9}{ c }{\large\textgreek{ΝΕΟΜΗΝΙΑΙ ΤΗΣ ΟΚΤΑΕΤΗΡΙΔΟΣ}}\\
 \multicolumn{9}{ c }{\normalsize\textgreek{ΚΑΘ' ΕΚΑΣΤΟΝ ΕΤΟΣ}}\\
-%\hline
-\textgreek{Μηνες} &
-\textgreek{ἔτος} &
+\toprule
+\parbox[b]{6em}{\textgreek{Μηνες} \\ \textgreek{κατὰ σελήνην.}} &
+\parbox[b]{3em}{\textgreek{ἔτος}  \\ \textgreek{πρῶτον.}} &
 \textgreek{ἔτος} $\overline{\beta}$ &
 \textgreek{ἔτος} $\overline{\gamma}$ &
 \textgreek{ἔτος} $\overline{\delta}$ &
@@ -31,10 +32,7 @@
 \textgreek{ἔτος} $\overline{\zeta}$ &
 \textgreek{ἔτος} $\overline{\eta}$
 \\
-\textgreek{κατὰ σελήνην.} &
-~\textgreek{πρῶτον.}
-\\
-\hline
+\midrule
 \textgreek{γαμηλιών.} &
 $\overline{\alpha}$          \textgreek{γαμηλ.} &
 $\overline{\kappa\epsilon}$  \textgreek{ποσειδ.} &
@@ -168,6 +166,7 @@ $\overline{\iota\eta}$       \textgreek{ποσειδ.} &
     \multicolumn{1}{c}{$\circ$} &
 ~
 \\
+\bottomrule
 \end{tabular}
 %
 \caption{\textgreek{Νεομηνιαι της οκταετηριδος καθ᾽ εακστον ετος}}
