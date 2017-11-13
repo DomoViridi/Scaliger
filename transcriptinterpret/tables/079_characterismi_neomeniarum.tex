@@ -9,11 +9,15 @@
 %\footnotesize
 %\small
 %\normalsize
+%% Center the whole table left-right
+\centering
 %% Modify separation between columns
 \setlength{\tabcolsep}{1.6pt}
 %% Modify distance between rows
-\renewcommand{\arraystretch}{1.0}
-%
+\renewcommand{\arraystretch}{0.90}
+%% Angle to rotate the headers
+\newcommand{\ang}{60}
+%%
 \begin{tabular}{%
  r  r  r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l
 r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
@@ -25,27 +29,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
 ~ &
 ~ &
 
-\begin{rotate}{75}\textgreek{Εκατομβαιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Μεταγειτνιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Βοηδρομιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Εκατομβαιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Μεταγειτνιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Βοηδρομιών}\end{rotate} & &
 
-\begin{rotate}{75}\textgreek{Πυανεψιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Μαιμακτηριών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ποσειδεών α}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Πυανεψιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Μαιμακτηριών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ποσειδεών α}\end{rotate} & &
 % $\overline\alpha$ does not work here (math mode does not render).
-\begin{rotate}{75}\textgreek{Ποσειδεών β}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ποσειδεών β}\end{rotate} & &
 
-\begin{rotate}{75}\textgreek{Γαμηλιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ανθεστηριών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ελαφηβολιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Γαμηλιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ανθεστηριών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ελαφηβολιών}\end{rotate} & &
 
-\begin{rotate}{75}\textgreek{Μουνυχιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Θαργηλιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Σκιῤῥοφοριών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Μουνυχιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Θαργηλιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Σκιῤῥοφοριών}\end{rotate} & &
 
-\multicolumn{1}{c}{\begin{rotate}{75}Dies collecti\end{rotate}} & 
-\multicolumn{1}{c}{\begin{rotate}{75}Syzygiae collectae\end{rotate}} & 
-\multicolumn{2}{l}{\begin{turn}{75}Syzygiae xxx[?]\hspace*{2em}\end{turn}}
+\multicolumn{1}{c}{\begin{rotate}{\ang}Dies collecti\end{rotate}} & 
+\multicolumn{1}{c}{\begin{rotate}{\ang}Syzygiae collectae\end{rotate}} & 
+\multicolumn{2}{l}{\begin{turn}{\ang}Syzygiae xxx[?]\hspace*{1.5em}\end{turn}}
 \\
 \midrule
 %\cmidrule{3-31}
@@ -319,5 +323,5 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
 & & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβ. [?]}}\\
 \end{tabular}
 \caption{%
-Tabula Characterismi Neomeniarum Enneadecaeteridis Metonicae
+Characterismi Neomeniarum Enneadecaeteridis Metonicae
 }

@@ -14,6 +14,9 @@
 \setlength{\tabcolsep}{1.6pt}
 %% Modify distance between rows
 \renewcommand{\arraystretch}{1.3}
+%% Angle to rotate the headers
+\newcommand{\ang}{75}
+%%
 \begin{tabular}{%
 @{}r@{\hspace{0.3em}}r r  c
 r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l
@@ -23,36 +26,33 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l c
 \toprule
 \multicolumn{31}{c}{\Large\textsc{Tabula Neomeniarum Metonicarum}}\\
 \multicolumn{31}{c}{\Large\textsc{in Mensibus Iulianis}}\\
-\midrule
-\addlinespace
-\addlinespace
+\toprule
 %~ &
 
-\begin{rotate}{75}\hspace{0.3em}Anni Ennea-\end{rotate} &
-\begin{rotate}{75}decaeteridis\end{rotate} &
-\begin{rotate}{75}Cyclus Lunae\end{rotate} &
-\begin{rotate}{75}Litera Dominica\end{rotate} &
+\begin{rotate}{\ang}\hspace{0.3em}Anni Ennea-\end{rotate} &
+\begin{rotate}{\ang}decaeteridis\end{rotate} &
+\begin{rotate}{\ang}Cyclus Lunae\end{rotate} &
+\begin{rotate}{\ang}Litera Dominica\end{rotate} &
 
-\begin{rotate}{75}\textgreek{Εκατομβαιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Μεταγειτνιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Βοηδρομιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Εκατομβαιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Μεταγειτνιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Βοηδρομιών}\end{rotate} & &
 
-\begin{rotate}{75}\textgreek{Πυανεψιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Μαιμακτηριών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ποσειδεών α}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Πυανεψιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Μαιμακτηριών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ποσειδεών α}\end{rotate} & &
 % $\overline\alpha$ does not work here (math mode does not render).
-\begin{rotate}{75}\textgreek{Ποσειδεών β}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ποσειδεών β}\end{rotate} & &
 
-\begin{rotate}{75}\textgreek{Γαμηλιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ανθεστηριών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ελαφηβολιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Γαμηλιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ανθεστηριών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ελαφηβολιών}\end{rotate} & &
 
-\begin{rotate}{75}\textgreek{Μουνυχιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Θαργηλιών}\end{rotate} & &
-%\begin{rotate}{75}\textgreek{Σκιῤῥοφοριών}\end{rotate} & &
-\multicolumn{3}{l}{\begin{turn}{75}\textgreek{Σκιῤῥοφοριών}\end{turn}}
+\begin{rotate}{\ang}\textgreek{Μουνυχιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Θαργηλιών}\end{rotate} & &
+%\begin{rotate}{\ang}\textgreek{Σκιῤῥοφοριών}\end{rotate} & &
+\multicolumn{3}{l}{\begin{turn}{\ang}\textgreek{Σκιῤῥοφοριών}\hspace*{1.2em}\end{turn}}
 
-%\multicolumn{2}{l}{\begin{turn}{75}Syzygiae xxx[?]\end{turn}}
 \\
 \midrule
   &  1 &  7 & C &
@@ -151,8 +151,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l c
  20&Ian & 19&Feb & 20&Mar & 19&Apr & 18&Mai & 17&Iun
 \\
 \bottomrule
-\\
+\addlinespace
 & & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβ. [?]}}\\
 \end{tabular}
-\caption{%
-Tabula Neomeniarum Metonicarum in Mensibus Iulianis}
+\caption{Neomeniarum Metonicarum in Mensibus Iulianis}

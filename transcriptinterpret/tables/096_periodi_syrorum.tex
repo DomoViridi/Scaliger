@@ -6,8 +6,8 @@
 %
 %% Select a general font size (uncomment one from the list)
 %\tiny
-%\scriptsize
-\footnotesize
+\scriptsize
+%\footnotesize
 %\small
 %\normalsize
 %% Center the whole table left-right
@@ -15,23 +15,28 @@
 %% Modify separation between columns
 \setlength{\tabcolsep}{0.5em}
 %% Modify distance between rows
-\renewcommand{\arraystretch}{0.94}
+%\renewcommand{\arraystretch}{0.85}
+%% The angle with which to slant
+\newcommand{\ang}{60}
+%% Generate the column headers
+\newcommand{\hdrs}{%
+~ &
+\multicolumn{1}{c}{\begin{rotate}{\ang}Anni periodi\end{rotate}} &
+\multicolumn{1}{c}{\begin{rotate}{\ang}Cyclus Lunnae\end{rotate}} &
+\multicolumn{1}{c}{\begin{rotate}{\ang}Character anni\end{rotate}} &
+\multicolumn{1}{c}{\begin{rotate}{\ang}Cyclus Solis\end{rotate}} &
+& &
+%\begin{rotate}{60}\textgreek{περιτταὶ ἡμέραι}\end{rotate} &
+\multicolumn{2}{l}{\begin{turn}{\ang}\textgreek{περιτταὶ ἡμέραι}\hspace*{0.2em}\end{turn}}
+}
 %%
 \begin{tabular}{@{}l c@{}}
 \toprule
- \multicolumn{2}{c}{\Large\textsc{Tabula Periodi Syrorum Alexandreae}}\\
-\midrule
-\addlinespace
+ \multicolumn{2}{c}{\Large\textsc{Tabula periodi Syrorum Alexandreae}}\\
+\toprule
 
 \begin{tabular}[t]{@{}r rrcc r@{~}l r l@{}}
-~ &
-\multicolumn{1}{c}{\begin{rotate}{60}Anni periodi\end{rotate}} &
-\multicolumn{1}{c}{\begin{rotate}{60}Cyclus Lunnae\end{rotate}} &
-\multicolumn{1}{c}{\begin{rotate}{60}Character anni\end{rotate}} &
-\multicolumn{1}{c}{\begin{rotate}{60}Cyclus Solis\end{rotate}} &
-& &
-%\begin{rotate}{60}\textgreek{περιτταὶ ἡμέραι}\end{rotate} &
-\multicolumn{2}{l}{\begin{turn}{60}\textgreek{περιτταὶ ἡμέραι}\end{turn}}
+\hdrs
 \\
 \cmidrule{2-8}
 † &  1 & 13 &  5 &  G  &  6 &Sept. & 31 & ~ \\
@@ -89,14 +94,7 @@
 &
 %%
 \begin{tabular}[t]{@{}r rrcc r@{~}l r l@{}}
-~ &
-\multicolumn{1}{c}{\begin{rotate}{60}Anni periodi\end{rotate}} &
-\multicolumn{1}{c}{\begin{rotate}{60}Cyclus Lunnae\end{rotate}} &
-\multicolumn{1}{c}{\begin{rotate}{60}Character anni\end{rotate}} &
-\multicolumn{1}{c}{\begin{rotate}{60}Cyclus Solis\end{rotate}} &
-& &
-%\begin{rotate}{60}\textgreek{περιτταὶ ἡμέραι}\end{rotate} &
-\multicolumn{2}{l}{\begin{turn}{60}\textgreek{περιτταὶ ἡμέραι}\end{turn}}
+\hdrs
 \\
 \cmidrule{2-8}
 ~ & 41 & 15 &  7 &  F  & 14 &Sept. & 12 \\
@@ -145,11 +143,13 @@
 ~ & 76 & 12 &  4 & E D & 16 &Sept. & 21 & ‡ \\
 \cmidrule{2-8}
 \\
-~ & \multicolumn{5}{l}{† \textgreek{ἐμβολ.}}\\
-~ & \multicolumn{5}{l}{‡ \textgreek{ὑπερή [?]}}\\
+~ & \multicolumn{5}{l}{\super † \textgreek{ἐμβολ.}}\\
+~ & \multicolumn{5}{l}{\super ‡ \textgreek{ὑπερή. [?]}}\\
 %~ & \multicolumn{5}{l}{◊ \textgreek{ἐμβολ.}}\\
 %~ & \multicolumn{5}{l}{† \textgreek{ἐξαιρ.}}\\
 %~ & \multicolumn{5}{l}{‡ \textgreek{δισεξαιρεσιμαῖος [?]}}\\
 \end{tabular}
 \end{tabular}
 %
+\caption{Periodi Syrorum Alexandreae}
+\label{tab:p96}
