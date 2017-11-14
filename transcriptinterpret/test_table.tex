@@ -6,11 +6,14 @@
 %\documentclass[draft,a4paper]{book}
 %% use [showframe] to show the frames
 \usepackage[showframe]{geometry}
-\usepackage{lipsum} % Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
-\usepackage{longtable}% Allow for split of the table over more than one page
+% Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
+\usepackage{lipsum}
 \usepackage{rotating} % Make it possible to rotate headers
 \usepackage[normalsize]{caption} % Keep captions to (long)tables normal sized
-% must go *after* rotating package
+% Caption doc says it must go *after* rotating package
+% It must go *before* the longtable package
+% or it won't work on longtable captions
+\usepackage{longtable}% Allow for split of the table over more than one page
 \usepackage{booktabs} % To get nice table layout
 %
 % To include graphics in tables
@@ -168,6 +171,10 @@
   \input{tables/087_characteris_periodorum_calippi.tex}
 \end{table}
 
+\lipsum[51]
+% Longtable
+\input{tables/089_neomeniarum_periodi_calippicae.tex}
+
 \lipsum[24]
 \begin{table}[htbp]
   \input{tables/091_menses_macedonici_attici.tex}
@@ -217,9 +224,8 @@
 \end{table}
 
 \lipsum[31]
-\begin{table}[htbp]
-  \input{tables/110_periodo_hagarena.tex}
-\end{table}
+% Longtable
+\input{tables/112_periodi_magnae_hagarenorum.tex}
 
 \lipsum[32]
 

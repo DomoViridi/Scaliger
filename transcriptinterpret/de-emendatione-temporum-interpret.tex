@@ -51,20 +51,23 @@
 %% Supplies the \sfrac{<num>}[<separator>]{<denom>} command
 \usepackage{xfrac}
 
-%% Required to keep captions to tables normal sized
-%% Used in table in Liber Primus, page 43
-\usepackage[normalsize]{caption}
-
-%% Package to split the table over more than one page
-%% Used in table in Liber Primus, page 43
-\usepackage{longtable}
-
 %%% Enable vertical text
 %% Used in table in Liber Primus, page 27
 %% (but not for the version with the horizontal layout)
 %% Also in table in Liber Primus, page 38
 %% Also in table in Liber Primus, page 43
 \usepackage{rotating}
+
+%% Required to keep captions to tables normal sized
+%% Used in table in Liber Primus, page 43
+% Caption doc says it must go *after* rotating package
+% It must go *before* the longtable package
+% or it won't work on longtable captions
+\usepackage[normalsize]{caption}
+
+%% Package to split the table over more than one page
+%% Used in table in Liber Primus, page 43
+\usepackage{longtable}
 
 %%% Control the way page headers look
 %\userpackage{fancyheadings}
