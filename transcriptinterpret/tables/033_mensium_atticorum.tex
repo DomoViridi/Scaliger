@@ -30,37 +30,40 @@
 %% Modify distance between rows
 %\renewcommand{\arraystretch}{0.85}
 %%
-%% Nested tables: two tables side-by-side, each containing two seasons
-\begin{tabular}{cc}
-\begin{tabular}{ c l }
-\multicolumn{2}{c}{\textgreek{ΘΕΡΙΝΟΙ ΜΗΝΕΣ}} \\
-1. &\textgreek{Εκατομβαιών} \\
-2. &\textgreek{Μεταγειτνιών} \\
-3. &\textgreek{Βοηδρομιών} \\
-%% empty line between the seasons
-~ & ~ \\
+%% Four columns, one for each season
+\begin{tabular}{@{}llll@{}}
+\toprule
+\multicolumn{4}{ c }{\Large\textsc{Laterculum mensium Atticorum}} \\
+\multicolumn{4}{ c }{\large\textsc{secundam anni quadrantes}} \\
+\toprule
+  \textgreek{ΘΕΡΙΝΟΙ} &
+  \textgreek{ΟΠΩΡΙΝΟΙ} &
+  \textgreek{ΧΕΙΜΕΡΙΝΟΙ} &
+  \textgreek{ΕΑΡΙΝΟΙ}
+\\
+  \textgreek{ΜΗΝΕΣ} &
+  \textgreek{ΜΗΝΕΣ} &
+  \textgreek{ΜΗΝΕΣ} &
+  \textgreek{ΜΗΝΕΣ}
+\\
+\midrule
 %%
-\multicolumn{2}{c}{\textgreek{ΟΠΩΡΙΝΟΙ ΜΗΝΕΣ}} \\
-4. &\textgreek{Πυανεψιών} \\
-5. &\textgreek{Μαιμακτηριών} \\
-6. &\textgreek{Ποσειδεών} \\
-\end{tabular}
-%% next column
-&
-%%
-\begin{tabular}{ c l }
-\multicolumn{2}{c}{\textgreek{ΧΕΙΜΕΡΙΝΟΙ ΜΗΝΕΣ}} \\
-7. &\textgreek{Γαμηλιών} \\
-8. &\textgreek{Ανθεστηριών} \\
-9. &\textgreek{Ελαφηβολιών} \\
-%% empty line between the seasons
-~ & ~ \\
-%%
-\multicolumn{2}{c}{\textgreek{ΕΑΡΙΝΟΙ ΜΗΝΕΣ}} \\
-10. &\textgreek{Μουνυχιών} \\
-11. &\textgreek{Θαργηλιών} \\
-12. &\textgreek{Σκιῤῥοφοριών} \\
-\end{tabular}
+  \textgreek{Εκατομβαιών} &
+  \textgreek{Πυανεψιών} &
+  \textgreek{Γαμηλιών} &
+  \textgreek{Μουνυχιών}
+\\
+  \textgreek{Μεταγειτνιών} &
+  \textgreek{Μαιμακτηριών} &
+  \textgreek{Ανθεστηριών} &
+  \textgreek{Θαργηλιών}
+\\
+  \textgreek{Βοηδρομιών} &
+  \textgreek{Ποσειδεών} &
+  \textgreek{Ελαφηβολιών} &
+  \textgreek{Σκιῤῥοφοριών}
+\\
+\bottomrule
 \end{tabular}
 %
 \caption{Laterculum mensium Atticorum secundam anni quadrantes}
