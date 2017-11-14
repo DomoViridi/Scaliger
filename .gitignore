@@ -5,10 +5,17 @@
 *.o
 
 # Portable Document Format files (scanned books, produced files)
-# (but only in the root directory)
-/*.pdf
+*.pdf
 # Explicitly allow the PDF original we use as source material
 !1629-Geneva-1-*.pdf
+# Allow for PDFs in any img subdirectory
+# But these commands do not work, nor does putting a !*.pdf rule in a .gitignore in a
+# subdirectory.
+#!**/img/*.pdf
+#!transcriptinterpret/img/*.pdf
+#
+# Any PDFs you want under control you will need to add to Git explicitly
+# using 'git add -f <file>'
 
 # Files produced by LaTeX
 *.aux
