@@ -216,6 +216,14 @@
 \textsc{#1}%
 }
 
+%%% Separator for alternative numerical values
+%% Scaliger writes alternative values (usually in tables) with a period
+%% between them. We prefer a slash.
+%% This command gives us the flexability to change the separator for the
+%% whole document in one go.
+%% Used e.g. in tables p027 and p034
+\newcommand{\altsep}{\slash{}}
+
 %%% Booktabs package for nice looking tables
 \usepackage{booktabs}
 
