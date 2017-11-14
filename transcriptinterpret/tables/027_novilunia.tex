@@ -1,9 +1,23 @@
 % Version of novilunia table with horizontal layout
 %% Liber Primus, p.27, PDF 110
 %%
-%\documentclass{book}
-%\begin{document}
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
 %
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{0.5em}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{0.85}
+%%
 \begin{tabular}{ l *{12}{r} }
 Linea: mensium &
 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12
@@ -22,4 +36,6 @@ Annus quartus &
 7 & 6 & 6 & 5 & 5 & 4 & 4 & 3 & 3 & 2 & 2 & 2
 \end{tabular}
 %
-%\end{document}
+\caption{Novilunia in mensibus Tetraetirides Graecae}
+\label{tab:p027}
+%
