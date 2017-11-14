@@ -18,22 +18,33 @@
 %% Modify distance between rows
 %\renewcommand{\arraystretch}{0.85}
 %%
-\begin{tabular}{ l *{12}{r} }
-Linea: mensium &
+\begin{tabular}{@{} l *{12}{r} @{}}
+\toprule
+\multicolumn{13}{ c }{\Large\textsc{Novilunia in mensibus}} \\
+\multicolumn{13}{ c }{\Large\textsc{Tetraeteridis Graecae}} \\
+\toprule
+~ &
+\multicolumn{12}{ c }{Mensium}
+\\
+\cmidrule(l){2-13}
+Annus &
 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12
 \\
-\hline
-Annus primus &
-1 & 1\textbar{}30 & 30 & 29 & 29 & 28 & 28 & 27 & 27 & 26 & 26 & 25 
+\midrule
+Primus &
+1 & 1\slash{}30
+        & 30 & 29 & 29 & 28 & 28 & 27 & 27 & 26 & 26 & 25 
 \\
-Annus secundus &
+Secundus &
 23 & 22 & 22 &21  &21  & 20 & 20 & 19 & 19 & 18 & 18 & 17
 \\
-Annus tertius &
+Tertius &
 15 & 14 & 14 & 13 & 13 & 12 & 12 & 11 & 11 & 10 & 10 & 9
 \\
-Annus quartus &
+Quartus &
 7 & 6 & 6 & 5 & 5 & 4 & 4 & 3 & 3 & 2 & 2 & 2
+\\
+\bottomrule
 \end{tabular}
 %
 \caption{Novilunia in mensibus Tetraetirides Graecae}
