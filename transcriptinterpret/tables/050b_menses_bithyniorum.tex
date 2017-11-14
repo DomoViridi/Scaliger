@@ -20,10 +20,11 @@
 %% Modify distance between rows
 %\renewcommand{\arraystretch}{0.85}
 %%
-\begin{tabular}{ l  l }
-Menses                    & Menses\\
-Bithyniorum               & Atheniensium \\
-\hline
+\begin{tabular}{@{} l l @{}}
+\toprule
+\parbox[b]{6em}{Menses \\ Bithyniorum} &
+\parbox[b]{6em}{Menses \\ Atheniensium} \\
+\midrule
 \textgreek{ἀφροδίσιος}    &\textgreek{ἑκατομβαιών} \\
 \textgreek{δημήτριος [?]} &\textgreek{μεταγειτνιών} \\
 \textgreek{ἡραῖος}        &\textgreek{βοηδρομιών} \\
@@ -39,6 +40,7 @@ Bithyniorum               & Atheniensium \\
 \textgreek{στρατεῖος}      &\textgreek{μουνυχιών} \\
 \textgreek{ἄρειος}          &\textgreek{θαργηλιών} \\
 \textgreek{περιέπειος}      &\textgreek{σκιῤῥοφοριών} \\
+\bottomrule
 \end{tabular}
 %
 \caption{Menses Bithyniorum}
