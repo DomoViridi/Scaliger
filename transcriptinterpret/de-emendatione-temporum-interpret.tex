@@ -1,3 +1,4 @@
+% !TEX useTabs
 % !TEX TS-program = xelatex
 % !TEX encoding = UTF-8 Unicode
 % this template is specifically designed to be typeset with XeLaTeX;
@@ -16,6 +17,7 @@
 %%% Geometry package to make the margins better match the original
 %% use [showframe] to show the frames
 %\usepackage[top=18mm, bottom=55mm, inner=24mm, outer=38mm]{geometry}
+\usepackage[showframe]{geometry}
 
 %%% Allow generation of pseudo-latin body text for testing
 %% Optional parameter [x-y] where x and y are numbers: generate paragraph
@@ -44,6 +46,10 @@
 % Though using \vfrac{}{} (part of xltxtra) without explicit loading of
 % xltxtra does not work.
 \usepackage{xltxtra}
+
+%%% Numerical fractions
+%% Supplies the \sfrac{<num>}[<separator>]{<denom>} command
+\usepackage{xfrac}
 
 %% Required to keep captions to tables normal sized
 %% Used in table in Liber Primus, page 43
@@ -190,6 +196,26 @@
 \newcommand\dropcapQ[3]{{#2}{#3}}
 \newcommand\dropcapil[3]{{#2}{#3}}
 
+%%% Show numerical fractions.
+%% Usage: \myfrac{<num>}{<den>}
+%% Adjust the separator character and the spacing depending on the font used
+%% to whatever looks nice
+%% The fraction slash (U+2044) and spacings of 0.25ex/0.1ex
+%% works rather well with Hoefler Text, Times New Roman and SBL BibLit
+\newcommand{\myfrac}[2]{%
+\sfrac{#1}[\hspace{0.25ex}⁄\hspace{0.1ex}]{#2}%
+}
+
+%%% Special command for roman numerals
+%% Usage: \rnum{<roman numeral>}
+%% Example: \rnum{mdclxviii}
+\newcommand{\rnum}[1]{%
+\textsc{#1}%
+}
+
+%%% Booktabs package for nice looking tables
+\usepackage{booktabs}
+
 %%% Use polyglossia to handle multiple languages
 %% We have (at least): latin, polytonic greek, hebrew, arabic, persian
 %% (Contains bidi package, and must be loaded *after*:
@@ -243,7 +269,7 @@
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/liber-primus}
+\includeonly{./tex/liber-secundus}
 
 \begin{document}
 
@@ -285,6 +311,7 @@
 \include{./tex/index-graecarum-vocum}
 \include{./tex/index-orientalium-vocum}
 \include{./tex/errata}
+\listoftables
 
 \backmatter
 \include{./tex/operis-finis}

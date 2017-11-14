@@ -1,0 +1,382 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% this template is specifically designed to be typeset with XeLaTeX;
+% it will not work with other engines, such as pdfLaTeX
+
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+%% use [draft] for a draft version with boxes instead of images
+%% Paper size: a4paper (modern size) or legalpaper (close to original)
+%% Original size = 217.6 x 338.3 mm
+%% Legal size    = 215.9 x 355.6 mm
+\documentclass[12pt,twoside,a4paper]{book}
+
+%%% Geometry package to make the margins better match the original
+%% use [showframe] to show the frames
+%\usepackage[top=18mm, bottom=55mm, inner=24mm, outer=38mm]{geometry}
+
+%%% Allow generation of pseudo-latin body text for testing
+%% Optional parameter [x-y] where x and y are numbers: generate paragraph
+%% number x through y (150 paragraphs available).
+%\usepackage{lipsum}
+
+%%% Array package so we can use m{'width'} and adjust the row spacing in tables
+\usepackage{array}
+
+%%% Control the layout of chapter headers
+\usepackage{titlesec}
+
+%%% Disable chapter/section numbering.
+%\setcounter{secnumdepth}{0}
+%%  Put Chapters/Sections/Subsections in the Table of Contents
+\setcounter{tocdepth}{3}
+
+%%% Allow the text to flow around tables and figures.
+%% (Must load before bidi package, i.e. before polyglossia package)
+% We might need this for chapters with actual figures (in contrast to just
+% dropcaps)
+\usepackage{wrapfig}
+
+\usepackage{fontspec} % Openfont specifications for XeTeX;
+% fontspec automatically loads xltxtra and xunicode, both of which are needed.
+% Though using \vfrac{}{} (part of xltxtra) without explicit loading of
+% xltxtra does not work.
+\usepackage{xltxtra}
+
+\usepackage{xfrac}
+\usepackage{nicefrac}
+
+%% Required to keep captions to tables normal sized
+%% Used in table in Liber Primus, page 43
+\usepackage[normalsize]{caption}
+
+%% Package to split the table over more than one page
+%% Used in table in Liber Primus, page 43
+\usepackage{longtable}
+
+%%% Enable vertical text
+%% Used in table in Liber Primus, page 27
+%% (but not for the version with the horizontal layout)
+%% Also in table in Liber Primus, page 38
+%% Also in table in Liber Primus, page 43
+\usepackage{rotating}
+
+%%% Control the way page headers look
+%\userpackage{fancyheadings}
+%% Package needs to be downloaded specially
+
+%%% Main body text is in latin. We want:
+%% Modern typesetting
+%% The long s shown as 's'
+%% No ligatures
+%% No swishes, not on 'Q' nor on anything else
+%% Modern numbers
+\setmainfont{Hoefler Text}[
+]
+%\setmainfont{Times New Roman}[
+%]
+
+%%% Add a font that supports Greek
+%\newfontfamily\greekfont{Arial Unicode MS}
+\newfontfamily\greekfont{Times New Roman}
+
+%%% Add a font that supports Hebrew
+\newfontfamily\hebrewfont{Arial Hebrew}
+
+%%% Add a font that supports Arabic
+\newfontfamily\arabicfont{Arial Unicode MS}
+
+%%% Add a font that has Astrological symbols
+\newfontfamily\astrofont{Menlo}
+%% Command to allow "\astro{some text}"
+\newcommand\astro[1]{{\astrofont #1}}
+
+%%% Add a font for the references to line numbers in the original
+\newfontfamily\nrfont{Helvetica}
+
+%%% Dummy Command to make header of any size
+%% use: head{<scalesize>}{<spacing>}{<text>}
+%% <scalesize> is a sizefactor relative to normal size
+%% <spacing> is the LetterSpace parameter
+\newcommand\head[3]{}
+
+%%% Commands to number paragraphs
+%% http://tex.stackexchange.com/questions/10513/automatically-assign-a-number-to-every-paragraph
+%% get marginpars to always show up on the correct side (need to compile twice)
+\usepackage{mparhack}
+
+%% No indent on paragraphs, because we make a paragraph out of each sentence.
+%\setlength\parindent{0cm}
+
+%% Command \parnum to format the paragraph counter number
+%% (in bold, arabic numbers)
+\newcommand\parnum{%
+    \bfseries\footnotesize\arabic{parcount}%
+}
+
+%% Special paragraph counter which resets with every 'subject'
+%% (represented as a subsection)
+\newcounter{parcount}[subsection]
+
+%% Command for an isolated paragraph counter mark
+%% Useful e.g. for big, multi-paragraph spanning Initials
+\newcommand\p{%
+%    \stepcounter{parcount}%
+%    \leavevmode\marginpar[\hfill\parnum]{\parnum}%
+}
+
+%% Define an environment to use in the source.
+\newenvironment{parnumbers}{%
+%    \par%
+%    \everypar{%
+%        \stepcounter{parcount}%
+%        \leavevmode\marginpar[\hfill\parnum]{\parnum}%
+%    }%
+}{}
+
+%%% Commands to refer to line numbers in the original
+%% Each beginning of a sentence is marked with the line number in the original
+%% where the sentence begins. Together with the page number in the original
+%% (and chapter name for those parts that are outside the normal page numbers)
+%% this uniquely identifies a line in the document.
+%% In the interpreted transcription, this number can be printed before
+%% the sentence, between parentheses. Example:
+%%  "(7) Sed longe aliter animatos experti sumus ..."
+%% In the litteral transcription we can leave these numbers out. Example:
+%%  "Sed longe aliter animatos experti sumus ..."
+%% For clarity we add the page number to the first sentence on a page.
+%% Example:
+%%  "(II:2) Iam quemadmodum Epochae sunt notationes, ..."
+%% (page numbers in Roman for the Prolegomena, arabic for the rest)
+
+%% Counter to contain the source page number, as written on the page of the book
+\newcounter{sourcepagenr}
+
+%% Counter to contain the PDF page number
+\newcounter{pdfpagenr}
+
+%% Command \ln{number} to show the line number, followed by a
+%% non-breaking space.
+\newcommand{\lnr}[1]{\nrfont({#1})~\normalfont}
+
+%% Command \plnr{PDFpage]{page}{linenumber}
+%% Register and the PDF page number and the source page number
+%% Show the source page number and the line number,
+%% followed by a non-breaking space.
+\newcommand{\plnr}[3]{%
+	\setcounter{pdfpagenr}{{#1}}%
+	\setcounter{sourcepagenr}{{#2}}%
+	\nrfont(\arabic{sourcepagenr}:{{#3}})~\normalfont%
+}
+
+%% Command \Rplnr{PDFpage]{page}{linenumber}
+%% Same as \plnr{}{}{}, but printing the page as a Roman number
+\newcommand{\Rplnr}[3]{%
+	\setcounter{pdfpagenr}{{#1}}%
+	\setcounter{sourcepagenr}{{#2}}%
+	\nrfont(\Roman{sourcepagenr}:{{#3}})~\normalfont%
+}
+
+%% Our own cookup to put letters in the margin to indicate quarters of a
+%% page (A-D) as used in the original.
+%% Uses mparhack.
+%% Because of limitations of \marginpar{} the margin letters must go
+%% on the same side as the paragraph numbers. We put them a bit further
+%% away from the body text to make them more distinct.
+\newcommand\mletter[1]{}
+
+%%% No drop caps (illuminated initial letters)
+%% Dummy commands that just print the text
+\newcommand\dropcap[3]{{#2}{#3}}
+\newcommand\dropcapQ[3]{{#2}{#3}}
+\newcommand\dropcapil[3]{{#2}{#3}}
+
+%%% Use polyglossia to handle multiple languages
+%% We have (at least): latin, polytonic greek, hebrew, arabic, persian
+%% (Contains bidi package, and must be loaded *after*:
+%%  wrapfig, lettrine)
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\setotherlanguage{hebrew}
+\setotherlanguage{arabic}
+\setotherlanguage{english}
+
+%%% Reduce the white space above and below a chapter title
+%%% The word "Chapter" (or "Caput") and the number are removed by making
+%%% the third parameter empty.
+%% Note: these commands must be given *after* plyglossia is loaded and
+%% its commands (\setotherlanguage{}) are given
+%\titleformat{\chapter}[hang]
+%  {\normalfont\tiny\bfseries}{}{0em}{\Huge}
+%\titlespacing*{\chapter}{0pt}{-10pt}{0.5cm}
+
+%%% Reduce the white space above and below figures
+%\setlength\intextsep{0pt}
+
+%% Prevent text from going outside the margins, by making
+%% the word spacing sloppy
+\sloppy
+
+%%% Tell XeTeX where to look for graphics files
+%% Note: all file paths are relative to the root document, i.e.
+%% the tex file that is passed as an argument to the compiler.
+%% In other words: this file.
+\graphicspath{{./img/}}
+
+%%% Give Table of Contents the same name as in the original
+\renewcommand{\contentsname}{Conspectus omnium capitum}
+% === Does not appear to work
+
+%%% Pre-define a string to use in the left-page header
+\newcommand{\shorttitle}{De Emendatione Temporum}
+%%% Same for right-page header
+\newcommand{\shortauthor}{Iosephi Scaligeri}
+
+%%% Command to set the headers at the start of a new chapter
+%% Put them in small caps
+%% Center them using \hfill{}
+\newcommand{\setheaders}[2]{%
+\markboth{\sc{\hfill{}#1\hfill}}%
+         {\sc{\hfill{}#2\hfill}}%
+}
+
+%%% Command to show fractions.
+%% Adjust the separator character and the spacing depending on the font used
+%% to whatever looks nice
+\newcommand{\myfrac}[2]{%
+\sfrac{#1}[\hspace{0.25ex}⁄\hspace{0.1ex}]{#2}%
+}
+% works rather well with Hoefler Text, Times New Roman and SBL BibLit
+
+
+%%%========================================================%%%
+\begin{document}
+
+% Clear our self-defined headers
+\setheaders{}{}
+
+%% ToC generation gives obscure errors; solution: delete the .aux files
+%% and re-compile (twice)
+%\tableofcontents{}
+
+\mainmatter
+
+\fontspec{SBL BibLit}
+% No Diagonal or Alternate. 'On' makes tighter fraction using fraction slash
+% where source uses simple fraction. Tight fraction is ugly
+
+\fontspec{Times New Roman}
+% Does not support any Fractions= setting. Simple fraction looks better
+% than Fraction Slash
+
+%\fontspec{Menlo}
+% Does not support any Fractions= setting. Does not have Fraction Slash
+
+%\fontspec{Arial Unicode MS}
+% Does not support any Fractions= setting. Simple fraction looks better
+% than Fraction Slash
+
+%\fontspec{Skia}
+% Supports all Fractions= settings
+% This font will demonstrate all these features
+
+\fontspec{Hoefler Text}
+
+\section{No font features}
+%\subsection{No special font settings}
+
+Simple fraction U+002F: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43/76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Fraction slash U+2044: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43⁄76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+\verb+\vfrac{}{}+ from \verb+xltxtra+: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~\vfrac{43}{76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. This method in fact uses \verb+Fraction=+ properties.
+
+\verb+\nicefrac{}{}+ from \verb+nicefrac+: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~\nicefrac{43}{76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+\verb+\sfrac{}[]{}+ from \verb+xfrac+, default separator: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~\sfrac{43}{76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+\verb+\sfrac{}[]{}+ with explicit U+002F separator: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+12~\sfrac{43}[/]{76}
+laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+12~\sfrac{1}[/]{0}
+12~\sfrac{2}[/]{1}
+12~\sfrac{3}[/]{2}
+12~\sfrac{4}[/]{3}
+12~\sfrac{5}[/]{4}
+12~\sfrac{6}[/]{5}
+12~\sfrac{7}[/]{6}
+12~\sfrac{8}[/]{7}
+12~\sfrac{9}[/]{8}
+12~\sfrac{10}[/]{9}
+
+\verb+\sfrac{}[]{}+ with explicit U+2044 separator: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+12~\sfrac{43}[⁄]{76}
+laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+12~\sfrac{1}[⁄]{0}
+12~\sfrac{2}[⁄]{1}
+12~\sfrac{3}[⁄]{2}
+12~\sfrac{4}[⁄]{3}
+12~\sfrac{5}[⁄]{4}
+12~\sfrac{6}[⁄]{5}
+12~\sfrac{7}[⁄]{6}
+12~\sfrac{8}[⁄]{7}
+12~\sfrac{9}[⁄]{8}
+12~\sfrac{10}[⁄]{9}
+
+My own command \verb+\myfrac{}{}+ based on \verb+\sfrac+: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~\myfrac{43}{76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+12~\myfrac{1}{0}
+12~\myfrac{2}{1}
+12~\myfrac{3}{2}
+12~\myfrac{4}{3}
+12~\myfrac{5}{4}
+12~\myfrac{6}{5}
+12~\myfrac{7}{6}
+12~\myfrac{8}{7}
+12~\myfrac{9}{8}
+12~\myfrac{10}{9}
+1278~\myfrac{1023456798}{92345678101}
+
+\section{Font Features}
+These font features don't work very well, and most fonts do not support them.
+
+\subsection{Fractions=On}
+\addfontfeature{Fractions=On}
+
+Simple fraction U+002F: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43/76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Fraction slash U+2044: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43⁄76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+\addfontfeature{Fractions=Off}
+
+\subsection{Fractions=Diagonal}
+\addfontfeature{Fractions=Diagonal}
+%\fontspec[Fractions=Diagonal]{SBL BibLit}
+
+Simple fraction U+002F: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43/76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Fraction slash U+2044: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43⁄76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+\addfontfeature{Fractions=Off}
+
+\subsection{Fractions=Alternate}
+\addfontfeature{Fractions=Alternate}
+%\fontspec[Fractions=Alternate]{SBL BibLit}
+
+Simple fraction U+002F: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43/76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Fraction slash U+2044: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 12~43⁄76 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+\addfontfeature{Fractions=Off}
+
+%\fontspec{Skia}
+%\fontspec{SBL BibLit}
+\subsection{VerticalPosition=Superior/Inferior}
+
+%\fontspec[Fractions=Alternate]{SBL BibLit}
+
+Simple fraction U+002F: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque {12~\addfontfeature{VerticalPosition=Superior}43/\addfontfeature{VerticalPosition=Inferior}76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Fraction slash U+2044: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque {12~\addfontfeature{VerticalPosition=Superior}43⁄\addfontfeature{VerticalPosition=Inferior}76} laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+\addfontfeature{Fractions=Off}
+
+\end{document}
