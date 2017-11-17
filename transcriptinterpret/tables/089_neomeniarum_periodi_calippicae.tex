@@ -17,6 +17,8 @@
 %% Let longtable process the whole table in one go
 \setcounter{LTchunksize}{100}
 %
+%% Define a smaller dagger (unfortunalely tiny is already the smallest)
+\newcommand{\da}{{\tiny †}}
 %% Command for lines between the rows
 \newcommand{\streep}{\cmidrule{2-35}}
 %% Command for entries that span 2 columns
@@ -32,27 +34,29 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
 % Put entry into List of Tables pointing to the first page of the table
 \addcontentsline{lot}{section}{%
 \protect\numberline{\thetable}Neomeniarum periodi Calippicae}
+\label{tab:p089}
 % Read the header description from an external file
 \input{tables/089_header_B.tex}
 \midrule
 \endfirsthead
 %%
 \toprule
-\multicolumn{35}{c}{\large\textsc{Residuum tabulae neomeniarum periodi Calippicae}}\\
+\multicolumn{35}{c}{%
+\large\textsc{Residuum tabulae neomeniarum periodi Calippicae}}\\
 \toprule
 % Read the header description from an external file
 \input{tables/089_header_B.tex}
 \midrule
 \endhead
 %%
-\bottomrule
-\addlinespace[10pt]
-%& & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβολ. [Abbriv.]}}\\
+%\bottomrule
+\addlinespace[8pt]
+& & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβολ. [Abbriv.]}}\\
 \endfoot
 %%
 \bottomrule
-\addlinespace[10pt]
-%& & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβολ. [Abbriv.]}}\\
+\addlinespace[8pt]
+& & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβολ. [Abbriv.]}}\\
 \addlinespace
 % Put the table nr and title below the table, without entry in the LoT
 \caption[]{Neomeniarum periodi Calippicae}
@@ -64,7 +68,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   24.&25 &
   \\
 \nopagebreak
-† &  1 & 14 &
+\da &  1 & 14 &
   \mc{7} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
   \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
   \mc{5} &
@@ -93,7 +97,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† &  3 & 16 &
+\da &  3 & 16 &
   \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
   \mc{6} & \mc{7} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
   \mc{1} &
@@ -135,7 +139,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   19.&20 &
   \\
 \nopagebreak
-† &  6 & 19 &
+\da &  6 & 19 &
   \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{4} & \mc{5} &
   \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
   \mc{2} &
@@ -177,7 +181,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† &  9 &  3 &
+\da &  9 &  3 &
   \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
   \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
   \mc{2} &
@@ -205,7 +209,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   14.&15 &
   \\
 \nopagebreak
-† & 11 &  5 &
+\da & 11 &  5 &
   \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
   \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{3} & \mc{4} &
   \mc{6} &
@@ -247,7 +251,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 14 &  8 &
+\da & 14 &  8 &
   \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
   \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
   \mc{6} &
@@ -289,7 +293,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 17 & 11 &
+\da & 17 & 11 &
   \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
   \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
   \mc{7} &
@@ -331,7 +335,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
    9.&10 &
   \\
 \nopagebreak
-† & 20 & 14 &
+\da & 20 & 14 &
   \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
   \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
   \mc{1} &
@@ -359,7 +363,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   27.&28 &
   \\
 \nopagebreak
-† & 22 & 16 &
+\da & 22 & 16 &
   \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
   \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
   \mc{4} &
@@ -401,7 +405,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
    4.&5  &
   \\
 \nopagebreak
-† & 25 & 19 &
+\da & 25 & 19 &
   \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
   \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
   \mc{5} &
@@ -443,7 +447,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 28 &  3 &
+\da & 28 &  3 &
   \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
   \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
   \mc{5} &
@@ -471,7 +475,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 30 &  5 &
+\da & 30 &  5 &
   \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
   \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
   \mc{1} &
@@ -513,7 +517,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 33 &  8 &
+\da & 33 &  8 &
   \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
   \mc{7} & \mc{1} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
   \mc{2} &
@@ -555,7 +559,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   17.&18 &
   \\
 \nopagebreak
-† & 36 & 11 &
+\da & 36 & 11 &
   \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{5} & \mc{6} &
   \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
   \mc{3} &
@@ -597,7 +601,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 39 & 14 &
+\da & 39 & 14 &
   \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
   \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
   \mc{3} &
@@ -626,7 +630,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   12.&13 &
   \\
 \nopagebreak
-† & 41 & 16 &
+\da & 41 & 16 &
   \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
   \mc{4} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
   \mc{7} &
@@ -668,7 +672,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 44 & 19 &
+\da & 44 & 19 &
   \mc{3} & \mc{4} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
   \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
   \mc{7} &
@@ -711,7 +715,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 47 &  3 &
+\da & 47 &  3 &
   \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
   \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
   \mc{1} &
@@ -739,7 +743,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 49 &  5 &
+\da & 49 &  5 &
   \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{1} &
   \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
   \mc{4} &
@@ -781,7 +785,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   25.&26 &
   \\
 \nopagebreak
-† & 52 &  8 &
+\da & 52 &  8 &
   \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
   \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
   \mc{5} &
@@ -824,7 +828,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
    2.&3  &
   \\
 \nopagebreak
-† & 55 & 11 &
+\da & 55 & 11 &
   \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
   \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
   \mc{6} &
@@ -866,7 +870,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 58 & 14 &
+\da & 58 & 14 &
   \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
   \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
   \mc{6} &
@@ -894,7 +898,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 60 & 16 &
+\da & 60 & 16 &
   \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
   \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
   \mc{2} &
@@ -936,7 +940,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 63 & 19 &
+\da & 63 & 19 &
   \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
   \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{2} &
   \mc{3} &
@@ -979,7 +983,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 66 &  3 &
+\da & 66 &  3 &
   \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
   \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
   \mc{3} &
@@ -1007,7 +1011,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 68 &  5 &
+\da & 68 &  5 &
   \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
   \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
   \mc{7} &
@@ -1054,7 +1058,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   10.&11 &
   \\
 \nopagebreak
-† & 71 &  8 &
+\da & 71 &  8 &
   \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
   \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
   \mc{1} &
@@ -1096,7 +1100,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† & 74 & 11 &
+\da & 74 & 11 &
   \mc{4} & \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
   \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
   \mc{1} &

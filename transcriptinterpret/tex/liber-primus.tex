@@ -483,7 +483,7 @@ singulis, ut suo loco referetur.
 \lnr{34}Sunt et secundum hebdomadas
 ut infra subiecimus.
 % Insert table
-\begin{table}[h]
+\begin{table}[hbtp]
   \input{./tables/008_dies_hebdomadis}
 \end{table}
 
@@ -495,12 +495,12 @@ non sequatur dies Iovis, sed dies Solis, haec caussa est.
 % Diagram: circle with heptagram, with planets at the points:
 % Moon ☾, mercury ☿, venus ♀, sun ☉,
 % mars ♂, jupiter ♃, saturn ♄
-\begin{figure}[h]
+\begin{figure}[hbtp]
   \centering
   \def\svgwidth{9\baselineskip}
   {\astrofont\input{./img/008_planets.pdf_tex}}
-%  \caption{Septem Planetae}
-  \label{fig:planetae}
+  \caption{Septem Planetae}
+  \label{fig:p008}
 \end{figure}
 \lnr{3}Septem Planetae
 per circulum secumdum ordinem suum
@@ -2982,6 +2982,8 @@ Olympica detrahendi erunt.
 periodi instar Olympicae, quam auximus omnibus neomeniis,
 et earum epochis in mensibus iulianis: quare nulla magis necessaria
 in ratione temporum Atticorum.
+
+% (paragraph break before this needed or \centered and such bleed over in text)
 % Insert Table: "Tabula neomeniarum Atticarum in mensibus Iulianis"
 \input{tables/043_neomeniarum_atticarum}
 
