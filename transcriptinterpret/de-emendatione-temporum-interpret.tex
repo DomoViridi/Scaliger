@@ -224,6 +224,17 @@
 %% Used e.g. in tables p027 and p034
 \newcommand{\altsep}{\slash{}}
 
+
+%%% Parbox column header \ch{sizetext}{\desiredfontsize{text}}
+%% Puts a column header inside a parbox so it can be split over multiple lines
+%% The first parameter usually the entry in the column which is the widest.
+%% The width of that string is used as the width of the parbox.
+%% The \raggedright solves the 'Underful \hbox' messages. 
+% 'column width' length to be used for the parbox
+\newlength{\cw}
+%
+\newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
+
 %%% Booktabs package for nice looking tables
 \usepackage{booktabs}
 
