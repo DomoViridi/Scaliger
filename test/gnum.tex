@@ -1,0 +1,125 @@
+%%% Test greek number command
+%
+% Command like the math-mode \overline, but works anywhere
+%
+\documentclass[12pt,twoside,a4paper]{book}
+%\documentclass[draft,a4paper]{book}
+%% use [showframe] to show the frames
+\usepackage[showframe]{geometry}
+% Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
+\usepackage{lipsum}
+\usepackage{rotating} % Make it possible to rotate headers
+\usepackage[normalsize]{caption} % Keep captions to (long)tables normal sized
+% Caption doc says it must go *after* rotating package
+% It must go *before* the longtable package
+% or it won't work on longtable captions
+\usepackage{longtable}% Allow for split of the table over more than one page
+\usepackage{booktabs} % To get nice table layout
+%
+% To include graphics in tables
+\usepackage{graphicx}
+%
+%% Settings from the main text we also need for the test
+\usepackage{fontspec}
+\setmainfont{Hoefler Text}[]
+%\setmainfont{Times New Roman}[]
+\newfontfamily\greekfont{Times New Roman}
+\newfontfamily\hebrewfont{Arial Hebrew}
+\newfontfamily\arabicfont{Arial Unicode MS}
+\newfontfamily\astrofont{Menlo}
+\newcommand\astro[1]{{\astrofont #1}}
+%%
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\setotherlanguage{hebrew}
+\setotherlanguage{arabic}
+%
+\newcommand{\rnum}[1]{\textsc{#1}} % Roman numerals
+\newcommand{\altsep}{\slash{}} % Separator between alternative values in tables
+%
+\newlength{\cw} % Column width for \parbox headers
+\newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
+%
+% \ruleover{string}
+% \ruleover[scale]{string}
+% Command to put a rule (line) over a given string.
+% The string is shrunk to 0.75 of its original size and the rule will
+% be draw at the original height of the string. An alternative scale
+% factor can be given as an optional parameter.
+% Scales outside the range 0.5..1.0 do not look nice.
+% Uses graphicx package
+\makeatletter
+\newlength{\ROver@width} % width of the string
+\newlength{\ROver@height} % height of the string
+\newlength{\ROver@thick} % thickness of the line
+\newcommand{\ruleover}[2][0.75]{%
+  \settoheight{\ROver@height}{#2}% Get height of original text
+  \settowidth{\ROver@width}{#2}% Get width of original text
+  \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
+  \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
+%  \addtolength{\ROver@height}{-\ROver@thick}% Align top of rule with top of box
+  \scalebox{#1}{#2}% Print the text with shrinking
+  \hskip-\ROver@width% Move back to beginning of the shrunken text
+  \rule[\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
+}
+\makeatother
+
+%% Define Greek Number command using \ruleover{} with default scaling
+\newcommand{\gnum}[1]{\ruleover{#1}}
+
+%% Greek Number command with extra parameter for scaling
+\newcommand{\gnums}[2]{\ruleover[#1]{#2}}
+
+\begin{document}
+
+%\lipsum[1]
+Showing some Greek numbers in-line.
+
+Overline gives $\overline{\alpha\beta \gamma}$ like that.
+Separate overlines give $\overline{\alpha}$$\overline{\beta}$$\overline{ }$$\overline{\gamma}$
+
+Ruleover gives \gnum{\textgreek{αβ γ}} like that.
+Separate ruleovers give \gnum{\textgreek{α}}\gnum{\textgreek{β}}\gnum{\textgreek{ }}\gnum{\textgreek{γ}}
+
+Side by side $\overline{\zeta\xi\chi \delta\iota\rho}$
+\gnum{\textgreek{{ζχξ διρ}}} et cetera.
+
+Scale greater than one: \gnums{2}{tiny text}oops at scale 2.
+
+Very small scale: \gnums{0.4}{tiny text} at 0.4 scale.
+
+Gee more stuffing
+\textgreek{ἐν \gnums{0.75}{τδ} ἔτεσιν} at 0.75 scale.
+
+Gee more stuffing
+\textgreek{ἐν \gnums{0.85}{τδ} ἔτεσιν} at 0.85 scale.
+
+Scale 1.0 shows the line touches the top of the text.
+
+Also note that the
+ascenders of the lower case characters are higher than upper case characters.
+
+\textgreek{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΦΧ\gnums{1}{αβγδεζηθικλμνξοπρστυφχψω}Χ}
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\gnums{1}{abcdefghijklmnopqrstuvwxyz}X
+
+Xbdgjpqyfhkl\gnums{1}{abcdefghijklmnopqrstuvwxyz}bdgjpqyfhklX
+
+Xbdgjpqyfhkl\gnums{1}{acegmnopq}bdgjpqyfhklX
+
+The same with the default scaling:
+
+\textgreek{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΦΧ\gnum{αβγδεζηθικλμνξοπρστυφχψω}Χ}
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\gnum{abcdefghijklmnopqrstuvwxyz}X
+
+Xbdgjpqyfhkl\gnum{abcdefghijklmnopqrstuvwxyz}bdgjpqyfhklX
+
+Xbdgjpqyfhkl\gnum{acegmnopq}bdgjpqyfhklX
+
+"defecit idem sidus \textgreek{φαμηνυὼθ \gnum{κδ}},
+ sequente \textgreek{\gnum{κε}, μηνὸς Σκιῤῥοφοριῶνος}."
+%\lipsum[150]
+
+\end{document}
