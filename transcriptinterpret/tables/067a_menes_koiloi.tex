@@ -28,26 +28,32 @@
 % Because there is no code for the digamma (representing 6), we need to resort
 % to using \varsigma (the end-of-word sigma) for this symbol.
 %
-%% For testing, uncomment the folowing lines and the lines at the end
-%% of the file
-%% Test ==>
-%\documentclass{book}
-%\usepackage{fontspec}
-%\setmainfont{Hoefler Text}[]
-%%\setmainfont{Times New Roman}[]
-%\newfontfamily\greekfont{Times New Roman}
-%\usepackage[quiet]{polyglossia}
-%\setmainlanguage{latin}
-%\setotherlanguage{greek}
-%\begin{document}
-%% <== Test
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+%\tiny
+%\scriptsize
+%\footnotesize
+\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{1.6pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.3}
+%% Angle to rotate the headers
+%\newcommand{\ang}{60}
 %%
-\begin{tabular}{ll|lllllll}
-\multicolumn{9}{c}{\large{\textgreek{ΜΗΝΕΣ ΚΟΙΛΟΙ}}}
+\begin{tabular}{ll llllll}
+\toprule
+\multicolumn{8}{c}{\large{\textgreek{ΜΗΝΕΣ ΚΟΙΛΟΙ}}}
 \\
-~ & \multicolumn{5}{l}{\textgreek{τ.. τ.. ὀκταετερίδος .τ.}}
+\toprule
+~ & \multicolumn{5}{l}{$\downarrow$ \textgreek{τ.. τ.. ὀκταετερίδος .τ.}}
 \\
-\hline
+\midrule
 \scriptsize{†} &
 \textgreek{α} &
 \textgreek{ἐλαφηβολ.} &
@@ -55,8 +61,7 @@
 \textgreek{ἑκατομβ.} &
 \textgreek{βοηδρομ.} &
 \textgreek{μαιμακτ.} &
-\textgreek{ποσειδ.} &
-\textgreek{β.}
+\textgreek{ποσειδ. β} 
 \\
  &
 \textgreek{β} &
@@ -65,7 +70,6 @@
 \textgreek{ἑκατομβ.} &
 \textgreek{βονδρομ.} &
 \textgreek{μαιμακτ.} &
- &
 
 \\
 \scriptsize{†} &
@@ -75,10 +79,9 @@
 \textgreek{σκιῤῥοφ.} &
 \textgreek{μεταγείτν.} &
 \textgreek{πυανεψ.} &
-\textgreek{ποσειδ.} &
-\textgreek{α.}
+\textgreek{ποσειδ. α} 
 \\
-\hline
+%\midrule
  &
 \textgreek{δ} &
 \textgreek{γαμηλ.} &
@@ -86,7 +89,6 @@
 \textgreek{σκιῤῥοφ.} &
 \textgreek{βονδρομ.} &
 \textgreek{μαιμακτ.} &
- &
 
 \\
  &
@@ -96,7 +98,6 @@
 \textgreek{σκιῤῥοφ.} &
 \textgreek{βονδρομ.} &
 \textgreek{μαιμακτ.} &
- &
 
 \\
 \scriptsize{†} &
@@ -106,10 +107,9 @@
 \textgreek{θαρυηλ.} &
 \textgreek{ἑκατομβ.} &
 \textgreek{βονδρομ.} &
-\textgreek{ποσειδ.} &
-\textgreek{α.}
+\textgreek{ποσειδ. α}
 \\
-\hline
+%\midrule
  &
 \textgreek{ζ} &
 \textgreek{γαμηλ.} &
@@ -117,7 +117,7 @@
 \textgreek{θαρυηλ.} &
 \textgreek{ἑκατομβ.} &
 \textgreek{βονδρομ.} &
-\textgreek{ποσειδ.} &
+\textgreek{ποσειδ.}
 
 \\
  &
@@ -127,11 +127,13 @@
 \textgreek{σκιῤῥοφ.} &
 \textgreek{μεταγείτν.} &
 \textgreek{πυανεψ.} &
-\textgreek{ποσειδ.} &
+\textgreek{ποσειδ.}
 
 \\
-\hline
-\multicolumn{5}{l}{\footnotesize \super{†} \textgreek{ἐμβολ.}}\\
+\bottomrule
+\addlinespace
+~ & ~ & \multicolumn{3}{l}{\footnotesize \super{†} \textgreek{ἐμβολ.}}\\
 \end{tabular}
-%% Test ==>
-%\end{document}
+%
+\caption{\textgreek{Μηνες κοιλοι}}
+\label{table:p067a}

@@ -4,106 +4,93 @@
 % 000000011111111112222222222333333333344444444445555555555666666666677777777778
 % 345678901234567890123456789012345678901234567890123456789012345678901234567890
 %
-%% For testing, uncomment the folowing lines and the lines at the end
-%% of the file.
-%% Test ==>
-%\documentclass[a4paper]{book}
-%% Package to split the table over more than one page
-%\usepackage{longtable}
-%% Required to keep captions normal sized
-%\usepackage{caption}
-%% Required to rotate the headers over the narrow columns
-%\usepackage{rotating}
-%%
-%% Define fonts 
-%\usepackage{fontspec}
-%\setmainfont{Hoefler Text}[]
-%%\setmainfont{Times New Roman}[]
-%\newfontfamily\greekfont{Times New Roman}
-%\usepackage[quiet]{polyglossia}
-%\setmainlanguage{latin}
-%\setotherlanguage{greek}
-%\begin{document}
-%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie erat orci, efficitur aliquam tortor accumsan eget. Ut nec tellus nec sem sodales iaculis a vel metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vestibulum lorem ut felis sodales, et varius nunc molestie. Proin condimentum libero id neque porttitor, et commodo ex venenatis. Suspendisse nec auctor lorem. Integer pellentesque scelerisque libero eu bibendum. Donec dictum, dui pretium malesuada tristique, est diam convallis tortor, a ornare neque purus at neque. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-%
-%% <== Test
-%%
 \begingroup
+%% Select a general font size (uncomment one from the list)
 %\tiny
 \scriptsize
 %\footnotesize
 %\small
 %\normalsize
+%% Center the whole table left-right
+\centering
 %% Modify separation between columns
 \setlength{\tabcolsep}{1.6pt}
 %% Modify distance between rows
 \renewcommand{\arraystretch}{1.2}
+%
+%% Define reference symbols
+\newcommand{\da}{{\tiny †}}
+\newcommand{\db}{{\tiny ‡}}
+%% The angle with which to slant
+\newcommand{\ang}{60}
+%% Generate the column headers
+\newcommand{\hdrs}{%
+% A \multicolumn{} here would clash with \addcontentsline{}
+\begin{rotate}{\ang}Anni periodi\end{rotate} &
+&
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Εκατομβαιών}\end{rotate}} & &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Μεταγειτνιών}\end{rotate}} & &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Βοηδρομιών}\end{rotate}} & &
+
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Πυανεψιών}\end{rotate}} & &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Μαιμακτηριών}\end{rotate}} & &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Ποσειδεών α}\end{rotate}} & &
+
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Ποσειδεών β}\end{rotate}} & &
+
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Γαμηλιών}\end{rotate}} & &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Ανθεστηριών}\end{rotate}} & &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Ελαφηβολιών}\end{rotate}} & &
+
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Μουνυχιών}\end{rotate}} & &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Θαργηλιών}\end{rotate}} & &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\textgreek{Σκιῤῥοφοριών}\end{rotate}} & &
+
+\multicolumn{2}{l}{\begin{turn}{\ang}\textgreek{περιτταὶ ἡμέραι}\end{turn}} \\
+}
+%
 %% Let longtable process the whole table in one go
 \setcounter{LTchunksize}{100}
-\begin{longtable}[l]{%
- r  r  r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l
-r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
-}
-% Oddly, the folowing row is rendered *shorter* than the rest of the table
-%‡ & 88 & 33&Aug & 33&Aug & 33&Oct & 33&Nov & 33&Nov & 33&Dec &
-% 8&Ian & 33&Feb & 33&Mar & 33&Mar & 33&Apr & 33&Mai & 33&Iun & 88
-%\\
-\caption{Tabula neomeniarum Atticarum in mensibus Iulianis}\\
-~ &
-\begin{rotate}{75}Anni periodi\end{rotate} &
-
-\begin{rotate}{75}\textgreek{Εκατομβαιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Μεταγειτνιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Βοηδρομιών}\end{rotate} & &
-
-\begin{rotate}{75}\textgreek{Πυανεψιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Μαιμακτηριών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ποσειδεών α}\end{rotate} & &
-
-\begin{rotate}{75}\textgreek{Ποσειδεών β}\end{rotate} & &
-
-\begin{rotate}{75}\textgreek{Γαμηλιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ανθεστηριών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ελαφηβολιών}\end{rotate} & &
-
-\begin{rotate}{75}\textgreek{Μουνυχιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Θαργηλιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Σκιῤῥοφοριών}\end{rotate} & &
-
-\multicolumn{2}{l}{\begin{turn}{75}\textgreek{περιτταὶ ἡμέραι}\end{turn}}
-\\
-\cline{2-29}
+\begin{longtable}[c]{@{} r  r  *{13}{r@{~}l} r c @{}}
+\toprule
+\multicolumn{30}{c}{\Large\textsc{Tabula neomeniarum Atticarum}} \\
+\multicolumn{30}{c}{\Large\textsc{in mensibus Iulianis}} \\
+\toprule
+% Put a reference to the first page of the table in the List of Tables
+\addcontentsline{lot}{section}{%
+\protect\numberline{\thetable}Neomeniarum Atticarum in mensibus Iulianis}
+\label{tab:p043}
+\hdrs % Column headers from the above definition
+\midrule
 \endfirsthead
-\caption*{Residuum tabulae neomeniarum Atticarum in mensibus Iulianis}\\
-~ &
-\begin{rotate}{75}Anni periodi\end{rotate} &
-
-\begin{rotate}{75}\textgreek{Εκατομβαιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Μεταγειτνιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Βοηδρομιών}\end{rotate} & &
-
-\begin{rotate}{75}\textgreek{Πυανεψιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Μαιμακτηριών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ποσειδεών α}\end{rotate} & &
-
-\begin{rotate}{75}\textgreek{Ποσειδεών β}\end{rotate} & &
-
-\begin{rotate}{75}\textgreek{Γαμηλιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ανθεστηριών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ελαφηβολιών}\end{rotate} & &
-
-\begin{rotate}{75}\textgreek{Μουνυχιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Θαργηλιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Σκιῤῥοφοριών}\end{rotate} & &
-
-\multicolumn{2}{l}{\begin{turn}{75}\textgreek{περιτταὶ ἡμέραι}\end{turn}}
-\\
-\cline{2-29}
+%%
+\toprule
+\multicolumn{30}{c}{\Large\textsc{Residuum tabulae neomeniarum Atticarum}} \\
+\multicolumn{30}{c}{\Large\textsc{in mensibus Iulianis}} \\
+\toprule
+\hdrs % Column headers from the above definition
+\midrule
 \endhead
+%%
+% The \nopagebreak commands result in a cline{} at the bottom of each page
+% Putting in a bottomrule looks weird.
+%\bottomrule
+\addlinespace[5pt]
+  & & & \multicolumn{11}{l}{\super\da \textgreek{ἐξαιρεσίμαίων [?]}}
+& & & & \multicolumn{11}{l}{\super\db \textgreek{δισέξαιρεσιμαίων [?]}}
 \\
-  & & & \multicolumn{11}{l}{† \textgreek{ἐξαιρεσίμαίων [?]}}
-& & & & \multicolumn{11}{l}{‡ \textgreek{δισέξαιρεσιμαίων [?]}}
 \endfoot
+%%
+%\bottomrule
+\addlinespace[5pt]
+  & & & \multicolumn{11}{l}{\super\da \textgreek{ἐξαιρεσίμαίων [?]}}
+& & & & \multicolumn{11}{l}{\super\db \textgreek{δισέξαιρεσιμαίων [?]}}
+\\
+%\addlinespace
+% Put the table nr and title below the table, without entry in the LoT
+\caption[]{Neomeniarum Atticarum in mensibus Iulianis}
+\endlastfoot
+%%
   &  1 &  9&Iul &  8&Aug &  7&Sep &  7&Oct &  6&Nov &  6&Dec & 
  5&Ian &  6&Feb &  8&Mar &  7&Apr &  7&Mai &  6&Iun &  6&Iul &  0 \\
 \nopagebreak
@@ -113,7 +100,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ &  3 &  2&Aug &  1&Sep &  1&Oct & 31&Oct & 30&Nov & 30&Dec &
   &    & 31&Ian &  1&Mar & 31&Mar & 30&Apr & 30&Mai & 29&Iun & 24 \\
 \nopagebreak
-‡ &  4 & 29&Iul & 28&Aug & 27&Sep & 25&Oct & 24&Nov & 24&Dec &
+\db
+  &  4 & 29&Iul & 28&Aug & 27&Sep & 25&Oct & 24&Nov & 24&Dec &
   &    & 25&Ian & 24&Feb & 26&Mar & 25&Apr & 25&Mai & 24&Iun & 20 \\
 \nopagebreak
 \cline{2-29}
@@ -126,7 +114,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ &  7 & 18&Iul & 17&Aug & 16&Sep & 16&Oct & 15&Nov & 15&Dec &
   &    & 16&Ian & 15&Feb & 16&Mar & 15&Apr & 15&Mai & 14&Iun &  9 \\
 \nopagebreak
-† &  8 & 14&Iul & 13&Aug & 12&Sep & 11&Oct & 10&Nov & 10&Dec &
+\da
+  &  8 & 14&Iul & 13&Aug & 12&Sep & 11&Oct & 10&Nov & 10&Dec &
   &    & 11&Ian & 10&Feb & 12&Mar & 11&Apr & 11&Mai & 10&Iun &  5 \\
 \nopagebreak
 \cline{2-29}
@@ -139,7 +128,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 11 & 31&Iul & 30&Aug & 29&Sep & 29&Oct & 28&Nov & 28&Dec &
   &    &  1&Feb &  2&Mar &  1&Apr &  1&Mai & 31&Mai & 30&Iun & 25 \\
 \nopagebreak
-† & 12 & 30&Iul & 29&Aug & 28&Sep & 27&Oct & 26&Nov & 26&Dec &
+\da
+  & 12 & 30&Iul & 29&Aug & 28&Sep & 27&Oct & 26&Nov & 26&Dec &
   &    & 27&Ian & 26&Feb & 28&Mar & 27&Apr & 27&Mai & 26&Iun & 21 \\
 \nopagebreak
 \cline{2-29}
@@ -152,7 +142,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 15 & 20&Iul & 19&Aug & 18&Sep & 18&Oct & 17&Nov & 17&Dec &
   &    & 18&Ian & 17&Feb & 18&Mar & 17&Apr & 17&Mai & 16&Iun & 11 \\
 \nopagebreak
-† & 16 & 16&Iul & 15&Aug & 14&Sep & 13&Oct & 12&Nov & 12&Dec &
+\da
+  & 16 & 16&Iul & 15&Aug & 14&Sep & 13&Oct & 12&Nov & 12&Dec &
   &    & 13&Ian & 12&Feb & 14&Mar & 13&Apr & 13&Mai & 12&Iun &  7 \\
 \nopagebreak
 \cline{2-29}
@@ -165,7 +156,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 19 &  5&Aug &  4&Sep &  4&Oct &  3&Nov &  3&Dec &  2&Ian &
   &    &  3&Feb &  4&Mar &  3&Apr &  3&Mai &  2&Iun &  2&Iul & 27 \\
 \nopagebreak
-‡ & 20 &  1&Aug & 31&Aug & 30&Sep & 28&Oct & 27&Nov & 27&Dec &
+\db
+  & 20 &  1&Aug & 31&Aug & 30&Sep & 28&Oct & 27&Nov & 27&Dec &
   &    & 28&Ian & 27&Feb & 29&Mar & 28&Apr & 28&Mai & 27&Iun & 23 \\
 \nopagebreak
 \cline{2-29}
@@ -178,7 +170,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 23 & 21&Iul & 20&Aug & 19&Sep & 19&Oct & 18&Nov & 18&Dec &
   &    & 19&Ian & 18&Feb & 19&Mar & 18&Apr & 18&Mai & 17&Iun & 12 \\
 \nopagebreak
-† & 24 & 17&Iul & 16&Aug & 15&Sep & 14&Oct & 13&Nov & 13&Dec &
+\da
+  & 24 & 17&Iul & 16&Aug & 15&Sep & 14&Oct & 13&Nov & 13&Dec &
   &    & 14&Ian & 13&Feb & 15&Mar & 14&Apr & 14&Mai & 13&Iun &  8 \\
 \nopagebreak
 \cline{2-29}
@@ -191,7 +184,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 27 &  6&Aug &  5&Sep &  5&Oct &  4&Nov &  4&Dec &  3&Ian &
   &    &  4&Feb &  5&Mar &  4&Apr &  4&Mai &  3&Iun &  3&Iul & 28 \\
 \nopagebreak
-† & 28 &  2&Aug &  1&Sep &  1&Oct & 30&Oct & 29&Nov & 29&Dec &
+\da
+  & 28 &  2&Aug &  1&Sep &  1&Oct & 30&Oct & 29&Nov & 29&Dec &
   &    & 30&Ian &  1&Mar & 31&Mar & 30&Apr & 30&Mai & 29&Iun & 24 \\
 \nopagebreak
 \cline{2-29}
@@ -204,7 +198,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 31 & 23&Iul & 22&Aug & 21&Sep & 21&Oct & 20&Nov & 20&Dec &
   &    & 21&Ian & 20&Feb & 21&Mar & 20&Apr & 20&Mai & 19&Iun & 14 \\
 \nopagebreak
-† & 32 & 19&Iul & 18&Aug & 17&Sep & 16&Oct & 15&Nov & 15&Dec &
+\da
+  & 32 & 19&Iul & 18&Aug & 17&Sep & 16&Oct & 15&Nov & 15&Dec &
   &    & 16&Ian & 15&Feb & 17&Mar & 16&Apr & 16&Mai & 15&Iun & 10 \\
 \nopagebreak
 \cline{2-29}
@@ -217,7 +212,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 35 &  9&Iul &  8&Aug &  7&Sep &  7&Oct &  6&Nov &  6&Dec &
  5&Ian &  6&Feb &  7&Mar &  6&Apr &  6&Mai &  5&Iun &  5&Iul &  0 \\
 \nopagebreak
-† & 36 &  4&Aug &  3&Sep &  3&Oct &  1&Nov &  1&Dec & 31&Dec &
+\da
+  & 36 &  4&Aug &  3&Sep &  3&Oct &  1&Nov &  1&Dec & 31&Dec &
   &    &  1&Feb &  3&Mar &  2&Apr &  2&Mai &  1&Iun &  1&Iul & 26 \\
 \nopagebreak
 \cline{2-29}
@@ -230,7 +226,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 39 & 25&Iul & 24&Aug & 23&Sep & 23&Oct & 22&Nov & 22&Dec &
   &    & 23&Ian & 22&Feb & 23&Mar & 22&Apr & 22&Mai & 21&Iun & 16 \\
 \nopagebreak
-‡ & 40 & 21&Iul & 20&Aug & 19&Sep & 17&Oct & 16&Nov & 16&Dec &
+\db
+  & 40 & 21&Iul & 20&Aug & 19&Sep & 17&Oct & 16&Nov & 16&Dec &
   &    & 17&Ian & 16&Feb & 18&Mar & 17&Apr & 17&Mai & 16&Iun & 12 \\
 \nopagebreak
 \cline{2-29}
@@ -243,7 +240,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 43 & 10&Iul &  9&Aug &  8&Sep &  8&Oct &  7&Nov &  7&Dec &
  6&Ian &  7&Feb &  8&Mar &  7&Apr &  7&Mai &  6&Iun &  6&Iul &  1 \\
 \nopagebreak
-† & 44 &  5&Aug &  4&Sep &  4&Oct &  2&Nov &  2&Dec &  1&Ian &
+\da
+  & 44 &  5&Aug &  4&Sep &  4&Oct &  2&Nov &  2&Dec &  1&Ian &
   &    &  2&Feb &  4&Mar &  3&Apr &  3&Mai &  2&Iun &  2&Iul & 25 \\
 \nopagebreak
 \cline{2-29}
@@ -256,7 +254,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 47 & 26&Iul & 25&Aug & 24&Sep & 24&Oct & 23&Nov & 23&Dec &
   &    & 24&Ian & 23&Feb & 24&Mar & 23&Apr & 23&Mai & 22&Iun & 17 \\
 \nopagebreak
-† & 48 & 22&Iul & 21&Aug & 20&Sep & 19&Oct & 18&Nov & 18&Dec &
+\da & 48 & 22&Iul & 21&Aug & 20&Sep & 19&Oct & 18&Nov & 18&Dec &
   &    & 19&Ian & 18&Feb & 20&Mar & 19&Apr & 19&Mai & 18&Iun & 13 \\
 \nopagebreak
 \cline{2-29}
@@ -269,7 +267,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 51 & 12&Iul & 11&Aug & 10&Sep & 10&Oct &  9&Nov &  9&Dec &
  8&Ian &  9&Feb & 10&Mar &  9&Apr &  9&Mai &  8&Iun &  8&Iul &  3 \\
 \nopagebreak
-† & 52 &  7&Aug &  6&Sep &  6&Oct &  4&Nov &  4&Dec &  3&Jan &
+\da
+  & 52 &  7&Aug &  6&Sep &  6&Oct &  4&Nov &  4&Dec &  3&Jan &
   &    &  4&Feb &  6&Mar &  5&Apr &  5&Mai &  4&Iun &  4&Iul & 29 \\
 \nopagebreak
 \cline{2-29}
@@ -283,7 +282,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 55 & 28&Iul & 27&Aug & 26&Sep & 26&Oct & 25&Nov & 25&Dec &
   &    & 26&Ian & 25&Feb & 26&Mar & 25&Apr & 25&Mai & 24&Iun & 19 \\
 \nopagebreak
-† & 56 & 24&Iul & 23&Aug & 22&Sep & 21&Oct & 20&Nov & 20&Dec &
+\da
+  & 56 & 24&Iul & 23&Aug & 22&Sep & 21&Oct & 20&Nov & 20&Dec &
   &    & 21&Ian & 20&Feb & 22&Mar & 21&Apr & 21&Mai & 20&Iun & 14 \\
 \nopagebreak
 \cline{2-29}
@@ -296,7 +296,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 59 & 14&Iul & 13&Aug & 12&Sep & 12&Oct & 11&Nov & 11&Dec &
   &    & 12&Ian & 11&Feb & 12&Mar & 11&Apr & 11&Mai & 10&Iun &  5 \\
 \nopagebreak
-‡ & 60 & 10&Iul &  9&Aug &  8&Sep &  6&Oct &  5&Nov &  5&Dec &
+\db
+  & 60 & 10&Iul &  9&Aug &  8&Sep &  6&Oct &  5&Nov &  5&Dec &
  4&Ian &  5&Feb &  7&Mar &  6&Apr &  6&Mai &  5&Iun &  5&Iul &  1 \\
 \nopagebreak
 \cline{2-29}
@@ -309,7 +310,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 63 & 29&Iul & 28&Aug & 27&Sep & 27&Oct & 26&Nov & 26&Dec &
   &    & 27&Ian & 26&Feb & 27&Mar & 26&Apr & 26&Mai & 25&Iun & 20 \\
 \nopagebreak
-† & 64 & 25&Iul & 24&Aug & 23&Sep & 22&Oct & 21&Nov & 21&Dec &
+\da
+  & 64 & 25&Iul & 24&Aug & 23&Sep & 22&Oct & 21&Nov & 21&Dec &
   &    & 22&Ian & 21&Feb & 23&Mar & 22&Apr & 22&Mai & 21&Iun & 16 \\
 \nopagebreak
 \cline{2-29}
@@ -322,7 +324,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 67 & 15&Iul & 14&Aug & 13&Sep & 13&Oct & 12&Nov & 12&Dec &
   &    & 13&Ian & 12&Feb & 13&Mar & 12&Apr & 12&Mai & 11&Iun &  6 \\
 \nopagebreak
-† & 68 & 11&Iul & 10&Aug &  9&Sep &  8&Oct &  7&Nov &  7&Dec &
+\da
+  & 68 & 11&Iul & 10&Aug &  9&Sep &  8&Oct &  7&Nov &  7&Dec &
  6&Ian &  7&Feb &  9&Mar &  8&Apr &  8&Mai &  7&Iun &  7&Iul &  2 \\
 \nopagebreak
 \cline{2-29}
@@ -335,7 +338,8 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 71 & 31&Iul & 30&Aug & 29&Sep & 29&Oct & 28&Nov & 28&Dec &
   &    & 29&Ian & 28&Feb & 29&Mar & 28&Apr & 28&Mai & 27&Iun & 22 \\
 \nopagebreak
-† & 72 & 27&Iul & 26&Aug & 25&Sep & 24&Oct & 23&Nov & 23&Dec &
+\da
+  & 72 & 27&Iul & 26&Aug & 25&Sep & 24&Oct & 23&Nov & 23&Dec &
   &    & 24&Ian & 23&Feb & 25&Mar & 24&Apr & 24&Mai & 23&Iun & 18 \\
 \nopagebreak
 \cline{2-29}
@@ -348,13 +352,10 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l   r c
 ~ & 75 & 17&Iul & 16&Aug & 15&Sep & 15&Oct & 14&Nov & 14&Dec &
   &    & 15&Ian & 14&Feb & 15&Mar & 14&Apr & 14&Mai & 13&Iun &  8 \\
 \nopagebreak
-† & 76 & 13&Iul & 12&Aug & 11&Sep & 10&Oct &  9&Nov &  9&Dec &
+\da
+  & 76 & 13&Iul & 12&Aug & 11&Sep & 10&Oct &  9&Nov &  9&Dec &
   &    & 10&Ian &  9&Feb & 11&Mar & 10&Apr & 10&Mai &  9&Iun &  4 \\
 \nopagebreak
 \cline{2-29}
 \end{longtable}
 \endgroup
-%% Test ==>
-%
-%Curabitur commodo quam a pellentesque sagittis. Cras luctus, arcu vel elementum iaculis, turpis justo sagittis leo, at efficitur nulla magna vitae justo. Proin elementum urna non nisl imperdiet, eget aliquet augue commodo. Maecenas fringilla odio at ante fermentum varius. Nullam aliquet nec risus sit amet porttitor. Integer enim est, euismod sit amet sapien et, maximus scelerisque nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra elementum tempor. Donec consequat sapien eu convallis bibendum. Phasellus gravida pulvinar justo nec congue.
-%\end{document}

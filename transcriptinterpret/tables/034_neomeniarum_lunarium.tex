@@ -1,21 +1,30 @@
 %%% Liber I p34
 %%
-%% For testing, uncomment the folowing lines and the lines at the end of the file
-%% Test ==>
-%\documentclass{book}
-%\usepackage{fontspec}
-%\setmainfont{Hoefler Text}[]
-%%\setmainfont{Times New Roman}[]
-%\newfontfamily\greekfont{Times New Roman}
-%\usepackage[quiet]{polyglossia}
-%\setmainlanguage{latin}
-%\setotherlanguage{greek}
-%\begin{document}
-%% <== Test
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{0.5em}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{0.85}
 %%
-\begin{tabular}{r|llrr|l}
- 1 & 1.   & 23 & 15 & 7 &\textgreek{ἐκατομβαιών} \\
- 2 & 1\textbar{}30 & 22 & 14 & 6 &\textgreek{μεταγειτνιών} \\
+\begin{tabular}{@{}rrrrrl@{}}
+\toprule
+\multicolumn{6}{ c }{\Large\textsc{Laterculum neomeniarum}} \\
+\multicolumn{6}{ c }{\large\textsc{lunarium in mensibus Atticis}} \\
+\toprule
+ 1 & 1   & 23 & 15 & 7 &\textgreek{ἐκατομβαιών} \\
+ 2 & 1\altsep{}30
+          & 22 & 14 & 6 &\textgreek{μεταγειτνιών} \\
  3 & 30   & 22 & 14 & 6 &\textgreek{βοηδρομιών} \\
  4 & 29   & 21 & 13 & 5 &\textgreek{πυανεψιών} \\
  5 & 29   & 21 & 13 & 5 &\textgreek{μαιμακτηριών} \\
@@ -26,6 +35,8 @@
 10 & 24   & 16 &  8 & 2 &\textgreek{μουνυχιών} \\
 11 & 24   & 16 &  8 & 1 &\textgreek{θαργηλιών} \\
 12 & 23   & 15 &  7 & 1 &\textgreek{σκιῤῥοφοριών} \\
+\bottomrule
 \end{tabular}
-%% Test ==>
-%\end{document}
+%
+\caption{Laterculum neomeniarum lunarium in mensibus Atticis}
+\label{tab:p034}
