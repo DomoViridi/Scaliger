@@ -59,9 +59,8 @@
   \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
   \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
 %  \addtolength{\ROver@height}{-\ROver@thick}% Align top of rule with top of box
-  \scalebox{#1}{#2}% Print the text with shrinking
-  \hskip-\ROver@width% Move back to beginning of the shrunken text
   \rule[\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
+  \makebox[0pt][r]{\scalebox{#1}{#2}}% Print the text with shrinking
 }
 \makeatother
 
@@ -120,6 +119,12 @@ Xbdgjpqyfhkl\gnum{acegmnopq}bdgjpqyfhklX
 
 "defecit idem sidus \textgreek{φαμηνυὼθ \gnum{κδ}},
  sequente \textgreek{\gnum{κε}, μηνὸς Σκιῤῥοφοριῶνος}."
-%\lipsum[150]
+ 
+Overflow at the end of a line:
+ when the ruleover is the very last thing on the line (and there is some
+ tendency to overflow?) the rule gets plotted on the next line.
+
+Overflow at the end of a line:
+\textgreek{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΦΧ\gnum{αβγδεζηθικλμνξοπρστυφχψω}}
 
 \end{document}
