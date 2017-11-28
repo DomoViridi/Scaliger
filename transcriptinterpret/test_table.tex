@@ -6,10 +6,14 @@
 %\documentclass[draft,a4paper]{book}
 %% use [showframe] to show the frames
 \usepackage[showframe]{geometry}
-\usepackage{longtable}% Allow for split of the table over more than one page
+% Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
+\usepackage{lipsum}
 \usepackage{rotating} % Make it possible to rotate headers
 \usepackage[normalsize]{caption} % Keep captions to (long)tables normal sized
-% must go *after* rotating package
+% Caption doc says it must go *after* rotating package
+% It must go *before* the longtable package
+% or it won't work on longtable captions
+\usepackage{longtable}% Allow for split of the table over more than one page
 \usepackage{booktabs} % To get nice table layout
 %
 % To include graphics in tables
@@ -22,53 +26,37 @@
 \newfontfamily\greekfont{Times New Roman}
 \newfontfamily\hebrewfont{Arial Hebrew}
 \newfontfamily\arabicfont{Arial Unicode MS}
+\newfontfamily\astrofont{Menlo}
+\newcommand\astro[1]{{\astrofont #1}}
+%%
 \usepackage[quiet]{polyglossia}
 \setmainlanguage{latin}
 \setotherlanguage{greek}
 \setotherlanguage{hebrew}
 \setotherlanguage{arabic}
-%%% Special command for roman numerals
-%% Usage: \rnum{<roman numeral>}
-%% Example: \rnum{mdclxviii}
-\newcommand{\rnum}[1]{%
-\textsc{#1}%
-}
 %
+\newcommand{\rnum}[1]{\textsc{#1}} % Roman numerals
+\newcommand{\altsep}{\slash{}} % Separator between alternative values in tables
+%
+\newlength{\cw} % Column width for \parbox headers
+\newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
 \begin{document}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-deserunt mollit anim id est laborum.
 
 %% Longtable version
-\input{tables/112_periodi_magnae_hagarenorum.tex}
+%\input{tables/112_periodi_magnae_hagarenorum.tex}
 %% Regular table version
-%\begin{table}[htbp]
-%  \input{tables/110_periodo_hagarena.tex}
-%  \caption{Periodo Hagarena}
-%\end{table}
-%% Multiple tables
-%\begin{table}[htbp]
-%  \input{tables/067_neomeniae_octaeteridai.tex}
-%\end{table}
 
-Donec maximus, leo nec accumsan laoreet, nulla nibh posuere neque, at malesuada
-mauris leo vitae magna. Mauris vel nisl vitae est congue finibus.
-Praesent suscipit suscipit erat sit amet aliquam. Maecenas nunc metus, varius at
-sodales eget, pellentesque in risus.
-Donec vel nisi eget arcu condimentum blandit non non urna.
-Phasellus quis fermentum lacus.
-Cras orci nulla, venenatis vitae sapien eu, cursus pulvinar erat.
-Suspendisse facilisis orci eget ante cursus rhoncus vel quis neque.
-Integer eu commodo tellus.
-Nullam sed tortor id lacus imperdiet accumsan.
-Sed malesuada nisi vel justo pretium bibendum.
-Nulla ultrices, turpis sed finibus finibus, tortor libero fermentum dolor,
-in mollis ante magna ut neque.
+\lipsum[32]
+\begin{table}[htbp]
+  \input{tables/117_noviluniorum_samaritanorum.tex}
+\end{table}
+
+\lipsum[33]
+\begin{table}[htbp]
+  \input{tables/121_anni_menses_arabici.tex}
+\end{table}
+
+\lipsum[150]
 
 \listoftables
 \end{document}

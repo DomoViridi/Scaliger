@@ -13,49 +13,58 @@
 %% - Σκιροφοριών -> Σκιῤῥροφοριών (double ρ)
 %% Added numbers to ensure the reader knows the order of the months
 %%
-%% For testing, uncomment the folowing lines and the lines at the end of the file
-%% Test ==>
-%\documentclass{book}
-%\usepackage{fontspec}
-%\setmainfont{Hoefler Text}[]
-%\newfontfamily\greekfont{Arial Unicode MS}
-%\usepackage[quiet]{polyglossia}
-%\setmainlanguage{latin}
-%\setotherlanguage{greek}
-%\begin{document}
-%% <== Test
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{0.5em}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{0.85}
 %%
-%% Nested tables: two tables side-by-side, each containing two seasons
-\begin{tabular}{cc}
-\begin{tabular}{ c l }
-\multicolumn{2}{c}{\textgreek{ΘΕΡΙΝΟΙ ΜΗΝΕΣ}} \\
-1. &\textgreek{Εκατομβαιών} \\
-2. &\textgreek{Μεταγειτνιών} \\
-3. &\textgreek{Βοηδρομιών} \\
-%% empty line between the seasons
-~ & ~ \\
+%% Four columns, one for each season
+\begin{tabular}{@{}llll@{}}
+\toprule
+\multicolumn{4}{ c }{\Large\textsc{Laterculum mensium Atticorum}} \\
+\multicolumn{4}{ c }{\Large\textsc{secundam anni quadrantes}} \\
+\toprule
+  \textgreek{Θερινοι}[?] & % Are the tonoi correct?
+  \textgreek{Οπωρινοι}[?] &
+  \textgreek{Χειμερινοι}[?] &
+  \textgreek{Εαρινοι}[?]
+\\
+  \textgreek{μηνες}[?] &
+  \textgreek{μηνες}[?] &
+  \textgreek{μηνες}[?] &
+  \textgreek{μηνες}[?]
+\\
+\midrule
 %%
-\multicolumn{2}{c}{\textgreek{ΟΠΩΡΙΝΟΙ ΜΗΝΕΣ}} \\
-4. &\textgreek{Πυανεψιών} \\
-5. &\textgreek{Μαιμακτηριών} \\
-6. &\textgreek{Ποσειδεών} \\
+  \textgreek{Εκατομβαιών} &
+  \textgreek{Πυανεψιών} &
+  \textgreek{Γαμηλιών} &
+  \textgreek{Μουνυχιών}
+\\
+  \textgreek{Μεταγειτνιών} &
+  \textgreek{Μαιμακτηριών} &
+  \textgreek{Ανθεστηριών} &
+  \textgreek{Θαργηλιών}
+\\
+  \textgreek{Βοηδρομιών} &
+  \textgreek{Ποσειδεών} &
+  \textgreek{Ελαφηβολιών} &
+  \textgreek{Σκιῤῥοφοριών}
+\\
+\bottomrule
 \end{tabular}
-%% next column
-&
-%%
-\begin{tabular}{ c l }
-\multicolumn{2}{c}{\textgreek{ΧΕΙΜΕΡΙΝΟΙ ΜΗΝΕΣ}} \\
-7. &\textgreek{Γαμηλιών} \\
-8. &\textgreek{Ανθεστηριών} \\
-9. &\textgreek{Ελαφηβολιών} \\
-%% empty line between the seasons
-~ & ~ \\
-%%
-\multicolumn{2}{c}{\textgreek{ΕΑΡΙΝΟΙ ΜΗΝΕΣ}} \\
-10. &\textgreek{Μουνυχιών} \\
-11. &\textgreek{Θαργηλιών} \\
-12. &\textgreek{Σκιῤῥοφοριών} \\
-\end{tabular}
-\end{tabular}
-%% Test ==>
-%\end{document}
+%
+\caption{Laterculum mensium Atticorum secundam anni quadrantes}
+\label{tab:p033}

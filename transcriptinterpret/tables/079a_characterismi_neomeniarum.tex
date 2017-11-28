@@ -9,11 +9,17 @@
 %\footnotesize
 %\small
 %\normalsize
+%% Center the whole table left-right
+\centering
 %% Modify separation between columns
 \setlength{\tabcolsep}{1.6pt}
 %% Modify distance between rows
-\renewcommand{\arraystretch}{1.0}
-%
+\renewcommand{\arraystretch}{0.90}
+%% Define a smaller dagger
+\newcommand{\da}{{\tiny †}}
+%% Angle to rotate the headers
+\newcommand{\ang}{60}
+%%
 \begin{tabular}{%
  r  r  r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l
 r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
@@ -25,27 +31,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
 ~ &
 ~ &
 
-\begin{rotate}{75}\textgreek{Εκατομβαιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Μεταγειτνιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Βοηδρομιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Εκατομβαιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Μεταγειτνιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Βοηδρομιών}\end{rotate} & &
 
-\begin{rotate}{75}\textgreek{Πυανεψιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Μαιμακτηριών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ποσειδεών α}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Πυανεψιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Μαιμακτηριών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ποσειδεών α}\end{rotate} & &
 % $\overline\alpha$ does not work here (math mode does not render).
-\begin{rotate}{75}\textgreek{Ποσειδεών β}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ποσειδεών β}\end{rotate} & &
 
-\begin{rotate}{75}\textgreek{Γαμηλιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ανθεστηριών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Ελαφηβολιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Γαμηλιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ανθεστηριών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Ελαφηβολιών}\end{rotate} & &
 
-\begin{rotate}{75}\textgreek{Μουνυχιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Θαργηλιών}\end{rotate} & &
-\begin{rotate}{75}\textgreek{Σκιῤῥοφοριών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Μουνυχιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Θαργηλιών}\end{rotate} & &
+\begin{rotate}{\ang}\textgreek{Σκιῤῥοφοριών}\end{rotate} & &
 
-\multicolumn{1}{c}{\begin{rotate}{75}Dies collecti\end{rotate}} & 
-\multicolumn{1}{c}{\begin{rotate}{75}Syzygiae collectae\end{rotate}} & 
-\multicolumn{2}{l}{\begin{turn}{75}Syzygiae xxx[?]\hspace*{2em}\end{turn}}
+\multicolumn{1}{c}{\begin{rotate}{\ang}Dies collecti\end{rotate}} & 
+\multicolumn{1}{c}{\begin{rotate}{\ang}Syzygiae collectae\end{rotate}} & 
+\multicolumn{2}{l}{\begin{turn}{\ang}Syzygiae xxx[?]\hspace*{1.5em}\end{turn}}
 \\
 \midrule
 %\cmidrule{3-31}
@@ -68,7 +74,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
      &   &
    6.&7  &    &   & 10.&11 &    &   & 15.&16 &    &   &
   \\
-† &  2 &
+\da &  2 &
  \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
  \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
  \multicolumn{2}{c}{7} &
@@ -110,7 +116,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
   16.&17 &
      &   & 20.&21 &    &   & 24.&25 &    &   & 28.&29 &
   \\
-† &  5 &
+\da &  5 &
  \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
  \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
  \multicolumn{2}{c}{1} &
@@ -152,7 +158,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
      &   &
      &   & 30.&1  &    &   &  4.&5  &    &   &  8.&9  &
   \\
-† &  8 &
+\da &  8 &
  \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
  \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
  \multicolumn{2}{c}{1} &
@@ -180,7 +186,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
   15.&16 &
      &   & 19.&20 &    &   & 23.&24 &    &   & 27.&28 &
   \\
-† & 10 &
+\da & 10 &
  \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
  \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
  \multicolumn{2}{c}{5} &
@@ -222,7 +228,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
      &   &
   28.&29 &    &   &    &   &  2.&3  &    &   &  6.&7  &
   \\
-† & 13 &
+\da & 13 &
  \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
  \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
  \multicolumn{2}{c}{5} &
@@ -264,7 +270,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
      &   &
    8.&9  &    &   & 12.&13 &    &   & 16.&17 &    &   &
   \\
-† & 16 &
+\da & 16 &
  \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
  \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
  \multicolumn{2}{c}{6} &
@@ -292,7 +298,7 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
      &   &
   27.&28 &    &   &    &   &  1.&2  &    &   &  5.&6  &
   \\
-† & 18 &
+\da & 18 &
  \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
  \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
  \multicolumn{2}{c}{2} &
@@ -318,6 +324,6 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  r r r c
 \\
 & & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβ. [?]}}\\
 \end{tabular}
-\caption{%
-Tabula Characterismi Neomeniarum Enneadecaeteridis Metonicae
-}
+%
+\caption{Characterismi Neomeniarum Enneadecaeteridis Metonicae}
+\label{tab:p079a}

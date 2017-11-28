@@ -16,44 +16,66 @@
 \renewcommand{\arraystretch}{0.9}
 %% Let longtable process the whole table in one go
 \setcounter{LTchunksize}{100}
+%
+%% Define a smaller dagger (unfortunalely tiny is already the smallest)
+\newcommand{\da}{{\tiny †}}
+%% Command for lines between the rows
+\newcommand{\streep}{\cmidrule{2-35}}
+%% Command for entries that span 2 columns
+\newcommand{\mc}[1]{\multicolumn{2}{c}{#1}}
+%%
 \begin{longtable}[c]{@{}%
  c c c  r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l
 r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
 @{}}
-\caption{Tabula neomeniarum periodi Calippicae}\\
 \toprule
+\multicolumn{35}{c}{\Large\textsc{Tabula neomeniarum periodi Calippicae}}\\
+\toprule
+% Put entry into List of Tables pointing to the first page of the table
+\addcontentsline{lot}{section}{%
+\protect\numberline{\thetable}Neomeniarum periodi Calippicae}
+\label{tab:p089}
 % Read the header description from an external file
 \input{tables/089_header_B.tex}
 \midrule
 \endfirsthead
-\caption*{Residuum tabula neomeniarum periodi Calippicae}\\
+%%
+\toprule
+\multicolumn{35}{c}{%
+\large\textsc{Residuum tabulae neomeniarum periodi Calippicae}}\\
 \toprule
 % Read the header description from an external file
 \input{tables/089_header_B.tex}
 \midrule
 \endhead
-%\\
-\addlinespace[10pt]
+%%
+%\bottomrule
+\addlinespace[8pt]
 & & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβολ. [Abbriv.]}}\\
 \endfoot
 %%
-%\midrule
+\bottomrule
+\addlinespace[8pt]
+& & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβολ. [Abbriv.]}}\\
+\addlinespace
+% Put the table nr and title below the table, without entry in the LoT
+\caption[]{Neomeniarum periodi Calippicae}
+\endlastfoot
+%%
   &    &    &
      &   &    &   &  4.&5  &    &   &  8.&9  &    &   &
   12.&13 &    &   & 16.&17 &    &   & 20.&21 &    &   &
   24.&25 &
   \\
 \nopagebreak
-† &  1 & 14 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} &
+\da &  1 & 14 &
+  \mc{7} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} &
    384  &  13 &   6 & B & 28&Iun \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 28.&29 &    &   &    &   &  2.&3  &    &   &
    6.&7  &    &   & 10.&11 &    &   & 14.&15 &    &   &
@@ -61,15 +83,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   &  2 & 15 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{0} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{0} &
    739  &  25 &  11 & A G & 16&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   18.&19 &    &   & 23.&23\footnote{23.23: Sic.} &    &   & 26.&27 &    &   &
 % '23.23' in original
@@ -77,16 +97,14 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
      &   &
   \\
 \nopagebreak
-† &  3 & 16 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} &
+\da &  3 & 16 &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} &
   1123  &  38 &  17 & F &  6&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   12.&13 &    &   & 16.&17 &    &   & 20.&21 &    &   &
   24.&25 &    &   & 27.&28 &    &   &    &   &  1.&2  &
@@ -94,13 +112,11 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   &  4 & 17 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{0} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{6} &
+  \mc{0} &
   1477  &  50 &  23 & E & 25&Iul \\
-\midrule
+\streep
 \nopagebreak
 %
   &    &    &
@@ -110,31 +126,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   &  5 & 18 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{0} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{0} &
   1831  &  62 &  29 & D & 14&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 29.&30 &    &   &    &   &  3.&4  &    &   &
    7.&8  &    &   & 11.&12 &    &   & 15.&16 &    &   &
   19.&20 &
   \\
 \nopagebreak
-† &  6 & 19 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} &
+\da &  6 & 19 &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} &
   2215  &  75 &  35 & C B &  2&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 23.&24 &    &   & 27.&28 &    &   &    &   &
   11.&12 &    &   &  5.&6  &    &   &  9.&10 &    &   &
@@ -142,15 +154,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   &  7 &  1 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{0} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{0} &
   2570  &  87 &  40 & A &  21&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   13.&14 &    &   & 17.&18 &    &   & 21.&22 &    &   &
   24.&25 &    &   & 28.&29 &    &   &    &   &  2.&3  &
@@ -158,31 +168,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   &  8 &  2 &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{0} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{4} &
+  \mc{0} &
   2924  &  99 &  46 & G & 11&Iul \\
 %\nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &  6.&7  &    &   & 10.&11 &    &   & 14.&15 &
      &   & 18.&19 &    &   & 22.&23 &    &   & 26.&27 &
      &   &
   \\
 \nopagebreak
-† &  9 &  3 &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} &
+\da &  9 &  3 &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} &
   3308  & 112 &  52 & F & 30&Iun \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   30.&1  &    &   &    &   &  4.&5  &    &   &  8.&9  &
      &   & 12.&13 &    &   & 16.&17 &    &   & 20.&21 &
@@ -190,31 +196,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 10 &  4 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{0} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{0} &
   3662  &  12 &  58 & E D & 18&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 20.&25 &    &   & 28.&29 &    &   &  2.&3  &
      &   &  6.&7  &    &   &    &   & 10.&11 &    &   &
   14.&15 &
   \\
 \nopagebreak
-† & 11 &  5 &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} &
+\da & 11 &  5 &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} &
   4046  & 135 &  64 & C &   7&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 18.&19 &    &   & 21.&22 &    &   & 25.&26 &
      &   & 29.&30 &    &   &    &   &  3.&4  &    &   &
@@ -222,15 +224,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 12 &  6 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{0} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{0} &
   4401  & 149 &  69 & B &  26&Iul \\
 %\nopagebreak
 %
-\midrule
+\streep
   &    &    &
    7.&8  &    &   & 11.&12 &    &   & 15.&16 &    &   &
   19.&20 &    &   & 23.&24 &    &   & 27.&28 &    &   &
@@ -238,31 +238,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 13 &  7 &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{0} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{0} &
   4755  & 161 &  75 & A & 16&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &  1.&2  &    &   &  5.&6  &    &   &  9.&10 &
      &   & 13.&14 &    &   & 17.&18 &    &   & 21.&22 &
      &   &
   \\
 \nopagebreak
-† & 14 &  8 &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} &
+\da & 14 &  8 &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} &
   5139  & 174 &  81 & G F &  4&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   25.&26 &    &   & 29.&30 &    &   &    &   &  3.&4  &
      &   &  7.&8  &    &   & 11.&12 &    &   & 15.&16 &
@@ -270,15 +266,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 15 &  9 &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{0} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{2} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{0} &
   5493  & 186 &  87 & E & 23&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 18.&19 &    &   & 22.&23 &    &   & 26.&27 &
      &   & 30.&1  &    &   &    &   &  4.&5  &    &   &
@@ -286,31 +280,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 16 & 10 &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{0} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{0} &
   5848  & 198 &  92 & D &  12&Iul \\
 %\nopagebreak
 %
-\midrule
+\streep
   &    &    &
    8.&9  &    &   & 12.&13 &    &   & 16.&17 &    &   &
   20.&21 &    &   & 24.&25 &    &   & 28.&29 &    &   &
      &   &
   \\
 \nopagebreak
-† & 17 & 11 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} &
+\da & 17 & 11 &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} &
   6232  & 211 &  98 & C &  2&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
    2.&3  &    &   &  6.&7  &    &   & 10.&11 &    &   &
   14.&15 &    &   & 18.&19 &    &   & 22.&23 &    &   &
@@ -318,15 +308,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 18 & 12 &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{0} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{0} &
   6586  & 223 & 104 & B A &  20&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   26.&27 &    &   & 30.&1  &    &   &    &   &  4.&5  &
      &   &  8.&9  &    &   & 12.&13 &    &   & 15.&16 &
@@ -334,31 +322,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 19 & 13 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{0} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{0} &
   6940  & 235 & 110 & G &  9&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 19.&20 &    &   & 23.&24 &    &   & 27.&28 &
      &   &    &   &  1.&2  &    &   &  5.&6  &    &   &
    9.&10 &
   \\
 \nopagebreak
-† & 20 & 14 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} &
+\da & 20 & 14 &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} &
   7324  & 248 & 116 & F &  28&Iun \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 13.&14 &    &   & 17.&18 &    &   & 21.&22 &
      &   & 25.&26 &    &   & 29.&30 &    &   &    &   &
@@ -366,31 +350,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 21 & 15 &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{0} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{0} &
   7679  & 260 & 121 & E &  17&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
    3.&4  &    &   &  7.&8  &    &   & 11.&12 &    &   &
   15.&16 &    &   & 19.&20 &    &   & 23.&24 &    &   &
   27.&28 &
   \\
 \nopagebreak
-† & 22 & 16 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} &
+\da & 22 & 16 &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{4} &
   8062  & 273 & 128 & D C &   6&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &    &   &  1.&2  &    &   &  5.&6  &    &   &
    9.&10 &    &   & 12.&13 &    &   & 16.&17 &    &   &
@@ -398,15 +378,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 23 & 17 &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{0} &
+  \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{0} &
   8417  & 285 & 133 & B &  24&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   20.&21 &    &   & 24.&25 &    &   & 28.&29 &    &   &
      &   &  2.&3  &    &   &  6.&7 &    &   & 10.&11 &
@@ -414,31 +392,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 24 & 18 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{0} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{0} &
   8771  & 297 & 139 & A & 14&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 14.&15 &    &   & 18.&19 &    &   & 22.&23 &
      &   & 26.&27 &    &   & 30.&1  &    &   &    &   &
    4.&5  &
   \\
 \nopagebreak
-† & 25 & 19 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} &
+\da & 25 & 19 &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{5} &
   9155  & 310 & 145 & G &   3&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &  8.&9  &    &   & 12.&13 &    &   & 16.&17 &
      &   & 20.&21 &    &   & 24.&25 &    &   & 28.&29 &
@@ -446,15 +420,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 26 &  1 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{0} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{0} &
   9509  & 322 & 151 & F E & 21&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &    &   &  2.&3  &    &   &  6.&7  &    &   &
    9.&10 &    &   & 13.&14 &    &   & 17.&18 &    &   &
@@ -462,31 +434,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 27 &  2 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{0} &
+  \mc{3} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{0} &
   9864  & 334 & 156 & D &  10&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   21.&22 &    &   & 25.&26 &    &   & 29.&30 &    &   &
      &   &  3.&4  &    &   &  7.&8 &    &   & 11.&12 &
      &   &
   \\
 \nopagebreak
-† & 28 &  3 &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} &
+\da & 28 &  3 &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} &
  10248  & 347 & 162 & C & 30&Iun \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   15.&16 &    &   & 19.&20 &    &   & 23.&24 &    &   &
   27.&28 &    &   &    &   &  1.&2  &    &   &  5.&6  &
@@ -494,31 +462,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 29 &  4 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{0} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{0} &
  10602  & 359 & 168 & B & 19&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &  9.&10 &    &   & 13.&14 &    &   & 17.&18 &
      &   & 21.&22 &    &   & 25.&26 &    &   & 29.&30 &
      &   &
   \\
 \nopagebreak
-† & 30 &  5 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} &
+\da & 30 &  5 &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} &
  10986  & 372 & 174 & A G &  7&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &  3.&4  &    &   &  6.&7  &    &   & 10.&11 &
      &   & 14.&15 &    &   & 18.&19 &    &   & 22.&23 &
@@ -526,15 +490,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 31 &  6 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{0} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{0} &
  11340  & 384 & 180 & F & 26&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 26.&27 &    &   & 30.&1  &    &   &    &   &
    4.&5  &    &   &  8.&9  &    &   & 12.&13 &    &   &
@@ -542,31 +504,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 32 &  7 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{0} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{0} &
  11695  & 396 & 185 & E &  15&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   16.&17 &    &   & 20.&21 &    &   & 24.&25 &    &   &
   28.&29 &    &   &    &   &  2.&3  &    &   &  6.&7  &
      &   &
   \\
 \nopagebreak
-† & 33 &  8 &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} &
+\da & 33 &  8 &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} &
  12079  & 409 & 191 & D &  5&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   10.&11 &    &   & 14.&15 &    &   & 18.&19 &    &   &
   22.&23 &    &   & 26.&27 &    &   & 30.&1  &    &   &
@@ -574,15 +532,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 34 &  9 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{0} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{0} &
  12433  & 421 & 197 & C B &  23&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &  3.&4  &    &   &  7.&8  &    &   & 11.&12 &
      &   & 15.&16 &    &   & 19.&20 &    &   & 23.&24 &
@@ -590,31 +546,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 35 & 10 &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{0} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{0} &
  12787  & 433 & 203 & A & 12&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 27.&28 &    &   &    &   &  1.&2  &    &   &
    5.&6  &    &   &  9.&10 &    &   & 13.&14 &    &   &
   17.&18 &
   \\
 \nopagebreak
-† & 36 & 11 &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} &
+\da & 36 & 11 &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} &
  13171  & 446 & 209 & G & Ka.&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 21.&22 &    &   & 25.&26 &    &   & 29.&30 &
      &   &    &   &  3.&4  &    &   &  7.&8  &    &   &
@@ -622,15 +574,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 37 & 12 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{0} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{0} &
  13526  & 458 & 214 & F & 20&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   11.&12 &    &   & 15.&16 &    &   & 19.&20 &    &   &
   23.&24 &    &   & 27.&28 &    &   & 30.&1  &    &   &
@@ -638,31 +588,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 38 & 13 &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{0} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{0} &
  13880  & 470 & 220 & E D &   9&Iul \\
 \nopagebreak
 % page 90
-\midrule
+\streep
   &    &    &
      &   &  4.&5  &    &   &  8.&9  &    &   & 12.&13 &
      &   & 16.&17 &    &   & 20.&21 &    &   & 24.&25 &
      &   &
   \\
 \nopagebreak
-† & 39 & 14 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} &
+\da & 39 & 14 &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} &
  14264  & 483 & 226 & C & 28&Iun \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   28.&29 &    &   &    &   &  2.&3  &    &   &  6.&7&
 % '7' not visible in the scan we use. Is visible in other scans and editions
@@ -671,31 +617,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 40 & 15 &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{0} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{0} &
  14618  & 495 & 231 & B & 17&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 22.&23 &    &   & 26.&27 &    &   & 30.&1 &
      &   &    &   &  4.&5  &    &   &  8.&9  &    &   &
   12.&13 &
   \\
 \nopagebreak
-† & 41 & 16 &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} &
+\da & 41 & 16 &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} &
  15002  & 508 & 238 & A &  6&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 16.&17 &    &   & 20.&21 &    &   & 24.&25 &
      &   & 27.&28 &    &   &    &   &  1.&2  &    &   &
@@ -703,15 +645,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 42 & 17 &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{0} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{0} &
  15357  & 520 & 243 & G F & 24&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
    5.&6  &    &   &  9.&10 &    &   & 13.&14 &    &   &
   17.&18 &    &   & 21.&22 &    &   & 25.&26 &    &   &
@@ -719,31 +659,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 43 & 18 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{0} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{0} &
  15711  & 532 & 249 & E &  14&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   29.&30 &    &   &    &   &  3.&4  &    &   &  7.&8  &
      &   & 11.&12 &    &   & 15.&16 &    &   & 19.&20 &
      &   &
   \\
 \nopagebreak
-† & 44 & 19 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} &
+\da & 44 & 19 &
+  \mc{3} & \mc{4} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} &
  16095  & 545 & 255 & D &  3&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   23.&24 &    &   & 27.&28 &    &   &    &   &  1.&2  &
      &   &  5.&6  &    &   &  9.&10 &    &   & 13.&14 &
@@ -751,15 +687,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 45 &  1 &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{0} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{0} &
  16449  & 557 & 261 & C & 22&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 17.&18 &    &   & 21.&22 &    &   & 24.&25 &
 % ".&18" more clear in 1598 edition
@@ -768,31 +702,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 46 &  2 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{0} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{0} &
  16804  & 569 & 266 & B A & 10&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
    6.&7  &    &   & 10.&11 &    &   & 14.&15 &    &   &
   18.&19 &    &   & 22.&23 &    &   & 26.&27 &    &   &
      &   &
   \\
 \nopagebreak
-† & 47 &  3 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} &
+\da & 47 &  3 &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} &
  17188  & 582 & 272 & G &  30&Iun \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
    3.&4  &    &   &  4.&5  &    &   &  8.&9  &    &   &
   12.&13 &    &   & 16.&17 &    &   & 20.&21 &    &   &
@@ -800,31 +730,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 48 &  4 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{0} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{0} &
  17542  & 594 & 278 & F &  19&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   24.&25 &    &   & 28.&29 &    &   &    &   &  2.&3  &
      &   &  6.&7  &    &   & 10.&11 &    &   & 14.&15 &
      &   &
   \\
 \nopagebreak
-† & 49 &  5 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} &
+\da & 49 &  5 &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} &
  17926  & 607 & 284 & E &  8&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   18.&19 &    &   & 21.&22 &    &   & 25.&26 &    &   &
   29.&30 &    &   &    &   &  3.&4  &    &   &  7.&8  &
@@ -832,15 +758,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 50 &  6 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{0} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{0} &
  18280  & 619 & 290 & D C &  26&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 11.&12 &    &   & 15.&16 &    &   & 19.&20 &
      &   & 23.&24 &    &   & 27.&28 &    &   &    &   &
@@ -848,32 +772,28 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 51 &  7 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{0} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{0} &
  18635  & 631 & 295 & B & 15&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
    1.&2  &    &   &  5.&6  &    &   &  9.&10 &    &   &
   13.&14 &    &   & 17.&18 &    &   & 21.&22 &    &   &
   25.&26 &
   \\
 \nopagebreak
-† & 52 &  8 &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} &
+\da & 52 &  8 &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} &
  19018  & 644 & 302 & A &   5&Iul \\
 % '644' clearer in 1598 edition
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 29.&30 &    &   &    &   &  3.&4  &    &   &
    7.&8  &    &   & 11.&12 &    &   & 15.&16 &    &   &
@@ -881,15 +801,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 53 &  9 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{0} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} & \mc{3} & \mc{4} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{0} &
  19373  & 656 & 307 & G &  23&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   18.&19 &    &   & 22.&23 &    &   & 26.&27 &    &   &
   30.&1  &    &   &    &   &  4.&5  &    &   &  8.&9  &
@@ -897,31 +815,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 54 & 10 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{0} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{0} &
  19727  & 668 & 313 & F E &  12&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 12.&13 &    &   & 12.&13 &    &   & 20.&21 &
      &   & 24.&25 &    &   & 28.&29 &    &   &    &   &
    2.&3  &
   \\
 \nopagebreak
-† & 55 & 11 &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} &
+\da & 55 & 11 &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{6} &
  20111  & 681 & 319 & D & Ka.&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &  6.&7  &    &   & 10.&11 &    &   & 14.&15 &
      &   & 18.&19 &    &   & 22.&23 &    &   & 26.&27 &
@@ -929,15 +843,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 56 & 12 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{0} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{0} &
  20465  & 693 & 325 & C &  20&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &   &
      &   & 30.&1  &    &   &    &   &  4.&5  &    &   &
    8.&9  &    &   & 12.&13 &    &   & 15.&16 &    &   &
@@ -945,31 +857,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 57 & 13 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{0} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{0} &
  20820  & 705 & 330 & B &   9&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   19.&20 &    &   & 23.&24 &    &   & 27.&28 &    &   &
      &   &  1.&2  &    &   &  5.&6  &    &   &  9.&10 &
      &   &
   \\
 \nopagebreak
-† & 58 & 14 &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} &
+\da & 58 & 14 &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} &
  21204  & 718 & 336 & A G &  28&Iun \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   13.&14 &    &   & 17.&18 &    &   & 21.&22 &    &   &
   25.&26 &    &   & 29.&30 &    &   &    &   &  3.&4  &
@@ -977,31 +885,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 59 & 15 &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{0} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{4} &
+  \mc{0} &
  21558  & 730 & 342 & F &  17&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &  7.&8  &    &   & 11.&12 &    &   & 15.&16 &
      &   & 19.&20 &    &   & 23.&24 &    &   & 27.&28 &
      &   &
   \\
 \nopagebreak
-† & 60 & 16 &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} &
+\da & 60 & 16 &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} &
  21942  & 743 & 348 & E &   6&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &  1.&2  &    &   &  5.&6  &    &   &  9.&10 &
      &   & 13.&14 &    &   & 17.&18 &    &   & 21.&22 &
@@ -1009,15 +913,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 61 & 17 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{0} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{0} &
  22296  & 755 & 354 & D &  25&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 24.&25 &    &   & 28.&29 &    &   &    &   &
    2.&3  &    &   &  6.&7  &    &   & 10.&11 &    &   &
@@ -1025,32 +927,28 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 62 & 18 &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{0} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{0} &
  22631  & 767 & 359 & C B &  13&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   14.&15 &    &   & 18.&19 &    &   & 22.&23 &    &   &
   26.&27 &    &   & 30.&1  &    &   &    &   &  4.&5  &
      &   &
   \\
 \nopagebreak
-† & 63 & 19 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} &
+\da & 63 & 19 &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{2} &
+  \mc{3} &
  23035  & 780 & 365 & A &   3&Iul \\
 % '365' unclear; better in other scans
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
    8.&9  &    &   & 12.&13 &    &   & 16.&17 &    &   &
   20.&21 &    &   & 24.&25 &    &   & 28.&29 &    &   &
@@ -1058,15 +956,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 64 &  1 &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{0} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{0} &
  23389  & 792 & 371 & G &  22&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   &  2.&3  &    &   &  6.&7  &    &   &  9.&10 &
      &   & 13.&14 &    &   & 17.&18 &    &   & 21.&22 &
@@ -1074,31 +970,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 65 &  2 &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{0} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{0} &
  23734  & 804 & 377 & F &  11&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 25.&26 &    &   & 29.&30 &    &   &  3.&4  &
      &   &  7.&6  &    &   & 11.&12 &    &   & 15.&16 &
      &   &
   \\
 \nopagebreak
-† & 66 &  3 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} &
+\da & 66 &  3 &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} &
  24127  & 817 & 383 & E D &  29&Iun \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 19.&20 &    &   & 23.&24 &    &   & 27.&28 &
      &   &    &   &  1.&2  &    &   &  5.&6  &    &   &
@@ -1106,31 +998,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 67 &  4 &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{0} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{0} &
  24482  & 829 & 388 & C &  18&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
    9.&10 &    &   & 13.&14 &    &   & 17.&18 &    &   &
   21.&22 &    &   & 25.&26 &    &   & 29.&30 &    &   &
      &   &
   \\
 \nopagebreak
-† & 68 &  5 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} &
+\da & 68 &  5 &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} &
  24866  & 842 & 394 & B &   8&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
    3.&4  &    &   &  6.&7  &    &   & 10.&11 &    &   &
   14.&15 &    &   & 18.&19 &    &   & 22.&23 &    &   &
@@ -1138,16 +1026,14 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 69 &  6 &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{0} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{0} &
  25220  & 854 & 400 & A &  27&Iul \\
 % '25220' clearer in other editions and scans
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   26.&27 &    &   & 30.&1  &    &   &    &   &  4.&3\footnote{4.3: Sic.}  &
 % '4.3' in the original is odd, as in all other entries
@@ -1159,31 +1045,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 70 &  7 &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{0} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{0} &
  25574  & 866 & 406 & G F & 15&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 20.&21 &    &   & 24.&25 &    &   & 28.&29 &
      &   &    &   &  2.&3  &    &   &  6.&7  &    &   &
   10.&11 &
   \\
 \nopagebreak
-† & 71 &  8 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{1} &
+\da & 71 &  8 &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} &
  25958  & 879 & 412 & E &   4&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 14.&15 &    &   & 18.&19 &    &   & 22.&23 &
      &   & 26.&27 &    &   & 30.&1  &    &   &    &   &
@@ -1191,15 +1073,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 72 &  9 &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{0} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{0} &
  26313  & 891 & 417 & D &  23&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
    3.&4  &    &   &  7.&8  &    &   & 11.&12 &    &   &
   15.&16 &    &   & 19.&20 &    &   & 23.&24 &    &   &
@@ -1207,31 +1087,27 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 73 & 10 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{0} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{0} &
  26667  & 903 & 423 & C &  13&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   27.&28 &    &   &    &   &  1.&2  &    &   &  5.&6  &
      &   &  9.&10 &    &   & 13.&14 &    &   & 17.&18 &
      &   &
   \\
 \nopagebreak
-† & 74 & 11 &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} &
- \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} &
- \multicolumn{2}{c}{1} &
+\da & 74 & 11 &
+  \mc{4} & \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} &
  27051  & 916 & 429 & B A &  Ka.&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
   21.&22 &    &   & 25.&26 &    &   & 29.&30 &    &   &
      &   &  3.&4  &    &   &  7.&8  &    &   & 11.&12 &
@@ -1239,15 +1115,13 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 75 & 12 &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{6} &
- \multicolumn{2}{c}{0} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{0} &
  27405  & 928 & 435 & G &  20&Iul \\
 \nopagebreak
 %
-\midrule
+\streep
   &    &    &
      &   & 15.&16 &    &   & 19.&20 &    &   & 23.&24 &
      &   & 27.&28 &    &   & 30.&1  &    &   & 30.&1  &
@@ -1255,14 +1129,10 @@ r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
   \\
 \nopagebreak
   & 76 & 13 &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{5} & \multicolumn{2}{c}{6} & \multicolumn{2}{c}{1} &
- \multicolumn{2}{c}{2} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} &
- \multicolumn{2}{c}{7} & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{3} &
- \multicolumn{2}{c}{0} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{0} &
  27759  & 940 & 441 & F &   9&Iul \\
-\nopagebreak
-%
-\bottomrule
+%%
 \end{longtable}
 \endgroup
