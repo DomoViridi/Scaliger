@@ -235,6 +235,33 @@
 %
 \newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
 
+% \ruleover{string}
+% \ruleover[scale]{string}
+% Command to put a rule (line) over a given string.
+% The string is shrunk to 0.75 of its original size and the rule will
+% be draw at the original height of the string. An alternative scale
+% factor can be given as an optional parameter.
+% Scales outside the range 0.5..1.0 do not look nice.
+% Uses graphicx package
+\makeatletter
+\newlength{\ROver@width} % width of the string
+\newlength{\ROver@height} % height of the string
+\newlength{\ROver@thick} % thickness of the line
+\newcommand{\ruleover}[2][0.75]{%
+  \settoheight{\ROver@height}{#2}% Get height of original text
+  \settowidth{\ROver@width}{#2}% Get width of original text
+  \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
+  \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
+%  \addtolength{\ROver@height}{-\ROver@thick}% Align top of rule with top of box
+  \scalebox{#1}{#2}% Print the text with shrinking
+  \hskip-\ROver@width% Move back to beginning of the shrunken text
+  \rule[\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
+}
+\makeatother
+
+%% Define Greek Number command using \ruleover{} with default scaling
+\newcommand{\gnum}[1]{\ruleover{#1}}
+
 %%% Booktabs package for nice looking tables
 \usepackage{booktabs}
 
