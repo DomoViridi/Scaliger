@@ -252,14 +252,17 @@
   \settowidth{\ROver@width}{#2}% Get width of original text
   \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
   \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
-%  \addtolength{\ROver@height}{-\ROver@thick}% Align top of rule with top of box
-  \rule[\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
-  \makebox[0pt][r]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \setlength{\ROver@height}{#1\ROver@height}% Calculate shrunken height
+  \makebox[0pt][l]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \rule[1.3333\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
 }
 \makeatother
 
 %% Define Greek Number command using \ruleover{} with default scaling
 \newcommand{\gnum}[1]{\ruleover{#1}}
+
+%% Greek Number command with extra parameter for scaling
+\newcommand{\gnums}[2]{\ruleover[#1]{#2}}
 
 %%% Booktabs package for nice looking tables
 \usepackage{booktabs}
