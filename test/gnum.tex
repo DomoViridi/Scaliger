@@ -58,9 +58,9 @@
   \settowidth{\ROver@width}{#2}% Get width of original text
   \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
   \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
-%  \addtolength{\ROver@height}{-\ROver@thick}% Align top of rule with top of box
-  \rule[\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
-  \makebox[0pt][r]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \setlength{\ROver@height}{#1\ROver@height}% Calculate shrunken height
+  \makebox[0pt][l]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \rule[1.3333\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
 }
 \makeatother
 
@@ -94,7 +94,8 @@ Gee more stuffing
 Gee more stuffing
 \textgreek{ἐν \gnums{0.85}{τδ} ἔτεσιν} at 0.85 scale.
 
-Scale 1.0 shows the line touches the top of the text.
+With scale 1.0 the characters are normal size, and the rule rises above
+normal line height.
 
 Also note that the
 ascenders of the lower case characters are higher than upper case characters.
@@ -125,6 +126,17 @@ Overflow at the end of a line:
  tendency to overflow?) the rule gets plotted on the next line.
 
 Overflow at the end of a line:
-\textgreek{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΦΧ\gnum{αβγδεζηθικλμνξοπρστυφχψω}}
+\textgreek{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΦΧ \gnum{αβγδεζηθικλμνξοπρστυφχψω}}
+
+Overflow without the ruleover:
+\textgreek{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΦΧ αβγδεζηθικλμνξοπρστυφχψω}
+
+With spaces at the end of a line:
+\textgreek{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΦΧ
+ \gnum{αβ γδ εζ ηθ ικ λμ νξ οπ ρσ τυ φχ ψω}}
+
+Split up at the end of a line:
+\textgreek{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΦΧ
+ \gnum{αβ}\gnum{γδ}\-\gnum{εζ}\-\gnum{ηθ}\gnum{ικ}\gnum{λμ}\gnum{νξ}\gnum{οπ}\gnum{ρσ}\gnum{τυ}\gnum{φχ}\gnum{ψω}}
 
 \end{document}
