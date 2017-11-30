@@ -4,6 +4,7 @@
 %
 \documentclass[12pt,twoside,a4paper]{book}
 \usepackage[lines=40,showframe]{geometry}
+\usepackage{array} % allow row distance change with \arraystretch
 %
 \usepackage{lipsum}
 \usepackage{rotating} % Make it possible to rotate headers
@@ -66,6 +67,15 @@
 %\end{table}
 
 Banana
+
+\the\bigskipamount
+
+\the\LTpre
+
+%\setlength{\LTpre}{3\bigskipamount plus \bigskipamount minus \bigskipamount}
+\the\LTpre
+
+
 \clearpage
 \lipsum
 
@@ -88,8 +98,11 @@ Sed commodo posuere pede. Mauris ut est. Ut quis purus. Sed ac odio.
 Sed vehi- cula hendrerit sem. Duis non odio. Morbi ut dui.
 Sed accumsan risus eget odio. In hac habitasse platea dictumst.
 Pellentesque non elit. Fusce sed justo eu urna porta tincidunt.
-Pellentesque non elit. Fusce sed justo eu urna porta tincidunt.
+%Pellentesque non elit. Fusce sed justo eu urna porta tincidunt.
+%AAPellentesque non elit. Fusce sed justo eu urna porta tincidunt.
 
+%\bigskip
+\smallskip
 \input{tables/089_neomeniarum_periodi_calippicae.tex}
 
 \section{De Periodo Lunari Calippica ab Autumno}
