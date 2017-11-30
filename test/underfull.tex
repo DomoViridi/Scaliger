@@ -4,12 +4,15 @@
 %
 %\documentclass[twoside]{book}
 \documentclass[draft,12pt,twoside,a4paper]{book}
-\setlength{\textheight}{200pt}
+%% use [showframe] to show the frames
+\usepackage[lines=40,showframe]{geometry}
+%% Changes in page geometry must go after the geometry package
+%% or (better) passed as parameters to the geometry package
+%% lines=n sets \textheight to n*\baselineskip - (\baselineskip - pointsize)
 %\setlength{\baselineskip}{14.78825pt}
 %\textheight=584pt
+%\setlength{\textheight}{200pt}
 %
-%% use [showframe] to show the frames
-\usepackage[showframe]{geometry}
 % Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
 \usepackage{lipsum}
 \usepackage{rotating} % Make it possible to rotate headers
@@ -75,9 +78,6 @@
 \newcommand{\gnums}[2]{\ruleover[#1]{#2}}
 
 \begin{document}
-\setlength{\textheight}{200pt}
-Banana
-\clearpage
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vesti- bulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula au- gue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet orci dignissim rutrum.
 Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Do- nec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis partu- rient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris.
 Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat at, tin- cidunt tristique, libero. Vivamus viverra fermentum felis. Donec nonummy pellen- tesque ante. Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ip- sum ligula, eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae enim. Pellentesque tincidunt purus vel magna. Integer non enim. Praesent euismod nunc eu purus. Do- nec bibendum quam in tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate metus eu enim. Vestibulum pellentesque felis eu massa.
