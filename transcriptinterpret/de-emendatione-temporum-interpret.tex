@@ -16,8 +16,9 @@
 
 %%% Geometry package to make the margins better match the original
 %% use [showframe] to show the frames
-%\usepackage[top=18mm, bottom=55mm, inner=24mm, outer=38mm]{geometry}
-\usepackage[showframe]{geometry}
+%% lines=nn reduces 'Underfull \vbox' messages by making \textheight match
+%% an integer number of lines.
+\usepackage[showframe,lines=40]{geometry}
 
 %%% Allow generation of pseudo-latin body text for testing
 %% Optional parameter [x-y] where x and y are numbers: generate paragraph
