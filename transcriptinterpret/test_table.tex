@@ -3,16 +3,11 @@
 % Set the \input{} to the table you want to test, then typeset this file
 %
 \documentclass[12pt,twoside,a4paper]{book}
-%\documentclass[draft,a4paper]{book}
-%% use [showframe] to show the frames
-\usepackage[showframe]{geometry}
-% Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
+\usepackage[lines=40,showframe]{geometry}
+%
 \usepackage{lipsum}
 \usepackage{rotating} % Make it possible to rotate headers
 \usepackage[normalsize]{caption} % Keep captions to (long)tables normal sized
-% Caption doc says it must go *after* rotating package
-% It must go *before* the longtable package
-% or it won't work on longtable captions
 \usepackage{longtable}% Allow for split of the table over more than one page
 \usepackage{booktabs} % To get nice table layout
 %
@@ -40,6 +35,27 @@
 %
 \newlength{\cw} % Column width for \parbox headers
 \newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
+%
+% \ruleover{string}
+% \ruleover[scale]{string}
+\makeatletter
+\newlength{\ROver@width} % width of the string
+\newlength{\ROver@height} % height of the string
+\newlength{\ROver@thick} % thickness of the line
+\newcommand{\ruleover}[2][0.75]{%
+  \settoheight{\ROver@height}{#2}% Get height of original text
+  \settowidth{\ROver@width}{#2}% Get width of original text
+  \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
+  \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
+  \setlength{\ROver@height}{#1\ROver@height}% Calculate shrunken height
+  \makebox[0pt][l]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \rule[1.3333\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
+}
+\makeatother
+
+\newcommand{\gnum}[1]{\ruleover{#1}} % Greek number
+\newcommand{\gnums}[2]{\ruleover[#1]{#2}} % Scaled Greek number
+
 \begin{document}
 
 %% Longtable version
