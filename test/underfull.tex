@@ -1,0 +1,98 @@
+%%% Test settings to reduce "Underfull \vbox (badness 10000)" warnings
+%
+% Issue #175
+%
+%\documentclass[twoside]{book}
+\documentclass[draft,12pt,twoside,a4paper]{book}
+%% use [showframe] to show the frames
+\usepackage[lines=40,showframe]{geometry}
+%% Changes in page geometry must go after the geometry package
+%% or (better) passed as parameters to the geometry package
+%% lines=n sets \textheight to n*\baselineskip - (\baselineskip - pointsize)
+%\setlength{\baselineskip}{14.78825pt}
+%\textheight=584pt
+%\setlength{\textheight}{200pt}
+%
+% Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
+\usepackage{lipsum}
+\usepackage{rotating} % Make it possible to rotate headers
+\usepackage[normalsize]{caption} % Keep captions to (long)tables normal sized
+% Caption doc says it must go *after* rotating package
+% It must go *before* the longtable package
+% or it won't work on longtable captions
+\usepackage{longtable}% Allow for split of the table over more than one page
+\usepackage{booktabs} % To get nice table layout
+%
+% To include graphics in tables
+\usepackage{graphicx}
+%
+%% Settings from the main text we also need for the test
+\usepackage{fontspec}
+\setmainfont{Hoefler Text}[]
+%\setmainfont{Times New Roman}[]
+\newfontfamily\greekfont{Times New Roman}
+\newfontfamily\hebrewfont{Arial Hebrew}
+\newfontfamily\arabicfont{Arial Unicode MS}
+\newfontfamily\astrofont{Menlo}
+\newcommand\astro[1]{{\astrofont #1}}
+%%
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\setotherlanguage{hebrew}
+\setotherlanguage{arabic}
+%
+\newcommand{\rnum}[1]{\textsc{#1}} % Roman numerals
+\newcommand{\altsep}{\slash{}} % Separator between alternative values in tables
+%
+\newlength{\cw} % Column width for \parbox headers
+\newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
+%
+% \ruleover{string}
+% \ruleover[scale]{string}
+% Command to put a rule (line) over a given string.
+% The string is shrunk to 0.75 of its original size and the rule will
+% be draw at the original height of the string. An alternative scale
+% factor can be given as an optional parameter.
+% Scales outside the range 0.5..1.0 do not look nice.
+% Uses graphicx package
+\makeatletter
+\newlength{\ROver@width} % width of the string
+\newlength{\ROver@height} % height of the string
+\newlength{\ROver@thick} % thickness of the line
+\newcommand{\ruleover}[2][0.75]{%
+  \settoheight{\ROver@height}{#2}% Get height of original text
+  \settowidth{\ROver@width}{#2}% Get width of original text
+  \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
+  \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
+  \setlength{\ROver@height}{#1\ROver@height}% Calculate shrunken height
+  \makebox[0pt][l]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \rule[1.3333\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
+}
+\makeatother
+
+%% Define Greek Number command using \ruleover{} with default scaling
+\newcommand{\gnum}[1]{\ruleover{#1}}
+
+%% Greek Number command with extra parameter for scaling
+\newcommand{\gnums}[2]{\ruleover[#1]{#2}}
+
+\begin{document}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vesti- bulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula au- gue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet orci dignissim rutrum.
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Do- nec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis partu- rient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris.
+Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat at, tin- cidunt tristique, libero. Vivamus viverra fermentum felis. Donec nonummy pellen- tesque ante. Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ip- sum ligula, eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae enim. Pellentesque tincidunt purus vel magna. Integer non enim. Praesent euismod nunc eu purus. Do- nec bibendum quam in tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate metus eu enim. Vestibulum pellentesque felis eu massa.
+Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tin- cidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In hac habitasse platea dictumst. Integer tempus convallis augue. Etiam facilisis. Nunc ele- mentum fermentum wisi. Aenean placerat. Ut imperdiet, enim sed gravida sollici- tudin, felis odio placerat quam, ac pulvinar elit purus eget enim. Nunc vitae tortor. Proin tempus nibh sit amet nisl. Vivamus quis tortor vitae risus porta vehicula.
+Fusce mauris. Vestibulum luctus nibh at lectus. Sed bibendum, nulla a faucibus semper, leo velit ultricies tellus, ac venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellentesque, augue quis sagittis posuere, turpis lacus congue quam, in hen- drerit risus eros eget felis. Maecenas eget erat in sapien mattis porttitor. Vestibulum porttitor. Nulla facilisi. Sed a turpis eu lacus commodo facilisis. Morbi fringilla, wisi in dignissim interdum, justo lectus sagittis dui, et vehicula libero dui cursus dui. Mau- ris tempor ligula sed lacus. Duis cursus enim ut augue. Cras ac magna. Cras nulla.Nulla egestas. Curabitur a leo. Quisque egestas wisi eget nunc. Nam feugiat lacus vel est. Curabitur consectetuer.
+Suspendisse vel felis. Ut lorem lorem, interdum eu, tincidunt sit amet, laoreet vitae, arcu. Aenean faucibus pede eu ante. Praesent enim elit, rutrum at, molestie non, nonummy vel, nisl. Ut lectus eros, malesuada sit amet, fermentum eu, sodales cursus, magna. Donec eu purus. Quisque vehicula, urna sed ultricies auctor, pede lorem egestas dui, et convallis elit erat sed nulla. Donec luctus. Curabitur et nunc. Aliquam dolor odio, commodo pretium, ultricies non, pharetra in, velit. Integer arcu est, nonummy in, fermentum faucibus, egestas vel, odio.
+Sed commodo posuere pede. Mauris ut est. Ut quis purus. Sed ac odio. Sed vehi- cula hendrerit sem. Duis non odio. Morbi ut dui. Sed accumsan risus eget odio. In hac habitasse platea dictumst. Pellentesque non elit. Fusce sed justo eu urna porta tincidunt. Mauris felis odio, sollicitudin sed, volutpat a, ornare ac, erat. Morbi quis dolor. Donec pellentesque, erat ac sagittis semper, nunc dui lobortis purus, quis congue purus metus ultricies tellus. Proin et quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Praesent sapien turpis, fermentum vel, eleifend faucibus, vehicula eu, lacus.Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Do- nec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis partu- rient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris.
+Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat at, tin- cidunt tristique, libero. Vivamus viverra fermentum felis. Donec nonummy pellen- tesque ante. Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ip- sum ligula, eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae enim. Pellentesque tincidunt purus vel magna. Integer non enim. Praesent euismod nunc eu purus. Do- nec bibendum quam in tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate metus eu enim. Vestibulum pellentesque felis eu massa.
+Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tin- cidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In hac habitasse platea dictumst. Integer tempus convallis augue. Etiam facilisis. Nunc ele- mentum fermentum wisi. Aenean placerat. Ut imperdiet, enim sed gravida sollici- tudin, felis odio placerat quam, ac pulvinar elit purus eget enim. Nunc vitae tortor. Proin tempus nibh sit amet nisl. Vivamus quis tortor vitae risus porta vehicula.
+  
+\begin{itemize}
+\item textheight: \the\textheight
+\item baselineskip: \the\baselineskip
+\end{itemize}
+
+%\lipsum
+
+\end{document}
