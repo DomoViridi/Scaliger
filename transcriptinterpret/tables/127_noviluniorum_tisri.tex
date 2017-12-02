@@ -1,0 +1,112 @@
+%%% Liber 2 p127
+%%
+%% The original has two columns and stretches over 1 1/3 page
+%% The first page has entries 1-42 in the first column, and 43-84 in the second.
+%% The next page has entries 85-99 in the first column, and 100-124 next to it.
+%%
+%% Longtable can't do this "two column flow".
+%% What we *can* do is put entries 1-57 on the left and 58-144 on the right
+%% in a structure where each row contains first the entries for the left column
+%% and then the entries for the right column.
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begingroup
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+\footnotesize
+%\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Define reference symbols
+\newcommand{\da}{{\scriptsize †}}
+\newcommand{\db}{{\scriptsize ‡}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: top row
+\newcommand{\hsa}[1]{\scriptsize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\tiny{#1}}
+%% Generate the column headers
+\newcommand{\hdrA}{%
+  &
+  &
+  &
+  \multicolumn{3}{c}{\hsa{Novilunium Tisri}} &
+  \multicolumn{3}{c}{\hsa{Epactae Tisri}}
+}
+%
+\newcommand{\hdrB}{%
+  &
+  \ch{108}{\hsb{Anni expansi}}&
+  \ch{\hsb{Cyclus}}{\hsb{Cyclus Lunae}}&
+  \hsb{Feria} &
+  \hsb{Horae} &
+  \hsb{\ch{mmm}{Scru\-pu\-la 1080}} &
+  \hsb{Dies} &
+  \hsb{Horae} &
+  \hsb{\ch{mmm}{Scru\-pu\-la 1080}} 
+}
+%
+\newcommand{\hdrs}{%
+ \hdrA & \hspace{1em} & \hdrA \\
+ \cmidrule(lr){4-6} \cmidrule(lr){7-9} \cmidrule(lr){14-16} \cmidrule(lr){17-19}
+ \hdrB & & \hdrB \\
+ \cmidrule(r){1-9} \cmidrule(l){11-19}
+}
+%% Let longtable process the whole table in one go
+\setcounter{LTchunksize}{100}
+\begin{longtable}[c]{@{} r r r rrr rrr c r r r rrr rrr@{}}
+\toprule
+\multicolumn{19}{c}{\Large\textsc{Tabula noviluniorum Tisri}} \\
+\multicolumn{19}{c}{\large\textsc{in annis expansis cyclorum \rnum{vi}}} \\
+\toprule
+% Put a reference to the first page of the table in the List of Tables
+\addcontentsline{lot}{section}{%
+  \protect\numberline{\thetable}Noviluniorum Tisri
+  in annis expansis cyclorum vi}
+\label{tab:p127}
+\hdrs % Column headers from the above definition
+\endfirsthead
+%%
+\toprule
+\multicolumn{19}{c}{\Large\textsc{Residuum tabulae noviluniorum Tisri}} \\
+\multicolumn{19}{c}{\Large\textsc{in annis expansis cyclorum \rnum{vi}}} \\
+\toprule
+\hdrs % Column headers from the above definition
+\endhead
+%%
+\bottomrule
+\addlinespace[5pt]
+  & & & \multicolumn{11}{l}{\textsuperscript\da \textgreek{Emb. [Abbriv]}}
+\\
+\endfoot
+%%
+\addlinespace[5pt]
+  & & & \multicolumn{11}{l}{\textsuperscript\da \textgreek{Emb. [Abbriv]}}
+\\
+%\addlinespace
+% Put the table nr and title below the table, without entry in the LoT
+\caption[]{Noviluniorum Tisri in annis expansis cyclorum \rnum{vi}}
+\endlastfoot
+%%
+    &   1 & ~3 & 2 & ~5 & 204 & ~0 & ~0 &   0 & ~ &
+    &  58 & ~3 & 3 & ~6 & 909 & ~0 & ~4 & 375
+ \\
+    &   2 & ~4 & 6 & 14 &   0 & 10 & 21 & 204 & ~ &
+    &  59 & ~4 & 7 & 15 & 705 & 11 & ~1 & 579
+ \\
+\da &   3 & ~5 & 3 & 22 & 876 & 21 & 18 & 408 & ~ &
+\da &  60 & ~5 & 5 & ~0 & 501 & 21 & 22 & 783
+ \\
+\end{longtable}
+\endgroup
