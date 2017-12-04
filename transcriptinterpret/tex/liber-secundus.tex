@@ -1385,7 +1385,7 @@ syzygias plenas.
 % 79
 % {PDF page nr}{source page nr}{line nr}
 
-\plnr{162}{79}Itaque calculus desinet in ducentesima prima syzygia.
+\plnr{162}{79}{1}Itaque calculus desinet in ducentesima prima syzygia.
 \lnr{2}Reliquae igitur
 quatuor erunt continue plenae, et duae
 primae sequentis anni erunt et ipsae plenae.
@@ -3476,8 +3476,8 @@ quintae a die \rnum{iii}, \rnum{iiii} \textsc{Ab}
  \texthebrew{הםכןה}[?]\\
 \end{center}
 
-\lnr{17}\begin{quotation}
-Novilunium \textsc{Giumadi} supra \rnum{ix} hor. et tricesimam partem,
+\begin{quotation}
+\lnr{17}Novilunium \textsc{Giumadi} supra \rnum{ix} hor. et tricesimam partem,
 a nocte \rnum{v}, in \rnum{xxx} \textsc{Ab}
 \hfill \rnum{iiii}.~\rnum{xxxi}
 
@@ -3509,15 +3509,18 @@ partem, a nocte \rnum{v}, in \rnum{xxiiii} \textsc{Tibeth}
 
 % 116
 % {PDF page nr}{source page nr}{line nr}
-\plnr{199}{116}{1}\begin{center}
+\setcounter{pdfpagenr}{199}%
+\setcounter{sourcepagenr}{116}%
+\begin{center}
 \newlength{\emenlen}
 \settowidth{\emenlen}{\textsc{Ilul. Tisri. Marcheschban.}}
 \parbox{\emenlen}{
-\textsc{Ilul. Tisri. Marcheschban.}\\
-\textsc{Caslim. Tebith. Scebat.}\\
-\textsc{Adar. Nisan. Iiar.}\\
-\textsc{Sebin. Thamuz. Ab.}\\
-\textsc{Adar posterior.}
+  \plnr{199}{116}{1}\\
+  \textsc{Ilul. Tisri. Marcheschban.}\\
+  \textsc{Caslim. Tebith. Scebat.}\\
+  \textsc{Adar. Nisan. Iiar.}\\
+  \textsc{Sebin. Thamuz. Ab.}\\
+  \textsc{Adar posterior.}
 }
 \end{center}
 
