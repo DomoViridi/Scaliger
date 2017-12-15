@@ -138,6 +138,17 @@
 	\nrfont(\Roman{sourcepagenr}:{{#3}})~\normalfont%
 }
 
+%% Command \setpnrs{PDFpage}{page}
+%% Register and the PDF page number and the source page number
+%% Do not print the page number and line number.
+%% To be used when a new page has begun but it is impractical to
+%% use \plnr{}{}{}, e.g. when there is a section header or a tabel at the top
+%% Can be followed by a \plnr{}{}{} later on the page
+\newcommand{\setpnrs}[2]{%
+	\setcounter{pdfpagenr}{{#1}}%
+	\setcounter{sourcepagenr}{{#2}}%
+}
+
 %%% Show numerical fractions.
 %% Usage: \myfrac{<num>}{<den>}
 %% Adjust the separator character and the spacing depending on the font used
