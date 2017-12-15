@@ -253,9 +253,17 @@
 %% In other words: this file.
 \graphicspath{{./img/}}
 
+%%% Command to get a "Pars" entry in the ToC
+\newcommand{\pars}[1]{%
+	\addcontentsline{toc}{chapter}{\numberline{}#1}%
+}
+
 %%% Give Table of Contents the same name as in the original
-\renewcommand{\contentsname}{Conspectus omnium capitum}
-% === Does not appear to work
+\addto\captionslatin{\renewcommand{\contentsname}{Conspectus omnium capitum}}
+% "\addto\captionslatin" part is required because we use the polyglossia package
+
+%%% What are usually chapters are called "Liber" here
+\addto\captionslatin{\renewcommand{\chaptername}{Liber}}
 
 %%% Pre-define a string to use in the left-page header
 \newcommand{\shorttitle}{De Emendatione Temporum}
