@@ -20,37 +20,18 @@ out of focus or moved, fine details that are lost.
 * The Latin spelling is irregular, with 'u' and 'v' used interchangeably, and manuscript
 shorthands such as 'quoq;' for 'quoque' remaining in the typeset book.
 * The text is in Latin, a language not mastered by many researchers of today.
-* The text is peppered with Greek fragments. These were typeset to immitate the handwriting as closely as possible, making them even harder to read than the typeset Latin.
-* There are also (though fewer) Hebrew and Arabic fragments, with the same problems as the Greek
+* The text is peppered with Greek fragments. These were typeset to immitate the handwriting
+as closely as possible, making them even harder to read than the typeset Latin.
+* There are also (though fewer) fragments in Hebrew, Arabic and other oriental languages,
+with the same problems as the Greek
 fragments.
 * Most of the book is a wall of text, with no paragraphs and hardly any sectioning.
 
 For the modern reader, this means an examination of this work will be tough going. This project
 hopes to make the work available to a wider audience, by:
-* transcribing the original, staying as close as possible to the original.
 * transcribing to a modern typesetting, with consistent spelling.
 * translating into English.
 * re-publishing the work as a modern electronic book.
-
-
-Transcribing the original
--------------------------
-File: `transcriptliteral/de-emendatione-temporum-literal.tex`, the litteral transcript.
-
-Each page is typed in, staying as close to the original as possible.
-* Usage of 'v' and 'u' are copied from the original.
-* Ligatures like 'æ' and 'œ' are copied from the original.
-* Use of the long s 'ſ' is copied from the original.
-* Shortenings like 'quoq;' (for 'quoque') and 'nō' (for 'non') are copied from the original.
-
-To keep track of how the transcription matches with the original, a page in the original will match
-a page (or more) in the transcription,
-and the sentences are numbered, starting with number 1 on each new page.
-
-The transcription is kept as a XeLaTeX source. This gives us allmost complete control over the layout, and also extra facilities such as automatic TOC and index generation. This source can be rendered into various forms with a full layout, e.g. as a PDF.
-
-UTF is required for the above mentioned ligatures and the long s, the Greek, Hebrew and Arabic texts, and for
-odd symbols like the ancient symbols for the planets. This requires the choice of XeLaTeX over LaTeX.
 
 
 Transcribing to a modern typesetting
