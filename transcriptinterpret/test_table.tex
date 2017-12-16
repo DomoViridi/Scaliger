@@ -56,6 +56,7 @@
 
 \newcommand{\gnum}[1]{\ruleover{#1}} % Greek number
 \newcommand{\gnums}[2]{\ruleover[#1]{#2}} % Scaled Greek number
+\newcommand{\super}[1]{\textsuperscript{#1}} % Superscript outside of math code
 
 \begin{document}
 
@@ -68,7 +69,13 @@
 
 \lipsum[1]
 
-\input{tables/127_noviluniorum_tisri.tex}
+\begin{table}[tp]
+\input{tables/129a_annorum_collectorum.tex}
+\end{table}
+
+\begin{table}[tp]
+\input{tables/129b_epactarum_tisri.tex}
+\end{table}
 
 \lipsum[150]
 
