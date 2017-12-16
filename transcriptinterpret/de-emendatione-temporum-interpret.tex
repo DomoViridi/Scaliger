@@ -217,6 +217,13 @@
 %% '\super' became unavailable after TeX Live 2017 update, so we define it here
 \newcommand{\super}[1]{\textsuperscript{#1}}
 
+%%% Command for em dash
+%% We could use a litteral unicode em-dash (—), but that is hard to distinguish
+%% from other dashes in the source code.
+%% We could also use the LaTeX command "\textemdash", but that is a bit verbose
+%% The TeX "---" code does not work in all fonts (particularly our Greek font).
+\newcommand{\emd}{—}
+
 %%% Booktabs package for nice looking tables
 \usepackage{booktabs}
 
