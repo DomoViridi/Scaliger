@@ -636,7 +636,7 @@ the sentence. E.g. Liber Primus, p 17, line 10 and further.
  especially if followed by an 'i'. The printers used two ligatures which are
  almost identical ('fi' and 'ſi'). In the original (as, indeed, in this
  document if all goes well), the letters in the f-i ligature ('fi') are
- connected at the hight of the crossbar, while in the long s-i ligature ('ſi')
+ connected at the height of the crossbar, while in the long s-i ligature ('ſi')
  they are not connected there.
 \item It appears that sometimes a final 's' in a word is printed as what looks
  like a small question mark. E.g. Prolegomena p.XXIII (PDF p.50) has "Ioſephu?"
@@ -781,8 +781,7 @@ have been developed.
 \subsection{Naming scheme and testing}
 The body of each table is contained in a file in the "table" subdirectory.
 The name of each file has the form \verb+nnn_name_with_underscores+, where
-\verb+nnn+ is the three-digit page number (with leading zeroes as reguired)
-where the table appears in the original.
+\verb+nnn+ is the three-digit page number (with leading zeroes as required).
 This form ensures that the table files appear in the same order in the
 directory as they do in the book.
 \verb+name_with_underscores+ represents a short version of
@@ -801,30 +800,45 @@ chapter for each time you want to see the result of your changes.
 The test file also allows for experimenting with changes to the preamble
 without affecting the main file.
 
-If you are satisfied with the result you can copy and past the inclusion
+Once you are satisfied with the result you can copy and paste the inclusion
 code into the chapter file and see how the table looks in the main document.
 
 %--
 \subsection{Including the table in the body text}
 Use the \verb+\begin{table}[htbp]+ - \verb+\end{table}+ combination
-to float the tables (except for long tables).
+to float the tables (except long tables).
 The letters suggest the location of the table on the page, in order:
 \begin{description}
 \item[h "Here"] Try to put the table at the location of the command.
 Good typography (and presumably the rules of \TeX{}) does this only for very
-small tables (less than 1/3 of the hight of the page).
+small tables (less than 1/3 of the height of the page).
 \item[t "Top"] Try to put the table at the top of a page, with body text
 underneath it.
+Good for tables less than 2/3 the height of the page.
 \item[b "Bottom"] Try to put the table at the bottom of a page, allowing for
 some body text above it.
+Allowable for tables less than 1/2 the height of the page.
 \item[p "Page"] Put the table on a special separate page for tables and figures.
-This should happen to tables which are more than 2/3 of the hight of the page.
+This should happen to tables which are more than 2/3 of the height of the page.
 \end{description}
-Tables are floated at paragraph breaks, but the body text of the original
-hardly has any paragraph breaks.
-To guide the placement of the floating tables try to insert a paragraph break
-(in the form of a blank line) near the location in the text where you want
-the table to appear.
+"Here" and "Bottom"
+tables are floated at paragraph breaks.
+Unfortunately the body text of the original
+hardly has any paragraph breaks,
+so these modes will rarely by employed naturally.
+For small tables which you want to be placed in "Here" mode
+it is advised to put a paragraph break (in the form of a blank line)
+right after the \verb+table+ command.
+
+"Top" mode usually works, as this does not require a paragraph break.
+The text is broken off at the end of the previous page as normal,
+the table is put at the top of the page, and the text is continued
+below the table the same way the text would continue at the top of the
+page if the table was not there.
+
+The system seems to often prefer "Page" mode, even when "Top" mode is prefered
+and possible. To force "Top" mode in these cases, leave out the \verb+p+ code.
+However, do not do this for tables which take up more than 2/3 of the page.
 
 %--
 \subsection{booktabs}
@@ -866,20 +880,88 @@ as the first line in the table.
 
 %%--
 \subsection{Column headers}
-Each column header should be in a \verb+\multicolumn{1}{c}{column header}+
+It is advised to define commands for setting the font size for column headers.
+That way the font size of all columns can be changed in one go by adjusting
+these commands. E.g.:
+\begin{verbatim}
+\newcommand{\hsa}[1]{\normalsize{#1}} % Header text size: top row
+\newcommand{\hsb}[1]{\scriptsize{#1}} % Header text size: bottom row
+\end{verbatim}
+
+A column header should normally be in a
+\verb+\multicolumn{1}{c}{\hsb{column header}}+
 to centre it.
-Column headers might become so wide that the table becomes ungainly, or simply
+
+Column headers might be so wide that the table becomes ungainly, or simply
 too wide for the page.
-You can then split them over two or three lines (Scaliger often does this).
-In that case make two (or three) lines of headers with the first line containing
-the first part of each header and the second line the second parts, etc.
-Headers with fewer lines should be alligned to the bottom, not the top.
-For instance: if there is one header with two lines and one header with one line,
-the one-line header should go into the second, lowest line of headers.
+For this we supply the \verb+\ch{sample string}{header text}+ command.
+This puts the header text in a \verb+parbox+ with a ragged right.
+The width of the parbox is set to the width of the \verb+sample string+
+parameter.
+The system will try to split \verb+header text+ into lines to fit
+the width of the box. Use:
+\begin{verbatim}
+	\ch{sample}{\hsb{Header for this column}}
+\end{verbatim}
+where the \verb+sample+ is the widest column entry, or:
+\begin{verbatim}
+	\hsb{\ch{Character ann}{Character annorum collectorum}}
+\end{verbatim}
+when you want to regulate the width by using part of the header text itself.
+(In both cases, chose between \verb+\hsa+ and \verb+\hsb+ as appropriate.)
+Check the console output for Overfull or Underfull hbox messages to see
+if the width of the box is suitable.
 
 Put a \verb+\midrule+ below the headers.
 
-%%-
+%%=
+\subsubsection{Multi-level column headers}
+In some tables columns are grouped together, with an extra header over
+the the group of columns and their headers.
+See for example
+\begin{itemize}
+\item Tabula 1.3: Novilunia in mensibus tetraeterides Graecae
+(\verb+027_novilunia.tex+)
+\item Tabula 2.8: Menses Tetraeterici et Metonici
+(\verb+084a_menses_tetraeterici.tex+)
+\item Tabula 2.18: Characterismi mensium Iudaicorum
+(\verb+105_mensium_iudaicorum.tex+).
+\end{itemize}
+
+Construct these headers row by row.
+Use \verb+\multicolumn{n}{c}{\hsa{group header}}+ to span the group of columns,
+where \verb+n+ stands for the number of columns to span.
+Follow this by a set of \verb+\cmidrule(lr){p-q}+ commands, where the
+\verb+p+ and \verb+q+ represent the start- and endcolumn numbers
+that need to be spanned. The \verb+(lr)+ code shortens the rule on the
+left and right respectively. Use or omit these depending on what looks best.
+Next is another set of headers, this time with a column span of 1:
+\verb+\multicolumn{1}{c}{\hsb{c-header}}+.
+Note the use of \verb+\hsa+ in the first row and \verb+\hsb+ in the second.
+Both rows of headers can use the \verb+\ch+ command to fit verbose headers
+into a narrow space.
+
+Example from \verb+105_mensium_iudaicorum.tex+:
+\begin{verbatim}
+\toprule
+ ~ &
+ \multicolumn{3}{c}{Communis} &
+ \multicolumn{3}{c}{Embolimaeus}
+\\
+\cmidrule(lr){2-4}
+\cmidrule(lr){5-7} 
+ ~ &
+ \multicolumn{1}{c}{\hsb Defectivus} &
+ \multicolumn{1}{c}{\hsb Ordinarius} &
+ \multicolumn{1}{c}{\hsb Abundans} &
+ \multicolumn{1}{c}{\hsb Defectivus} &
+ \multicolumn{1}{c}{\hsb Ordinarius} &
+ \multicolumn{1}{c}{\hsb Abundans}
+\\
+\midrule
+\end{verbatim}
+
+%%=
 \subsubsection{Vertical or slanted headers}
 Big tables with many columns will often have little room for the column headers.
 Schaliger will frequently write headers vertically.
