@@ -1,0 +1,275 @@
+%%% Liber 2 p127
+%%
+%% The original has two columns and stretches over 1 1/3 page
+%% The first page has entries 1-42 in the first column, and 43-84 in the second.
+%% The next page has entries 85-99 in the first column, and 100-124 next to it.
+%%
+%% Longtable can't do this "two column flow".
+%% What we *can* do is put entries 1-57 on the left and 58-144 on the right
+%% in a structure where each row contains first the entries for the left column
+%% and then the entries for the right column.
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begingroup
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+\footnotesize
+%\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{0.9ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Define reference symbols
+\newcommand{\da}{{\scriptsize †}}
+\newcommand{\db}{{\scriptsize ‡}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: top row
+\newcommand{\hsa}[1]{\scriptsize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\tiny{#1}}
+%% Generate the column headers
+\newcommand{\hdrA}{%
+  &
+  &
+  &
+  \multicolumn{3}{c}{\hsa{Novilunium Tisri}} &
+  \multicolumn{3}{c}{\hsa{Epactae Tisri}}
+}
+%
+\newcommand{\hdrB}{%
+  &
+  \ch{108}{\hsb{Anni expansi}}&
+  \ch{\hsb{Cyclus}}{\hsb{Cyclus Lunae}}&
+  \hsb{Feria} &
+  \hsb{Horae} &
+  \hsb{\ch{mmm}{Scru\-pu\-la 1080}} &
+  \hsb{Dies} &
+  \hsb{Horae} &
+  \hsb{\ch{mmm}{Scru\-pu\-la 1080}} 
+}
+%
+\newcommand{\hdrs}{%
+ \hdrA & \hspace{1em} & \hdrA \\
+ \cmidrule(lr){4-6} \cmidrule(lr){7-9} \cmidrule(lr){14-16} \cmidrule(lr){17-19}
+ \hdrB & & \hdrB \\
+ \cmidrule(r){1-9} \cmidrule(l){11-19}
+}
+%% Let longtable process the whole table in one go
+\setcounter{LTchunksize}{100}
+\begin{longtable}[c]{@{} r r r rrr rrr c r r r rrr rrr@{}}
+\toprule
+\multicolumn{19}{c}{\Large\textsc{Tabula noviluniorum Tisri}} \\
+\multicolumn{19}{c}{\large\textsc{in annis expansis cyclorum \rnum{vi}}} \\
+\toprule
+% Put a reference to the first page of the table in the List of Tables
+\addcontentsline{lot}{section}{%
+  \protect\numberline{\thetable}Noviluniorum Tisri
+  in annis expansis cyclorum vi}
+\label{tab:p127}
+\hdrs % Column headers from the above definition
+\endfirsthead
+%%
+\toprule
+\multicolumn{19}{c}{\Large\textsc{Residuum tabulae noviluniorum Tisri}} \\
+\multicolumn{19}{c}{\Large\textsc{in annis expansis cyclorum \rnum{vi}}} \\
+\toprule
+\hdrs % Column headers from the above definition
+\endhead
+%%
+\bottomrule
+\addlinespace[5pt]
+  & & & \multicolumn{11}{l}{\textsuperscript\da \textgreek{Emb. [Abbriv]}}
+\\
+\endfoot
+%%
+\bottomrule
+\addlinespace[5pt]
+  & & & \multicolumn{11}{l}{\textsuperscript\da \textgreek{Emb. [Abbriv]}}
+\\
+%\addlinespace
+% Put the table nr and title below the table, without entry in the LoT
+\caption[]{Noviluniorum Tisri in annis expansis cyclorum \rnum{vi}}
+\endlastfoot
+%%
+    &   1 & ~3 & 2 & ~5 &  204 & ~0 & ~0 &    0 & ~ &
+    &  58 & ~3 & 3 & ~6 &  909 & ~0 & ~4 &  375
+  \\
+    &   2 & ~4 & 6 & 14 &    0 & 10 & 21 &  204 & ~ &
+    &  59 & ~4 & 7 & 15 &  705 & 11 & ~1 &  579
+   \\
+\da &   3 & ~5 & 3 & 22 &  876 & 21 & 18 &  408 & ~ &
+\da &  60 & ~5 & 5 & ~0 &  501 & 21 & 22 &  783
+  \\
+    &   4 &  6 & 2 & 20 &  385 & 31 &  2 &  899 & ~ &
+    &  61 &  6 & 3 & 22 &   10 &  3 &  7 &  194 
+  \\
+    &   5 &  7 & 7 &  5 &  181 & 14 &  0 &   23 & ~ &
+    &  62 &  7 & 1 &  6 &  886 & 14 &  4 &  398
+  \\
+\da &   6 &  8 & 4 & 13 & 1057 & 24 & 21 &  227 & ~ &
+\da &  63 &  8 & 5 & 15 &  682 & 25 &  1 &  602
+  \\
+    &   7 &  9 & 3 & 11 &  566 &  6 &  5 &  718 & ~ &
+    &  64 &  9 & 4 & 13 &  191 &  6 & 10 &   13
+  \\
+\da &   8 & 10 & 1 & 20 &  362 & 17 &  2 &  922 & ~ &
+\da &  65 & 10 & 1 & 21 & 1067 & 17 &  7 &  217
+  \\
+    &   9 & 11 & 6 & 17 &  951 & 28 &  0 &   46 & ~ &
+    &  66 & 11 & 7 & 19 &  576 & 28 &  4 &  421
+  \\
+    &  10 & 12 & 4 &  2 &  747 &  9 &  8 &  537 & ~ &
+    &  67 & 12 & 5 &  4 &  372 &  9 & 12 &  912
+  \\
+\da &  11 & 13 & 1 & 11 &  543 & 20 &  5 &  741 & ~ &
+\da &  68 & 13 & 2 & 13 &  168 & 20 & 10 &   36
+  \\
+    &  12 & 14 & 7 &  9 &   52 &  1 & 17 &  152 & ~ &
+    &  69 & 14 & 1 & 10 &  757 &  1 & 21 &  527
+  \\
+    &  13 & 15 & 4 & 17 &  928 & 12 & 11 &  356 & ~ &
+    &  70 & 15 & 5 & 19 &  553 & 12 & 15 &  735
+  \\
+\da &  14 & 16 & 2 &  2 &  724 & 23 &  8 &  560 & ~ &
+\da &  71 & 16 & 3 &  4 &  349 & 23 & 12 &  935
+  \\
+    &  15 & 17 & 1 &  0 &  233 &  4 & 16 & 1051 & ~ &
+    &  72 & 17 & 2 &  1 &  938 &  4 & 21 &  346
+  \\
+    &  16 & 18 & 5 &  9 &   29 & 15 & 14 &  175 & ~ &
+    &  73 & 18 & 6 & 10 &  734 & 15 & 18 &  550
+  \\
+\da &  17 & 19 & 2 & 17 &  905 & 26 & 11 &  379 & ~ &
+\da &  74 & 19 & 3 & 19 &  530 & 26 & 15 &  754
+  \\
+    &  18 &  1 & 1 & 15 &  414 &  7 & 19 &  870 & ~ &
+    &  75 &  1 & 2 & 17 &   39 &  8 &  0 &  165
+  \\
+\da &  19 &  2 & 6 &  0 &  210 & 18 & 16 & 1074 & ~ &
+\da &  76 &  2 & 7 &  1 &  915 & 18 & 21 &  369
+  \\
+    &  20 &  3 & 4 & 21 &  799 &  0 &  1 &  485 & ~ &
+    &  77 &  3 & 5 & 23 &  424 &  0 &  5 &  860
+  \\
+    &  21 &  4 & 2 &  6 &  595 & 10 & 22 &  689 & ~ &
+    &  78 &  4 & 3 &  8 &  220 & 11 &  2 & 1064
+  \\
+\da &  22 &  5 & 6 & 15 &  391 & 21 & 19 &  893 & ~ &
+\da &  79 &  5 & 7 & 17 &   12 & 22 &  0 &  188
+  \\
+    &  23 &  6 & 5 & 12 &  980 &  3 &  4 &  304 & ~ &
+    &  80 &  6 & 6 & 14 &  205 &  3 &  8 &  679
+  \\
+    &  24 &  7 & 2 & 21 &  776 & 14 &  1 &  508 & ~ &
+    &  81 &  7 & 3 & 23 &  401 & 14 &  5 &  883
+  \\
+\da &  25 &  8 & 7 &  6 &  572 & 24 & 22 &  712 & ~ &
+\da &  82 &  8 & 1 &  8 &  193 & 25 &  3 &    7
+  \\
+    &  26 &  9 & 6 &  4 &   81 &  6 &  7 &  123 & ~ &
+    &  83 &  9 & 7 &  5 &  786 &  6 & 11 &  498
+  \\
+\da &  27 & 10 & 4 & 12 &  957 & 17 &  4 &  327 & ~ &
+\da &  84 & 10 & 4 & 14 &  582 & 17 &  8 &  702
+  \\
+    &  28 & 11 & 5 & 10 &  466 & 28 &  1 &  531 & ~ &
+    &  85 & 11 & 3 & 12 &   91 & 28 &  9 &  906
+  \\
+    &  29 & 12 & 6 & 19 &  262 &  9 &  9 & 1022 & ~ &
+    &  86 & 12 & 7 & 20 &  967 &  9 & 14 &   17
+  \\
+\da &  30 & 13 & 4 &  4 &   58 & 20 &  7 &  146 & ~ &
+\da &  87 & 13 & 5 &  5 &  763 & 20 & 11 &  521
+  \\
+    &  31 & 14 & 3 &  1 &  647 &  1 & 18 &  637 & ~ &
+    &  88 & 14 & 4 &  3 &  272 &  1 & 22 & 1012
+  \\
+    &  32 & 15 & 7 & 10 &  443 & 12 & 12 &  841 & ~ &
+    &  89 & 15 & 1 & 12 &   68 & 12 & 17 &  136
+  \\
+\da &  33 & 16 & 4 & 19 &  239 & 23 &  9 & 1045 & ~ &
+\da &  90 & 16 & 5 & 20 &  944 & 23 & 14 &  340
+  \\
+    &  34 & 17 & 3 & 16 &  828 &  4 & 18 &  456 & ~ &
+    &  91 & 17 & 4 & 18 &  453 &  4 & 22 &  111
+  \\
+    &  35 & 18 & 1 &  1 &  624 & 15 & 15 &  661 & ~ &
+    &  92 & 18 & 2 &  3 &  249 & 15 & 19 & 1035
+  \\
+\da &  36 & 19 & 5 & 10 &  410 & 26 & 12 &  864 & ~ &
+\da &  93 & 19 & 6 & 12 &   45 & 26 & 17 &  159
+  \\
+    &  37 &  1 & 4 &  7 & 1009 &  7 & 21 &  275 & ~ &
+    &  94 &  1 & 5 &  9 &  634 &  8 &  1 &  650
+  \\
+\da &  38 &  2 & 1 & 16 &  805 & 18 & 18 &  479 & ~ &
+\da &  95 &  2 & 2 & 18 &  430 & 18 & 22 &  854
+  \\
+    &  39 &  3 & 7 & 14 &  314 &  0 &  2 &  970 & ~ &
+    &  96 &  3 & 1 & 15 & 1019 &  0 &  7 &  265
+  \\
+    &  40 &  4 & 4 & 23 &  110 & 11 &  0 &   94 & ~ &
+    &  97 &  4 & 6 &  0 &  815 & 11 &  4 &  469
+  \\
+\da &  41 &  5 & 2 &  7 &  986 & 21 & 21 &  298 & ~ &
+\da &  98 &  5 & 3 &  9 &  611 & 22 &  1 &  673
+  \\
+    &  42 &  6 & 1 &  5 &  495 &  3 &  5 &  781 & ~ &
+    &  99 &  6 & 2 &  7 &  120 &  3 & 10 &   84
+  \\
+    &  43 &  7 & 5 & 14 &  291 & 14 &  2 &  993 & ~ &
+    & 100 &  7 & 6 & 15 &  996 & 14 &  7 &  228
+  \\
+\da &  44 &  8 & 2 & 23 &   87 & 25 &  0 &  117 & ~ &
+\da & 101 &  8 & 4 &  0 &  792 & 25 &  4 &  492
+  \\
+    &  45 &  9 & 1 & 20 &  676 &  6 &  8 &  608 & ~ &
+    & 102 &  9 & 2 & 22 &  401 &  6 & 12 &  983
+  \\
+\da &  46 & 10 & 6 &  5 &  472 & 17 &  5 &  812 & ~ &
+\da & 103 & 10 & 7 &  7 &   93 & 17 & 10 &  107
+  \\
+    &  47 & 11 & 5 &  2 & 1061 & 28 &  2 & 1016 & ~ &
+    & 104 & 11 & 5 &  4 &  686 & 28 &  7 &  311
+  \\
+    &  48 & 12 & 2 & 11 &  857 &  9 & 11 &  427 & ~ &
+    & 105 & 12 & 3 & 13 &  482 &  9 & 15 &  802
+  \\
+\da &  49 & 13 & 6 & 20 &  653 & 20 &  8 &  631 & ~ &
+\da & 106 & 13 & 7 & 22 &  278 & 20 & 12 & 1006
+  \\
+    &  50 & 14 & 5 & 18 &  162 &  1 & 20 &   42 & ~ &
+    & 107 & 14 & 6 & 19 &  867 &  2 &  0 &  417
+  \\
+    &  51 & 15 & 3 &  2 & 1034 & 12 & 14 &  246 & ~ &
+    & 108 & 15 & 4 &  4 &  663 & 12 & 18 &  621
+  \\
+\da &  52 & 16 & 7 & 11 &  834 & 23 & 11 &  450 & ~ &
+\da & 109 & 16 & 1 & 13 &  459 & 23 & 15 &  825
+  \\
+    &  53 & 17 & 6 &  9 &  343 &  4 & 19 &  941 & ~ &
+    & 110 & 17 & 7 & 10 & 1048 &  5 &  0 &  236
+  \\
+    &  54 & 18 & 3 & 18 &  139 & 15 & 17 &   65 & ~ &
+    & 111 & 18 & 4 & 19 &  844 & 15 & 21 &  440
+  \\
+\da &  55 & 19 & 1 &  2 & 1015 & 26 & 14 &  269 & ~ &
+\da & 112 & 19 & 2 &  4 &  644 & 26 & 18 &  644
+  \\
+    &  56 &  1 & 7 &  0 &  524 &  7 & 22 &  760 & ~ &
+    & 113 &  1 & 1 &  2 &  149 &  8 &  3 &   55
+  \\
+\da &  57 &  2 & 4 &  9 &  320 & 18 & 19 &  964 & ~ &
+\da & 114 &  2 & 5 & 10 & 1025 & 19 &  0 &  259
+  \\
+\end{longtable}
+\endgroup

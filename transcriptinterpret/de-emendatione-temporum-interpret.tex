@@ -16,8 +16,9 @@
 
 %%% Geometry package to make the margins better match the original
 %% use [showframe] to show the frames
-%\usepackage[top=18mm, bottom=55mm, inner=24mm, outer=38mm]{geometry}
-\usepackage[showframe]{geometry}
+%% lines=nn reduces 'Underfull \vbox' messages by making \textheight match
+%% an integer number of lines.
+\usepackage[showframe,lines=42]{geometry}
 
 %%% Allow generation of pseudo-latin body text for testing
 %% Optional parameter [x-y] where x and y are numbers: generate paragraph
@@ -35,17 +36,8 @@
 %%  Put Chapters/Sections/Subsections in the Table of Contents
 \setcounter{tocdepth}{3}
 
-%%% Allow the text to flow around tables and figures.
-%% (Must load before bidi package, i.e. before polyglossia package)
-% We might need this for chapters with actual figures (in contrast to just
-% dropcaps)
-\usepackage{wrapfig}
-
 \usepackage{fontspec} % Openfont specifications for XeTeX;
 % fontspec automatically loads xltxtra and xunicode, both of which are needed.
-% Though using \vfrac{}{} (part of xltxtra) without explicit loading of
-% xltxtra does not work.
-\usepackage{xltxtra}
 
 %%% Numerical fractions
 %% Supplies the \sfrac{<num>}[<separator>]{<denom>} command
@@ -90,6 +82,7 @@
 
 %%% Add a font that supports Hebrew
 \newfontfamily\hebrewfont{Arial Hebrew}
+%\newfontfamily\hebrewfont{SBL Hebrew}
 
 %%% Add a font that supports Arabic
 \newfontfamily\arabicfont{Arial Unicode MS}
@@ -101,46 +94,6 @@
 
 %%% Add a font for the references to line numbers in the original
 \newfontfamily\nrfont{Helvetica}
-
-%%% Dummy Command to make header of any size
-%% use: head{<scalesize>}{<spacing>}{<text>}
-%% <scalesize> is a sizefactor relative to normal size
-%% <spacing> is the LetterSpace parameter
-\newcommand\head[3]{}
-
-%%% Commands to number paragraphs
-%% http://tex.stackexchange.com/questions/10513/automatically-assign-a-number-to-every-paragraph
-%% get marginpars to always show up on the correct side (need to compile twice)
-\usepackage{mparhack}
-
-%% No indent on paragraphs, because we make a paragraph out of each sentence.
-%\setlength\parindent{0cm}
-
-%% Command \parnum to format the paragraph counter number
-%% (in bold, arabic numbers)
-\newcommand\parnum{%
-    \bfseries\footnotesize\arabic{parcount}%
-}
-
-%% Special paragraph counter which resets with every 'subject'
-%% (represented as a subsection)
-\newcounter{parcount}[subsection]
-
-%% Command for an isolated paragraph counter mark
-%% Useful e.g. for big, multi-paragraph spanning Initials
-\newcommand\p{%
-%    \stepcounter{parcount}%
-%    \leavevmode\marginpar[\hfill\parnum]{\parnum}%
-}
-
-%% Define an environment to use in the source.
-\newenvironment{parnumbers}{%
-%    \par%
-%    \everypar{%
-%        \stepcounter{parcount}%
-%        \leavevmode\marginpar[\hfill\parnum]{\parnum}%
-%    }%
-}{}
 
 %%% Commands to refer to line numbers in the original
 %% Each beginning of a sentence is marked with the line number in the original
@@ -185,19 +138,16 @@
 	\nrfont(\Roman{sourcepagenr}:{{#3}})~\normalfont%
 }
 
-%% Our own cookup to put letters in the margin to indicate quarters of a
-%% page (A-D) as used in the original.
-%% Uses mparhack.
-%% Because of limitations of \marginpar{} the margin letters must go
-%% on the same side as the paragraph numbers. We put them a bit further
-%% away from the body text to make them more distinct.
-\newcommand\mletter[1]{}
-
-%%% No drop caps (illuminated initial letters)
-%% Dummy commands that just print the text
-\newcommand\dropcap[3]{{#2}{#3}}
-\newcommand\dropcapQ[3]{{#2}{#3}}
-\newcommand\dropcapil[3]{{#2}{#3}}
+%% Command \setpnrs{PDFpage}{page}
+%% Register and the PDF page number and the source page number
+%% Do not print the page number and line number.
+%% To be used when a new page has begun but it is impractical to
+%% use \plnr{}{}{}, e.g. when there is a section header or a tabel at the top
+%% Can be followed by a \plnr{}{}{} later on the page
+\newcommand{\setpnrs}[2]{%
+	\setcounter{pdfpagenr}{{#1}}%
+	\setcounter{sourcepagenr}{{#2}}%
+}
 
 %%% Show numerical fractions.
 %% Usage: \myfrac{<num>}{<den>}
@@ -224,7 +174,6 @@
 %% Used e.g. in tables p027 and p034
 \newcommand{\altsep}{\slash{}}
 
-
 %%% Parbox column header \ch{sizetext}{\desiredfontsize{text}}
 %% Puts a column header inside a parbox so it can be split over multiple lines
 %% The first parameter usually the entry in the column which is the widest.
@@ -234,6 +183,46 @@
 \newlength{\cw}
 %
 \newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
+
+% \ruleover{string}
+% \ruleover[scale]{string}
+% Command to put a rule (line) over a given string.
+% The string is shrunk to 0.75 of its original size and the rule will
+% be draw at the original height of the string. An alternative scale
+% factor can be given as an optional parameter.
+% Scales outside the range 0.5..1.0 do not look nice.
+% Uses graphicx package
+\makeatletter
+\newlength{\ROver@width} % width of the string
+\newlength{\ROver@height} % height of the string
+\newlength{\ROver@thick} % thickness of the line
+\newcommand{\ruleover}[2][0.75]{%
+  \settoheight{\ROver@height}{#2}% Get height of original text
+  \settowidth{\ROver@width}{#2}% Get width of original text
+  \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
+  \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
+  \setlength{\ROver@height}{#1\ROver@height}% Calculate shrunken height
+  \makebox[0pt][l]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \rule[1.3333\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
+}
+\makeatother
+
+%% Define Greek Number command using \ruleover{} with default scaling
+\newcommand{\gnum}[1]{\ruleover{#1}}
+
+%% Greek Number command with extra parameter for scaling
+\newcommand{\gnums}[2]{\ruleover[#1]{#2}}
+
+%% Superscript outside of math mode
+%% '\super' became unavailable after TeX Live 2017 update, so we define it here
+\newcommand{\super}[1]{\textsuperscript{#1}}
+
+%%% Command for em dash
+%% We could use a litteral unicode em-dash (—), but that is hard to distinguish
+%% from other dashes in the source code.
+%% We could also use the LaTeX command "\textemdash", but that is a bit verbose
+%% The TeX "---" code does not work in all fonts (particularly our Greek font).
+\newcommand{\emd}{—}
 
 %%% Booktabs package for nice looking tables
 \usepackage{booktabs}
@@ -271,9 +260,17 @@
 %% In other words: this file.
 \graphicspath{{./img/}}
 
+%%% Command to get a "Pars" entry in the ToC
+\newcommand{\pars}[1]{%
+	\addcontentsline{toc}{chapter}{\numberline{}#1}%
+}
+
 %%% Give Table of Contents the same name as in the original
-\renewcommand{\contentsname}{Conspectus omnium capitum}
-% === Does not appear to work
+\addto\captionslatin{\renewcommand{\contentsname}{Conspectus omnium capitum}}
+% "\addto\captionslatin" part is required because we use the polyglossia package
+
+%%% What are usually chapters are called "Liber" here
+\addto\captionslatin{\renewcommand{\chaptername}{Liber}}
 
 %%% Pre-define a string to use in the left-page header
 \newcommand{\shorttitle}{De Emendatione Temporum}
