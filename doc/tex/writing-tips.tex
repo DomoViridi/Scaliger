@@ -778,6 +778,19 @@ To ensure a uniform style and rendition of these tables, several techniques
 have been developed.
 
 %--
+\subsection{booktabs}
+For a better and more uniform appearance of the tables we use the
+\verb+booktabs+ package. This features (among others) the
+\verb+\toprule+, \verb+\midrule+ and \verb+\bottomrule+ commands.
+We also follow the rules given in the \verb+booktabs+ documentation, namely:
+\begin{enumerate}
+\item Never use vertical rules
+\item Never use double rules
+\end{enumerate}
+This is quite different from the tables Scaliger uses.
+Nevertheless we will stick to them.
+
+%--
 \subsection{Naming scheme and testing}
 The body of each table is contained in a file in the "table" subdirectory.
 The name of each file has the form \verb+nnn_name_with_underscores+, where
@@ -840,18 +853,21 @@ The system seems to often prefer "Page" mode, even when "Top" mode is prefered
 and possible. To force "Top" mode in these cases, leave out the \verb+p+ code.
 However, do not do this for tables which take up more than 2/3 of the page.
 
-%--
-\subsection{booktabs}
-For a better and more uniform appearance of the tables we use the
-\verb+booktabs+ package. This features (among others) the
-\verb+\toprule+, \verb+\midrule+ and \verb+\bottomrule+ commands.
-We also follow the rules given in the \verb+booktabs+ documentation, namely:
-\begin{enumerate}
-\item Never use vertical rules
-\item Never use double rules
-\end{enumerate}
-This is quite different from the tables Scaliger uses.
-Nevertheless we will stick to them.
+%==
+\subsection{Column alignment}
+Use the following general rules for the alignment of the columns,
+as passed to the \verb+\tabular+ or \verb+\longtable+ command:
+\begin{itemize}
+\item Text should be left aligned (right aligned for right-to-left scripts).
+\item Very short text can be centred
+\item Numbers should be right aligned
+\item Short numbers can be centred, but use padding with \verb+~+ for missing
+leading digits. (\verb+~8+ \verb+~9+ \verb+10+ \verb+11+.)
+\item For dates (such as "15 Martii") use two columns with the code
+\verb+r@{~}l+.
+This will make the separation between the day and the month line up
+over all rows.
+\end{itemize}
 
 To make the horizontal rules stick out less, put a \verb+@{}+ at the beginning
 and the end of the list of column alignment descriptors, e.g.
@@ -859,7 +875,7 @@ and the end of the list of column alignment descriptors, e.g.
 \begin{longtable}[c]{@{}r  c  c  c  c  r@{~}l l l l l@{}}
 \end{verbatim}
 
-%--
+%==
 \subsection{Titles}
 If a title is written above the table in the original then put it over the
 table using:
@@ -878,7 +894,7 @@ The second line is of course only needed for long titles.
 If there is no title given in the original, simply put a \verb+\toprule+
 as the first line in the table.
 
-%%--
+%%==
 \subsection{Column headers}
 It is advised to define commands for setting the font size for column headers.
 That way the font size of all columns can be changed in one go by adjusting
@@ -899,11 +915,11 @@ This puts the header text in a \verb+parbox+ with a ragged right.
 The width of the parbox is set to the width of the \verb+sample string+
 parameter.
 The system will try to split \verb+header text+ into lines to fit
-the width of the box. Use:
+the width of the box. Use something like:
 \begin{verbatim}
 	\ch{sample}{\hsb{Header for this column}}
 \end{verbatim}
-where the \verb+sample+ is the widest column entry, or:
+where the \verb+sample+ represents the widest column entry, or something like:
 \begin{verbatim}
 	\hsb{\ch{Character ann}{Character annorum collectorum}}
 \end{verbatim}
@@ -914,8 +930,8 @@ if the width of the box is suitable.
 
 Put a \verb+\midrule+ below the headers.
 
-%%=
-\subsubsection{Multi-level column headers}
+%%==
+\subsection{Multi-level column headers}
 In some tables columns are grouped together, with an extra header over
 the the group of columns and their headers.
 See for example
@@ -961,8 +977,8 @@ Example from \verb+105_mensium_iudaicorum.tex+:
 \midrule
 \end{verbatim}
 
-%%=
-\subsubsection{Vertical or slanted headers}
+%%==
+\subsection{Vertical or slanted headers}
 Big tables with many columns will often have little room for the column headers.
 Schaliger will frequently write headers vertically.
 Try to avoid using vertical headers as much as possible.
@@ -970,15 +986,20 @@ For those cases where it is unavoidable, we use the \verb+rotating+ package.
 This package provides the \verb+rotate+ and \verb+turn+ environments.
 Use 
 \begin{quote}
-\verb+\begin{rotate}{75}...\end{rotate}+
+\verb+\begin{rotate}{\ang}...\end{rotate}+
 \end{quote}
 for all headers you want to rotate except the rightmost.
-(75 is the amount of rotation, in degrees) 
 For the rightmost header use
 \begin{quote}
-\verb+\begin{turn}{75}...\hspace*{3em}\end{turn}+
+\verb+\begin{turn}{\ang}...\hspace*{3em}\end{turn}+
 \end{quote}
-
+The amount of rotation is in degrees, and for flexibility you should define
+a \verb+\ang+ command:
+\begin{quote}
+\verb+\newcommand{\ang}{60}+
+\end{quote}
+Preferred values for the rotation are 60 degrees and 75 degrees.
+For a vertical header use 90 degrees.
 
 The \verb+rotate+ environment allows for overlap of the boxes occupied by
 the adjacent headers (and anything above it).
@@ -992,23 +1013,7 @@ bleed over, but without creating too much white space above the headers.
 The star (\verb+*+) in the command is required to make it have effect at
 the end of the line (i.e. the end of the column header).
 
-%--
-\subsection{Column alignment}
-Use the following general rules for the alignment of the columns:
-\begin{itemize}
-\item Numbers should be right aligned
-\item Short numbers can be centred, but use padding with \verb+~+ for missing
-leading digits.
-\item Text should be left aligned (right aligned for right-to-left scripts).
-\item Very short text can be centred
-\item For dates (such as "15 Martii") use two columns with the code
-\verb+r@{~}l+.
-This will make the separation between the day and the month line up
-over all rows.
-\end{itemize}
-
-
-%--
+%==
 \subsection{Long tables}
 For tables which are too large to fit on one page we use the \verb+longtable+
 package.
