@@ -186,21 +186,19 @@ We may even change our mind and go for a smooth running translation.
 %%=====
 \chapter{How Scaliger divided his book}
 The book is divided into Liberi which are in turn divided into subjects of
- a few pages each. Some books are divided into Partes, some are not.
- Each Liber or Pars begins with an introduction before the first subject starts. 
- Titles of the Liberi and Partes are usually only given in the table of
- contents, not in the body of the text. Though the parts are mentioned in the
- Table of Contents, they are not marked in the body of the text.
- If the Pars has a title, than sometimes that title is in the body of the text,
- just before and slightly bigger than the title of the first subject in that
- Pars, but sometimes it is not in the body. Partes do not start on a new page.
- Liberi usually do. Sometimes (e.g. Liber Quartus) the title of the first
- subject which was mentioned in the ToC is missing from the body text.
-~
-\\
-\\
+a few pages each. Some books are divided into Partes, some are not.
+Each Liber or Pars begins with an introduction before the first subject starts. 
+Titles of the Liberi and Partes are usually only given in the table of
+contents, not in the body of the text. Though the parts are mentioned in the
+Table of Contents, they are not marked in the body of the text.
+If the Pars has a title, than sometimes that title is in the body of the text,
+just before and slightly bigger than the title of the first subject in that
+Pars, but sometimes it is not in the body. Partes do not start on a new page.
+Liberi usually do. Sometimes (e.g. Liber Quartus) the title of the first
+subject which was mentioned in the ToC is missing from the body text.
+
 The structure goes as follows (numbers on the left are PDF file page numbers;
- even numbers are right-hand pages):
+even numbers are right-hand pages):
 
 \begin{description}
 \item[16] Title page (1 page + blank verso)
@@ -277,7 +275,7 @@ For the transcription we can equate the subdivisions as follows:
  which inserts the Pars text in the body (optional) and the ToC
  (\verb+\addcontentslline+, in the Section style). Or maybe create a special
   kind of Chapter that has a Parts thing between Chapter and Section.
-\item The bits before Primus Liber will go in the LaTeX Top matter, and be
+\item The bits before Primus Liber will go in the LaTeX top matter, and be
  preceded by the \verb+\frontmatter+ command.
 \item The Prolegomena is a special Chapter with roman page numbers and
  no entry in the ToC (accomplished with the \verb+\frontmatter+ command).
@@ -377,79 +375,52 @@ in Liber Secundus.
 
 \end{itemize}
 
-%--
+%==
 \subsection{Greek numerals}
 \label{subsec:greek_numerals}
 The original sometimes uses numbers represented by Greek letters
 (e.g. Liber Secundus page 81, PDF 164). To show that it is a number, the
 letters have a bar over them, like this: $\overline{\kappa\delta}$.
 
-For the time being, we use math mode with overline to represent this.
-E.g. the above example is encoded as \verb+$\overline{\kappa\delta}$+.
-The main disadvantage of this method is that math mode uses a different
-font for the greek letters.
+At first we used math mode with overline to represent this.
+E.g. the above example was encoded as \verb+$\overline{\kappa\delta}$+.
+Disadvantages of this method were that math mode uses a different
+font for the greek letters,
+it does not work in certain environments (such as slanted table headers),
+and some Greek characters used for numbers are not available as named
+codes in math mode, namely stigma (nr 6), koppa (nr 90) and sampi (nr 900).
 
-If possible we could set the math mode font to the same font we use in the
-body text. Otherwise we might need to construct a special command which gives
-the same effect as overline, but uses the Greek font we set for the document.
+To solve this problem we constructed a command that has the effect of
+\verb+\overline+ but works outside of math mode.
+\begin{verbatim}
+  \ruleover[scale]{string}
+\end{verbatim}
+This command takes any string, shrinks it down by \verb+scale+ and
+puts a rule over it at 4/3 of the new height.
+The scale parameter can be omitted and defaults to 3/4 (0.75).
+With the default scale the rule appears where the top of the original
+string would be.
 
-\begin{table}[htbp]
-\centering
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{} clc c clc c clc @{} }
-%\toprule
-Greek & Code & Value &&
-Greek & Code & Value &&
-Greek & Code & Value \\
-\cmidrule(r){1-3}\cmidrule(lr){5-7}\cmidrule(l){9-11}
-$\overline\alpha$		& \verb+\alpha+		&   1 &&
-$\overline\iota$		& \verb+\iota+		&  10 &&
-$\overline\rho$			& \verb+\rho+		& 100 \\
-$\overline\beta$		& \verb+\beta+		&   2 &&
-$\overline\kappa$		& \verb+\kappa+		&  20 &&
-$\overline\sigma$		& \verb+\sigma+		& 200 \\
-$\overline\gamma$		& \verb+\gamma+		&   3 &&
-$\overline\lambda$		& \verb+\lambda+	&  30 &&
-$\overline\tau$			& \verb+\tau+		& 300 \\
-$\overline\delta$		& \verb+\delta+		&   4 &&
-$\overline\mu$			& \verb+\mu+		&  40 &&
-$\overline\upsilon$		& \verb+\upsilon+	& 400 \\
-$\overline\epsilon$		& \verb+\epsilon+	&   5 &&
-$\overline\nu$			& \verb+\nu+		&  50 &&
-$\overline\phi$			& \verb+\phi+		& 500 \\
-$\overline\varsigma$	& \verb+\varsigma+	&   6 &&
-$\overline\xi$			& \verb+\xi+		&  60 &&
-$\overline\chi$			& \verb+\chi+		& 600 \\
-$\overline\zeta$		& \verb+\zeta+		&   7 &&
-$\overline o$			& \verb+o+			&  70 &&
-$\overline\psi$			& \verb+\psi+		& 700 \\
-$\overline\eta$			& \verb+\eta+		&   8 &&
-$\overline\pi$			& \verb+\pi+		&  80 &&
-$\overline\omega$		& \verb+\omega+		& 800 \\
-$\overline\theta$		& \verb+\theta+		&   9 &&
-ҁ						& \verb+<koppa>+	&  90 &&
-Ϡ						& \verb+<sampi>+	& 900 \\
-\end{tabular}
-\end{table}
-Notes:
-\begin{itemize}
-\item The number 6 should be represented by the stigma character 'ϛ'.
-Math mode does not support this character, so we use the sigma variant
-(which looks similar) instead.
-\item Math mode does not have a code for the omicron (value 70).
-A small 'o' must be used.
-\item The values 90 and 900 are represented by the koppa and sampi characters
-respectively. These are not part of the math mode and so the \verb+\overline+
-code will not work on them.
-If this becomes a problem we may need to cook our own command after all.
-\end{itemize}
+To apply this command in the document use either of
+\begin{verbatim}
+  \gnum{string}
+  \gnums{scale}{string}
+\end{verbatim}
+The first version is the regular one, and uses the default scale.
+The second version adds the optional scale parameter.
+The default scale is usually the best, but
+sometimes a scale of 1 is more appropriate.
 
-%--
+Note that these commands do not invoke the Greek text environment themselves.
+When using them for Greek numbers, put a \verb+\textgreek{}+ either
+around or inside the command.
+
+
+%==
 \subsection{Putting the right titles in the ToC}
 [Something here about chapter and section headings]
 
-%%---
+%%===
 \section{Common error messages}
 \begin{description}
 \item[Undefined control sequence.] \hfill \\
@@ -480,7 +451,6 @@ without diacriticals will suffice, together with the common interpunction
 characters.
 For the Greek we use the modern 25+24 characters plus the diacriticals
 for the polytonic style.
-\\
 \\
 Some special text must be surrounded by commands:
 \begin{itemize}
@@ -528,7 +498,7 @@ Saturn & U+2644 \\
 \end{center}
 %\end{table}%
 
-\item Roman numerals, such as ''\textsc{vii}''.
+\item Roman numerals, such as ''\texttt{vii}''.
 Enter them as lower case characters, surrounded by the \verb;\rnum{};
 command. This command will show the numeral in small caps,
 with the appropriate spacing.
@@ -538,8 +508,12 @@ the \verb;\textsc{}; command was used. Older parts of the \TeX{} source
 may still use this command. These instances will be replaced eventually.
 
 \item Greek numerals, such as $\overline{\kappa\delta}$ can be entered using
-the overline command in math mode, like this: \verb+$\overline{\kappa\delta}$+.
-For this command the Greek letters need to be spelled out. See section~\ref{subsec:greek_numerals} for details.
+the specially created \verb+\gnum{}+ command,
+like this: \verb+\gnum{+$\kappa\delta$\verb+}+.
+Note that any Greek text needs to be in an environment that 
+allows a Greek font.
+See section~\ref{subsec:greek_numerals} for details.
+
 \item Numbers with fractions:
 \begin{itemize}
 \item Use the \verb+\myfrac{numerator}{denominator}+ command to render fractions.
@@ -594,7 +568,7 @@ These will be converted to modern style,
 	\item "nō" becomes "non"
 	\item "à" becomes "ab"
 	\item "Iulianae" is sometimes written with an 'e' with a cedille underneath
-	 it instead of the 'ae'. E.G. Prolegomena p~\textsc{X}.
+	 it instead of the 'ae'. E.G. Prolegomena p~X.
 	 Same for "Iudaei".
 	\item Occasionally words are shortened using a period. These should be
 	expanded, but for a non-scholar it is hard to find the proper declension
@@ -733,8 +707,19 @@ directly after the command. Correct example:\begin{quote}
 \verb+\lnr{23}Lore ipsum dolor savit+
 \end{quote}
 
+Sometimes printing the page and line number at the point in the source where
+a new page starts in the original is impractical.
+This might be because there is a section header, a quote or a table at the top
+of the page.
+For these cases we have the following command: 
+\begin{itemize}
+\item \verb+\setpnrs{<PDF page>}{<page nr>}}+
+\end{itemize}
+This registers the page numbers without printing anything.
+After using this you can put a \verb+\plnr+ command later on the same page.
+
 %%---
-\section{General guidelines for the \XeLaTeX code}
+\section{General guidelines for the XeLaTeX code}
 The following guidelines are intended to make it easier to compare the
 tex file to the original.
 Note that \LaTeX treats a single newline as if it is a space. This means that
@@ -856,7 +841,8 @@ However, do not do this for tables which take up more than 2/3 of the page.
 %==
 \subsection{Column alignment}
 Use the following general rules for the alignment of the columns,
-as passed to the \verb+\tabular+ or \verb+\longtable+ command:
+by passing the proper choice of '\verb+r+', '\verb+l+' or '\verb+c+'
+ to the \verb+\tabular+ or \verb+\longtable+ command:
 \begin{itemize}
 \item Text should be left aligned (right aligned for right-to-left scripts).
 \item Very short text can be centred
@@ -1029,17 +1015,17 @@ The part before the \verb+\endfirsthead+ command should contain:
 \item A \verb+\toprule+
 \item An addcontents line to put a reference to the first page of the table
 into the List of Tables (LoT), of the form
-\begin{quote}
-\verb+\addcontentsline{lot}{section}{\protect\numberline{\thetable}Title}+
-\end{quote}
+\begin{verbatim}
+  \addcontentsline{lot}{section}{\protect\numberline{\thetable}Title}
+\end{verbatim}
 The \verb+\numberline{\thetable}+ combination will put the number of the
 table into the list, the same way other tables are listed.
 The \verb+\protect+ command prevents an error from using the \verb+\numberline+
 command here.
 \item The table header in the form
-\begin{quote}
-\verb+\multicolumn{n}{c}{\Large\textsc{Tabula ...}}+
-\end{quote}
+\begin{verbatim}
+  \multicolumn{n}{c}{\Large\textsc{Tabula ...}}
+\end{verbatim}
 where \verb+n+ is the total number of columns. Adjust the text size
 (\verb+\Large+ in the example) so the header fits in a line and looks nice.
 \item A \verb+\toprule+ below the header
@@ -1053,9 +1039,9 @@ The part before the \verb+\endhead+ command should contain:
 \begin{itemize}
 \item A \verb+\toprule+
 \item The continuation table header in the form
-\begin{quote}
-\verb+\multicolumn{n}{c}{\Large\textsc{Residuum tabulae ...}}+
-\end{quote}
+\begin{verbatim}
+  \verb+\multicolumn{n}{c}{\Large\textsc{Residuum tabulae ...}}+
+\end{verbatim}
 where \verb+n+ is again the total number of columns.
 The text size
 (\verb+\Large+ in the example) should normally be the same as for the first
@@ -1149,28 +1135,29 @@ appear in a List of Tables/Figures, and can be referred to from within the
 text.
 \item
 Multi-line Greek and Latin quotes, e.g. p. 4, line 21
-can be done with the \verb+quote+ environment.
+can be done with the \verb+verse+ environment.
 \begin{verbatim}
-\begin{quote}
+\begin{verse}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit,\\
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\\
 Ut enim ad minim veniam, quis nostrud exercitation ullamco\\
 laboris nisi ut aliquip ex ea commodo consequat.
-\end{quote}
+\end{verse}
 \end{verbatim}
 Which gives:
-\begin{quote}
+\begin{verse}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit,\\
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\\
 Ut enim ad minim veniam, quis nostrud exercitation ullamco\\
 laboris nisi ut aliquip ex ea commodo consequat.
-\end{quote}
+\end{verse}
 This is nicely indented. New lines must be forced with \verb+\\+.
-Also available are the \verb+quotation+ and \verb+verse+ environments.
+The \verb+verse+ environment is preferred over the \verb+quote+ environment
+as it looks better with these forced newlines.
 
 \item
 The word "poëta/poëtae" is used on page 4, lines 7 and 14. We are not sure
-what to do with the trema. For the time being we write it with the trema.
+what to do with the trema. For the time being we leave the trema as is.
 
 \item
 The image on page 11 (Figure 1.1: Lapis Levinii). We made a cleaned-up copy
@@ -1217,7 +1204,7 @@ the last one to be so.
   \item{}There are Greek abbreviated words in the margin of the table. It is
   hard to see what they say, and hard to find out what they are an abbreviation
   of, and hard to know what they mean. There appear to be only 3 different
-  words. To save space, the were replaced by symbols, with a legend at the
+  words. To save space, they were replaced by symbols, with a legend at the
   end of the table.
   \item{}The columns with numbers were manually padded out in the original.
   In the transcription we get wildly varying widths  because the font we use
