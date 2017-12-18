@@ -186,21 +186,19 @@ We may even change our mind and go for a smooth running translation.
 %%=====
 \chapter{How Scaliger divided his book}
 The book is divided into Liberi which are in turn divided into subjects of
- a few pages each. Some books are divided into Partes, some are not.
- Each Liber or Pars begins with an introduction before the first subject starts. 
- Titles of the Liberi and Partes are usually only given in the table of
- contents, not in the body of the text. Though the parts are mentioned in the
- Table of Contents, they are not marked in the body of the text.
- If the Pars has a title, than sometimes that title is in the body of the text,
- just before and slightly bigger than the title of the first subject in that
- Pars, but sometimes it is not in the body. Partes do not start on a new page.
- Liberi usually do. Sometimes (e.g. Liber Quartus) the title of the first
- subject which was mentioned in the ToC is missing from the body text.
-~
-\\
-\\
+a few pages each. Some books are divided into Partes, some are not.
+Each Liber or Pars begins with an introduction before the first subject starts. 
+Titles of the Liberi and Partes are usually only given in the table of
+contents, not in the body of the text. Though the parts are mentioned in the
+Table of Contents, they are not marked in the body of the text.
+If the Pars has a title, than sometimes that title is in the body of the text,
+just before and slightly bigger than the title of the first subject in that
+Pars, but sometimes it is not in the body. Partes do not start on a new page.
+Liberi usually do. Sometimes (e.g. Liber Quartus) the title of the first
+subject which was mentioned in the ToC is missing from the body text.
+
 The structure goes as follows (numbers on the left are PDF file page numbers;
- even numbers are right-hand pages):
+even numbers are right-hand pages):
 
 \begin{description}
 \item[16] Title page (1 page + blank verso)
@@ -277,7 +275,7 @@ For the transcription we can equate the subdivisions as follows:
  which inserts the Pars text in the body (optional) and the ToC
  (\verb+\addcontentslline+, in the Section style). Or maybe create a special
   kind of Chapter that has a Parts thing between Chapter and Section.
-\item The bits before Primus Liber will go in the LaTeX Top matter, and be
+\item The bits before Primus Liber will go in the LaTeX top matter, and be
  preceded by the \verb+\frontmatter+ command.
 \item The Prolegomena is a special Chapter with roman page numbers and
  no entry in the ToC (accomplished with the \verb+\frontmatter+ command).
@@ -481,7 +479,6 @@ characters.
 For the Greek we use the modern 25+24 characters plus the diacriticals
 for the polytonic style.
 \\
-\\
 Some special text must be surrounded by commands:
 \begin{itemize}
 \item Greek, Hebrew, Arabic and Persian: First enter these as a placeholder,
@@ -528,7 +525,7 @@ Saturn & U+2644 \\
 \end{center}
 %\end{table}%
 
-\item Roman numerals, such as ''\textsc{vii}''.
+\item Roman numerals, such as ''\texttt{vii}''.
 Enter them as lower case characters, surrounded by the \verb;\rnum{};
 command. This command will show the numeral in small caps,
 with the appropriate spacing.
@@ -594,7 +591,7 @@ These will be converted to modern style,
 	\item "nō" becomes "non"
 	\item "à" becomes "ab"
 	\item "Iulianae" is sometimes written with an 'e' with a cedille underneath
-	 it instead of the 'ae'. E.G. Prolegomena p~\textsc{X}.
+	 it instead of the 'ae'. E.G. Prolegomena p~X.
 	 Same for "Iudaei".
 	\item Occasionally words are shortened using a period. These should be
 	expanded, but for a non-scholar it is hard to find the proper declension
@@ -734,7 +731,7 @@ directly after the command. Correct example:\begin{quote}
 \end{quote}
 
 %%---
-\section{General guidelines for the \XeLaTeX code}
+\section{General guidelines for the XeLaTeX code}
 The following guidelines are intended to make it easier to compare the
 tex file to the original.
 Note that \LaTeX treats a single newline as if it is a space. This means that
@@ -856,7 +853,8 @@ However, do not do this for tables which take up more than 2/3 of the page.
 %==
 \subsection{Column alignment}
 Use the following general rules for the alignment of the columns,
-as passed to the \verb+\tabular+ or \verb+\longtable+ command:
+by passing the proper choice of '\verb+r+', '\verb+l+' or '\verb+c+'
+ to the \verb+\tabular+ or \verb+\longtable+ command:
 \begin{itemize}
 \item Text should be left aligned (right aligned for right-to-left scripts).
 \item Very short text can be centred
@@ -1029,17 +1027,17 @@ The part before the \verb+\endfirsthead+ command should contain:
 \item A \verb+\toprule+
 \item An addcontents line to put a reference to the first page of the table
 into the List of Tables (LoT), of the form
-\begin{quote}
-\verb+\addcontentsline{lot}{section}{\protect\numberline{\thetable}Title}+
-\end{quote}
+\begin{verbatim}
+  \addcontentsline{lot}{section}{\protect\numberline{\thetable}Title}
+\end{verbatim}
 The \verb+\numberline{\thetable}+ combination will put the number of the
 table into the list, the same way other tables are listed.
 The \verb+\protect+ command prevents an error from using the \verb+\numberline+
 command here.
 \item The table header in the form
-\begin{quote}
-\verb+\multicolumn{n}{c}{\Large\textsc{Tabula ...}}+
-\end{quote}
+\begin{verbatim}
+  \multicolumn{n}{c}{\Large\textsc{Tabula ...}}
+\end{verbatim}
 where \verb+n+ is the total number of columns. Adjust the text size
 (\verb+\Large+ in the example) so the header fits in a line and looks nice.
 \item A \verb+\toprule+ below the header
@@ -1053,9 +1051,9 @@ The part before the \verb+\endhead+ command should contain:
 \begin{itemize}
 \item A \verb+\toprule+
 \item The continuation table header in the form
-\begin{quote}
-\verb+\multicolumn{n}{c}{\Large\textsc{Residuum tabulae ...}}+
-\end{quote}
+\begin{verbatim}
+  \verb+\multicolumn{n}{c}{\Large\textsc{Residuum tabulae ...}}+
+\end{verbatim}
 where \verb+n+ is again the total number of columns.
 The text size
 (\verb+\Large+ in the example) should normally be the same as for the first
