@@ -32,6 +32,9 @@
 %% Modify distance between rows
 %\renewcommand{\arraystretch}{1.3}
 %%
+% Header text size: bottom row
+\newcommand{\hsb}[1]{\scriptsize{#1}} 
+%
 \begin{tabular}{@{}l c c c c c c@{}}
 \toprule
  \multicolumn{7}{c}{\Large\textsc{Tabula characterismi}}\\
@@ -46,12 +49,12 @@
 \cmidrule(lr){2-4}
 \cmidrule(lr){5-7} 
  ~ &
- \multicolumn{1}{c}{\scriptsize Defectivus} &
- \multicolumn{1}{c}{\scriptsize Ordinarius} &
- \multicolumn{1}{c}{\scriptsize Abundans} &
- \multicolumn{1}{c}{\scriptsize Defectivus} &
- \multicolumn{1}{c}{\scriptsize Ordinarius} &
- \multicolumn{1}{c}{\scriptsize Abundans}
+ \multicolumn{1}{c}{\hsb Defectivus} &
+ \multicolumn{1}{c}{\hsb Ordinarius} &
+ \multicolumn{1}{c}{\hsb Abundans} &
+ \multicolumn{1}{c}{\hsb Defectivus} &
+ \multicolumn{1}{c}{\hsb Ordinarius} &
+ \multicolumn{1}{c}{\hsb Abundans}
 \\
 \midrule
  \textsc{Tisri} &

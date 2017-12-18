@@ -636,7 +636,7 @@ the sentence. E.g. Liber Primus, p 17, line 10 and further.
  especially if followed by an 'i'. The printers used two ligatures which are
  almost identical ('fi' and 'ſi'). In the original (as, indeed, in this
  document if all goes well), the letters in the f-i ligature ('fi') are
- connected at the hight of the crossbar, while in the long s-i ligature ('ſi')
+ connected at the height of the crossbar, while in the long s-i ligature ('ſi')
  they are not connected there.
 \item It appears that sometimes a final 's' in a word is printed as what looks
  like a small question mark. E.g. Prolegomena p.XXIII (PDF p.50) has "Ioſephu?"
@@ -769,6 +769,328 @@ more trouble then their worth. In particular, the text would not start to
 flow until a new paragraph is started. Because we seldom start a new paragraph,
 we would have to start a paragraph on purpose (causing an indent) just for the
 wrapping. We will simply put the figures on their own, without wrapping.
+
+%%---
+\section{Tables}
+Scaliger uses many tables in his book, from very small ones to tables that
+span multiple pages.
+To ensure a uniform style and rendition of these tables, several techniques
+have been developed.
+
+%--
+\subsection{booktabs}
+For a better and more uniform appearance of the tables we use the
+\verb+booktabs+ package. This features (among others) the
+\verb+\toprule+, \verb+\midrule+ and \verb+\bottomrule+ commands.
+We also follow the rules given in the \verb+booktabs+ documentation, namely:
+\begin{enumerate}
+\item Never use vertical rules
+\item Never use double rules
+\end{enumerate}
+This is quite different from the tables Scaliger uses.
+Nevertheless we will stick to them.
+
+%--
+\subsection{Naming scheme and testing}
+The body of each table is contained in a file in the "table" subdirectory.
+The name of each file has the form \verb+nnn_name_with_underscores+, where
+\verb+nnn+ is the three-digit page number (with leading zeroes as required).
+This form ensures that the table files appear in the same order in the
+directory as they do in the book.
+\verb+name_with_underscores+ represents a short version of
+the title of the table, in all lower case
+with underscores for spaces.
+This is for better compatibility with operating
+systems which do no allow diferent letter cases or spaces in their file names.
+
+To quickly develop and test a new table, a \verb+test_table.tex+ file has
+been developped.
+This contains a minimal set of the document preamble, some "Lore ipsum"
+filler text, and an \verb+\include{}+ command to include the table.
+The main advantage of this setup is that compiling the test file (with only
+the one table under test) is a lot faster than re-compiling the whole
+chapter for each time you want to see the result of your changes.
+The test file also allows for experimenting with changes to the preamble
+without affecting the main file.
+
+Once you are satisfied with the result you can copy and paste the inclusion
+code into the chapter file and see how the table looks in the main document.
+
+%--
+\subsection{Including the table in the body text}
+Use the \verb+\begin{table}[htbp]+ - \verb+\end{table}+ combination
+to float the tables (except long tables).
+The letters suggest the location of the table on the page, in order:
+\begin{description}
+\item[h "Here"] Try to put the table at the location of the command.
+Good typography (and presumably the rules of \TeX{}) does this only for very
+small tables (less than 1/3 of the height of the page).
+\item[t "Top"] Try to put the table at the top of a page, with body text
+underneath it.
+Good for tables less than 2/3 the height of the page.
+\item[b "Bottom"] Try to put the table at the bottom of a page, allowing for
+some body text above it.
+Allowable for tables less than 1/2 the height of the page.
+\item[p "Page"] Put the table on a special separate page for tables and figures.
+This should happen to tables which are more than 2/3 of the height of the page.
+\end{description}
+"Here" and "Bottom"
+tables are floated at paragraph breaks.
+Unfortunately the body text of the original
+hardly has any paragraph breaks,
+so these modes will rarely by employed naturally.
+For small tables which you want to be placed in "Here" mode
+it is advised to put a paragraph break (in the form of a blank line)
+right after the \verb+table+ command.
+
+"Top" mode usually works, as this does not require a paragraph break.
+The text is broken off at the end of the previous page as normal,
+the table is put at the top of the page, and the text is continued
+below the table the same way the text would continue at the top of the
+page if the table was not there.
+
+The system seems to often prefer "Page" mode, even when "Top" mode is prefered
+and possible. To force "Top" mode in these cases, leave out the \verb+p+ code.
+However, do not do this for tables which take up more than 2/3 of the page.
+
+%==
+\subsection{Column alignment}
+Use the following general rules for the alignment of the columns,
+as passed to the \verb+\tabular+ or \verb+\longtable+ command:
+\begin{itemize}
+\item Text should be left aligned (right aligned for right-to-left scripts).
+\item Very short text can be centred
+\item Numbers should be right aligned
+\item Short numbers can be centred, but use padding with \verb+~+ for missing
+leading digits. (\verb+~8+ \verb+~9+ \verb+10+ \verb+11+.)
+\item For dates (such as "15 Martii") use two columns with the code
+\verb+r@{~}l+.
+This will make the separation between the day and the month line up
+over all rows.
+\end{itemize}
+
+To make the horizontal rules stick out less, put a \verb+@{}+ at the beginning
+and the end of the list of column alignment descriptors, e.g.
+\begin{verbatim}
+\begin{longtable}[c]{@{}r  c  c  c  c  r@{~}l l l l l@{}}
+\end{verbatim}
+
+%==
+\subsection{Titles}
+If a title is written above the table in the original then put it over the
+table using:
+\begin{verbatim}
+\toprule
+\multicolumn{n}{c}{\Large\textsc{First line of header}}\\
+\multicolumn{n}{c}{\large\textsc{second line of header}}\\
+\toprule
+\end{verbatim}
+where \verb+n+ is the total number of columns.
+This makes the title appear in large size small caps.
+Note the capital \verb+Large+
+on the first line and the small \verb+large+ on the second line.
+The second line is of course only needed for long titles.
+
+If there is no title given in the original, simply put a \verb+\toprule+
+as the first line in the table.
+
+%%==
+\subsection{Column headers}
+It is advised to define commands for setting the font size for column headers.
+That way the font size of all columns can be changed in one go by adjusting
+these commands. E.g.:
+\begin{verbatim}
+\newcommand{\hsa}[1]{\normalsize{#1}} % Header text size: top row
+\newcommand{\hsb}[1]{\scriptsize{#1}} % Header text size: bottom row
+\end{verbatim}
+
+A column header should normally be in a
+\verb+\multicolumn{1}{c}{\hsb{column header}}+
+to centre it.
+
+Column headers might be so wide that the table becomes ungainly, or simply
+too wide for the page.
+For this we supply the \verb+\ch{sample string}{header text}+ command.
+This puts the header text in a \verb+parbox+ with a ragged right.
+The width of the parbox is set to the width of the \verb+sample string+
+parameter.
+The system will try to split \verb+header text+ into lines to fit
+the width of the box. Use something like:
+\begin{verbatim}
+	\ch{sample}{\hsb{Header for this column}}
+\end{verbatim}
+where the \verb+sample+ represents the widest column entry, or something like:
+\begin{verbatim}
+	\hsb{\ch{Character ann}{Character annorum collectorum}}
+\end{verbatim}
+when you want to regulate the width by using part of the header text itself.
+(In both cases, chose between \verb+\hsa+ and \verb+\hsb+ as appropriate.)
+Check the console output for Overfull or Underfull hbox messages to see
+if the width of the box is suitable.
+
+Put a \verb+\midrule+ below the headers.
+
+%%==
+\subsection{Multi-level column headers}
+In some tables columns are grouped together, with an extra header over
+the the group of columns and their headers.
+See for example
+\begin{itemize}
+\item Tabula 1.3: Novilunia in mensibus tetraeterides Graecae
+(\verb+027_novilunia.tex+)
+\item Tabula 2.8: Menses Tetraeterici et Metonici
+(\verb+084a_menses_tetraeterici.tex+)
+\item Tabula 2.18: Characterismi mensium Iudaicorum
+(\verb+105_mensium_iudaicorum.tex+).
+\end{itemize}
+
+Construct these headers row by row.
+Use \verb+\multicolumn{n}{c}{\hsa{group header}}+ to span the group of columns,
+where \verb+n+ stands for the number of columns to span.
+Follow this by a set of \verb+\cmidrule(lr){p-q}+ commands, where the
+\verb+p+ and \verb+q+ represent the start- and endcolumn numbers
+that need to be spanned. The \verb+(lr)+ code shortens the rule on the
+left and right respectively. Use or omit these depending on what looks best.
+Next is another set of headers, this time with a column span of 1:
+\verb+\multicolumn{1}{c}{\hsb{c-header}}+.
+Note the use of \verb+\hsa+ in the first row and \verb+\hsb+ in the second.
+Both rows of headers can use the \verb+\ch+ command to fit verbose headers
+into a narrow space.
+
+Example from \verb+105_mensium_iudaicorum.tex+:
+\begin{verbatim}
+\toprule
+ ~ &
+ \multicolumn{3}{c}{Communis} &
+ \multicolumn{3}{c}{Embolimaeus}
+\\
+\cmidrule(lr){2-4}
+\cmidrule(lr){5-7} 
+ ~ &
+ \multicolumn{1}{c}{\hsb Defectivus} &
+ \multicolumn{1}{c}{\hsb Ordinarius} &
+ \multicolumn{1}{c}{\hsb Abundans} &
+ \multicolumn{1}{c}{\hsb Defectivus} &
+ \multicolumn{1}{c}{\hsb Ordinarius} &
+ \multicolumn{1}{c}{\hsb Abundans}
+\\
+\midrule
+\end{verbatim}
+
+%%==
+\subsection{Vertical or slanted headers}
+Big tables with many columns will often have little room for the column headers.
+Schaliger will frequently write headers vertically.
+Try to avoid using vertical headers as much as possible.
+For those cases where it is unavoidable, we use the \verb+rotating+ package.
+This package provides the \verb+rotate+ and \verb+turn+ environments.
+Use 
+\begin{quote}
+\verb+\begin{rotate}{\ang}...\end{rotate}+
+\end{quote}
+for all headers you want to rotate except the rightmost.
+For the rightmost header use
+\begin{quote}
+\verb+\begin{turn}{\ang}...\hspace*{3em}\end{turn}+
+\end{quote}
+The amount of rotation is in degrees, and for flexibility you should define
+a \verb+\ang+ command:
+\begin{quote}
+\verb+\newcommand{\ang}{60}+
+\end{quote}
+Preferred values for the rotation are 60 degrees and 75 degrees.
+For a vertical header use 90 degrees.
+
+The \verb+rotate+ environment allows for overlap of the boxes occupied by
+the adjacent headers (and anything above it).
+The \verb+turn+ environment reserves the box space for itself.
+Using a single \verb+turn+ will make sure the headers will not bleed into
+whatever is above them.
+This works best if the rightmost header is the longest of them all, but this
+is generaly not the case. To make it longer use the above mentioned
+\verb+\hspace*{}+ command, and adjust the space reserved so the headers no longer
+bleed over, but without creating too much white space above the headers.
+The star (\verb+*+) in the command is required to make it have effect at
+the end of the line (i.e. the end of the column header).
+
+%==
+\subsection{Long tables}
+For tables which are too large to fit on one page we use the \verb+longtable+
+package.
+Long tables should \emph{not} be surrounded by a
+\verb+\begin{table}[htbp]+ - \verb+\end{table}+ combination.
+To replace this combo and keep any settings and changes local to this table,
+surround it with a \verb+\begingroup+ - \verb+\endgroup+ combination.
+
+%-
+\subsubsection{First header}
+The part before the \verb+\endfirsthead+ command should contain:
+\begin{itemize}
+\item A \verb+\toprule+
+\item An addcontents line to put a reference to the first page of the table
+into the List of Tables (LoT), of the form
+\begin{quote}
+\verb+\addcontentsline{lot}{section}{\protect\numberline{\thetable}Title}+
+\end{quote}
+The \verb+\numberline{\thetable}+ combination will put the number of the
+table into the list, the same way other tables are listed.
+The \verb+\protect+ command prevents an error from using the \verb+\numberline+
+command here.
+\item The table header in the form
+\begin{quote}
+\verb+\multicolumn{n}{c}{\Large\textsc{Tabula ...}}+
+\end{quote}
+where \verb+n+ is the total number of columns. Adjust the text size
+(\verb+\Large+ in the example) so the header fits in a line and looks nice.
+\item A \verb+\toprule+ below the header
+\item The column headers
+\item A \verb+\midrule+
+\end{itemize}
+
+%-
+\subsubsection{Following headers}
+The part before the \verb+\endhead+ command should contain:
+\begin{itemize}
+\item A \verb+\toprule+
+\item The continuation table header in the form
+\begin{quote}
+\verb+\multicolumn{n}{c}{\Large\textsc{Residuum tabulae ...}}+
+\end{quote}
+where \verb+n+ is again the total number of columns.
+The text size
+(\verb+\Large+ in the example) should normally be the same as for the first
+header.
+Because this header is usually longer, you may need to make this header one
+size smaller.
+\item A \verb+\toprule+ below the header
+\item The column headers
+\item A \verb+\midrule+
+\end{itemize}
+
+%-
+\subsubsection{Footers}
+The part before the \verb+\endfoot+ command should contain:
+\begin{itemize}
+\item A \verb+\bottomrule+
+\item A legendum for any substitution symbols used in the table,
+such as \super† and \super‡.
+Precede these with an \verb+\addlinespace+ to separate them from the bottom
+rule.
+\end{itemize}
+
+%-
+\subsubsection{Last footer}
+The part before the \verb+\endlastfoot+ command should contain:
+\begin{itemize}
+\item A The same as what went before \verb+\endfoot+.
+\item An \verb+\addlinespace+
+\item A \verb+\caption[]{...}+ command to put the title of the table below it.
+The square brackets (\verb+[]+) prevent this command from adding to the List
+of Tables. That entry is handled in the First Header.
+\item A \verb+\label{tab:...}+ command to make it possible to refer to this
+table from the body text.
+\end{itemize}
+
 
 %%====
 \chapter{Specific issues per chapter}
