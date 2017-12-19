@@ -1,0 +1,74 @@
+%%% Liber II p133, PDF 216
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+{
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{2.0pt}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{0.85}
+%% Size of header text
+\newcommand{\hts}{\tiny}
+%% Width of a column
+\newcommand{\cwd}{3em}
+%
+\newcommand{\da}{\scriptsize{†}}
+%%
+\begin{tabular}{@{} c c *{13}{c} @{}}
+\toprule
+\multicolumn{15}{c}{\Large\textsc{Laterculum neomeniae mensium}} \\
+\multicolumn{15}{c}{\large\textsc{ex qualitate anni}} \\
+\toprule
+  \hts{\parbox[b]{\cwd}{\raggedright Cha\-rac\-ter an\-ni}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Qua\-li\-tas an\-ni}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Tisri}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Mar\-ches\-wan}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Chas\-lev}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Te\-beth}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Sche\-bath}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Adar embol.}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Adar ordinar}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Nisan}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Iiar}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Siwan}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Tha\-mus}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Ab}} &
+  \hts{\parbox[b]{\cwd}{\raggedright Elul}}
+\\
+\midrule
+\multicolumn{15}{c}{Communes anni}\\
+\midrule
+ 1 & A & 2 & 4 & 6 & 1 & 2 & ~ & 4 & 5 & 7 & 1 & 3 & 4 & 6 \\
+ 2 & O & 5 & 7 & 1 & 3 & 4 & ~ & 6 & 7 & 2 & 3 & 5 & 6 & 1 \\
+ 3 & A & 7 & 2 & 4 & 6 & 7 & ~ & 2 & 3 & 5 & 6 & 1 & 2 & 4 \\
+ 4 & D & 2 & 4 & 5 & 6 & 7 & ~ & 4 & 3 & 5 & 6 & 1 & 2 & 4 \\
+ 5 & O & 3 & 5 & 6 & 1 & 2 & ~ & 4 & 5 & 7 & 1 & 3 & 4 & 6 \\
+ 6 & D & 7 & 2 & 3 & 4 & 5 & ~ & 7 & 1 & 3 & 4 & 6 & 7 & 2 \\
+ 8 & A & 5 & 7 & 2 & 4 & 5 & ~ & 7 & 1 & 3 & 4 & 6 & 7 & 2 \\
+\midrule
+\multicolumn{15}{c}{Embolimaei anni}\\
+\midrule
+ 1 & A & 2 & 4 & 6 & 1 & 2 & 4 & 6 & 7 & 2 & 3 & 5 & 6 & 1 \\
+ 3 & A & 7 & 2 & 4 & 6 & 7 & 2 & 4 & 5 & 7 & 1 & 3 & 4 & 6 \\
+ 4 & D & 2 & 4 & 5 & 6 & 7 & 2 & 4 & 5 & 7 & 1 & 3 & 4 & 6 \\
+ 5 & O & 3 & 5 & 6 & 1 & 2 & 4 & 6 & 7 & 2 & 3 & 5 & 6 & 1 \\
+ 6 & D & 7 & 2 & 3 & 4 & 5 & 7 & 2 & 3 & 5 & 6 & 1 & 2 & 4 \\
+ 2 & A & 3 & 5 & 7 & 2 & 3 & 5 & 7 & 1 & 3 & 4 & 6 & 7 & 2 \\
+ 8 & A & 5 & 7 & 2 & 4 & 5 & 7 & 2 & 3 & 5 & 6 & 1 & 2 & 4 \\
+\bottomrule
+\end{tabular}
+%
+\caption{Neomeniae mensium ex qualitate anni}
+\label{tab:p133}
+%
+}
