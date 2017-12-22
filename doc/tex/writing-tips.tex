@@ -850,6 +850,21 @@ The system seems to often prefer "Page" mode, even when "Top" mode is prefered
 and possible. To force "Top" mode in these cases, leave out the \verb+p+ code.
 However, do not do this for tables which take up more than 2/3 of the page.
 
+%=
+\subsubsection{Longtables}
+The longtable file should be included (using the \verb+\input+ command)
+ without the \verb+table+ environment.
+The table will begin at the point where the table file is included.
+
+\textbf{Important:} Due to a bug in the \verb+longtable+ package there
+\emph{must} be a blank line before the \verb+\longtable+ command.
+Otherwise the preceding paragraph will be affected in strange ways.
+
+There is another bug in \verb+longtable+ which shows when the table starts
+near the bottom of a page. This may cause a header for a continuation page
+to appear before the header for the first page.
+This may be worked around by shifting the point where the table starts.
+
 %==
 \subsection{Lead-in}
 Before the start of the table itself, some common elements are usually
