@@ -425,12 +425,23 @@ around or inside the command.
 \begin{description}
 \item[Undefined control sequence.] \hfill \\
 A common or normal command such as \verb;\chapter;
-is not recognised. You attempted to compile a source file meant for inclusion. Compile the root file (the one that has the \verb;\documentclass{}; command in it) instead. Often happens by pressing the TeXShop \texttt{Typeset} button in the window you are entering text in. Open the window with the root document and hit \texttt{Typeset} there.
+is not recognised.
+You attempted to compile a source file meant for inclusion.
+Compile the root file (the one that has the \verb;\documentclass{}; command
+in it) instead.
+Often happens by pressing the TeXShop \texttt{Typeset} button in the window
+you are entering text in.
+Open the window with the root document and hit \texttt{Typeset} there.
 
 \item[Misplaced alignment tab character \&.] \hfill \\
 You forgot to escape the ampersand (\&) with a backslash, like so: \verb;\&;.
 The program expects the ampersand to be part of a table definition.
 Note that an ampersand should almost always be transliterated as 'et'.
+
+\item[Extra alignment tab has been changed to \textbackslash{}cr] \hfill \\
+There are more items in a row of a table than were defined in the
+\verb+\tabular+ (or \verb+\longtable+) command.
+
 \end{description}
 
 
