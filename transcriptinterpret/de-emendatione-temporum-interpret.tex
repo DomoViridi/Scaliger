@@ -88,12 +88,12 @@
 %%% Add a font for the references to line numbers in the original
 \newfontfamily\nrfont{Helvetica}
 
-%% Command to set numbers to non-proportional
+%% Environment to set numbers to non-proportional
 %% Useful for tables
 %% Put inside { and } to keep the effect local
 % Oddly, commands for Hoefler Text appear to be inverted
 % "Proportional" sets to Monospaced, while "Monospaced" sets to Proportional
-\newcommand{\tabnums}{\addfontfeature{Numbers={Proportional}}}
+\newenvironment{tabnums}{\addfontfeature{Numbers={Proportional}}}{}
 
 
 %%% Commands to refer to line numbers in the original
