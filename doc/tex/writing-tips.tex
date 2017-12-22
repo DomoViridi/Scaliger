@@ -851,6 +851,22 @@ and possible. To force "Top" mode in these cases, leave out the \verb+p+ code.
 However, do not do this for tables which take up more than 2/3 of the page.
 
 %==
+\subsection{Lead-in}
+Before the start of the table itself, some common elements are usually
+added in the table file:
+\begin{itemize}
+\item Put the whole thing in a \verb+tabnums+ environment.
+This will select the \verb+Number=Monospaced+ mode of the current font.
+Numbers where each digit has the same width make a table look a lot better.
+\item Select a general font size (\verb+\normalsize+, \verb+\small+,
+\verb+\footnotesize+ etcetera).
+\item Optionally modify the separation between columns with
+\verb+\setlength{\tablecolsep}{<size>}+.
+\item Optionally modify the distance between rows with
+\verb+\renewcommand{\arraystretch}{0.85}+.
+\end{itemize}
+
+%==
 \subsection{Column alignment}
 Use the following general rules for the alignment of the columns,
 by passing the proper choice of '\verb+r+', '\verb+l+' or '\verb+c+'
