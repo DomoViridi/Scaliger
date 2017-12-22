@@ -4,6 +4,7 @@
 % 000000011111111112222222222333333333344444444445555555555666666666677777777778
 % 345678901234567890123456789012345678901234567890123456789012345678901234567890
 %
+\begin{tabnums} % Select monospaced numbers
 %% Select a general font size (uncomment one from the list)
 %\tiny
 %\scriptsize
@@ -16,17 +17,19 @@
 %\setlength{\tabcolsep}{3pt}
 %% Modify distance between rows
 %\renewcommand{\arraystretch}{1.3}
+%% Size of header text
+\newcommand{\hts}{\scriptsize}
+%% Width of a column
+\newcommand{\cwd}{3em}
 %%
-\begin{tabular}{@{}c c c@{} }
+\begin{tabular}{@{}c c r@{} }
 \toprule
-\multicolumn{3}{c}{\Large\textsc{Tabella Characterismi Periodorum}}\\
+\multicolumn{3}{c}{\Large\textsc{Tabella}}\\
+\multicolumn{3}{c}{\large\textsc{characterismi}}\\
+\multicolumn{3}{c}{\large\textsc{periodorum}}\\
 \toprule
-\multicolumn{1}{c}{Enneadeca-} &
-\multicolumn{1}{c}{Character} &
-\multicolumn{1}{c}{~}
-\\
-\multicolumn{1}{c}{eterides} &
-\multicolumn{1}{c}{Enneadec.} &
+\hts{\ch{Enneadeca}{En\-nea\-de\-ca\-e\-te\-ri\-des}} &
+\hts{\ch{Enneadec.}{Cha\-rac\-ter En\-nea\-dec.}} &
 \multicolumn{1}{c}{~}
 \\
 \midrule
@@ -42,3 +45,4 @@
 %
 \caption{Characterismi Periodorum}
 \label{tab:p079b}
+\end{tabnums}
