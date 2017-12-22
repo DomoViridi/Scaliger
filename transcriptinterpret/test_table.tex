@@ -25,6 +25,9 @@
 \newfontfamily\arabicfont{Arial Unicode MS}
 \newfontfamily\astrofont{Menlo}
 \newcommand\astro[1]{{\astrofont #1}}
+%
+% Fixed-width number environment for tables. Hoefler Text is inverted
+\newenvironment{tabnums}{\addfontfeature{Numbers={Proportional}}}{}
 %%
 \usepackage[quiet]{polyglossia}
 \setmainlanguage{latin}
@@ -71,7 +74,7 @@
 \lipsum[1]
 
 \begin{table}[tp]
-\input{tables/133_neomeniae_mensium.tex}
+\input{tables/134_veterum_hebraeorum.tex}
 \end{table}
 
 banana\\
