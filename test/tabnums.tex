@@ -21,11 +21,9 @@
 %
 %% Settings from the main text we also need for the test
 \usepackage{fontspec}
-%\setmainfont{Hoefler Text}[
-\setmainfont{SBL BibLit}[
-Style=Alternate,
-Ligatures={Common},
-Numbers={Proportional,OldStyle},
+\setmainfont{Hoefler Text}[
+%\setmainfont{SBL BibLit}[
+%Numbers={Monospaced,OldStyle}
 ]
 %\setmainfont{Times New Roman}[]
 \newfontfamily\greekfont{SBL BibLit}
@@ -78,7 +76,7 @@ Numbers={Proportional,OldStyle},
 %% Set numbers to non-proportional
 %% Useful for tables
 %% Put inside { and } to keep the effect local
-\newcommand{\tabnums}{\addfontfeature{Numbers={Monospaced,Lining}}}
+\newcommand{\tabnums}{\addfontfeature{Numbers={Proportional}}}
 
 \begin{document}
 
@@ -93,17 +91,18 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzX
  sequente \textgreek{\gnum{κε}, μηνὸς Σκιῤῥοφοριῶνος}."
 
 Sufficient, souflee, terific, wiffling, 321114569870.
-{\addfontfeature{Numbers=Monospaced}321114569870}
 
+% Use \tabnums to set the desired tabular numbers mode in the table
 { 
 \tabnums
-\begin{tabular}{r r r l}
- 1 & 2 & 3 & Some Regular \\
- 44 & 55 & 66 & Text Goes\\
- 777 & 88888 & 999 & In The Last\\
- 1111 &  
-  {\addfontfeature{Numbers=Monospaced}11111} & 111 \\
- 8888 & 12345 & 5678 & Column\\
+\begin{tabular}{r r r r l}
+ 1 & 2 & 3 & 876543 &Some Regular \\
+ 44 & 55 & 66 & 7654321 &Text Goes\\
+ 777 & 88888 & 999 & 54321098 & In The Last\\
+ {\addfontfeature{Numbers=}11111} &  
+  {\addfontfeature{Numbers=Proportional}11111} & 111 & 11111111 \\
+ {\addfontfeature{Numbers=Monospaced}98888} &
+ {\addfontfeature{Numbers=Monospaced}12345} & 5678 & 987654321 & Column\\
 \end{tabular}
 }\\
 %
@@ -115,8 +114,10 @@ Sufficient, \textsc{SoufleE}, terific, wiffling, 321114569870.
 {\addfontfeature{Numbers=Monospaced}321114569870}
 \item[OldStyle/Lowercase numbers between Lining/Uppercase numbers:]~\\
 {\addfontfeature{Numbers=Uppercase}321114569870}{\addfontfeature{Numbers=Lowercase}321114569870}{\addfontfeature{Numbers=Uppercase}321114569870}
-\item[OldStyle numbers without descenders are the same height as Lining numbers:]~\\
-{\addfontfeature{Numbers=Uppercase}686868}686868{\addfontfeature{Numbers=Uppercase}686868}
+\item[Monospaced numbers between Proportional numbers:]~\\
+{\addfontfeature{Numbers=Proportional}321114569870}{\addfontfeature{Numbers=Monospaced}321114569870}{\addfontfeature{Numbers=Proportional}321114569870}
+\item[OldStyle numbers height and Lining numbers height:]~\\
+{\addfontfeature{Numbers=Uppercase}6868686868}{\addfontfeature{Numbers=Lowercase}6868686868}{\addfontfeature{Numbers=Uppercase}6868686868}
 \end{description}
 
 \section{New Section Header}
