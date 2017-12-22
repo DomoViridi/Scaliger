@@ -65,16 +65,9 @@
 %\userpackage{fancyheadings}
 %% Package needs to be downloaded specially
 
-%%% Main body text is in latin. We want:
-%% Modern typesetting
-%% The long s shown as 's'
-%% No ligatures
-%% No swishes, not on 'Q' nor on anything else
-%% Modern numbers
+%%% Main body text is in latin.
 \setmainfont{Hoefler Text}[
 ]
-%\setmainfont{Times New Roman}[
-%]
 
 %%% Add a font that supports Greek
 %\newfontfamily\greekfont{Arial Unicode MS}
@@ -94,6 +87,14 @@
 
 %%% Add a font for the references to line numbers in the original
 \newfontfamily\nrfont{Helvetica}
+
+%% Command to set numbers to non-proportional
+%% Useful for tables
+%% Put inside { and } to keep the effect local
+% Oddly, commands for Hoefler Text appear to be inverted
+% "Proportional" sets to Monospaced, while "Monospaced" sets to Proportional
+\newcommand{\tabnums}{\addfontfeature{Numbers={Proportional}}}
+
 
 %%% Commands to refer to line numbers in the original
 %% Each beginning of a sentence is marked with the line number in the original
