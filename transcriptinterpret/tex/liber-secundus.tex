@@ -4975,7 +4975,23 @@ ut bisextum solet quarto quoque anno exacto in forma Iuliana.
 Arabes vocat \textarabic{[Arabic]}
 Senathi Chebisah, hoc est \textgreek{ἐνιαυτὸν ἐμβολιμαῖον[?]}.
 %
-% Table p139
+% Two tables p139
+\begin{table}[tbp]
+  % define table height
+  \newcommand{\tabh}{252pt}
+  \setlength{\tabcolsep}{0.0ex}
+  \centering
+  \begin{tabular}{l p{0.04\linewidth} r}
+    \begin{minipage}[][\tabh][t]{0.68\textwidth}
+      \input{tables/139a_periodi_arabicae.tex}
+    \end{minipage}
+& &
+    \begin{minipage}[][\tabh][t]{0.28\textwidth}
+      \input{tables/139b_characterismi_periodi.tex}
+    \end{minipage} \\
+    \addlinespace[0.85in] % force a lot of space to make room for the captions
+  \end{tabular}
+\end{table}
 %
 % 139
 % {PDF page nr}{source page nr}{line nr}
