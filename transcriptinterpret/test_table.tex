@@ -73,12 +73,23 @@
 
 \lipsum
 \lipsum[1]
-
-\begin{table}[tp]
-\input{tables/139a_periodi_arabicae.tex}
-\end{table}
-\begin{table}[btp]
-\input{tables/139b_characterismi_periodi.tex}
+%
+% Two tables 
+\begin{table}[tb]
+  % define table height
+  \newcommand{\tabh}{252pt}
+  \setlength{\tabcolsep}{0.0ex}
+  \centering
+  \begin{tabular}{l p{0.04\linewidth} r}
+    \begin{minipage}[][\tabh][t]{0.68\textwidth}
+      \input{tables/139a_periodi_arabicae.tex}
+    \end{minipage}
+& &
+    \begin{minipage}[][\tabh][t]{0.28\textwidth}
+      \input{tables/139b_characterismi_periodi.tex}
+    \end{minipage} \\
+    \addlinespace[0.85in] % force a lot of space to make room for the captions
+  \end{tabular}
 \end{table}
 %
 \lipsum[150]
