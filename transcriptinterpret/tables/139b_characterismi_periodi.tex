@@ -1,0 +1,66 @@
+%%% Liber 2 p139, PDF 222
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Width of a column
+\newcommand{\cwd}{4.2em}
+%% Define reference symbols
+\newcommand{\da}{{\scriptsize †}}
+\newcommand{\db}{{\scriptsize ‡}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: top row
+\newcommand{\hsa}[1]{\footnotesize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\tiny{#1}}
+%% Generate the column headers
+\newcommand{\hdrB}{%
+  \hsb{\parbox[b]{\cwd}{\raggedright Tria\-con\-ta\-e\-te\-ri\-des}} &
+  \hsb{\parbox[b]{\cwd}{\raggedright Anni Arabici collecti}} &
+  \hsb{\parbox[b]{\cwd}{\raggedright Regularis periodi}}
+%  \hsb{\ch{Arabix}{Tria\-con\-ta\-e\-te\-ri\-des}} &
+%  \hsb{\ch{embolx}{Anni Arabici collecti}} &
+%  \hsb{\ch{Characx}{Regularis periodi}} 
+}
+%
+\newcommand{\hdrs}{%
+\hdrB\\
+\midrule
+}
+%
+\begin{tabular}[c]{@{} r r r @{}}
+\toprule
+\multicolumn{3}{c}{\Large\textsc{Linea}} \\
+\multicolumn{3}{c}{\large\textsc{characterismi}} \\
+\multicolumn{3}{c}{\large\textsc{periodi}} \\
+\toprule
+\hdrs % Column headers from the above definition
+%%
+1 &   0 & 2 \\
+2 &  30 & 0 \\
+3 &  60 & 5 \\
+4 &  90 & 3 \\
+5 & 120 & 1 \\
+6 & 150 & 6 \\
+7 & 180 & 4 \\
+\bottomrule
+\end{tabular}
+\caption{Characterismi periodi Arabicae}
+\label{tab:p139b}
+\end{tabnums}
