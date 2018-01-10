@@ -31,14 +31,11 @@
 \newcommand{\hsb}[1]{\tiny{#1}}
 %% Generate the column headers
 \newcommand{\hdrA}{%
-%  \multirow{2}{*}{\ch{888}{\hsb{Ennea\-deca\-e\-te\-ri\-des}}} &
-  \multirow{2}{*}{\settowidth{\cw}{888}\parbox[b][32pt][b]{\cw}{\raggedright\hsb{Ennea\-deca\-e\-te\-ri\-des}}} &
-  &
-  \multicolumn{3}{c}{\hsa{Arabici}}
+  ~ & ~ & \multicolumn{3}{c}{\hsa{Arabici}}
 }
 %
 \newcommand{\hdrB}{%
-  &
+  \hsb{\ch{Ennedecam}{Enneadeca\-e\-te\-ri\-des}} &
   \ch{8888}{\hsb{Anni Iuliani}}&
   \ch{8888}{\hsb{Anni Arabici}} &
   \hsb{\ch{Dies}{Dies}} &
@@ -49,7 +46,7 @@
  \hdrA & & \hdrA \\
  \cmidrule(lr){3-5} \cmidrule(l){9-11}
  \hdrB & & \hdrB \\
- \cmidrule(l){1-5} \cmidrule(l){7-11}
+ \cmidrule{1-5} \cmidrule{7-11}
 }
 %
 \begin{tabular}[c]{@{} rrrrr c rrrrr @{}}
