@@ -21,7 +21,7 @@
 %% Width of a column
 \newcommand{\cwd}{3.2em}
 %% Define reference symbols
-\newcommand{\da}{{\scriptsize †}}
+\newcommand{\da}{{\tiny †}}
 \newcommand{\db}{{\scriptsize ‡}}
 %% The angle with which to slant
 \newcommand{\ang}{90}
@@ -51,12 +51,12 @@
 %
 \begin{tabular}[c]{@{} rrrrr c rrrrr @{}}
 \toprule
-\multicolumn{11}{c}{\Large\textsc{Tabella Redigendi Annos Arabicae}} \\
+\multicolumn{11}{c}{\Large\textsc{Tabella redigendi annos Arabicae}} \\
 \multicolumn{11}{c}{\large\textsc{in Iulianos et contra}} \\
 \toprule
 \hdrs % Column headers from the above definition
 %%
-  1 &  19 &  19 & 207 &  0 &~&  24 &  456 &  470 &  1 & 40\\
+  1 &  19 &  19 & 207 &  0 &~&  24\super\da &  456 &  470 &  1 & 40\\
   2 &  38 &  39 &  59 &  0 &~&  36 &  684 &  705 &  2 & 30\\
   3 &  57 &  58 & 266 &  0 &~&  48 &  912 &  940 &  3 & 20\\
   4 &  76 &  78 & 118 &  0 &~&  60 & 1140 & 1175 &  4 & 10\\
@@ -67,7 +67,8 @@
   9 & 171 & 176 &  89 &  0 &~& 120 & 2280 & 2350 &  8 & 20\\
  10 & 190 & 195 & 295 &  0 &~& 132 & 2508 & 2585 &  9 & 10\\
  11 & 209 & 215 & 148 &  0 &~& 144 & 2736 & 2820 & 10 &  0\\
- 12 & 228 & 235 &   0 & 50 &~&     &    &    &    &  \\
+ 12 & 228 & 235 &   0 & 50 &~&     
+  \multicolumn{4}{l}{\super\da\scriptsize In originalis: 234}  \\
 \bottomrule
 \end{tabular}
 \caption{Redigendi Annos Arabicos in Iulianos et contra}
