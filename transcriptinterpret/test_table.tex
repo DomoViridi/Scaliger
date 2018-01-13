@@ -3,7 +3,7 @@
 % Set the \input{} to the table you want to test, then typeset this file
 %
 \documentclass[12pt,twoside,a4paper]{book}
-\usepackage[lines=40,showframe]{geometry}
+\usepackage[lines=42,showframe]{geometry}
 \usepackage{array} % allow row distance change with \arraystretch
 %
 \usepackage{lipsum}
@@ -71,19 +71,13 @@
 %  \input{tables/117_noviluniorum_samaritanorum.tex}
 %\end{table}
 
-\lipsum
-\lipsum[1]
+\input{lipsum.tex}
 %
 \begin{table}[tbp]
-  \input{tables/141a_redigendi_annos_arabicos.tex}
+  \input{tables/142_conferendi_neomeniam_tisri.tex}
 \end{table}
 %
-\begin{table}[tbp]
-  \input{tables/141b_annorum_expansorum.tex}
-\end{table}
+\input{lipsum.tex}
 %
-\lipsum[150]
-\lipsum
-
 \listoftables
 \end{document}
