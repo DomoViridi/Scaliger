@@ -17,6 +17,10 @@
 # Any PDFs you want under control you will need to add to Git explicitly
 # using 'git add -f <file>'
 
+# Spreadsheets will change even if you just look at them. Ignore by default
+# Add explicitly if desired using 'git add -f <file>'
+*.numbers
+
 # Files produced by LaTeX
 *.aux
 *.log

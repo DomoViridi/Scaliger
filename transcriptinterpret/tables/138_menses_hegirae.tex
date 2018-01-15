@@ -1,0 +1,73 @@
+%%% Liber II p138, PDF 221
+%%
+%% Arabic names of the month copied from Wikipedia "Islamic calendar"
+%% We could also use the \HijriMonthArabic{nr} command from the
+%% polyglossia/hijrical.sty package which is already loaded
+%% (probably when \otherlanguage{arabic} is set for polyglossia).
+%% But that looks slightly different, and slightly less than the original :-(
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{2.1pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.015} % Tuned to eliminate Underfull \vbox
+%% Size of header text
+\newcommand{\hts}{\footnotesize}
+%
+%% Define names of the months
+\newcommand{\Tis}{Tisri}
+\newcommand{\Mar}{Marcheswan}
+%%
+\begin{tabular}{@{} r l c @{}}
+\toprule
+\multicolumn{3}{c}{\large\textsc{Menses Hegirae Muhamedicae}} \\
+\multicolumn{3}{c}{\large\textsc{soluto cyclo hagareno}} \\
+\toprule
+  ~ &
+  ~ & 
+  \hts{\ch{Character}{Cha\-rac\-ter mensium}}
+  \\
+\midrule
+ \textarabic{مُحَرَّم}[?]        & Machurramu          & 0 \\
+ \textarabic{صَفَر}[?]         & Tzepharu            & 2 \\
+ \textarabic{رَبيع الأوّل}[?]   & Rabie prior         & 3 \\
+ \textarabic{رَبيع الثاني}[?] & Rabie posterior     & 5 \\
+ \textarabic{جُمادى الأولى}[?] & Giumadiun prior     & 6 \\
+ \textarabic{جُمادى الآخرة}[?] & Giumadiun posterior & 1 \\
+ \textarabic{رَجَب}[?]         & Regiabu             & 2 \\
+ \textarabic{شَعْبان}[?]       & Sahabenu            & 4 \\
+ \textarabic{رَمَضان}[?]       & Ramadhanu           & 5 \\
+ \textarabic{شَوّال}[?]        & Schevvalu           & 7 \\
+ \textarabic{ذو القعدة}[?]   & Dulkaidathi         & 1 \\
+ \textarabic{ذو الحجة}[?]    & Dulchagiathi        & 3 \\
+% \textarabic{\HijriMonthArabic{ 1}} & Machurramu          & 0 \\
+% \textarabic{\HijriMonthArabic{ 2}} & Tzepharu            & 2 \\
+% \textarabic{\HijriMonthArabic{ 3}} & Rabie prior         & 3 \\
+% \textarabic{\HijriMonthArabic{ 4}} & Rabie posterior     & 5 \\
+% \textarabic{\HijriMonthArabic{ 5}} & Giumadiun prior     & 6 \\
+% \textarabic{\HijriMonthArabic{ 6}} & Giumadiun posterior & 1 \\
+% \textarabic{\HijriMonthArabic{ 7}} & Regiabu             & 2 \\
+% \textarabic{\HijriMonthArabic{ 8}} & Sahabenu            & 4 \\
+% \textarabic{\HijriMonthArabic{ 9}} & Ramadhanu           & 5 \\
+% \textarabic{\HijriMonthArabic{10}} & Schevvalu           & 7 \\
+% \textarabic{\HijriMonthArabic{11}} & Dulkaidathi         & 1 \\
+% \textarabic{\HijriMonthArabic{12}} & Dulchagiathi        & 3 \\
+ \bottomrule
+\end{tabular}
+%
+\caption{Menses Hegirae Muhammedicae soluto cyclo hagareno}
+\label{tab:p138}
+%
+\end{tabnums}

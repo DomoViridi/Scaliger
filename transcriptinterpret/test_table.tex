@@ -3,7 +3,7 @@
 % Set the \input{} to the table you want to test, then typeset this file
 %
 \documentclass[12pt,twoside,a4paper]{book}
-\usepackage[lines=40,showframe]{geometry}
+\usepackage[lines=42,showframe]{geometry}
 \usepackage{array} % allow row distance change with \arraystretch
 %
 \usepackage{lipsum}
@@ -25,6 +25,9 @@
 \newfontfamily\arabicfont{Arial Unicode MS}
 \newfontfamily\astrofont{Menlo}
 \newcommand\astro[1]{{\astrofont #1}}
+%
+% Fixed-width number environment for tables. Hoefler Text is inverted
+\newenvironment{tabnums}{\addfontfeature{Numbers={Proportional}}}{}
 %%
 \usepackage[quiet]{polyglossia}
 \setmainlanguage{latin}
@@ -68,17 +71,13 @@
 %  \input{tables/117_noviluniorum_samaritanorum.tex}
 %\end{table}
 
-\lipsum[1]
-
-\begin{table}[tp]
-\input{tables/133_neomeniae_mensium.tex}
+\input{lipsum.tex}
+%
+\begin{table}[tb]
+  \input{tables/101_nomina_annorum_schaichun.tex}
 \end{table}
-
-banana\\
-kartoffel\\
-88888888\\
-11111111\\
-\lipsum[150]
-
+%
+\input{lipsum.tex}
+%
 \listoftables
 \end{document}
