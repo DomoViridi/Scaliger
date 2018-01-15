@@ -234,9 +234,9 @@ even numbers are right-hand pages):
  ("Posterior de epochis temporum, in duas partes tributus", pp 531-624,
   94 pages)
 \begin{description}
-  \item[624] Prior pars (pp 541-567, 10 subjects, 27 pages)
+  \item[624] Prior pars (pp 531-574, 10 subjects, 44 pages)
   \item[657] Altera pars de duabus
-   ("Quaestionibus Danielis", pp 574-624, 7 subjects)
+   ("Quaestionibus Danielis", pp 574-624, 7 subjects, 51 pages)
 \end{description}
 \item[708] Liber Septimus
  ("De computis annalibus nationum", pp 625-784, 20 subjects, 160 pages)
@@ -270,11 +270,10 @@ even numbers are right-hand pages):
 For the transcription we can equate the subdivisions as follows:
 \begin{itemize}
 \item Liberi will be represented by LaTeX Chapters
-\item Subjects will be represented by LaTeX Subsections
-\item Partes will not be directly represented. Maybe by a special command
- which inserts the Pars text in the body (optional) and the ToC
- (\verb+\addcontentslline+, in the Section style). Or maybe create a special
-  kind of Chapter that has a Parts thing between Chapter and Section.
+\item Subjects will be represented by LaTeX Sections
+\item Partes will not be directly represented. We will use a special command
+ which inserts the Pars text in the ToC
+ (\verb+\addcontentslline+, in the Section style).
 \item The bits before Primus Liber will go in the LaTeX top matter, and be
  preceded by the \verb+\frontmatter+ command.
 \item The Prolegomena is a special Chapter with roman page numbers and
