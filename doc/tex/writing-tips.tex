@@ -38,14 +38,16 @@
 %\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
 %\setmonofont[Scale=MatchLowercase]{Andale Mono}
 
-% Allow hypertext links to external documents/websites
-\usepackage{hyperref}
-
 % Use color to mark the hyperlinks
 \usepackage{color}
 
 %%% Booktabs package for nice looking tables
 \usepackage{booktabs}
+
+% Allow hypertext links to external documents/websites
+% Hyperref manual advises to load this last
+% Bidi insists you load hyperref *before* bidi (which is part of polyglossia)
+\usepackage[colorlinks]{hyperref}
 
 %% Command to create a hyperlink to an Issue on GitHub
 %% Parameter: the issue number on GitHub
