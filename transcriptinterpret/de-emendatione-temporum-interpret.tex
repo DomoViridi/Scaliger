@@ -228,6 +228,11 @@
 %%% Booktabs package for nice looking tables
 \usepackage{booktabs}
 
+%%% Allow hypertext links in the PDF for ToC, LoT etc.
+%% Hyperref manual advises to load this last
+%% Bidi insists you load hyperref *before* bidi (which is part of polyglossia)
+\usepackage[colorlinks]{hyperref}
+
 %%% Use polyglossia to handle multiple languages
 %% We have (at least): latin, polytonic greek, hebrew, arabic, persian
 %% (Contains bidi package, and must be loaded *after*:

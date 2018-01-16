@@ -29,6 +29,11 @@
 % Fixed-width number environment for tables. Hoefler Text is inverted
 \newenvironment{tabnums}{\addfontfeature{Numbers={Proportional}}}{}
 %%
+% Allow hypertext links in the PDF for ToC, LoT etc.
+% Hyperref manual advises to load this last
+% Bidi insists you load hyperref *before* bidi (which is part of polyglossia)
+\usepackage[colorlinks]{hyperref}
+
 \usepackage[quiet]{polyglossia}
 \setmainlanguage{latin}
 \setotherlanguage{greek}
