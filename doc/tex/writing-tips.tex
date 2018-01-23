@@ -39,7 +39,7 @@
 %\setmonofont[Scale=MatchLowercase]{Andale Mono}
 
 % Allow hypertext links to external documents/websites
-\usepackage{hyperref}
+\usepackage[colorlinks]{hyperref}
 
 % Use color to mark the hyperlinks
 \usepackage{color}
@@ -532,6 +532,24 @@ See section~\ref{subsec:greek_numerals} for details.
 put a non-break space tilde code '\verb+~+' between the number
 and the fraction: \verb+365~\myfrac{1}{4}+ 
 \end{itemize}
+
+\item Italic text should be entered using the \verb+\textit{}+ command,
+rather than the \verb+\emph{}+ command.
+
+\item Block quotes which are line-by-line quotes from some source should be
+put in a \verb+verse+ environment
+(i.e. between \verb+\begin{verse}+ and \verb+\end{verse}+)
+rather than a \verb+quote+
+or \verb+quotation+ environment.
+
+\item Long dashes (often found as part of a quote) should be entered 
+using the specially created command
+\verb+\emd{}+.
+Though it is possible to use a litteral em-dash in the Unicode source
+(code U+2014) this is very hard to distinguish from other types of dash
+in the monospaced source.
+The special \TeX{} code consisting of three normal dashes does not work
+in all fonts.
 
 \end{itemize}
 
@@ -1196,6 +1214,12 @@ laboris nisi ut aliquip ex ea commodo consequat.
 This is nicely indented. New lines must be forced with \verb+\\+.
 The \verb+verse+ environment is preferred over the \verb+quote+ environment
 as it looks better with these forced newlines.
+
+Any text in italics, including quotes, should be surrounded by \verb+\textit{}+
+and not by \verb+\emph{}+.
+The \verb+\textit{}+ command more explicitly gives the desired effect.
+The \verb+\emph{}+ command may give a different effect, depending on the
+font or other settings.
 
 \item
 The word "poëta/poëtae" is used on page 4, lines 7 and 14. We are not sure
