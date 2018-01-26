@@ -1,0 +1,73 @@
+%%% Liber 2 p154, PDF 237
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{0.995}
+%
+%% Width of a column
+\newcommand{\cwd}{3.3em}
+%% Define reference symbols
+\newcommand{\da}{{\scriptsize †}}
+\newcommand{\db}{{\scriptsize ‡}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: top row
+\newcommand{\hsa}[1]{\footnotesize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\tiny{#1}}
+%% Generate the column headers
+\newcommand{\hdrB}{%
+  \hsb{\parbox[b]{\cwd}{\raggedright Dies Thoth}} &
+  \hsb{\parbox[b]{\cwd}{\raggedright Cyclus Lunae}} &
+  \hsb{\parbox[b]{\cwd}{\raggedright Dies Paophi.}} &
+  \hsb{\parbox[b]{\cwd}{\raggedright Cyclus Lunae}}
+%  \hsb{\ch{Arabix}{Anni Arabicae}} &
+%  \ch{8888}{\hsb{Anni Arabicae}}&
+%  \hsb{\ch{embolx}{Dies embolimi}} &
+%  \hsb{\ch{Sexagex}{Sexa\-ge\-si\-mae diurnae}} &
+%  \hsb{\ch{Characx}{Cha\-rac\-ter anni}} 
+}
+%
+\newcommand{\hdrs}{%
+ \hdrB & \hspace*{1em} & \hdrB \\
+ \cmidrule(l){1-4} \cmidrule(l){6-9}
+}
+%
+\begin{tabular}[c]{@{} rcrc c rcrc @{}}
+\toprule
+\hdrs % Column headers from the above definition
+%%
+  1 &           &  1 &              &~&  16 & \rnum{iiii}  & 16 & \\
+  2 &           &  2 &              &~&  17 &              & 17 & \\
+  3 &           &  3 &              &~&  18 & \rnum{xii}   & 18 & \\
+  4 &           &  4 & \rnum{xvi}   &~&  19 & \rnum{i}     & 19 & \\
+  5 &           &  5 & \rnum{v}     &~&  20 &              & 20 & \\
+  6 &           &  6 &              &~&  21 & \rnum{ix}    & 21 & \\
+  7 &           &  7 & \rnum{xiii}  &~&  22 &              & 22 & \\
+  8 &           &  8 & \rnum{ii}    &~&  23 & \rnum{xvii}  & 23 & \\
+  9 &           &  9 &              &~&  24 & \rnum{vi}    & 24 & \\
+ 10 &           & 10 & \rnum{x}     &~&  25 &              & 25 & \\
+ 11 &           & 11 & \rnum{viii}  &~&  26 & \rnum{xiiii} & 26 & \\
+ 12 &           & 12 & \rnum{xviii} &~&  27 & \rnum{iii}   & 27 & \\
+ 13 &           & 13 & \rnum{vii}   &~&  28 &              & 28 & \\
+ 14 &           & 14 &              &~&  29 & \rnum{xii}   & 29 & \\
+ 15 & \rnum{xv} & 15 &              &~&  30 & \rnum{xix}   & 30 & \\
+\bottomrule
+\end{tabular}
+\caption{Paschalis Alexandrinorum}
+\label{tab:p154}
+\end{tabnums}
