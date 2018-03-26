@@ -20,7 +20,10 @@
 % Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
 \usepackage{lipsum}
 \usepackage{array}
-%\usepackage{titlesec}
+
+%%% Control the layout of chapter headers
+\usepackage{titlesec}
+
 \setcounter{tocdepth}{3}
 \usepackage{fontspec} % Openfont specifications for XeTeX;
 \usepackage{xfrac} % Also loads:
@@ -118,6 +121,11 @@
 %% and Underfull \vbox would occur
 \raggedbottom
 
+%% The \usepackage{titlesec} command must go *before* polyglossia,
+%% but commands fom titlesec must go *after* the polyglossia commands.
+%\titlespacing*{\command}{left}{before}{after}[right]
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus 0.2ex}{2.3ex plus 0.2ex}
+
 \graphicspath{{./img/}}
 \newcommand{\pars}[1]{%
 	\addcontentsline{toc}{chapter}{\numberline{}#1}%
@@ -133,6 +141,13 @@
 %%%========================================================%%%
 
 \begin{document}
+
+%% Top matter
+\title{De Emendatione Temporum}
+\author{Julius J. Scaliger}
+\pagestyle{myheadings}
+\setheaders{}{}
+
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
 Curabitur dictum gravida mauris.
@@ -256,6 +271,8 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra,
  per inceptos hymenaeos.
 Praesent sapien turpis, fermentum vel, eleifend faucibus, vehicula eu, lacus.
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+\section{A longer section title, which should be at least two lines long.}
 Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
 Curabitur dictum gravida mauris.
 Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna.
@@ -368,4 +385,5 @@ Maecenas eget erat in sapien mattis porttitor.
 \item baselineskip: \the\baselineskip
 \end{itemize}
 
+\tableofcontents{}
 \end{document}
