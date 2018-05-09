@@ -1,0 +1,65 @@
+%%% Liber II p162, PDF 245
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{2.1pt}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{0.85}
+%% Size of header text
+\newcommand{\hts}{\scriptsize}
+%
+%% Define names of the months
+\newcommand{\Apr}{Aprilis}
+\newcommand{\Mar}{Martii}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\small{#1}}
+%%
+\begin{tabular}{@{} r r@{~}l @{}}
+\toprule
+\multicolumn{3}{c}{\Large\textsc{Laterculum}} \\
+\multicolumn{3}{c}{\large\textsc{terminorum}} \\
+\multicolumn{3}{c}{\large\textsc{paschalium}} \\
+\multicolumn{3}{c}{\normalsize\textsc{in cyclo Dionysiano}} \\
+\toprule
+  \hts{\ch{Linea ann}{Linea annorum cycli Dionysiani}} &
+  \multicolumn{2}{c}{\ch{\hsb{Paschalis}}{\hsb{Termini Paschalis}}}
+  \\
+\bottomrule
+ 1 & \rnum{v}      &\Apr \\
+ 2 & \rnum{xxv}    &\Mar \\
+ 3 & \rnum{xiii}   &\Apr \\
+ 4 & \rnum{ii}     &\Apr \\
+ 5 & \rnum{xxii}   &\Mar \\
+ 6 & \rnum{x}      &\Apr \\
+ 7 & \rnum{xxx}    &\Mar \\
+ 8 & \rnum{xviii}  &\Apr \\
+ 9 & \rnum{vii}    &\Apr \\
+10 & \rnum{xxvii}   &\Mar \\
+11 & \rnum{xv}     &\Apr \\
+12 & \rnum{iiii}   &\Apr \\
+13 & \rnum{xxiiii} &\Mar \\
+14 & \rnum{xii}    &\Apr \\
+15 & Kal.          &\Apr \\
+16 & \rnum{xxi}    &\Mar \\
+17 & \rnum{ix}     &\Apr \\
+18 & \rnum{xxix}   &\Mar \\
+19 & \rnum{xvii}   &\Apr \\
+\bottomrule
+\end{tabular}
+%
+\caption{Laterculum terminorum paschalium in cyclo Dionysiano}
+\label{tab:p162}
+%
+\end{tabnums}
