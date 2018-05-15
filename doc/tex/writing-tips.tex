@@ -526,12 +526,23 @@ See section~\ref{subsec:greek_numerals} for details.
 
 \item Numbers with fractions:
 \begin{itemize}
-\item Use the \verb+\myfrac{numerator}{denominator}+ command to render fractions.
+\item Use the \verb+\myfrac{numerator}{denominator}+ command to
+ render fractions.
 \item If a whole number precedes the fraction,
 (e.g. "365 1/4")
 put a non-break space tilde code '\verb+~+' between the number
 and the fraction: \verb+365~\myfrac{1}{4}+ 
 \end{itemize}
+
+\item Litera Dominicalis. These sunday letters have the form of a single
+capital letter (A through G).
+A small cap with lower-case size would be too small for these.
+Render them by using \verb+\textsc{}+,
+with a capital letter passed as a parameter,
+e.g. \verb+Litera Dominicalis \textsc{D}+.
+
+Sometimes a table will have a whole column of these letters.
+In those cases a simple capital letter is used.
 
 \item Italic text should be entered using the \verb+\textit{}+ command,
 rather than the \verb+\emph{}+ command.
@@ -1296,6 +1307,17 @@ Then again, we may want to choose to keep the various spellings Scaliger uses.
 Spelling shorthand: the e-cedille (ȩ) for "ae".
 E.g. p100 line 26 and 28, p106:19, p114:7, p117:22, p119:32,
 p125:32,33,35, p132:21.
+\item
+We start to encounter a lot of Sunday Letters (Litera Dominicalis).
+See for example page 163 and 165.
+These have the form of a single capital letter.
+Making these small caps, with the height of lower case letters,
+is tempting, but they look too insignificant that way.
+We prefer to use \verb+\textsc{}+, with a capital letter passed as a parameter,
+e.g. \verb+Litera Dominicalis \textsc{D}+.
+
+Sometimes a table will have a whole column of these letters.
+In those cases a simple capital letter is used.
 \end{itemize}
 
 \end{document}
