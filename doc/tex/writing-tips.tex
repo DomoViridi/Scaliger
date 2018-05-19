@@ -371,7 +371,7 @@ the \verb+\textsc{}+ small caps command. Features:
 \item Support for U+2183 ROMAN NUMERAL REVERSED ONE HUNDRED, which is used
 in Liber Secundus.
 \end{itemize}
-
+\item Should also render correctly when used inside italics (e.g. p168:27-30)
 \end{itemize}
 
 %==
@@ -1318,6 +1318,17 @@ e.g. \verb+Litera Dominicalis \textsc{D}+.
 
 Sometimes a table will have a whole column of these letters.
 In those cases a simple capital letter is used.
+\item
+Roman numerals sometimes appear within italics (e.g. p168:27-30).
+Currently using \verb+\rnum{}+ inside \verb+\textit{}+ renders well.
+The roman numerals appear as slanted small caps.
+
+Any changes to the \verb+\rnum{}+ command or the main font choice
+should check if the rendering inside
+italics works well.
+\item
+On p168:28 there is suddenly a random star symbol.
+A simple asterisk was used to represent this.
 \end{itemize}
 
 \end{document}
