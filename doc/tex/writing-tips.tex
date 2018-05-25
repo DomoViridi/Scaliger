@@ -1341,6 +1341,21 @@ quartum Eidus. item \texttt{EX A.D.IIII}, Ex ante diem \texttt{IIII}.Eidus.
 \end{quote}
 The phrases that follow mentions "\texttt{ANTE DIEM}", which suggests that
 that is what "\texttt{A.D.}" stands for.
+\item
+Page 183 has a block of small caps text at the top, similar to page 116.
+We use the same construct for both, with a centered parbox set to the width of
+the widest line.
+This uses a special variable "emenlen".
+Originally we used the \verb+\newlength+ command to declare this variable.
+But when we want to use the same variable a second time,
+we cannot use \verb+\newlength+
+again, as this gives a "command already defined" error.
+This could be solved by putting the \verb+\newlength{emenlen}+ command in the
+preamble, and then use it when needed.
+We prefer to use the alternative command \verb+\providelength{}+, which will
+define the variable if it does not yet exist,
+and do nothing if it already exists.
+This command can then be used in each instance of this construct.
 \end{itemize}
 
 \end{document}
