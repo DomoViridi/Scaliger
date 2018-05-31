@@ -1,0 +1,97 @@
+%%% Liber 2 p179, PDF 262
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Width of a column
+\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+\newcommand{\da}{{\tiny †}}
+\newcommand{\db}{{\scriptsize o}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: row above row above bottom row
+\newcommand{\hsc}[1]{\small{#1}}
+%% Header text size: row above bottom row
+\newcommand{\hsb}[1]{\scriptsize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsa}[1]{\tiny{#1}}
+%% Generate the column headers
+\newcommand{\hdrC}{%
+  \multicolumn{6}{c}{\hsc{Periodus prior}} &
+  &
+  \multicolumn{6}{c}{\hsc{Periodus altera}}  
+}
+%
+\newcommand{\hdrB}[1]{%
+  \multicolumn{3}{c}{\hsb{Anni Romani}} &
+  &
+  \multicolumn{2}{c}{\hsb{#1 Solares}}  
+}
+%
+\newcommand{\hdrA}{%
+  \ch{8888}{\hsa{Dies collecti}} &
+  \ch{8888}{\hsa{Dies superflui}}&
+  \ch{881}{\hsa{Horae}} &
+  &
+  \ch{8888}{\hsa{Dies collecti}} &
+  \ch{881}{\hsa{Horae}}
+}
+%
+\newcommand{\hdrs}{%
+ ~ & ~ & \hdrC \\
+%\cmidrule(lr){3-8} \cmidrule(lr){10-15}
+ ~ & ~ & \hdrB{Dies} & & \hdrB{Anni} \\
+\cmidrule(lr){3-5} \cmidrule(lr){7-8} \cmidrule(lr){10-12} \cmidrule(lr){14-15}
+ ~ & \hsa{Anni} & \hdrA & & \hdrA \\
+}
+%
+\begin{tabular}[c]{@{} rr rrr c rr c rrr c rr @{}}
+\toprule
+\hdrs % Column headers from the above definition
+\midrule
+%%
+~   &  1 &  355 & 11 &  6 &&  365 &  6 &&  355 & 11 & 18 &&  365 & 18 \\
+\da &  2 &  732 &  0 & 12 &&  730 & 12 &&  733 &  0 &  0 &&  731 &  0 \\
+~   &  3 & 1087 & 11 & 18 && 1095 & 18 && 1088 & 11 &  6 && 1096 &  6 \\
+\da &  4 & 1465 &  0 &  0 && 1461 &  0 && 1466 &  0 & 12 && 1461 & 12 \\
+~   &  5 & 1820 & 11 &  6 && 1826 &  6 && 1821 & 11 & 18 && 1826 & 18 \\
+\da &  6 & 2197 &  0 & 12 && 2191 & 12 && 2198 &  0 &  0 && 2192 &  0 \\
+~   &  7 & 2552 & 11 & 18 && 2556 & 18 && 2553 & 11 &  6 && 2557 &  6 \\
+\da &  8 & 2930 &  0 &  0 && 2922 &  0 && 2931 &  0 & 12 && 2922 & 12 \\
+~   &  9 & 3285 & 11 &  6 && 3287 &  6 && 3286 & 11 & 18 && 3287 & 18 \\
+\da & 10 & 3662 &  0 & 12 && 3652 & 12 && 3663 &  0 &  0 && 3653 &  0 \\
+~   & 11 & 4017 & 11 & 18 && 4017 & 18 && 4018 & 11 &  6 && 4018 &  6 \\
+\da & 12 & 4395 &  0 &  0 && 4383 &  0 && 4396 &  0 & 12 && 4383 & 12 \\
+~   & 13 & 4750	& 11 &  6 && 4748 &  6 && 4751 & 11 & 18 && 4748 & 18 \\
+\da & 14 & 5127 &  0 & 12 && 5113 & 12 && 5128 &  0 &  0 && 5114 &  0 \\
+~   & 15 & 5482 & 11 & 18 && 5478 & 18 && 5483 & 11 &  6 && 5479 &  6 \\
+\da & 16 & 5860 &  0 &  0 && 5844 &  0 && 5861 &  0 & 12 && 5844 & 12 \\
+~   & 17 & 6215 & 11 &  6 && 6209 &  6 && 6216 & 11 & 18 && 6209 & 18 \\
+\da & 18 & 6592 &  0 & 12 && 6574 & 12 && 6593 &  0 &  0 && 6575 &  0 \\
+~   & 19 & 6947 & 11 & 18 && 6939 & 18 && 6948 & 11 &  6 && 6940 &  6 \\
+\da & 20 & 7325 &  0 &  0 && 7305 &  0 && 7326 &  0 & 12 && 7305 & 12 \\
+~   & 21 & 7680 & 11 &  6 && 7670 &  6 && 7681 & 11 & 18 && 7670 & 18 \\
+\db & 22 & 8035 &  0 & 12 && 8035 & 12 && 8036 &  0 &  0 && 8036 &  0 \\
+\bottomrule
+\addlinespace[5pt]
+ & \multicolumn{3}{l}{\footnotesize\super{†}Emb.}
+\end{tabular}
+\caption{Anni Romani}
+\label{tab:p179}
+\end{tabnums}
