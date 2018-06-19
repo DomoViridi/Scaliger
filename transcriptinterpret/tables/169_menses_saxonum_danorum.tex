@@ -1,0 +1,55 @@
+%%% Liber II p169, PDF 252
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{2.1pt}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{0.85}
+%% Size of header text
+\newcommand{\hts}{\footnotesize}
+%
+%% Define names of the months
+\newcommand{\Apr}{Aprilis}
+\newcommand{\Mar}{Martii}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\small{#1}}
+%%
+\begin{tabular}{@{} l l l @{}}
+\toprule
+  \ch{Fischemaanet}{\hts{Menses priscorum Danorum}} &
+  &
+  \multicolumn{1}{c}{\ch{\textit{Lida embolimus}}{\hts{Menses veterum Saxonum}}}
+  \\
+\midrule
+\textit{Fischemaanet} & September    & \textit{Halegmonath} \\
+\textit{Seemaanet}    & October      & \textit{Wintyrfullith} \\
+\textit{Slactmaanet}  & November     & \textit{Blothmonath} \\
+\textit{Christmaanet} & December     & \textit{Giuli prior} \\
+\textit{Glugmaanet}   & Ianuarius    & \textit{Giuli posterior} \\
+\textit{Blüdemaanet}  & Februarius   & \textit{Solmonath} \\
+\textit{Aoormaanet}   & Martius      & \textit{Rethmonath} \\
+\textit{Faaremaanet}  & Aprilis      & \textit{Chofturmonath} \\
+\textit{Maimaanet}    & Maius        & \textit{Trimilchi} \\
+\textit{Hoemaanet}    & Iunius       & \textit{Lida prior} \\
+\textit{Ornumaanet}   & Iulius       & \textit{Lida posterior} \\
+\textsc{embolismus}   & \textsc{o o} & \textit{Lida embolimus} \\
+\textit{Hooftmaanet}  & Augustus     & \textit{Weidenmonath} \\
+\bottomrule
+\end{tabular}
+%
+\caption{Menses veterum Saxonum et Danorum}
+\label{tab:p169}
+%
+\end{tabnums}

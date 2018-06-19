@@ -1,0 +1,99 @@
+%%% Liber 2 p147, PDF 230
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Width of a column
+%\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+%\newcommand{\da}{{\scriptsize †}}
+%\newcommand{\db}{{\scriptsize ‡}}
+%% The angle with which to slant
+%\newcommand{\ang}{90}
+%% Header text size: top row
+\newcommand{\hsa}[1]{\footnotesize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\scriptsize{#1}}
+%% Generate the column headers
+%\newcommand{\hdrA}{%
+%  ~ & ~ & \multicolumn{3}{c}{\hsa{Arabici}}
+%}
+%
+\newcommand{\hdrB}{%
+  \ch{888}{\hsb{Feria}} &
+  \hsb{\ch{Horae}{Horae}} &
+  \ch{8888}{\hsb{Scrup. 1080}}
+}
+%
+\newcommand{\hdrs}{%
+ \ch{88888}{\hsb{Anni expansi}}& \hdrB &
+  \hspace*{1.9em} &
+ \hdrB & \ch{88888}{\hsb{Anni collecti}}\\
+ \cmidrule{1-4} \cmidrule{6-9}
+}
+%
+\begin{tabular}[c]{@{} rrrr c rrrr @{}}
+\toprule
+\multicolumn{9}{c}{\Large\textsc{Tabula characterismi neomeniarum}} \\
+\multicolumn{9}{c}{\large\textsc{Muharram ab coniunctionibus mediis}} \\
+\toprule
+\hdrs % Column headers from the above definition
+%%
+  1 &  4 &   8 &  876 &~&  5 &  0 & 360 &   30 \\
+  2 &  1 &  17 &  672 &~&  3 &  0 & 720 &   60 \\
+  3 &  6 &   2 &  468 &~&  1 &  1 &   0 &   90 \\
+  4 &  3 &  11 &  264 &~&  6 &  1 & 360 &  120 \\
+  5 &  7 &  20 &   60 &~&  4 &  1 & 720 &  150 \\
+  6 &  5 &   4 &  936 &~&  2 &  2 &   0 &  180 \\
+  7 &  2 &  13 &  732 &~&  7 &  2 & 360 &  210 \\
+  8 &  6 &  22 &  328 &~&  7 &  4 & 720 &  420 \\
+  9 &  4 &   7 &  324 &~&  7 &  7 &   0 &  630 \\
+ 10 &  1 &  16 &  120 &~&  7 &  9 & 360 &  840 \\
+ 11 &  6 &   0 &  996 &~&  7 & 11 & 720 & 1050 \\
+ 12 &  3 &   9 &  792 &~&  7 & 14 &   0 & 1260 \\
+ 13 &  7 &  18 &  588 &~&  7 & 16 & 360 & 1470 \\
+ 14 &  5 &   3 &  384 &~&  7 & 18 & 720 & 1680 \\
+ 15 &  2 &  12 &  180 &~&  7 & 21 &   0 & 1890 \\
+ 16 &  6 &  20 & 1056 &~&  7 & 23 & 360 & 2100 \\
+ 17 &  4 &   5 &  852 &~&  1 &  1 & 720 & 2310 \\
+ 18 &  1 &  14 &  648 &~&  1 &  4 &   0 & 2520 \\
+ 19 &  5 &  23 &  444 &~&  1 &  6 & 360 & 2730 \\
+ 20 &  3 &   8 &  240 &~&  1 &  8 & 720 & 2940 \\
+ 21 &  7 &  17 &   36 &~& \\
+ 22 &  5 &   1 &  912 &~& \multicolumn{3}{c}{\hsa Radix Megitae} \\
+ 23 &  2 &  10 &  708 &~&  4 &  7 & 112 \\
+ 24 &  6 &  19 &  504 &~& \\
+ 25 &  4 &   4 &  300 &~& \multicolumn{3}{c}{\hsa Radix Muharram} \\
+ 26 &  1 &  13 &   96 &~& \multicolumn{3}{c}{\hsa Indorum et Iulii} \\
+ 27 &  5 &  21 &  972 &~& \multicolumn{3}{c}{\hsa Caesaris} \\
+ 28 &  3 &   6 &  768 &~&  7 &  1 & 940 \\
+ 29 &  7 &  15 &  564 &~& \\
+ 30 &  5 &   0 &  360 &~& \\
+\midrule
+\multicolumn{9}{c}{\parbox{0.65\textwidth}{\raggedright
+  In centum annis excrescit supra rationem
+  Arabicam Hor. 1.3'.33''.20'''. secundum
+  Calculum Prutenicum. Itaque in annis
+  2400. erit \textgreek{προέμπτωσις[?]} Diei.1. hor.0. 7'.
+  6''.4'''.
+}} \\
+\bottomrule
+\end{tabular}
+\caption{Characterismi neomeniarum Muharram ab coniunctionibus mediis}
+\label{tab:p147}
+\end{tabnums}

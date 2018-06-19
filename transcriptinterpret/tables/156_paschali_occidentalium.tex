@@ -1,0 +1,63 @@
+%%% Liber 2 p156, PDF 239
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.040} % Tuned to eliminate Underfull \vbox warnings
+%
+%% Width of a column
+\newcommand{\cwd}{4.0em}
+%% Define reference symbols
+\newcommand{\da}{{\scriptsize †}}
+\newcommand{\db}{{\scriptsize ‡}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: top row
+\newcommand{\hsa}[1]{\footnotesize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\scriptsize{#1}}
+%
+\newcommand{\hdrB}{%
+ \multicolumn{2}{c}{\hsb{\parbox[b]{\cwd}{\raggedright Cyclus Alexandr.}}} &
+ \multicolumn{2}{c}{\hsb{\parbox[b]{\cwd}{\raggedright Cyclus Occidentalium}}}
+}
+%
+\newcommand{\hdrs}{%
+ \hdrB & \hspace*{1em} & \hdrB \\
+ \cmidrule(l){1-4} \cmidrule(l){6-9}
+}
+%
+\begin{tabular}[c]{@{} rlrl c rrrl @{}}
+\toprule
+ \hdrs % Column headers from the above definition
+%%
+     &  ~1 & 17 & \da && \da & 11 &  8 & \da \\
+     &  ~2 & 18 &     &&     & 12 &  9 &     \\
+ \da &  ~3 & 19 & \da &&     & 13 & 10 &     \\
+     &  ~4 &  1 &     && \da & 14 & 11 & \da \\
+     &  ~5 &  2 &     &&     & 15 & 12 &     \\
+ \da &  ~6 &  3 & \da &&     & 16 & 13 &     \\
+     &  ~7 &  4 &     && \da & 17 & 14 & \da \\
+ \da &  ~8 &  5 &     &&     & 18 & 15 &     \\
+     &  ~9 &  6 & \da && \da & 19 & 16 &     \\
+     & 10 &  7 &     && \\
+\bottomrule
+\addlinespace[5pt]
+ & \multicolumn{3}{l}{\footnotesize\super{†}Emb.} \\
+\end{tabular}
+\caption{Paschalis Occidentalium}
+\label{tab:p156}
+\end{tabnums}

@@ -32,6 +32,7 @@
 
 \setmainfont{Times New Roman}
 % Chosen font needs to be able to show Greek characters koppa and sampi.
+% Preferably should also have small caps.
 
 %\defaultfontfeatures{Mapping=tex-text}
 %\setromanfont[Mapping=tex-text]{Hoefler Text}
@@ -373,7 +374,7 @@ the \verb+\textsc{}+ small caps command. Features:
 \item Support for U+2183 ROMAN NUMERAL REVERSED ONE HUNDRED, which is used
 in Liber Secundus.
 \end{itemize}
-
+\item Should also render correctly when used inside italics (e.g. p168:27-30)
 \end{itemize}
 
 %==
@@ -528,12 +529,41 @@ See section~\ref{subsec:greek_numerals} for details.
 
 \item Numbers with fractions:
 \begin{itemize}
-\item Use the \verb+\myfrac{numerator}{denominator}+ command to render fractions.
+\item Use the \verb+\myfrac{numerator}{denominator}+ command to
+ render fractions.
 \item If a whole number precedes the fraction,
 (e.g. "365 1/4")
 put a non-break space tilde code '\verb+~+' between the number
 and the fraction: \verb+365~\myfrac{1}{4}+ 
 \end{itemize}
+
+\item Litera Dominicalis. These sunday letters have the form of a single
+capital letter (A through G).
+A small cap with lower-case size would be too small for these.
+Render them by using \verb+\textsc{}+,
+with a capital letter passed as a parameter,
+e.g. \verb+Litera Dominicalis \textsc{D}+.
+
+Sometimes a table will have a whole column of these letters.
+In those cases a simple capital letter is used.
+
+\item Italic text should be entered using the \verb+\textit{}+ command,
+rather than the \verb+\emph{}+ command.
+
+\item Block quotes which are line-by-line quotes from some source should be
+put in a \verb+verse+ environment
+(i.e. between \verb+\begin{verse}+ and \verb+\end{verse}+)
+rather than a \verb+quote+
+or \verb+quotation+ environment.
+
+\item Long dashes (often found as part of a quote) should be entered 
+using the specially created command
+\verb+\emd{}+.
+Though it is possible to use a litteral em-dash in the Unicode source
+(code U+2014) this is very hard to distinguish from other types of dash
+in the monospaced source.
+The special \TeX{} code consisting of three normal dashes does not work
+in all fonts.
 
 \end{itemize}
 
@@ -557,7 +587,7 @@ exactly like an 'f'.
 	\item ē to en (sometimes em)
 	\item à (as a whole word) to ab
 	\item ë in poëta (p4,7) or Laërtius (p23,36) will be unchanged for now
-	\item è to ex? (p88)
+	\item è to ex? (p88, p184:28)
 	\item ȩ to ae
 	\end{itemize}
 
@@ -1199,6 +1229,12 @@ This is nicely indented. New lines must be forced with \verb+\\+.
 The \verb+verse+ environment is preferred over the \verb+quote+ environment
 as it looks better with these forced newlines.
 
+Any text in italics, including quotes, should be surrounded by \verb+\textit{}+
+and not by \verb+\emph{}+.
+The \verb+\textit{}+ command more explicitly gives the desired effect.
+The \verb+\emph{}+ command may give a different effect, depending on the
+font or other settings.
+
 \item
 The word "poëta/poëtae" is used on page 4, lines 7 and 14. We are not sure
 what to do with the trema. For the time being we leave the trema as is.
@@ -1274,6 +1310,65 @@ Then again, we may want to choose to keep the various spellings Scaliger uses.
 Spelling shorthand: the e-cedille (ȩ) for "ae".
 E.g. p100 line 26 and 28, p106:19, p114:7, p117:22, p119:32,
 p125:32,33,35, p132:21.
+\item
+We start to encounter a lot of Sunday Letters (Litera Dominicalis).
+See for example page 163 and 165.
+These have the form of a single capital letter.
+Making these small caps, with the height of lower case letters,
+is tempting, but they look too insignificant that way.
+We prefer to use \verb+\textsc{}+, with a capital letter passed as a parameter,
+e.g. \verb+Litera Dominicalis \textsc{D}+.
+
+Sometimes a table will have a whole column of these letters.
+In those cases a simple capital letter is used.
+\item
+Roman numerals sometimes appear within italics (e.g. p168:27-30).
+Currently using \verb+\rnum{}+ inside \verb+\textit{}+ renders well.
+The roman numerals appear as slanted small caps.
+
+Any changes to the \verb+\rnum{}+ command or the main font choice
+should check if the rendering inside
+italics works well.
+\item
+On p168:28 there is suddenly a random star symbol.
+A simple asterisk was used to represent this.
+\item
+Page 174 starts with a phrase with lots of apparent abbreviations,
+periods, small caps and capitalised words.
+It is not readily clear how this should be interpreted.
+\begin{quote}
+Hinc natae illae locutiones:
+ \texttt{A.} \texttt{D.} \texttt{IIII.} \texttt{EID.} hoc est, Ante diem
+quartum Eidus. item \texttt{EX A.D.IIII}, Ex ante diem \texttt{IIII}.Eidus.
+\end{quote}
+The phrases that follow mentions "\texttt{ANTE DIEM}", which suggests that
+that is what "\texttt{A.D.}" stands for.
+\item
+Page 183 has a block of small caps text at the top, similar to page 116.
+We use the same construct for both, with a centered parbox set to the width of
+the widest line.
+This uses a special variable "emenlen".
+Originally we used the \verb+\newlength+ command to declare this variable.
+But when we want to use the same variable a second time,
+we cannot use \verb+\newlength+
+again, as this gives a "command already defined" error.
+This could be solved by putting the \verb+\newlength{emenlen}+ command in the
+preamble, and then use it when needed.
+We prefer to use the alternative command \verb+\providelength{}+, which will
+define the variable if it does not yet exist,
+and do nothing if it already exists.
+This command can then be used in each instance of this construct.
+\item
+On p183:12 a reference is made to king Servius Tullius as "SeruI TullI".
+We do not know how to interpret this construction with a capital I at
+the end of the words.
+\item
+Passim, but e.g. p182, there is a frequent use of the term \textsc{coss.},
+in small caps and followed by a period.
+It almost always comes after a name.
+\item
+On p182 (and probably elsewhere) "A.U.C" (written "A.V.C") stands for
+"Ab Urbe Condita", from the founding of the city of Rome.
 \end{itemize}
 
 \end{document}
