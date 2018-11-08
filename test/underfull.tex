@@ -34,7 +34,9 @@
 % It must go *before* the longtable package
 % or it won't work on longtable captions
 \usepackage{longtable}% Allow for split of the table over more than one page
+
 % Settings from the main text we also need for the test
+%\setmainfont{Helvetica}[]
 \setmainfont{Hoefler Text}[]
 \newfontfamily\greekfont{Times New Roman}
 \newfontfamily\hebrewfont{Arial Hebrew}
@@ -119,12 +121,13 @@
 
 %% Allow empty space at the end of a page when otherwise overstretching
 %% and Underfull \vbox would occur
-\raggedbottom
+%\raggedbottom
 
 %% The \usepackage{titlesec} command must go *before* polyglossia,
 %% but commands fom titlesec must go *after* the polyglossia commands.
 %\titlespacing*{\command}{left}{before}{after}[right]
 \titlespacing*{\section}{0pt}{3.5ex plus 1ex minus 0.2ex}{2.3ex plus 0.2ex}
+%\titlespacing*{\section}{0pt}{3.5ex}{2.3ex}
 
 \graphicspath{{./img/}}
 \newcommand{\pars}[1]{%
