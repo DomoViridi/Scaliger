@@ -29,7 +29,7 @@
 \usepackage{array}
 
 %%% Control the layout of chapter headers
-\usepackage{titlesec}
+%\usepackage{titlesec}
 
 %%% Disable chapter/section numbering.
 %\setcounter{secnumdepth}{0}
@@ -259,6 +259,10 @@
 %% Prevent text from going outside the margins, by making
 %% the word spacing sloppy
 \sloppy
+
+%% Allow empty space at the end of a page when otherwise overstretching
+%% and Underfull \vbox would occur
+\raggedbottom
 
 %%% Tell XeTeX where to look for graphics files
 %% Note: all file paths are relative to the root document, i.e.
