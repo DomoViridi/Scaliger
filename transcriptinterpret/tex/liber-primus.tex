@@ -295,6 +295,11 @@ quia notis literarum singularium horae distinguebantur.
 % Anonymous poem from "Greek Anthology" 10.43, tr. W.R. Paton
 % Six hours are most suitable for labour, and the four that follow,
 % when set forth in letters, say to men "Live".
+%
+\begin{table}[p]
+  \input{./tables/006_convertendi_ostenta}
+\end{table}
+%
 \lnr{14}Nam ante
 \textgreek{Ζ, Η, Θ, Ι,} erat \textgreek{Α, Β, Γ, Δ, Ε, ϛ.}
 \lnr{15}Arabibus, Persis, et reliquis Orientis
@@ -336,13 +341,6 @@ et aliae Orientis nationes utuntur.
 \plnr{89}{6}{1}Quorum in sexagesimas, et
 contra, sexagesimarum in haec convertendarum, Tabellas duas posuimus
  (p. \pageref{tab:p006}).
-\begin{table}
-  \input{./tables/006_convertendi_ostenta}
-\end{table}
-% Suggested improvements for tables:
-% - Split in two tables
-% - Bigger letters/numbers
-% - Remove Smallcaps latin titles from top. Put as caption to each table
 %
 %====
 \section{De Diebus}
@@ -388,6 +386,10 @@ ab Pascha.
 Antiochena: ab Constantinopolitana autem \textgreek{διακαινίσιμος ἑβδομὰς[?]},
 % à -> ab
 ab eadem mente.
+% Insert table
+\begin{table}[tbp]
+  \input{./tables/008_dies_hebdomadis}
+\end{table}
 \lnr{21}Illius autem Hebdomadis dies omnes septem erant
 feriati, ut testis est Hieronymus, et alii veteres.
 \lnr{22}Hinc obtinuit, ut reliquarum
@@ -484,10 +486,6 @@ nobis adducto constat.
 singulis, ut suo loco referetur.
 \lnr{34}Sunt et secundum hebdomadas
 ut infra subiecimus.
-% Insert table
-\begin{table}[hbtp]
-  \input{./tables/008_dies_hebdomadis}
-\end{table}
 %
 % 8
 % {PDF page nr}{source page nr}{line nr}
@@ -497,9 +495,9 @@ non sequatur dies Iovis, sed dies Solis, haec caussa est.
 % Diagram: circle with heptagram, with planets at the points:
 % Moon ☾, mercury ☿, venus ♀, sun ☉,
 % mars ♂, jupiter ♃, saturn ♄
-\begin{figure}[hbtp]
+\begin{figure}[tbp]
   \centering
-  \def\svgwidth{9\baselineskip}
+  \def\svgwidth{0.459\textwidth}
   {\astrofont\input{./img/008_planets.pdf_tex}}
   \caption{Septem Planetae}
   \label{fig:p008}
@@ -543,6 +541,8 @@ ille rursus erit dexter in Triangulo \astro{♄☉☽}.
 \lnr{12}Et sic erogati sunt septem
 planetae in totidem dies, quas Ecclesia Romana vocat ferias.
 \lnr{14}Haec est vera harum appelationum ratio.
+%%%
+%\vspace*{\fill}
 %====
 \section{De Mensibus}
 \lnr{15}Ex diebus fiunt \textgreek{συστήματα καὶ ὁμάδες[?]},
@@ -2973,6 +2973,8 @@ proinde nonus ab primo solstitiali.
 μὲν διὰ τεσσαράκοντα ἐννέα μηνῶν, ποτὲ διὰ πεντέκοντα[?]}.
 \lnr{10}\textgreek{ὅθεν καὶ ποτὲ μὲν τῷ Απολλωνίῳ
 μηνὶ, ποτὲ δὲ τῷ Παρθενίῳ ἐπιτελεῖται[?]}.
+% Vertial filler to suppress Underfull vbox warning
+\vspace*{\fill}
 %====
 \section{De Periodo Attica}
 \lnr{12}Proximum ab periodo Olympica locum occupet Attica.
@@ -3369,6 +3371,11 @@ sequitur omnino omnes Graecos, aut saltem maiorem eorum partem,
 in eodem mense \textgreek{τὰς ὑπερβαλλούσασ ἡμέρας[?]}
  habuisse, hoc est in eo
 mense, qui sextus esset a Tropico aestivo, ut ipsi loquebantur.
+% Insert table: Menses Macedomum et Atheniesium
+% Moved to earlier position, to avoid big whitespace end of previous page.
+\begin{table}[hbtp]
+  \input{./tables/048_menses_macedonum}
+\end{table}
 \lnr{6}Cum
 vero Philippus Rex Macedoniae Amyntae filius, Alexandri Magni
 pater, menses Metonicos in periodum Macedonicam recepisset,
@@ -3376,10 +3383,7 @@ periti Macedonum in eius gratiam periodum novam orsi sunt a diebus
 verni sideris, cuius initium caderet in annum septuagesimum
 secundum periodi Olympicae, initio sumpto a Daesio Macedonico,
 sive Munychione Attico, tam Metonis, quam Tetraeterico.
-% Insert table: Menses Macedomum et Atheniesium
-\begin{table}[htbp]
-  \input{./tables/048_menses_macedonum}
-\end{table}
+% Original position of table 048_menses_macedonum
 \lnr{12}Convenerunt enim in unum neomenia periodica et
 Metonica: et fuit verus Nisan anni Iudaici
 3437.
@@ -3400,6 +3404,8 @@ quam illi instituerant Syromacedones.
 vidit.
 \lnr{26}Menses periodi veteris Macedonicae cum Atticis comparatos
 infra subiecimus.
+% Vertial filler to suppress Underfull vbox warning
+%\vspace*{\fill}
 %====
 \section{De Periodo Macedonum Alexandrea autumnali}
 % Originally: Periodus Mecedonum Alexandrea Autumnalis
@@ -3787,6 +3793,9 @@ autem \textgreek{μετὰ πέντε ἔτη[?]}.
 \lnr{6}Quare non solum erravit Ausonius, quod Isthmia
 et Nemea post totidem annos cum Olympiade instaurari putat, sed
 etiam quod Olympiada vocat quinquennium.
+% Vertial filler to suppress Underfull vbox warning
+%\vspace*{\fill}
+\bigskip
 %====
 \section{De Periodo Thebana}
 \lnr{9}Vetustissimorum Boeotiorum annus caepit a Vergiliarum
@@ -4108,6 +4117,8 @@ diem eiusdem mensis.
 \lnr{20}Poteris et aliarum nationum periodos
 conferre cum Olympica, quae est certissima et exactissima omnium
 reliquarum regula.
+% Suppress Underfull vbox message
+\vspace*{\fill}
 %====
 \section{De Periodo Samiorum et aliarum Graeciae civitatium}
 % Originally: Periodus Samiorum, et aliarum Graeciae civitatium
