@@ -799,6 +799,63 @@ we would have to start a paragraph on purpose (causing an indent) just for the
 wrapping. We will simply put the figures on their own, without wrapping.
 
 %%---
+\section{Underfull \textbackslash vbox}
+The warning\verb+ Underfull \vbox (Badness 10000) +in the console output is
+a sign that the system has trouble filling out the page vertically.
+\TeX{} will try to make the last line on the page touch the bottom
+of the \verb+\textheight+ box (this is in the default \verb+\flushbottom+
+mode, which can be overridden with the \verb+\raggedbottom+ command).
+When this warning occurs, it means that
+the available vertical whitespace had to be stretched beyond what is acceptable.
+Higher numbers for the badness (the value is topped off at 10000) mean more
+stretching.
+Each of these warnings will usually correspond to a visible
+
+Because the body text of the original has almost no paragraph breaks
+there will no paragraph breaks in the transcript.
+Many pages will be a wall of text, with no vertical whitespace
+at all.
+If \verb+\textheight+ is not an exact multiple of \verb+\baselineskip+
+then the system will have trouble with these pages.
+It \emph{is} a multiple by default, but any modification
+(such as altering the font size) will change this.
+
+When there is anything other than regular text on the page,
+such as a table or a section header, this will usually create only one
+vertical whitespace.
+This whitespace is then stretched to compensate for the change in height.
+
+Initially the compilation of the Prolegomena, Liber I and Liber II
+gave a total of 88 Underfull \textbackslash vbox warnings.
+To reduce that number the following measures were taken:
+\begin{itemize}
+\item Adjusting the \verb+\textheight+ to be an exact multiple of
+ \verb+\baselineskip+. This was done by setting the \verb+[lines=42]+
+option for the \verb+geometry+ package. This resolved 74 of the 88 warnings.
+\item Rearranging the structure of the document by manipulating or forcing
+tables and figures to a different location.
+This is done my altering the \verb+[htbp]+ selection of the table,
+or by moving the point in the tex file where the table is included.
+\item Adding explicit space using \verb+\bigskip+ or
+\verb+\vspace*{\fill}+, in cases where this space goes at the bottom of
+a page and the next page starts with a section header.
+\item Tuning the height of tables so they take up more or less a whole
+number of lines.
+This can be done by using the \verb+\arraystretch+ command.
+\end{itemize}
+These solutions left only two warnings, both involving a page with
+a sectionheader followed by a page which forces a this page to have
+one line too few.
+
+These last warnings might be resolved by
+changing the stretchability of section titles with the \verb+titlesec+
+package.
+As the effect would be to suppress the message without actually
+changing the appearance
+of the output, it was decided not to use this method.
+
+
+%%---
 \section{Tables}
 Scaliger uses many tables in his book, from very small ones to tables that
 span multiple pages.
