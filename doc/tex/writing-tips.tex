@@ -88,7 +88,7 @@ See \textcolor{blue}{%
 %%=====
 \chapter{Project setup}
 The aim of this project is to produce a modern version of
-De Emendatione Temporum by Scaligeri.
+De Emendatione Temporum by Joseph Justus Scaliger.
 At the very least we want an easily readable transliteration
 in the original Latin and all the other languages used.
 At best we produce
@@ -161,7 +161,7 @@ Features will be added that are not in the original text.
 automatically.
 \item List of Tables and List of Figures will be added.
 \item Lots of annotations will be added to clarify the text.
-For example: Scaligeri habitually quotes classics without giving a reference.
+For example: Scaliger habitually quotes classics without giving a reference.
 We will add:
     \begin{itemize}
     \item The exact reference (Author, title of the work, section/page/verse)
@@ -719,7 +719,7 @@ languages and use a placeholder;
 automatically.
 \item List of Tables and List of Figures added.
 \item Lots of annotations to clarify the text.
-For example: Scaligeri habitually quotes classics without giving a reference.
+For example: Scaliger habitually quotes classics without giving a reference.
 We will add:
     \begin{itemize}
     \item The exact reference (Author, title of the work, section/page/verse)
@@ -880,7 +880,7 @@ These solutions left only two warnings, both involving a page with
 a sectionheader followed by a page which forces a this page to have
 one line too few.
 
-These last warnings might be resolved by
+These last warnings may be resolved by
 changing the stretchability of section titles with the \verb+titlesec+
 package.
 As the effect would be to suppress the message without actually
@@ -911,24 +911,34 @@ Nevertheless we will stick to them.
 %--
 \subsection{Naming scheme and testing}
 The body of each table is contained in a file in the "table" subdirectory.
-The name of each file has the form \verb+nnn_name_with_underscores+, where
+The name of each file has the form \verb+nnn-name-with-hyphens.tex+, where
 \verb+nnn+ is the three-digit page number (with leading zeroes as required).
-This form ensures that the table files appear in the same order in the
+The \verb+name-with-hyphens+ part represents a short version of
+the title of the table.
+The numbers ensure that the table files appear in the same order in the
 directory as they do in the book.
-\verb+name_with_underscores+ represents a short version of
-the title of the table, in all lower case
-with underscores for spaces.
+If there is more than one table on a page, then a letter is added after
+the number.
+So we have e.g.
+\verb+050a-menses-alexandreae.tex+ and
+\verb+050b-menses-bithyniorum.tex+.
+The names should be in all lower case
+with hyphens for spaces.
 This is for better compatibility with operating
 systems which do no allow diferent letter cases or spaces in their file names.
+See \textcolor{blue}{%
+\href{https://en.wikibooks.org/wiki/LaTeX/Basics}%
+{LaTeX Basics}%
+}, section 'Picking suitabe filenames'.
 
-To quickly develop and test a new table, a \verb+test_table.tex+ file has
+To quickly develop and test a new table, a \verb+test-table.tex+ file has
 been developped.
 This contains a minimal set of the document preamble, some "Lore ipsum"
-filler text, and an \verb+\include{}+ command to include the table.
+filler text, and an \verb+\input{}+ command to include the table.
 The main advantage of this setup is that compiling the test file (with only
 the one table under test) is a lot faster than re-compiling the whole
 chapter for each time you want to see the result of your changes.
-The test file also allows for experimenting with changes to the preamble
+The test file also allows for experimenting with changes to the \TeX{} preamble
 without affecting the main file.
 
 Once you are satisfied with the result you can copy and paste the inclusion
@@ -1087,11 +1097,11 @@ the the group of columns and their headers.
 See for example
 \begin{itemize}
 \item Tabula 1.3: Novilunia in mensibus tetraeterides Graecae
-(\verb+027_novilunia.tex+)
+(\verb+027-novilunia.tex+)
 \item Tabula 2.8: Menses Tetraeterici et Metonici
-(\verb+084a_menses_tetraeterici.tex+)
+(\verb+084a-menses-tetraeterici.tex+)
 \item Tabula 2.18: Characterismi mensium Iudaicorum
-(\verb+105_mensium_iudaicorum.tex+).
+(\verb+105-mensium-iudaicorum.tex+).
 \end{itemize}
 
 Construct these headers row by row.
@@ -1101,13 +1111,13 @@ Follow this by a set of \verb+\cmidrule(lr){p-q}+ commands, where the
 \verb+p+ and \verb+q+ represent the start- and endcolumn numbers
 that need to be spanned. The \verb+(lr)+ code shortens the rule on the
 left and right respectively. Use or omit these depending on what looks best.
-Next is another set of headers, this time with a column span of 1:
+Next is another set of headers, this time with a column span of one:
 \verb+\multicolumn{1}{c}{\hsb{c-header}}+.
 Note the use of \verb+\hsa+ in the first row and \verb+\hsb+ in the second.
 Both rows of headers can use the \verb+\ch+ command to fit verbose headers
 into a narrow space.
 
-Example from \verb+105_mensium_iudaicorum.tex+:
+Example from \verb+105-mensium-iudaicorum.tex+:
 \begin{verbatim}
 \toprule
  ~ &
@@ -1205,7 +1215,7 @@ The part before the \verb+\endhead+ command should contain:
 \item A \verb+\toprule+
 \item The continuation table header in the form
 \begin{verbatim}
-  \verb+\multicolumn{n}{c}{\Large\textsc{Residuum tabulae ...}}+
+  \multicolumn{n}{c}{\Large\textsc{Residuum tabulae ...}}
 \end{verbatim}
 where \verb+n+ is again the total number of columns.
 The text size
@@ -1233,9 +1243,9 @@ rule.
 \subsubsection{Last footer}
 The part before the \verb+\endlastfoot+ command should contain:
 \begin{itemize}
-\item A The same as what went before \verb+\endfoot+.
+\item The same as what went before \verb+\endfoot+.
 \item An \verb+\addlinespace+
-\item A \verb+\caption[]{...}+ command to put the title of the table below it.
+\item A \verb+\caption[]{...}+ command to put the title below the table.
 The square brackets (\verb+[]+) prevent this command from adding to the List
 of Tables. That entry is handled in the First Header.
 \item A \verb+\label{tab:...}+ command to make it possible to refer to this
