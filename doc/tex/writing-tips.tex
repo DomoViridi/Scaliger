@@ -809,10 +809,11 @@ When this warning occurs, it means that
 the available vertical whitespace had to be stretched beyond what is acceptable.
 Higher numbers for the badness (the value is topped off at 10000) mean more
 stretching.
-Each of these warnings will usually correspond to a visible
+Each of these warnings will usually correspond to a visible uglyness in
+the output.
 
 Because the body text of the original has almost no paragraph breaks
-there will no paragraph breaks in the transcript.
+there will also be no paragraph breaks in the transcript.
 Many pages will be a wall of text, with no vertical whitespace
 at all.
 If \verb+\textheight+ is not an exact multiple of \verb+\baselineskip+
@@ -1207,6 +1208,47 @@ of Tables. That entry is handled in the First Header.
 \item A \verb+\label{tab:...}+ command to make it possible to refer to this
 table from the body text.
 \end{itemize}
+
+%--
+\subsection{Tuning the height}
+After the table is completed (and any time it is modified) it will be
+necessary to adjust the height of the table so that it does not cause
+Underfull \textbackslash vbox warnings.
+
+To adjust the size follow these steps:
+\begin{enumerate}
+\item Put the \verb+\input+ command for the table file in the
+ test-table.tex file.
+\item Make sure the test file has \verb+\raggedbottom+
+ and the \verb+showframe+ option for the geometry package switched on.
+\item Have the command
+ \verb+\renewcommand{\arraystretch}{1.0000}+
+ in the table file. This usually goes right after the
+ \verb+\setlength{\tabcolsep}+ command.
+ Some tables may already use this command to adjust the appearance of
+ the table, you then start with a value different from 1.0000.
+\item Run LaTeX and examine the output.
+ If there is whitespace between the last line and the bottom of the
+ box shown by the \verb+showframe+ option, the table needs adjusting.
+\item Slightly increase the stretch parameter (start with around 1\%,
+ so 1.0100).
+\item See if the last line has been pushed over to the next page.
+ If it was, start decrementing the stretch.
+ If it was not, keep incrementing the stretch.
+\item Keep incrementing and decrementing the parameter by smaller and smaller
+ amounts until you find the value at which the line only just stays on the
+ page.
+ The baseline of the text should now fall on the bottom line of the box.
+ Call this value of the stretch parameter the high value.
+\item Repeat the cycle, starting with a slight decrement from the high value,
+ but now try to find the point at which the baseline just comes away
+ from the box.
+ Call this the low value.
+\item Calculate the average of the low value and the high value, and use
+ that as the final value for the arraystretch parameter.
+\end{enumerate}
+Don't forget to check if the table now looks nice in the main text, and does
+not cause an \verb+Underfull \vbox+ warning.
 
 
 %%====
