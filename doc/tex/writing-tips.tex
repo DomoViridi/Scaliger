@@ -1,7 +1,9 @@
 % XeLaTeX can use any Mac OS X font. See the setromanfont command below.
-% Input to XeLaTeX is full Unicode, so Unicode characters can be typed directly into the source.
+% Input to XeLaTeX is full Unicode, so Unicode characters can be typed
+% directly into the source.
 
-% The next lines tell TeXShop to typeset with xelatex, and to open and save the source with Unicode encoding.
+% The next lines tell TeXShop to typeset with xelatex, and to open and
+% save the source with Unicode encoding.
 
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
@@ -15,7 +17,7 @@
 \usepackage{geometry}
 %% See geometry.pdf to learn the layout options. There are lots.
 
-\geometry{a4paper}         %% ... or a4paper or a5paper or ... 
+\geometry{a4paper}         %% ... or a4paper or a5paper or ...
 %\geometry{landscape}      %% Activate for rotated page geometry
 
 %\usepackage[parfill]{parskip}
@@ -24,7 +26,8 @@
 %\usepackage{amssymb}
 
 % Will Robertson's fontspec.sty can be used to simplify font choices.
-% To experiment, open /Applications/Font Book to examine the fonts provided on Mac OS X,
+% To experiment, open /Applications/Font Book to examine the fonts provided
+% on Mac OS X,
 % and change "Hoefler Text" to any of these choices.
 
 \usepackage{fontspec,xltxtra,xunicode}
@@ -61,7 +64,7 @@ See \textcolor{blue}{%
 
 \title{Writing tips}
 \author{Erik Groenhuis}
-\date{\today}                                           % Activate to display a given date or no date
+\date{\today} % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
@@ -69,8 +72,8 @@ See \textcolor{blue}{%
 \tableofcontents{}
 
 % For many users, the previous commands will be enough.
-% If you want to directly input Unicode, add an Input Menu or Keyboard to the menu bar 
-% using the International Panel in System Preferences.
+% If you want to directly input Unicode, add an Input Menu or Keyboard
+% to the menu bar using the International Panel in System Preferences.
 % Unicode must be typeset using a font containing the appropriate characters.
 % Remove the comment signs below for examples.
 
@@ -78,7 +81,8 @@ See \textcolor{blue}{%
 % \newfontfamily{\H}[Scale=0.9]{Lucida Grande}
 % \newfontfamily{\J}[Scale=0.85]{Osaka}
 
-% Here are some multilingual Unicode fonts: this is Arabic text: {\A السلام عليكم}, this is Hebrew: {\H שלום}, 
+% Here are some multilingual Unicode fonts: this is Arabic text:
+% {\A السلام عليكم}, this is Hebrew: {\H שלום},
 % and here's some Japanese: {\J 今日は}.
 
 %%=====
@@ -177,7 +181,7 @@ A translation of all the text.
 A reader should be able to read and understand everything without knowledge
 of ancient languages.
 The layout will be in a similar modern style as the transliteration.
-In addition there will be many notes 
+In addition there will be many notes
 (footnotes?) giving clarifications and annotations to the vagaries of the
 translation process.
 
@@ -190,7 +194,7 @@ We may even change our mind and go for a smooth running translation.
 \chapter{How Scaliger divided his book}
 The book is divided into Liberi which are in turn divided into subjects of
 a few pages each. Some books are divided into Partes, some are not.
-Each Liber or Pars begins with an introduction before the first subject starts. 
+Each Liber or Pars begins with an introduction before the first subject starts.
 Titles of the Liberi and Partes are usually only given in the table of
 contents, not in the body of the text. Though the parts are mentioned in the
 Table of Contents, they are not marked in the body of the text.
@@ -293,43 +297,63 @@ For the transcription we can equate the subdivisions as follows:
 (This information has no effect on the transcription.
 It is kept here as general background.)
 
-In the original, the footer has a link word on the right on each page. A link word is the same as the first word on the
-next page, which helped the setter and printer to make sure the pages appear in the right order.
+In the original, the footer has a link word on the right on each page.
+A link word is the same as the first word on the
+next page, which helped the setter and printer to make sure the pages appear
+in the right order.
 
-Most right-hand pages also have a Greek or Latin letter + sheet number before the link word.
+Most right-hand pages also have a Greek or Latin letter + sheet number before
+the link word.
 These were probably used to identify the gathering (a binding unit).
 
 The count goes:
-G, G 2, G 3, G 4, blank, blank, H, H 2, H 3, H 4, blank, blank, I, I 2, etcetera.
+G, G 2, G 3, G 4, blank, blank, H, H 2, H 3, H 4, blank, blank, I, I 2,
+etcetera.
 This suggests that there are 3 sheets (bi-folios) per gathering,
-with G, G 2 and G 3 on the front and G 4 on the back of the bifolio that has G 3 on the front.
+with G, G 2 and G 3 on the front and G 4 on the back of the bifolio that
+has G 3 on the front.
 
-The count starts on the title page (PDF p. 16) with alpha. As the title page does not have a footer,
+The count starts on the title page (PDF p. 16) with alpha. As the title page
+does not have a footer,
 the first actual mark is alpha 2 on PDF p. 18.
 This continues with
 beta (PDF p. 28, start of the Prolegomena), gamma, delta and epsilon.
-It ends with zeta (PDF p. 76), zeta 2 and finally zeta 3 (PDF p. 80, start of the ToC). PDF p. 82 does not have a zeta 4, against expectations. Also missing are the two blank pages in the zeta group. This leads to the conclusion that the zeta gathering only has two sheets, that is 8 pages
+It ends with zeta (PDF p. 76), zeta 2 and finally zeta 3 (PDF p. 80,
+start of the ToC).
+PDF p. 82 does not have a zeta 4, against expectations.
+Also missing are the two blank pages in the zeta group.
+This leads to the conclusion that the zeta gathering only has two sheets,
+that is 8 pages
 (namely PDF p. 76-83).
 
-Liber I starts on PDF p. 84 with a chapter header, and has the Latin letter A as a mark. This continues with A 2, A 3,
+Liber I starts on PDF p. 84 with a chapter header, and has the Latin letter A
+as a mark. This continues with A 2, A 3,
 A 4, blank, blank, B, B 2, B 3, etcetera.
 
-After Z 4 (PDF p. 354) the sequence continues with Aa (PDF p. 360), Aa 2 (PDF p. 362), Aa 3, Aa 4, Bb (PDF p. 372),
+After Z 4 (PDF p. 354) the sequence continues with Aa (PDF p. 360),
+Aa 2 (PDF p. 362), Aa 3, Aa 4, Bb (PDF p. 372),
 Bb 2, etc.
 
 After Zz 4 (PDF p. 630) it continues with Aaa (PDF p. 636), Aaa 2, etc.
 
-After Zzz 4 (PDF p. 912, page 7 of Index Orientalium vocum) we get PDF p. 918: the title page of "Veterum Graecorum Fragmenta Selecta", no footer, and then 'a 2' (PDF p. 920), 'a 3', 'a 4', blank, blank, 'b' (PDF p. 930), 'b 2', 'b 3', 'b 4', blank, blank, 'c', 'c 1', 'c 2', 'c 3', 'c 4' (PDF p. 972), which is the last mark in the book, which ends on PDF p. 976.
+After Zzz 4 (PDF p. 912, page 7 of Index Orientalium vocum) we get PDF p. 918:
+the title page of "Veterum Graecorum Fragmenta Selecta", no footer,
+and then 'a 2' (PDF p. 920), 'a 3', 'a 4', blank, blank, 'b' (PDF p. 930),
+'b 2', 'b 3', 'b 4', blank, blank, 'c', 'c 1', 'c 2', 'c 3',
+'c 4' (PDF p. 972), which is the last mark in the book,
+which ends on PDF p. 976.
 
-Policy: because the footers in the original only contain information for the printer, we will leave this information out.
-We might use the footer space for our own information, e.g. for a PDF file page reference, a title of our transcription,
+Policy: because the footers in the original only contain information for the
+printer, we will leave this information out.
+We might use the footer space for our own information, e.g. for a PDF file page
+reference, a title of our transcription,
 and/or a version number of the transcription.
 
 
 %%=====
 \chapter{Tools}
 \XeLaTeX{} part of \TeX{} package. Editing source with TeXShop. Can also
-be done with any other editor of flat text. 
+be done with any other editor of flat text.
 Compilation must be done with \texttt{xelatex}. Can be done from TeXShop.
 Note: use the Typeset button on the root document
 (which has the \verb;\documentclass{}; command in it).
@@ -339,10 +363,14 @@ Sources kept on \texttt{GitHub}.
 \section{Implemented features}
 %--
 \subsection{Unicode}
-After using Mac OS TextEdit with RTF, which did not give enough control over formatting, and \LaTeX, which
-has bad support for Unicode, we switched to \XeLaTeX. This directly accepts UTF-8 as source input and allows
-putting pieces of Greek, Hebrew, Arabic and other languages in their original form in the source. The breaking point
-came when \LaTeX  made it impossible to produce the astrological signs for the planets.
+After using Mac OS TextEdit with RTF, which did not give enough control over
+formatting, and \LaTeX, which
+has bad support for Unicode, we switched to \XeLaTeX.
+This directly accepts UTF-8 as source input and allows
+putting pieces of Greek, Hebrew, Arabic and other languages in their original
+form in the source.
+The breaking point came when \LaTeX  made it impossible to produce the
+astrological signs for the planets.
 
 %--
 \subsection{Fractions}
@@ -523,7 +551,7 @@ may still use this command. These instances will be replaced eventually.
 \item Greek numerals, such as $\overline{\kappa\delta}$ can be entered using
 the specially created \verb+\gnum{}+ command,
 like this: \verb+\gnum{+$\kappa\delta$\verb+}+.
-Note that any Greek text needs to be in an environment that 
+Note that any Greek text needs to be in an environment that
 allows a Greek font.
 See section~\ref{subsec:greek_numerals} for details.
 
@@ -534,7 +562,7 @@ See section~\ref{subsec:greek_numerals} for details.
 \item If a whole number precedes the fraction,
 (e.g. "365 1/4")
 put a non-break space tilde code '\verb+~+' between the number
-and the fraction: \verb+365~\myfrac{1}{4}+ 
+and the fraction: \verb+365~\myfrac{1}{4}+
 \end{itemize}
 
 \item Litera Dominicalis. These sunday letters have the form of a single
@@ -556,7 +584,7 @@ put in a \verb+verse+ environment
 rather than a \verb+quote+
 or \verb+quotation+ environment.
 
-\item Long dashes (often found as part of a quote) should be entered 
+\item Long dashes (often found as part of a quote) should be entered
 using the specially created command
 \verb+\emd{}+.
 Though it is possible to use a litteral em-dash in the Unicode source
@@ -647,7 +675,7 @@ the polytonic diacriticals and iota subscripts.
 \begin{itemize}
 \item Reading the interpunction can be very tricky where numbers are involved.
 Often there will be a period after an Arabic or roman number, while the
-construction of the phrases suggest that it is not intended as the end of 
+construction of the phrases suggest that it is not intended as the end of
 the sentence. E.g. Liber Primus, p 17, line 10 and further.
 \item The difference between an 'f' and a 'long s' (ſ) can often be hard to see,
  especially if followed by an 'i'. The printers used two ligatures which are
@@ -729,7 +757,9 @@ Commands were created in the TeX source to add the line- and page-numbers:
 \begin{itemize}
 \item \verb+\lnr{<line number>}+ to add the line number to the beginning of
 a sentence.
-\item \verb+\plnr{<PDF page>}{<page nr>}{<line nr>}+ to use at the beginning of the first sentence on a new page in the original. Parameters are:
+\item \verb+\plnr{<PDF page>}{<page nr>}{<line nr>}+ to use at the beginning
+of the first sentence on a new page in the original.
+Parameters are:
 \begin{enumerate}
 \item The PDF page number of the page in this particular scan of this particular
 copy of this particular edition of the book.
@@ -745,7 +775,9 @@ make links to the original PDF file.
 \end{itemize}
 
 Note: \emph{Do not put spaces or newlines between these commands and the
-text that follows.} That would put an extra space in the output after the no-break-space that is programmed into the command. The text should always follow
+text that follows.} That would put an extra space in the output after
+the no-break-space that is programmed into the command.
+The text should always follow
 directly after the command. Correct example:\begin{quote}
 \verb+\lnr{23}Lore ipsum dolor savit+
 \end{quote}
@@ -754,7 +786,7 @@ Sometimes printing the page and line number at the point in the source where
 a new page starts in the original is impractical.
 This might be because there is a section header, a quote or a table at the top
 of the page.
-For these cases we have the following command: 
+For these cases we have the following command:
 \begin{itemize}
 \item \verb+\setpnrs{<PDF page>}{<page nr>}}+
 \end{itemize}
@@ -1083,7 +1115,7 @@ Example from \verb+105_mensium_iudaicorum.tex+:
  \multicolumn{3}{c}{Embolimaeus}
 \\
 \cmidrule(lr){2-4}
-\cmidrule(lr){5-7} 
+\cmidrule(lr){5-7}
  ~ &
  \multicolumn{1}{c}{\hsb Defectivus} &
  \multicolumn{1}{c}{\hsb Ordinarius} &
@@ -1102,7 +1134,7 @@ Schaliger will frequently write headers vertically.
 Try to avoid using vertical headers as much as possible.
 For those cases where it is unavoidable, we use the \verb+rotating+ package.
 This package provides the \verb+rotate+ and \verb+turn+ environments.
-Use 
+Use
 \begin{quote}
 \verb+\begin{rotate}{\ang}...\end{rotate}+
 \end{quote}
@@ -1126,7 +1158,8 @@ Using a single \verb+turn+ will make sure the headers will not bleed into
 whatever is above them.
 This works best if the rightmost header is the longest of them all, but this
 is generaly not the case. To make it longer use the above mentioned
-\verb+\hspace*{}+ command, and adjust the space reserved so the headers no longer
+\verb+\hspace*{}+ command, and adjust the space reserved so the headers
+no longer
 bleed over, but without creating too much white space above the headers.
 The star (\verb+*+) in the command is required to make it have effect at
 the end of the line (i.e. the end of the column header).
@@ -1374,7 +1407,7 @@ The 1629 Geneva edition has "..., non alio mense. fiebat enim..." while the
 The period is still there, but the capital is lost.
 \item
 The table on page 38 (Tabula neomeniarum primi mensis Elidensis in annis
-periodi Olympicae) is problematic in many ways. It will probably not be 
+periodi Olympicae) is problematic in many ways. It will probably not be
 the last one to be so.
 \begin{itemize}
   \item{}There are very many entries (76 rows and 5 main columns) making the
@@ -1471,4 +1504,3 @@ On p182 (and probably elsewhere) "A.U.C" (written "A.V.C") stands for
 \end{itemize}
 
 \end{document}
- 
