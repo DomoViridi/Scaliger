@@ -1,0 +1,139 @@
+%%% Liber II p67
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+% ΜΗΝΕΣ ΚΟΙΛΟΙ
+% "The hollow months" "cavae menses"
+%
+% This table apparently lists the hollow months that occur in each year
+% of the 8 year cycle (octaeteride).
+% Each row shows the information for one year in the octaeteride.
+% Column 1 indicated if a year is Embolic.
+% We have represented the abbreviated word ἐμβολ. by a footnote symbol,
+% the same way we did for other tables where it occurs.
+% Column 2 uses Byzantine Greek numerals (without a bar above the letters)
+% to number the years in the cycle.
+% The number 6 is represented by a cursive digamma, rendered here as
+% Unicode U03DA.
+% The header for the second column is allmost illegible
+% ?? ?? ὀκταετερίδος ??
+% Columns 3-8 list the 5 or 6 months in the Attic calendar which are hollow.
+% Column 9 shows a β. or α. for the ebolic years. Though not explained in the
+% table itself, they are probably Byzantine Greek numerals again. The original
+% has a bar over the α, but not over the β, indicating they might be numerals.
+% Such symbols can be made using the Math features of Tex, e.g.
+% $\overbar{\kappa\alpha}$ for '21'.
+% Because there is no code for the digamma (representing 6), we need to resort
+% to using \varsigma (the end-of-word sigma) for this symbol.
+%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+%\tiny
+%\scriptsize
+%\footnotesize
+\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{1.6pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.3}
+%% Angle to rotate the headers
+%\newcommand{\ang}{60}
+%%
+\begin{tabular}{ll llllll}
+\toprule
+\multicolumn{8}{c}{\large{\textgreek{ΜΗΝΕΣ ΚΟΙΛΟΙ}}}
+\\
+\toprule
+~ & \multicolumn{5}{l}{$\downarrow$ \textgreek{τα` τὴς ὀκταετερίδος ἔτη.[?]}}
+\\
+\midrule
+\scriptsize{†} &
+\textgreek{\gnum{α}} &
+\textgreek{ἐλαφηβολ.} &
+\textgreek{θαργηλ.} &
+\textgreek{ἑκατομβ.} &
+\textgreek{βοηδρομ.} &
+\textgreek{μαιμακτ.} &
+\textgreek{ποσειδ. \gnum{β}} 
+\\
+ &
+\textgreek{\gnum{β}} &
+\textgreek{ἐλαφηβολ.} &
+\textgreek{θαργηλ.} &
+\textgreek{ἑκατομβ.} &
+\textgreek{βονδρομ.} &
+\textgreek{μαιμακτ.} &
+
+\\
+\scriptsize{†} &
+\textgreek{\gnum{γ}} &
+\textgreek{γαμηλ.} &
+\textgreek{ἐλαφηβολ.} &
+\textgreek{σκιῤῥοφ.} &
+\textgreek{μεταγείτν.} &
+\textgreek{πυανεψ.} &
+\textgreek{ποσειδ. \gnum{α}} 
+\\
+%\midrule
+ &
+\textgreek{\gnum{δ}} &
+\textgreek{γαμηλ.} &
+\textgreek{ἐλαφηβολ.} &
+\textgreek{σκιῤῥοφ.} &
+\textgreek{βονδρομ.} &
+\textgreek{μαιμακτ.} &
+
+\\
+ &
+\textgreek{\gnum{ε}} &
+\textgreek{ανθεστηρ.} &
+\textgreek{μουνιχ.} &
+\textgreek{σκιῤῥοφ.} &
+\textgreek{βονδρομ.} &
+\textgreek{μαιμακτ.} &
+
+\\
+\scriptsize{†} &
+\textgreek{\gnum{ϛ}} &
+\textgreek{γαμηλ.} &
+\textgreek{ἐλαφηβολ.} &
+\textgreek{θαρυηλ.} &
+\textgreek{ἑκατομβ.} &
+\textgreek{βονδρομ.} &
+\textgreek{ποσειδ. \gnum{α}}
+\\
+%\midrule
+ &
+\textgreek{\gnum{ζ}} &
+\textgreek{γαμηλ.} &
+\textgreek{ἐλαφηβολ.} &
+\textgreek{θαρυηλ.} &
+\textgreek{ἑκατομβ.} &
+\textgreek{βονδρομ.} &
+\textgreek{ποσειδ.}
+
+\\
+ &
+\textgreek{\gnum{η}} &
+\textgreek{ανθεστηρ.} &
+\textgreek{μουνιχ.} &
+\textgreek{σκιῤῥοφ.} &
+\textgreek{μεταγείτν.} &
+\textgreek{πυανεψ.} &
+\textgreek{ποσειδ.}
+
+\\
+\bottomrule
+\addlinespace
+~ & ~ & \multicolumn{3}{l}{\footnotesize \super{†} \textgreek{ἐμβολ.}}\\
+\end{tabular}
+%
+\caption{\textgreek{Μηνες κοιλοι}}
+\label{table:p067a}

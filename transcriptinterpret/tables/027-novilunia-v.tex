@@ -1,0 +1,58 @@
+%% Version of novilunia table in vertical style, like the original
+%% Liber Primus, p.27, PDF 110
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{0.5em}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{0.85}
+%
+\begin{tabular}{@{} r  r  r  r  r @{}}
+\toprule
+\multicolumn{5}{ c }{\Large\textsc{Novilunia in mensibus}} \\
+\multicolumn{5}{ c }{\Large\textsc{Tetraeteridis Graecae}} \\
+\toprule
+~ & \multicolumn{4}{ c }{Annus} \\
+\cmidrule(l){2-5}
+Mensium
+&
+Primus
+&
+Secundus
+&
+Tertius
+&
+Quartus
+\\
+\midrule
+  1 & 1    & 23 & 15 & 7 \\
+  2 & 1\altsep{}30
+           & 22 & 14 & 6 \\
+  3 & 30   & 22 & 14 & 6 \\
+  4 & 29   & 21 & 13 & 5 \\
+  5 & 29   & 21 & 13 & 5 \\
+  6 & 28   & 20 & 12 & 4 \\
+  7 & 28   & 20 & 12 & 4 \\
+  8 & 27   & 19 & 11 & 3 \\
+  9 & 27   & 19 & 11 & 3 \\
+ 10 & 26   & 18 & 10 & 2 \\
+ 11 & 26   & 18 & 10 & 2 \\
+ 12 & 25   & 17 &  9 & 2 \\
+\bottomrule
+\end{tabular}
+%
+\caption{Novilunia in mensibus Tetraetirides Graecae}
+\label{tab:p027}
+\end{tabnums}

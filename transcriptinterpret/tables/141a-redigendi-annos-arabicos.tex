@@ -1,0 +1,76 @@
+%%% Liber 2 p141, PDF 224
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Width of a column
+\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+\newcommand{\da}{{\tiny †}}
+\newcommand{\db}{{\scriptsize ‡}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: top row
+\newcommand{\hsa}[1]{\scriptsize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\tiny{#1}}
+%% Generate the column headers
+\newcommand{\hdrA}{%
+  ~ & ~ & \multicolumn{3}{c}{\hsa{Arabici}}
+}
+%
+\newcommand{\hdrB}{%
+  \hsb{\ch{Ennedecam}{Enneadeca\-e\-te\-ri\-des}} &
+  \ch{8888}{\hsb{Anni Iuliani}}&
+  \ch{8888}{\hsb{Anni Arabici}} &
+  \hsb{\ch{Dies}{Dies}} &
+  \hsb{\ch{Scrupux}{Scrupu\-li~diei}} 
+}
+%
+\newcommand{\hdrs}{%
+ \hdrA & & \hdrA \\
+ \cmidrule(lr){3-5} \cmidrule(l){9-11}
+ \hdrB & & \hdrB \\
+ \cmidrule{1-5} \cmidrule{7-11}
+}
+%
+\begin{tabular}[c]{@{} rrrrr c rrrrr @{}}
+\toprule
+\multicolumn{11}{c}{\Large\textsc{Tabella redigendi annos Arabicae}} \\
+\multicolumn{11}{c}{\large\textsc{in Iulianos et contra}} \\
+\toprule
+\hdrs % Column headers from the above definition
+%%
+  1 &  19 &  19 & 207 &  0 &~&  24\super\da &  456 &  470 &  1 & 40\\
+  2 &  38 &  39 &  59 &  0 &~&  36 &  684 &  705 &  2 & 30\\
+  3 &  57 &  58 & 266 &  0 &~&  48 &  912 &  940 &  3 & 20\\
+  4 &  76 &  78 & 118 &  0 &~&  60 & 1140 & 1175 &  4 & 10\\
+  5 &  95 &  97 & 325 &  0 &~&  72 & 1368 & 1410 &  5 &  0\\
+  6 & 114 & 117 & 177 &  0 &~&  84 & 1596 & 1645 &  5 & 50\\
+  7 & 133 & 137 &  30 &  0 &~&  96 & 1824 & 1880 &  6 & 40\\
+  8 & 152 & 156 & 236 &  0 &~& 108 & 2052 & 2115 &  7 & 30\\
+  9 & 171 & 176 &  89 &  0 &~& 120 & 2280 & 2350 &  8 & 20\\
+ 10 & 190 & 195 & 295 &  0 &~& 132 & 2508 & 2585 &  9 & 10\\
+ 11 & 209 & 215 & 148 &  0 &~& 144 & 2736 & 2820 & 10 &  0\\
+ 12 & 228 & 235 &   0 & 50 &~&     
+  \multicolumn{4}{l}{\super\da\scriptsize In originalis: 234}  \\
+\bottomrule
+\end{tabular}
+\caption{Redigendi Annos Arabicos in Iulianos et contra}
+\label{tab:p141a}
+\end{tabnums}

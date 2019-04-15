@@ -1,0 +1,59 @@
+%%% Liber II p121, PDF 204
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{2.1pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.008} % Tuned to eliminate Underfull \vbox
+%% Size of header text
+\newcommand{\hts}{\footnotesize}
+%
+%%
+\begin{tabular}{@{}r r r r}
+\toprule
+ \ch{\hts Iuliani}{\hts{Cycli Iuliani}} &
+ \ch{\hts Arabici}{\hts{Anni Arabici}} &
+ \ch{\hts Menses}{\hts{Menses Arabici}} &
+ \ch{\hts Numerus}{\hts{Numerus cyclorum}}
+\\
+\midrule
+   19 &   19 &  7 &   1 \\
+   38 &   39 &  2 &   2 \\
+   57 &   58 &  9 &   3 \\
+   76 &   78 &  4 &   4 \\
+   95 &   97 & 11 &   5 \\
+  114 &  117 &  6 &   6 \\
+  133 &  137 &  1 &   7 \\
+  152 &  156 &  8 &   8 \\
+  171 &  176 &  3 &   9 \\
+  190 &  195 & 10 &  10 \\
+  209 &  215 &  5 &  11 \\
+  228 &  235 &  0 &  12 \\
+  456 &  470 &  0 &  24 \\
+  684 &  705 &  0 &  36 \\
+  912 &  940 &  0 &  48 \\
+ 1140 & 1175 &  0 &  60 \\
+ 1368 & 1410 &  0 &  72 \\
+ 1596 & 1645 &  0 &  84 \\
+ 1824 & 1880 &  0 &  91 \\
+ 2052 & 2115 &  0 &  98 \\
+ 2280 & 2350 &  0 & 105 \\
+ 4560 & 4700 &  0 & 112 \\
+\bottomrule
+\end{tabular}
+%
+\caption{Anni et menses Arabici in cycli Iuliani}
+\label{tab:p121}
+\end{tabnums}

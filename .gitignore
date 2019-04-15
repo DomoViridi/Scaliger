@@ -1,19 +1,37 @@
+# OS X directory info files
+.DS_Store
+
 # Object file
 *.o
 
 # Portable Document Format files (scanned books, produced files)
-/*.pdf
+*.pdf
 # Explicitly allow the PDF original we use as source material
 !1629-Geneva-1-*.pdf
+# Allow for PDFs in any img subdirectory
+# But these commands do not work, nor does putting a !*.pdf rule in a .gitignore in a
+# subdirectory.
+#!**/img/*.pdf
+#!transcriptinterpret/img/*.pdf
+#
+# Any PDFs you want under control you will need to add to Git explicitly
+# using 'git add -f <file>'
+
+# Spreadsheets will change even if you just look at them. Ignore by default
+# Add explicitly if desired using 'git add -f <file>'
+*.numbers
 
 # Files produced by LaTeX
 *.aux
 *.log
 *.toc
+*.lot
+*.out
 log.err
 
 # Files produced by TexShop
 *.synctex.gz
+*.synctex(busy)
 
 # Files for the internal configuration of Xcode projects
 *.xcodeproj/

@@ -1,0 +1,1138 @@
+%%% Liber II p89-90
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+\tiny
+%\scriptsize
+%\footnotesize
+%\small
+%\normalsize
+%% Modify separation between columns
+\setlength{\tabcolsep}{2.8pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{0.9}
+%% Let longtable process the whole table in one go
+\setcounter{LTchunksize}{100}
+%
+%% Define a smaller dagger (unfortunalely tiny is already the smallest)
+\newcommand{\da}{{\tiny †}}
+%% Command for lines between the rows
+\newcommand{\streep}{\cmidrule{2-35}}
+%% Command for entries that span 2 columns
+\newcommand{\mc}[1]{\multicolumn{2}{c}{#1}}
+%%
+\begin{longtable}[c]{@{}%
+ c c c  r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l
+r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l r@{~}l  c c c c r@{~}l
+@{}}
+\toprule
+\multicolumn{35}{c}{\Large\textsc{Tabula neomeniarum periodi Calippicae}}\\
+\toprule
+% Put entry into List of Tables pointing to the first page of the table
+\addcontentsline{lot}{section}{%
+\protect\numberline{\thetable}Neomeniarum periodi Calippicae}
+\label{tab:p089}
+% Read the header description from an external file
+\input{tables/089-header-B.tex}
+\midrule
+\endfirsthead
+%%
+\toprule
+\multicolumn{35}{c}{%
+\large\textsc{Residuum tabulae neomeniarum periodi Calippicae}}\\
+\toprule
+% Read the header description from an external file
+\input{tables/089-header-B.tex}
+\midrule
+\endhead
+%%
+%\bottomrule
+\addlinespace[8pt]
+& & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβολ. [Abbriv.]}}\\
+\endfoot
+%%
+\bottomrule
+\addlinespace[8pt]
+& & \multicolumn{29}{l}{\footnotesize \super{†} \textgreek{ἐμβολ. [Abbriv.]}}\\
+\addlinespace
+% Put the table nr and title below the table, without entry in the LoT
+\caption[]{Neomeniarum periodi Calippicae}
+\endlastfoot
+%%
+  &    &    &
+     &   &    &   &  4.&5  &    &   &  8.&9  &    &   &
+  12.&13 &    &   & 16.&17 &    &   & 20.&21 &    &   &
+  24.&25 &
+  \\
+\nopagebreak
+\da &  1 & 14 &
+  \mc{7} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} &
+   384  &  13 &   6 & B & 28&Iun \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 28.&29 &    &   &    &   &  2.&3  &    &   &
+   6.&7  &    &   & 10.&11 &    &   & 14.&15 &    &   &
+     &   &
+  \\
+\nopagebreak
+  &  2 & 15 &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{0} &
+   739  &  25 &  11 & A G & 16&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  18.&19 &    &   & 23.&23\footnote{23.23: Sic.} &    &   & 26.&27 &    &   &
+% '23.23' in original
+  30.&31 &    &   &    &   &  4.&5  &    &   &  8.&9  &
+     &   &
+  \\
+\nopagebreak
+\da &  3 & 16 &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} &
+  1123  &  38 &  17 & F &  6&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  12.&13 &    &   & 16.&17 &    &   & 20.&21 &    &   &
+  24.&25 &    &   & 27.&28 &    &   &    &   &  1.&2  &
+     &   &
+  \\
+\nopagebreak
+  &  4 & 17 &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{6} &
+  \mc{0} &
+  1477  &  50 &  23 & E & 25&Iul \\
+\streep
+\nopagebreak
+%
+  &    &    &
+     &   &  5.&6  &    &   &  9.&10 &    &   & 13.&14 &
+     &   & 17.&18 &    &   & 21.&22 &    &   & 25.&26 &
+     &   &
+  \\
+\nopagebreak
+  &  5 & 18 &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{0} &
+  1831  &  62 &  29 & D & 14&Iul \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 29.&30 &    &   &    &   &  3.&4  &    &   &
+   7.&8  &    &   & 11.&12 &    &   & 15.&16 &    &   &
+  19.&20 &
+  \\
+\nopagebreak
+\da &  6 & 19 &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} &
+  2215  &  75 &  35 & C B &  2&Iul \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 23.&24 &    &   & 27.&28 &    &   &    &   &
+  11.&12 &    &   &  5.&6  &    &   &  9.&10 &    &   &
+     &   &
+  \\
+\nopagebreak
+  &  7 &  1 &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{0} &
+  2570  &  87 &  40 & A &  21&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  13.&14 &    &   & 17.&18 &    &   & 21.&22 &    &   &
+  24.&25 &    &   & 28.&29 &    &   &    &   &  2.&3  &
+     &   &
+  \\
+\nopagebreak
+  &  8 &  2 &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{4} &
+  \mc{0} &
+  2924  &  99 &  46 & G & 11&Iul \\
+%\nopagebreak
+%
+\streep
+  &    &    &
+     &   &  6.&7  &    &   & 10.&11 &    &   & 14.&15 &
+     &   & 18.&19 &    &   & 22.&23 &    &   & 26.&27 &
+     &   &
+  \\
+\nopagebreak
+\da &  9 &  3 &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} &
+  3308  & 112 &  52 & F & 30&Iun \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  30.&1  &    &   &    &   &  4.&5  &    &   &  8.&9  &
+     &   & 12.&13 &    &   & 16.&17 &    &   & 20.&21 &
+     &   &
+  \\
+\nopagebreak
+  & 10 &  4 &
+  \mc{4} & \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{0} &
+  3662  &  12 &  58 & E D & 18&Iul \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 20.&25 &    &   & 28.&29 &    &   &  2.&3  &
+     &   &  6.&7  &    &   &    &   & 10.&11 &    &   &
+  14.&15 &
+  \\
+\nopagebreak
+\da & 11 &  5 &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} &
+  4046  & 135 &  64 & C &   7&Iul \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 18.&19 &    &   & 21.&22 &    &   & 25.&26 &
+     &   & 29.&30 &    &   &    &   &  3.&4  &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 12 &  6 &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{0} &
+  4401  & 149 &  69 & B &  26&Iul \\
+%\nopagebreak
+%
+\streep
+  &    &    &
+   7.&8  &    &   & 11.&12 &    &   & 15.&16 &    &   &
+  19.&20 &    &   & 23.&24 &    &   & 27.&28 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 13 &  7 &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{0} &
+  4755  & 161 &  75 & A & 16&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &  1.&2  &    &   &  5.&6  &    &   &  9.&10 &
+     &   & 13.&14 &    &   & 17.&18 &    &   & 21.&22 &
+     &   &
+  \\
+\nopagebreak
+\da & 14 &  8 &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} &
+  5139  & 174 &  81 & G F &  4&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  25.&26 &    &   & 29.&30 &    &   &    &   &  3.&4  &
+     &   &  7.&8  &    &   & 11.&12 &    &   & 15.&16 &
+     &   &
+  \\
+\nopagebreak
+  & 15 &  9 &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{2} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{0} &
+  5493  & 186 &  87 & E & 23&Iul \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 18.&19 &    &   & 22.&23 &    &   & 26.&27 &
+     &   & 30.&1  &    &   &    &   &  4.&5  &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 16 & 10 &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{0} &
+  5848  & 198 &  92 & D &  12&Iul \\
+%\nopagebreak
+%
+\streep
+  &    &    &
+   8.&9  &    &   & 12.&13 &    &   & 16.&17 &    &   &
+  20.&21 &    &   & 24.&25 &    &   & 28.&29 &    &   &
+     &   &
+  \\
+\nopagebreak
+\da & 17 & 11 &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} &
+  6232  & 211 &  98 & C &  2&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+   2.&3  &    &   &  6.&7  &    &   & 10.&11 &    &   &
+  14.&15 &    &   & 18.&19 &    &   & 22.&23 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 18 & 12 &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{0} &
+  6586  & 223 & 104 & B A &  20&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  26.&27 &    &   & 30.&1  &    &   &    &   &  4.&5  &
+     &   &  8.&9  &    &   & 12.&13 &    &   & 15.&16 &
+     &   &
+  \\
+\nopagebreak
+  & 19 & 13 &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{0} &
+  6940  & 235 & 110 & G &  9&Iul \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 19.&20 &    &   & 23.&24 &    &   & 27.&28 &
+     &   &    &   &  1.&2  &    &   &  5.&6  &    &   &
+   9.&10 &
+  \\
+\nopagebreak
+\da & 20 & 14 &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} &
+  7324  & 248 & 116 & F &  28&Iun \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 13.&14 &    &   & 17.&18 &    &   & 21.&22 &
+     &   & 25.&26 &    &   & 29.&30 &    &   &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 21 & 15 &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{0} &
+  7679  & 260 & 121 & E &  17&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+   3.&4  &    &   &  7.&8  &    &   & 11.&12 &    &   &
+  15.&16 &    &   & 19.&20 &    &   & 23.&24 &    &   &
+  27.&28 &
+  \\
+\nopagebreak
+\da & 22 & 16 &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{4} &
+  8062  & 273 & 128 & D C &   6&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &    &   &  1.&2  &    &   &  5.&6  &    &   &
+   9.&10 &    &   & 12.&13 &    &   & 16.&17 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 23 & 17 &
+  \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{0} &
+  8417  & 285 & 133 & B &  24&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  20.&21 &    &   & 24.&25 &    &   & 28.&29 &    &   &
+     &   &  2.&3  &    &   &  6.&7 &    &   & 10.&11 &
+     &   &
+  \\
+\nopagebreak
+  & 24 & 18 &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{0} &
+  8771  & 297 & 139 & A & 14&Iul \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 14.&15 &    &   & 18.&19 &    &   & 22.&23 &
+     &   & 26.&27 &    &   & 30.&1  &    &   &    &   &
+   4.&5  &
+  \\
+\nopagebreak
+\da & 25 & 19 &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{5} &
+  9155  & 310 & 145 & G &   3&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &  8.&9  &    &   & 12.&13 &    &   & 16.&17 &
+     &   & 20.&21 &    &   & 24.&25 &    &   & 28.&29 &
+     &   &
+  \\
+\nopagebreak
+  & 26 &  1 &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{0} &
+  9509  & 322 & 151 & F E & 21&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &    &   &  2.&3  &    &   &  6.&7  &    &   &
+   9.&10 &    &   & 13.&14 &    &   & 17.&18 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 27 &  2 &
+  \mc{3} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{0} &
+  9864  & 334 & 156 & D &  10&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  21.&22 &    &   & 25.&26 &    &   & 29.&30 &    &   &
+     &   &  3.&4  &    &   &  7.&8 &    &   & 11.&12 &
+     &   &
+  \\
+\nopagebreak
+\da & 28 &  3 &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} &
+ 10248  & 347 & 162 & C & 30&Iun \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  15.&16 &    &   & 19.&20 &    &   & 23.&24 &    &   &
+  27.&28 &    &   &    &   &  1.&2  &    &   &  5.&6  &
+     &   &
+  \\
+\nopagebreak
+  & 29 &  4 &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{0} &
+ 10602  & 359 & 168 & B & 19&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &  9.&10 &    &   & 13.&14 &    &   & 17.&18 &
+     &   & 21.&22 &    &   & 25.&26 &    &   & 29.&30 &
+     &   &
+  \\
+\nopagebreak
+\da & 30 &  5 &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} &
+ 10986  & 372 & 174 & A G &  7&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &  3.&4  &    &   &  6.&7  &    &   & 10.&11 &
+     &   & 14.&15 &    &   & 18.&19 &    &   & 22.&23 &
+     &   &
+  \\
+\nopagebreak
+  & 31 &  6 &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{0} &
+ 11340  & 384 & 180 & F & 26&Iul \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 26.&27 &    &   & 30.&1  &    &   &    &   &
+   4.&5  &    &   &  8.&9  &    &   & 12.&13 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 32 &  7 &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{0} &
+ 11695  & 396 & 185 & E &  15&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  16.&17 &    &   & 20.&21 &    &   & 24.&25 &    &   &
+  28.&29 &    &   &    &   &  2.&3  &    &   &  6.&7  &
+     &   &
+  \\
+\nopagebreak
+\da & 33 &  8 &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} &
+ 12079  & 409 & 191 & D &  5&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  10.&11 &    &   & 14.&15 &    &   & 18.&19 &    &   &
+  22.&23 &    &   & 26.&27 &    &   & 30.&1  &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 34 &  9 &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{0} &
+ 12433  & 421 & 197 & C B &  23&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &  3.&4  &    &   &  7.&8  &    &   & 11.&12 &
+     &   & 15.&16 &    &   & 19.&20 &    &   & 23.&24 &
+     &   &
+  \\
+\nopagebreak
+  & 35 & 10 &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{0} &
+ 12787  & 433 & 203 & A & 12&Iul \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 27.&28 &    &   &    &   &  1.&2  &    &   &
+   5.&6  &    &   &  9.&10 &    &   & 13.&14 &    &   &
+  17.&18 &
+  \\
+\nopagebreak
+\da & 36 & 11 &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} &
+ 13171  & 446 & 209 & G & Ka.&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 21.&22 &    &   & 25.&26 &    &   & 29.&30 &
+     &   &    &   &  3.&4  &    &   &  7.&8  &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 37 & 12 &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{0} &
+ 13526  & 458 & 214 & F & 20&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  11.&12 &    &   & 15.&16 &    &   & 19.&20 &    &   &
+  23.&24 &    &   & 27.&28 &    &   & 30.&1  &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 38 & 13 &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{0} &
+ 13880  & 470 & 220 & E D &   9&Iul \\
+\nopagebreak
+% page 90
+\streep
+  &    &    &
+     &   &  4.&5  &    &   &  8.&9  &    &   & 12.&13 &
+     &   & 16.&17 &    &   & 20.&21 &    &   & 24.&25 &
+     &   &
+  \\
+\nopagebreak
+\da & 39 & 14 &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} &
+ 14264  & 483 & 226 & C & 28&Iun \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  28.&29 &    &   &    &   &  2.&3  &    &   &  6.&7&
+% '7' not visible in the scan we use. Is visible in other scans and editions
+     &   & 10.&11 &    &   & 14.&15 &    &   & 18.&19 &
+     &   &
+  \\
+\nopagebreak
+  & 40 & 15 &
+  \mc{5} & \mc{6} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{0} &
+ 14618  & 495 & 231 & B & 17&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 22.&23 &    &   & 26.&27 &    &   & 30.&1 &
+     &   &    &   &  4.&5  &    &   &  8.&9  &    &   &
+  12.&13 &
+  \\
+\nopagebreak
+\da & 41 & 16 &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} &
+ 15002  & 508 & 238 & A &  6&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 16.&17 &    &   & 20.&21 &    &   & 24.&25 &
+     &   & 27.&28 &    &   &    &   &  1.&2  &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 42 & 17 &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{0} &
+ 15357  & 520 & 243 & G F & 24&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+   5.&6  &    &   &  9.&10 &    &   & 13.&14 &    &   &
+  17.&18 &    &   & 21.&22 &    &   & 25.&26 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 43 & 18 &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{0} &
+ 15711  & 532 & 249 & E &  14&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  29.&30 &    &   &    &   &  3.&4  &    &   &  7.&8  &
+     &   & 11.&12 &    &   & 15.&16 &    &   & 19.&20 &
+     &   &
+  \\
+\nopagebreak
+\da & 44 & 19 &
+  \mc{3} & \mc{4} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} &
+ 16095  & 545 & 255 & D &  3&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  23.&24 &    &   & 27.&28 &    &   &    &   &  1.&2  &
+     &   &  5.&6  &    &   &  9.&10 &    &   & 13.&14 &
+     &   &
+  \\
+\nopagebreak
+  & 45 &  1 &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{0} &
+ 16449  & 557 & 261 & C & 22&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 17.&18 &    &   & 21.&22 &    &   & 24.&25 &
+% ".&18" more clear in 1598 edition
+     &   & 28.&29 &    &   &    &   &  2.&3  &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 46 &  2 &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{0} &
+ 16804  & 569 & 266 & B A & 10&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+   6.&7  &    &   & 10.&11 &    &   & 14.&15 &    &   &
+  18.&19 &    &   & 22.&23 &    &   & 26.&27 &    &   &
+     &   &
+  \\
+\nopagebreak
+\da & 47 &  3 &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} &
+ 17188  & 582 & 272 & G &  30&Iun \\
+\nopagebreak
+%
+\streep
+  &    &    &
+   3.&4  &    &   &  4.&5  &    &   &  8.&9  &    &   &
+  12.&13 &    &   & 16.&17 &    &   & 20.&21 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 48 &  4 &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{0} &
+ 17542  & 594 & 278 & F &  19&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  24.&25 &    &   & 28.&29 &    &   &    &   &  2.&3  &
+     &   &  6.&7  &    &   & 10.&11 &    &   & 14.&15 &
+     &   &
+  \\
+\nopagebreak
+\da & 49 &  5 &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} &
+ 17926  & 607 & 284 & E &  8&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  18.&19 &    &   & 21.&22 &    &   & 25.&26 &    &   &
+  29.&30 &    &   &    &   &  3.&4  &    &   &  7.&8  &
+     &   &
+  \\
+\nopagebreak
+  & 50 &  6 &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{0} &
+ 18280  & 619 & 290 & D C &  26&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 11.&12 &    &   & 15.&16 &    &   & 19.&20 &
+     &   & 23.&24 &    &   & 27.&28 &    &   &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 51 &  7 &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{0} &
+ 18635  & 631 & 295 & B & 15&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+   1.&2  &    &   &  5.&6  &    &   &  9.&10 &    &   &
+  13.&14 &    &   & 17.&18 &    &   & 21.&22 &    &   &
+  25.&26 &
+  \\
+\nopagebreak
+\da & 52 &  8 &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} &
+ 19018  & 644 & 302 & A &   5&Iul \\
+% '644' clearer in 1598 edition
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 29.&30 &    &   &    &   &  3.&4  &    &   &
+   7.&8  &    &   & 11.&12 &    &   & 15.&16 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 53 &  9 &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} & \mc{3} & \mc{4} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{0} &
+ 19373  & 656 & 307 & G &  23&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  18.&19 &    &   & 22.&23 &    &   & 26.&27 &    &   &
+  30.&1  &    &   &    &   &  4.&5  &    &   &  8.&9  &
+     &   &
+  \\
+\nopagebreak
+  & 54 & 10 &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{6} & \mc{7} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{0} &
+ 19727  & 668 & 313 & F E &  12&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 12.&13 &    &   & 12.&13 &    &   & 20.&21 &
+     &   & 24.&25 &    &   & 28.&29 &    &   &    &   &
+   2.&3  &
+  \\
+\nopagebreak
+\da & 55 & 11 &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{6} &
+ 20111  & 681 & 319 & D & Ka.&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &  6.&7  &    &   & 10.&11 &    &   & 14.&15 &
+     &   & 18.&19 &    &   & 22.&23 &    &   & 26.&27 &
+     &   &
+  \\
+\nopagebreak
+  & 56 & 12 &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{0} &
+ 20465  & 693 & 325 & C &  20&Iul \\
+\nopagebreak
+%
+\streep
+  &    &   &
+     &   & 30.&1  &    &   &    &   &  4.&5  &    &   &
+   8.&9  &    &   & 12.&13 &    &   & 15.&16 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 57 & 13 &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{0} &
+ 20820  & 705 & 330 & B &   9&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  19.&20 &    &   & 23.&24 &    &   & 27.&28 &    &   &
+     &   &  1.&2  &    &   &  5.&6  &    &   &  9.&10 &
+     &   &
+  \\
+\nopagebreak
+\da & 58 & 14 &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} &
+ 21204  & 718 & 336 & A G &  28&Iun \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  13.&14 &    &   & 17.&18 &    &   & 21.&22 &    &   &
+  25.&26 &    &   & 29.&30 &    &   &    &   &  3.&4  &
+     &   &
+  \\
+\nopagebreak
+  & 59 & 15 &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{4} &
+  \mc{0} &
+ 21558  & 730 & 342 & F &  17&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &  7.&8  &    &   & 11.&12 &    &   & 15.&16 &
+     &   & 19.&20 &    &   & 23.&24 &    &   & 27.&28 &
+     &   &
+  \\
+\nopagebreak
+\da & 60 & 16 &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} &
+ 21942  & 743 & 348 & E &   6&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &  1.&2  &    &   &  5.&6  &    &   &  9.&10 &
+     &   & 13.&14 &    &   & 17.&18 &    &   & 21.&22 &
+     &   &
+  \\
+\nopagebreak
+  & 61 & 17 &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{0} &
+ 22296  & 755 & 354 & D &  25&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 24.&25 &    &   & 28.&29 &    &   &    &   &
+   2.&3  &    &   &  6.&7  &    &   & 10.&11 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 62 & 18 &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{0} &
+ 22631  & 767 & 359 & C B &  13&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  14.&15 &    &   & 18.&19 &    &   & 22.&23 &    &   &
+  26.&27 &    &   & 30.&1  &    &   &    &   &  4.&5  &
+     &   &
+  \\
+\nopagebreak
+\da & 63 & 19 &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{2} &
+  \mc{3} &
+ 23035  & 780 & 365 & A &   3&Iul \\
+% '365' unclear; better in other scans
+\nopagebreak
+%
+\streep
+  &    &    &
+   8.&9  &    &   & 12.&13 &    &   & 16.&17 &    &   &
+  20.&21 &    &   & 24.&25 &    &   & 28.&29 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 64 &  1 &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{0} &
+ 23389  & 792 & 371 & G &  22&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   &  2.&3  &    &   &  6.&7  &    &   &  9.&10 &
+     &   & 13.&14 &    &   & 17.&18 &    &   & 21.&22 &
+     &   &
+  \\
+\nopagebreak
+  & 65 &  2 &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{0} &
+ 23734  & 804 & 377 & F &  11&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 25.&26 &    &   & 29.&30 &    &   &  3.&4  &
+     &   &  7.&6  &    &   & 11.&12 &    &   & 15.&16 &
+     &   &
+  \\
+\nopagebreak
+\da & 66 &  3 &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{3} &
+ 24127  & 817 & 383 & E D &  29&Iun \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 19.&20 &    &   & 23.&24 &    &   & 27.&28 &
+     &   &    &   &  1.&2  &    &   &  5.&6  &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 67 &  4 &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{7} & \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} &
+  \mc{0} &
+ 24482  & 829 & 388 & C &  18&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+   9.&10 &    &   & 13.&14 &    &   & 17.&18 &    &   &
+  21.&22 &    &   & 25.&26 &    &   & 29.&30 &    &   &
+     &   &
+  \\
+\nopagebreak
+\da & 68 &  5 &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} &
+  \mc{7} &
+ 24866  & 842 & 394 & B &   8&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+   3.&4  &    &   &  6.&7  &    &   & 10.&11 &    &   &
+  14.&15 &    &   & 18.&19 &    &   & 22.&23 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 69 &  6 &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} &
+  \mc{0} &
+ 25220  & 854 & 400 & A &  27&Iul \\
+% '25220' clearer in other editions and scans
+\nopagebreak
+%
+\streep
+  &    &    &
+  26.&27 &    &   & 30.&1  &    &   &    &   &  4.&3\footnote{4.3: Sic.}  &
+% '4.3' in the original is odd, as in all other entries
+% the second number is 1 larger than the first number.
+% This is nevertheless the same in other editions, so we assume this is what
+% the author wrote, though we suspect it is supposed to be '4.5'.
+     &   &  8.&9  &    &   & 12.&13 &    &   & 16.&17 &
+     &   &
+  \\
+\nopagebreak
+  & 70 &  7 &
+  \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{7} &
+  \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} &
+  \mc{0} &
+ 25574  & 866 & 406 & G F & 15&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 20.&21 &    &   & 24.&25 &    &   & 28.&29 &
+     &   &    &   &  2.&3  &    &   &  6.&7  &    &   &
+  10.&11 &
+  \\
+\nopagebreak
+\da & 71 &  8 &
+  \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} & \mc{4} &
+  \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} &
+  \mc{1} &
+ 25958  & 879 & 412 & E &   4&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 14.&15 &    &   & 18.&19 &    &   & 22.&23 &
+     &   & 26.&27 &    &   & 30.&1  &    &   &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 72 &  9 &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{0} &
+ 26313  & 891 & 417 & D &  23&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+   3.&4  &    &   &  7.&8  &    &   & 11.&12 &    &   &
+  15.&16 &    &   & 19.&20 &    &   & 23.&24 &    &   &
+     &   &
+  \\
+\nopagebreak
+  & 73 & 10 &
+  \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} & \mc{7} &
+  \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} & \mc{2} &
+  \mc{0} &
+ 26667  & 903 & 423 & C &  13&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  27.&28 &    &   &    &   &  1.&2  &    &   &  5.&6  &
+     &   &  9.&10 &    &   & 13.&14 &    &   & 17.&18 &
+     &   &
+  \\
+\nopagebreak
+\da & 74 & 11 &
+  \mc{4} & \mc{5} & \mc{7} & \mc{2} & \mc{3} & \mc{5} &
+  \mc{6} & \mc{1} & \mc{2} & \mc{4} & \mc{5} & \mc{7} &
+  \mc{1} &
+ 27051  & 916 & 429 & B A &  Ka.&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+  21.&22 &    &   & 25.&26 &    &   & 29.&30 &    &   &
+     &   &  3.&4  &    &   &  7.&8  &    &   & 11.&12 &
+     &   &
+  \\
+\nopagebreak
+  & 75 & 12 &
+  \mc{3} & \mc{4} & \mc{6} & \mc{7} & \mc{2} & \mc{3} &
+  \mc{5} & \mc{7} & \mc{1} & \mc{3} & \mc{4} & \mc{6} &
+  \mc{0} &
+ 27405  & 928 & 435 & G &  20&Iul \\
+\nopagebreak
+%
+\streep
+  &    &    &
+     &   & 15.&16 &    &   & 19.&20 &    &   & 23.&24 &
+     &   & 27.&28 &    &   & 30.&1  &    &   & 30.&1  &
+     &   &
+  \\
+\nopagebreak
+  & 76 & 13 &
+  \mc{7} & \mc{2} & \mc{3} & \mc{5} & \mc{6} & \mc{1} &
+  \mc{2} & \mc{4} & \mc{5} & \mc{7} & \mc{1} & \mc{3} &
+  \mc{0} &
+ 27759  & 940 & 441 & F &   9&Iul \\
+%%
+\end{longtable}
+\end{tabnums}

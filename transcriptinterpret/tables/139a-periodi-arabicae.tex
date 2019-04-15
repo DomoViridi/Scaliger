@@ -1,0 +1,78 @@
+%%% Liber 2 p139, PDF 222
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Width of a column
+\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+\newcommand{\da}{{\scriptsize †}}
+\newcommand{\db}{{\scriptsize ‡}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: top row
+\newcommand{\hsa}[1]{\footnotesize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\tiny{#1}}
+%% Generate the column headers
+\newcommand{\hdrB}{%
+  ~ &
+  \hsb{\parbox[b]{\cwd}{\raggedright Anni Arabicae}} &
+  \hsb{\parbox[b]{\cwd}{\raggedright Dies embolimi}} &
+  \hsb{\parbox[b]{\cwd}{\raggedright Sexa\-ge\-si\-mae diurnae}} &
+  \hsb{\parbox[b]{\cwd}{\raggedright Cha\-rac\-ter anni}}
+%  \hsb{\ch{Arabix}{Anni Arabicae}} &
+%  \ch{8888}{\hsb{Anni Arabicae}}&
+%  \hsb{\ch{embolx}{Dies embolimi}} &
+%  \hsb{\ch{Sexagex}{Sexa\-ge\-si\-mae diurnae}} &
+%  \hsb{\ch{Characx}{Cha\-rac\-ter anni}} 
+}
+%
+\newcommand{\hdrs}{%
+ \hdrB & & \hdrB \\
+ \cmidrule(l){1-5} \cmidrule(l){7-11}
+}
+%
+\begin{tabular}[c]{@{} r rrrr c r rrrr @{}}
+\toprule
+\multicolumn{11}{c}{\Large\textsc{Lina Periodi Arabicae}} \\
+\toprule
+\hdrs % Column headers from the above definition
+%%
+    &  1 & 0 & 22 & 4  &~& \db & 16 &  5 & 52 & 6\\
+\db &  2 & 0 & 44 & 1  &~&     & 17 &  6 & 14 & 4\\
+    &  3 & 1 &  6 & 6  &~&     & 18 &  6 & 36 & 1\\
+    &  4 & 1 & 28 & 3  &~& \db & 19 &  6 & 58 & 5\\
+\db &  5 & 1 & 50 & 7  &~&     & 20 &  7 & 20 & 3\\
+    &  6 & 2 & 12 & 5  &~& \db & 21 &  7 & 42 & 7\\
+    &  7 & 2 & 34 & 2  &~&     & 22 &  8 &  4 & 5\\
+\db &  8 & 2 & 56 & 6  &~&     & 23 &  8 & 26 & 2\\
+    &  9 & 3 & 18 & 4  &~& \db & 24 &  8 & 48 & 6\\
+\db & 10 & 3 & 40 & 1  &~&     & 25 &  9 & 10 & 4\\
+    & 11 & 4 &  2 & 5  &~&     & 26 &  9 & 32 & 1\\
+    & 12 & 4 & 24 & 3  &~& \db & 27 &  9 & 54 & 5\\
+\db & 13 & 4 & 46 & 7  &~&     & 28 & 10 & 16 & 3\\
+    & 14 & 5 &  8 & 5  &~&     & 29 & 10 & 38 & 7\\
+    & 15 & 5 & 30 & 2  &~& \db & 30 & 11 &  0 & 4\\
+\bottomrule
+\addlinespace[5pt]
+& \multicolumn{2}{r}{\footnotesize\super{\db}\textgreek{ὑπερ.}}
+\end{tabular}
+\caption{Periodi Arabicae}
+\label{tab:p139a}
+\end{tabnums}

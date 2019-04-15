@@ -1,7 +1,9 @@
 % XeLaTeX can use any Mac OS X font. See the setromanfont command below.
-% Input to XeLaTeX is full Unicode, so Unicode characters can be typed directly into the source.
+% Input to XeLaTeX is full Unicode, so Unicode characters can be typed
+% directly into the source.
 
-% The next lines tell TeXShop to typeset with xelatex, and to open and save the source with Unicode encoding.
+% The next lines tell TeXShop to typeset with xelatex, and to open and
+% save the source with Unicode encoding.
 
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
@@ -15,7 +17,7 @@
 \usepackage{geometry}
 %% See geometry.pdf to learn the layout options. There are lots.
 
-\geometry{a4paper}         %% ... or a4paper or a5paper or ... 
+\geometry{a4paper}         %% ... or a4paper or a5paper or ...
 %\geometry{landscape}      %% Activate for rotated page geometry
 
 %\usepackage[parfill]{parskip}
@@ -24,19 +26,45 @@
 %\usepackage{amssymb}
 
 % Will Robertson's fontspec.sty can be used to simplify font choices.
-% To experiment, open /Applications/Font Book to examine the fonts provided on Mac OS X,
+% To experiment, open /Applications/Font Book to examine the fonts provided
+% on Mac OS X,
 % and change "Hoefler Text" to any of these choices.
 
 \usepackage{fontspec,xltxtra,xunicode}
 %\setmainfont{Hoefler Text}
+
+\setmainfont{Times New Roman}
+% Chosen font needs to be able to show Greek characters koppa and sampi.
+% Preferably should also have small caps.
+
 %\defaultfontfeatures{Mapping=tex-text}
 %\setromanfont[Mapping=tex-text]{Hoefler Text}
 %\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
 %\setmonofont[Scale=MatchLowercase]{Andale Mono}
 
+% Use color to mark the hyperlinks
+\usepackage{color}
+
+%%% Booktabs package for nice looking tables
+\usepackage{booktabs}
+
+% Allow hypertext links to external documents/websites
+% Hyperref manual advises to load this last
+% Bidi insists you load hyperref *before* bidi (which is part of polyglossia)
+\usepackage[colorlinks]{hyperref}
+
+%% Command to create a hyperlink to an Issue on GitHub
+%% Parameter: the issue number on GitHub
+\newcommand{\SeeIssue}[1]{%
+See \textcolor{blue}{%
+\href{https://github.com/DomoViridi/Scaliger/issues/#1}%
+{Issue \#{#1}}%
+} on GitHub%
+}
+
 \title{Writing tips}
-\author{Hops Splurt}
-\date{\today}                                           % Activate to display a given date or no date
+\author{Erik Groenhuis}
+\date{\today} % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
@@ -44,8 +72,8 @@
 \tableofcontents{}
 
 % For many users, the previous commands will be enough.
-% If you want to directly input Unicode, add an Input Menu or Keyboard to the menu bar 
-% using the International Panel in System Preferences.
+% If you want to directly input Unicode, add an Input Menu or Keyboard
+% to the menu bar using the International Panel in System Preferences.
 % Unicode must be typeset using a font containing the appropriate characters.
 % Remove the comment signs below for examples.
 
@@ -53,20 +81,31 @@
 % \newfontfamily{\H}[Scale=0.9]{Lucida Grande}
 % \newfontfamily{\J}[Scale=0.85]{Osaka}
 
-% Here are some multilingual Unicode fonts: this is Arabic text: {\A السلام عليكم}, this is Hebrew: {\H שלום}, 
+% Here are some multilingual Unicode fonts: this is Arabic text:
+% {\A السلام عليكم}, this is Hebrew: {\H שלום},
 % and here's some Japanese: {\J 今日は}.
 
 %%=====
 \chapter{Project setup}
 The aim of this project is to produce a modern version of
-De Emendatione Temporum by Scaligeri.
+De Emendatione Temporum by Joseph Justus Scaliger.
 At the very least we want an easily readable transliteration
 in the original Latin and all the other languages used.
 At best we produce
 a full translation into English (and possibly other languages).
 
+The base document is the most recent copy of the most recent edition:
+\begin{quote}
+  \verb+1629-Geneva-1-Opus_de_emendatione_temporum_hac_postrem.pdf+
+\end{quote}
+This can be found on Google Books as:
+\begin{quote}
+  \url{https://books.google.nl/books?id=vTZBAAAAcAAJ}
+\end{quote}
 
-%---
+
+
+%%---
 \section{Interpreted Transcription}
 In this first stage, we intend to transcribe the scanned PDF original(s)
 into a computer file which can be searched, rendered
@@ -76,37 +115,43 @@ Originally we wanted to stay as close as possible to the original
 in the first stage.
 This turned out to be a lot more work than we bargained for.
 As a result the priority has shifted to producing
-an interpreted transcription first.
+an interpreted transcription.
 
 In this stage we create a document which has the same text as the original,
 but in a modern script.
 This document should be easy to read for the modern reader who knows
 Latin and Greek.
 
+Some examples of what changes are made for the transcription are:
+
 \begin{itemize}
 \item All ligatures and diacriticals are expanded (e.g. æ to ae).
-\item Long s is replaced with modern s.
+\item Long s 'ſ' is replaced with modern s.
+\item Usage of 'u' and 'v' is changed to the modern style.
 \item Abbreviated words (e.g. \verb+quoq;+) are written in full (\verb+quoque+).
 \item Interpunction is done in modern style, and more consistent.
-\item Often sentences starting with a \verb+q+ won't have this q capitalised.
-We will start each sentence with a capitalised word.
 \item All Greek phrases will be rendered using modern polytonic Greek
 script with Unicode encoding.
+\item The layout of tables will be done in a modern style.
 \end{itemize}
+More details are given in section \ref{sec:textual_cleanup}.
 
+%--
 \subsection{Line number references}
 To correlate this transcript to the original, the lines
 in the original PDF will be numbered.
 The numbers will start with 1 on each page, and this and every 5th line
 will be marked with its number in the margin.
+These numbers are added to the PDF in the form of PDF annotations.
 
-In the transcript each beginning of a line will be marked with that number
+In the transcript each beginning of a line will be marked with the line number
 in parentheses. The first sentence on each page will also give the page
 number in that mark.
 
 As a result each line in the transcript can easily be found in the original,
 and vice versa.
 
+%--
 \subsection{Extra features}
 Features will be added that are not in the original text.
 \begin{itemize}
@@ -116,7 +161,7 @@ Features will be added that are not in the original text.
 automatically.
 \item List of Tables and List of Figures will be added.
 \item Lots of annotations will be added to clarify the text.
-For example: Scaligeri habitually quotes classics without giving a reference.
+For example: Scaliger habitually quotes classics without giving a reference.
 We will add:
     \begin{itemize}
     \item The exact reference (Author, title of the work, section/page/verse)
@@ -130,51 +175,13 @@ Note that before we get to the fancy stuff, the initial big work will be
  the actual transcribing,
 i.e. reading from the scanned original and typing in the Latin text.
 
-%---
-\section{Litteral Transcription}
-
-To make references to the original easier, we plan to produce a version that
-resembles the original as closely as possible.
-
-This includes:
-\begin{itemize}
-\item Using a font that has the old-style ligatures (such as 'st' and 'ct'),
-the long s, and preferably a Q with a swish.
-These features should be available with as little special encoding as possible.
-This will require the selection of a suitable font.
-\item A page in the transcription should match a page in the original and
-vice versa.
-If necessary we will insert an
-extra page in the transcription to hold the bit of text that does not fit
-on one page.
-Preferably we prevent this problem
-by making sure a transcription page can hold as least as much text as an
-original page, by adjusting the margins
-and the font size.
-\item Though it is very hard to match the newlines in the original, an effort
-should be made to maintain a close relation with the original.
-This way the line numbering we intend to add to the PDF scan can be maintained
-in this transcription.
-An effort should be made to find a way to force XeLaTeX to put a linebreak
-in a word.
-\item The letters in the margin of the original should also be in the
-transcription, for easy cross-reference.
-\item All other languages (Greek, Hebrew, Arabic, Persian?, more?)
-and symbols (planet symbols) must be rendered
-as closely as possible to the original.
-\item The original Greek uses many, many, many ligatures.
-Preferably the transcription shows the same ligatures.
-This will require a search for (and possibly implementation of) a specialised
-font for this purpose.
-\end{itemize}
-
-%---
+%%---
 \section{Translation}
 A translation of all the text.
 A reader should be able to read and understand everything without knowledge
 of ancient languages.
 The layout will be in a similar modern style as the transliteration.
-In addition there will be many notes 
+In addition there will be many notes
 (footnotes?) giving clarifications and annotations to the vagaries of the
 translation process.
 
@@ -182,311 +189,312 @@ In principle each phrase in the original will correspond to a phrase in the
 translation, but this is not a strict rule.
 We may even change our mind and go for a smooth running translation.
 
+
+%%=====
+\chapter{How Scaliger divided his book}
+The book is divided into Liberi which are in turn divided into subjects of
+a few pages each. Some books are divided into Partes, some are not.
+Each Liber or Pars begins with an introduction before the first subject starts.
+Titles of the Liberi and Partes are usually only given in the table of
+contents, not in the body of the text. Though the parts are mentioned in the
+Table of Contents, they are not marked in the body of the text.
+If the Pars has a title, than sometimes that title is in the body of the text,
+just before and slightly bigger than the title of the first subject in that
+Pars, but sometimes it is not in the body. Partes do not start on a new page.
+Liberi usually do. Sometimes (e.g. Liber Quartus) the title of the first
+subject which was mentioned in the ToC is missing from the body text.
+
+The structure goes as follows (numbers on the left are PDF file page numbers;
+even numbers are right-hand pages):
+
+\begin{description}
+\item[16] Title page (1 page + blank verso)
+\item[18] Dedication ("Domino Achilli Harlaeo", 4 pages)
+\item[22] Another 2 pages ("Q. Sept. Florens Christianus de Iosephi Scaligeri")
+\item[24] Greek quotes (3 pages + blank verso)
+\item[28] Prolegomena (52 pages)
+\item[80] Table of contents ("Conspectus", 4 pages)
+\item[84] Liber Primus
+ ("De anno aequabili minore", pp 1-60, 18 subjects, 60 pages)
+\item[144] Liber Secundus
+ ("De anno Lunari", pp 61-187, 32 subjects, 127 pages)
+\item[271] Liber Tertius
+ ("De anno aequabili maiore", pp 188-226, 7 subjects, 39 pages)
+\item[310] Liber Quartus
+ ("De anno solari, tributus in partis quatuor", pp 227-344, 118 pages)
+\begin{description}
+  \item[310] Pars Prima
+   (pp 227-272 \& 353, 16 subjects, 46 pages)
+  \item[355] Secunda pars
+   (pp 272-293, 5 subjects, 22 pages)
+  \item[376] Tertia pars
+   ("De periodis solaribus.", pp 293-303, 5 subjects, 11 pages)
+  \item[386] Quarta pars
+   ("De annis tropicis et lunaribus emendatis",
+    pp 303-353, 9 subjects, 51 pages)
+  \item[436] Omissa Lib. II \& IV
+   (p 353, two additions: to page 141 and to page 272)
+\end{description}
+\item[437] Liber Quintus
+ ("Prior de epochis temporum", pp 354-530, 106 subjects, 117 pages)
+\item[614] Liber Sextus
+ ("Posterior de epochis temporum, in duas partes tributus", pp 531-624,
+  94 pages)
+\begin{description}
+  \item[624] Prior pars (pp 531-574, 10 subjects, 44 pages)
+  \item[657] Altera pars de duabus
+   ("Quaestionibus Danielis", pp 574-624, 7 subjects, 51 pages)
+\end{description}
+\item[708] Liber Septimus
+ ("De computis annalibus nationum", pp 625-784, 20 subjects, 160 pages)
+\item[870] Nomenclator (Index,  9 pages, no page numbers)
+\item[879] Index rerum et verborum memorabilium
+ (Index, 21 pages, no page numbers)
+\item[900] Index Graecarum vocum (Index, 6 pages, no page numbers)
+\item[906] Index Orientalium vocum (Index,  8 pages, no page numbers)
+\item[914] Operarum typographicarum; Errata ita corrigito
+ (1 page, no page number)
+\item[915] Operis de Emendatione Temporum Finis. (1 page, no page number)
+\item[916] Two blank pages
+\item[918] "Veterum Graecorum Fragmenta Selecta" (pp 1-2, 1 page + blank verso)
+\begin{description}
+  \item[920] "ΒΗΡΩΣΣΟΣ ΒΑΒΥΛΩΝΙΟΣ ΙΕΡΕΥΣ ΒΗΛΟΥ ..."
+     (pp 3-8, 6 pages)
+  \item[926] "In fragmentum Berosi Babylonii sacerdotis beli ..."
+     (pp 9-49, 41 pages)
+  \item[966] "Epochae in vetere instrumento quae certum characterem habent"
+     (pp 49-50, 2 pages)
+  \item[969] "Characteres vetustatis, qui hodie apud Iudaeos"
+     (pp 51-53, 3 pages)
+  \item[971] "Characteres temporum in novo testamento"
+     (pp 54-59, 6 pages)
+\end{description}
+\item[977] Blank (6 pages)
+\item[983] Back cover
+\end{description}
+~
+\\
+For the transcription we can equate the subdivisions as follows:
+\begin{itemize}
+\item Liberi will be represented by LaTeX Chapters
+\item Subjects will be represented by LaTeX Sections
+\item Partes will not be directly represented. We will use a special command
+ which inserts the Pars text in the ToC
+ (\verb+\addcontentslline+, in the Section style).
+\item The bits before Primus Liber will go in the LaTeX top matter, and be
+ preceded by the \verb+\frontmatter+ command.
+\item The Prolegomena is a special Chapter with roman page numbers and
+ no entry in the ToC (accomplished with the \verb+\frontmatter+ command).
+\item The four indices and the errata page will be represented as Appendices
+ (precede by \verb+\appendix+).
+\item The "Finis" page and the Veterum Graecorum part will be preceded by
+ \verb+\backmatter+.
+\end{itemize}
+
+
+%%---
+\section{Footers}
+(This information has no effect on the transcription.
+It is kept here as general background.)
+
+In the original, the footer has a link word on the right on each page.
+A link word is the same as the first word on the
+next page, which helped the setter and printer to make sure the pages appear
+in the right order.
+
+Most right-hand pages also have a Greek or Latin letter + sheet number before
+the link word.
+These were probably used to identify the gathering (a binding unit).
+
+The count goes:
+G, G 2, G 3, G 4, blank, blank, H, H 2, H 3, H 4, blank, blank, I, I 2,
+etcetera.
+This suggests that there are 3 sheets (bi-folios) per gathering,
+with G, G 2 and G 3 on the front and G 4 on the back of the bifolio that
+has G 3 on the front.
+
+The count starts on the title page (PDF p. 16) with alpha. As the title page
+does not have a footer,
+the first actual mark is alpha 2 on PDF p. 18.
+This continues with
+beta (PDF p. 28, start of the Prolegomena), gamma, delta and epsilon.
+It ends with zeta (PDF p. 76), zeta 2 and finally zeta 3 (PDF p. 80,
+start of the ToC).
+PDF p. 82 does not have a zeta 4, against expectations.
+Also missing are the two blank pages in the zeta group.
+This leads to the conclusion that the zeta gathering only has two sheets,
+that is 8 pages
+(namely PDF p. 76-83).
+
+Liber I starts on PDF p. 84 with a chapter header, and has the Latin letter A
+as a mark. This continues with A 2, A 3,
+A 4, blank, blank, B, B 2, B 3, etcetera.
+
+After Z 4 (PDF p. 354) the sequence continues with Aa (PDF p. 360),
+Aa 2 (PDF p. 362), Aa 3, Aa 4, Bb (PDF p. 372),
+Bb 2, etc.
+
+After Zz 4 (PDF p. 630) it continues with Aaa (PDF p. 636), Aaa 2, etc.
+
+After Zzz 4 (PDF p. 912, page 7 of Index Orientalium vocum) we get PDF p. 918:
+the title page of "Veterum Graecorum Fragmenta Selecta", no footer,
+and then 'a 2' (PDF p. 920), 'a 3', 'a 4', blank, blank, 'b' (PDF p. 930),
+'b 2', 'b 3', 'b 4', blank, blank, 'c', 'c 1', 'c 2', 'c 3',
+'c 4' (PDF p. 972), which is the last mark in the book,
+which ends on PDF p. 976.
+
+Policy: because the footers in the original only contain information for the
+printer, we will leave this information out.
+We might use the footer space for our own information, e.g. for a PDF file page
+reference, a title of our transcription,
+and/or a version number of the transcription.
+
+
 %%=====
 \chapter{Tools}
 \XeLaTeX{} part of \TeX{} package. Editing source with TeXShop. Can also
-be done with any other editor of flat text. 
+be done with any other editor of flat text.
 Compilation must be done with \texttt{xelatex}. Can be done from TeXShop.
 Note: use the Typeset button on the root document
 (which has the \verb;\documentclass{}; command in it).
 Sources kept on \texttt{GitHub}.
 
-%%=====
-\chapter{Interpreted transcription}
-\section{Textual cleanup}
+%%---
+\section{Implemented features}
+%--
+\subsection{Unicode}
+After using Mac OS TextEdit with RTF, which did not give enough control over
+formatting, and \LaTeX, which
+has bad support for Unicode, we switched to \XeLaTeX.
+This directly accepts UTF-8 as source input and allows
+putting pieces of Greek, Hebrew, Arabic and other languages in their original
+form in the source.
+The breaking point came when \LaTeX  made it impossible to produce the
+astrological signs for the planets.
+
+%--
+\subsection{Fractions}
+See \texttt{fontspec.pdf} section 12.6.
+Solved with \verb+\myfrac{}{}+ based on \verb+\sfrac{}[]{}+
+from the \verb+xfrac+ package.
+
+%--
+\subsection{A mechanism to mark and reference pages in the original PDF}
+This is done by adding line numbers to the PDF using annotations, and
+putting commands in the tex source that refer to those
+line numbers before every sentence.
+
+
+%%---
+\section{Desired Features}
+%--
+\subsection{Roman numerals}
+\label{subsec:roman_numerals}
+Introduce a command like \verb+\rnum{}+ to format roman numerals, to replace
+the \verb+\textsc{}+ small caps command. Features:
 \begin{itemize}
-\item All ligatures are expanded
-	\begin{enumerate}
-	\item æ to ae
-	\item Æ to Ae (e.g. Aegyptica)
-	\end{enumerate}
-\item Long s is replaced with modern s. Tricky, as the long s looks almost
-exactly like an 'f'.
-\item Diacriticals will be expanded
-	\begin{itemize}
-	\item ā to am (sometimes an)
-	\item ō to on (sometimes om)
-	\item ē to en (sometimes em)
-	\item à (as a whole word) to ab
-	\item ë in poëta (p4,7) or Laërtius (p23,36) will be unchanged for now
-	\end{itemize}
-\item Abbreviated words (e.g. \verb+quoq;+) are written in full (\verb+quoque+).
-\item Interpunction is done in modern style, and more consistent.
-\item Often sentences starting with a \verb+q+ won't have this q capitalised.
-We will start each sentence with a capitalised word. Sometimes other initial
-letters won't have been capitalised either.
-\item All Greek phrases will be rendered using modern polytonic Greek
-script with Unicode encoding.
-This has about 49 base glyphs (24 upper case, 24 normal lower case
-plus the word-final sigma) and about 233 extra glyps for
-the polytonic diacriticals and iota subscripts.
-The original uses a Byzantine Minuskel script which has about 1500 glyphs.
+\item Small caps
+\item Possibly wider spacing
+\item A suitable font with
+\begin{itemize}
+\item Serifs
+\item Support for small caps
+\item Support for U+2183 ROMAN NUMERAL REVERSED ONE HUNDRED, which is used
+in Liber Secundus.
+\end{itemize}
+\item Should also render correctly when used inside italics (e.g. p168:27-30)
 \end{itemize}
 
-%---
-\section{Special things to pay attention to}
-\begin{itemize}
-\item Numbers with fractions: Put a non-break space \verb+~+ between the number
-and the fraction, e.g. \verb+7~1/2+ to give 7~1/2.
-\item Reading the interpunction can be very tricky where numbers are involved.
-Often there will be a period after an arabic or roman number, while the
-construction of the phrases suggest that it is not intended as the end of 
-the sentence. E.g. Liber Primus, p 17, line 10 and further.
-\item The difference between an 'f' and a 'long s' (ſ) can often be hard to see, especially if followed by an 'i'. The printers used two ligatures which are almost identical ('fi' and 'ſi'). In the original (as, indeed, in this document if all goes well), the letters in the f-i ligature ('fi') are connected at the hight of the crossbar, while in the long s-i ligature ('ſi') they are not connected there.
-\end{itemize}
+%==
+\subsection{Greek numerals}
+\label{subsec:greek_numerals}
+The original sometimes uses numbers represented by Greek letters
+(e.g. Liber Secundus page 81, PDF 164). To show that it is a number, the
+letters have a bar over them, like this: $\overline{\kappa\delta}$.
 
-%---
-\section{Extra features to be added}
-\begin{itemize}
-\item Text will be divided into paragraphs to the best of our insights.
-\item Headers and footers will be generated in a modern style.
-\item Table of Contents, Index, Glossary and Bibliography are generated
-automatically.
-\item List of Tables and List of Figures added.
-\item Lots of annotations to clarify the text.
-For example: Scaligeri habitually quotes classics without giving a reference.
-We will add:
-    \begin{itemize}
-    \item The exact reference (Author, title of the work, section/page/verse)
-    \item If possible a link to an on-line version.
-    \item If misquoted, the actual quote.
-    \item An explanation why this quote is appropriate.
-    \end{itemize}
-\end{itemize}
+At first we used math mode with overline to represent this.
+E.g. the above example was encoded as \verb+$\overline{\kappa\delta}$+.
+Disadvantages of this method were that math mode uses a different
+font for the greek letters,
+it does not work in certain environments (such as slanted table headers),
+and some Greek characters used for numbers are not available as named
+codes in math mode, namely stigma (nr 6), koppa (nr 90) and sampi (nr 900).
 
-%---
-\section{Line number references}
-To correlate this transcript to the original,  the lines
-in the PDF of the original will be numbered.
-The numbers will start with 1 on each page, and every 5th line will be marked
-with its number in the margin.
-In the transcript each beginning of a line will be marked with that number
-in parentheses.
+To solve this problem we constructed a command that has the effect of
+\verb+\overline+ but works outside of math mode.
+\begin{verbatim}
+  \ruleover[scale]{string}
+\end{verbatim}
+This command takes any string, shrinks it down by \verb+scale+ and
+puts a rule over it at 4/3 of the new height.
+The scale parameter can be omitted and defaults to 3/4 (0.75).
+With the default scale the rule appears where the top of the original
+string would be.
 
-Study of how lines are commonly numbered in long transcribed documents
-will be required.
+To apply this command in the document use either of
+\begin{verbatim}
+  \gnum{string}
+  \gnums{scale}{string}
+\end{verbatim}
+The first version is the regular one, and uses the default scale.
+The second version adds the optional scale parameter.
+The default scale is usually the best, but
+sometimes a scale of 1 is more appropriate.
 
-The line numbers in the PDF will have the form of annotations. To save work
-a program has been developed to automaticaly generate the numbers in roughly
-the correct position for sets of pages. Note that the original has over 900
-pages of text, and each page requires 9 notes (sometimes less), requiring
-about 8100 notes to be generated.
+Note that these commands do not invoke the Greek text environment themselves.
+When using them for Greek numbers, put a \verb+\textgreek{}+ either
+around or inside the command.
 
-Doing this by hand in a PDF reading program (like Acrobat Reader or OSX Preview)
-would be tedious, especialy since these programs become extremely slow when
-trying to handle annotations.
 
-\subsection{Commands for line numbers}
-Commands were created to add the line- and pagenumbers:
-\begin{itemize}
-\item \verb+\lnr{<line number>}+ to add the line number to the beginning of
-a sentence.
-\item \verb+\plnr{<PDF page>}{<page nr>}{<line nr>}+ to use at the beginning of the first sentence on a new page in the source. Parameters are:
-\begin{enumerate}
-\item The PDF page number of the page in this particular scan of this particular
-copy of this particular edition of the book.
-This value is only used internally for now. Intended to be used to
-make links to the original PDF file.
-\item The page number as shown on the page. This will be printed in the output.
-\item The line number in the original where de sentence starts.
-\end{enumerate}
-\item \verb+\Rplnr{<PDF page>}{<page nr>}{<line nr>}+. This is the same as the
- \verb+\plnr+ command, except that the page number will be printed as a roman
- numeral rather than an arabic number. Used for chapters that use roman numerals
- as page numbers, such as the Prolegomena.
-\end{itemize}
+%==
+\subsection{Putting the right titles in the ToC}
+[Something here about chapter and section headings]
 
-Note: \emph{Do not put spaces or newlines between these commands and the
-text that follows!} That would put an extra space in the output after the no-break-space that is programmed into the command. The text should always follow
-directly after the command. Correct example:\begin{quote}
-\verb+\lnr{23}Lore ipsum dolor savit+
-\end{quote}
-
-%---
-\section{General guidelines for the \XeLaTeX code}
-The following guidelines are intended to make it easier to compare the
-tex file to the original.
-\begin{itemize}
-\item A new sentence in the original should start at a new line in the tex file.
-\item The first word on a line in the original should be at the start of a line
-in the tex file.
-\item No line in the tex file should be longer than 80 characters.
-\item If the first two rules are followed, sometimes a tex line will come out
-longer than 80 characters. In that case, split the line in two or more,
-where each extra line is indented by one space.
-\end{itemize}
-Note that \LaTeX treats a single newline as if it is a space. This means that
-breaking up a line in the tex file will not affect the outcome.
-A new paragraph is marked by a double newline (i.e. an empty line) in the
-tex file.
-
-The effect of these guidelines is that a non-indented new line
-in the tex file corresponds
-to either:
-\begin{itemize}
-\item The beginning of a sentence (marked with a \verb+\lnr{}+ command or
-its siblings)
-\item The first word of a line in the source text.
-\end{itemize}
-
-\subsection{Wrapping text around figures}
-Attempts to use \verb+wrapfigure+ to make the text flow around figures were
-more trouble then its worth. In particular, the text would not start to
-flow until a new paragraph is started. Because we seldom start a new paragraph,
-we would have to start a paragraph on purpose (causing an indent) just for the
-wrapping. We will simply put the figures on their own, without wrapping.
-
-%---
-\section{Specific issues per chapter}
-\subsection{Prolegomena}
-\begin{itemize}
-\item
-The pages are numbered with roman numerals rather than arabic numbers.
-The \verb+\Rplnr{}{}{}+ command
-was created to print the page numbers in roman numerals in the text.
-\item
-The Prolegomena in the original is basicaly a fifty page wall of text. Some attempts have been made to find places where the text changes the subject and insert a new paragraph there, but further work is needed. We may want to
-introduce sections or subsections. See Issue \#12.
-\end{itemize}
-
-\subsection{Liber Primus}
-\begin{itemize}
-\item
-There is frequent use of "à" as a word. After some consideration this
-is transcribed as the word "ab". Each occurence is marked in comment.
-\item
-The word "scrupulus" (Lit: "small pebble"; also: 1/24 of an ounce)
-is often abbreviated. To expand these, the proper
-declination must be determined in each case. See Issue \#2 on GitHub.
-\item
-Wrapping text around figures turned out to be impractical. We now will
-simply use a floating object for figures and tables.
-\item
-The tables imported from the litteral transcription can be simplified
-a lot, because we no longer need to immitate the original. E.g. the headers
-for the Ostenta/Sexagesima conversion tables (Table 1.1) can now be written
-as a simple line of text.
-\item
-For the same tables: the text in it can be a lot bigger, as the tables
-will now appear on a separate page anyway.
-\item
-To fine-tune the placement of tables and figures it turned out to be
-neccesary to move the location where they are defined slightly foreward or
-backward in the tex file. To make this easier, we put the code for tables
- (and some figures) in separate files.
-This way we don't have to cut and paste large pieces of code if we want to
-move the definition of the table or figure. We now only have to move the
-\verb+\include{}+ command.
-\item
-All tables and figures will be given a caption and a label, so they can
-appear in a List of Tables/Figures, and can be referred to from within the
-text.
-\item
-The \verb+\begin{quote}...\end{quote}+ command has shown to be
-very useful to represent multi-line Greek quotes, e.g. p. 4, line 21.
-\item
-The word "poëta/poëtae" is used on page 4, lines 7 and 14. We are not sure
-what to do with the trema.
-\item
-The image on page 11 (Figure 1.1: Lapis Levinii). We made a cleaned-up copy
-from an enlarged PDF page by editing nearly at the pixel level. It looks like
-Scaliger had an representation made for his book using typeset letters.
-E.g. the text "A latere dextro saxi" is obviously not on the stone itself.
-There is no indication
-of how he knew what the original looked like.
-\item
-Abbreviations:
+%%===
+\section{Common error messages}
 \begin{description}
-\item[scrup.]See above at "scrupulus".
-\item[Odyss.]For some declination of "Odysius" (by Homer). p4. ln 21.
-\item[Kal.]As in "Kalends Septembris" or somesuch.
-\item[\&c.]Presumably this stands for "et cetera". NB: "etcetera" is an English
-word. In Latin it is two separate words.
-\item[Philostr. v.]p30, line 4.
-\item[Olynth.]p 32, line 21.
-\item[Oecon.]p 33, line 10.
+\item[Undefined control sequence.] \hfill \\
+A common or normal command such as \verb;\chapter;
+is not recognised.
+You attempted to compile a source file meant for inclusion.
+Compile the root file (the one that has the \verb;\documentclass{}; command
+in it) instead.
+Often happens by pressing the TeXShop \texttt{Typeset} button in the window
+you are entering text in.
+Open the window with the root document and hit \texttt{Typeset} there.
+
+\item[Misplaced alignment tab character \&.] \hfill \\
+You forgot to escape the ampersand (\&) with a backslash, like so: \verb;\&;.
+The program expects the ampersand to be part of a table definition.
+Note that an ampersand should almost always be transliterated as 'et'.
+
+\item[Extra alignment tab has been changed to \textbackslash{}cr] \hfill \\
+There are more items in a row of a table than were defined in the
+\verb+\tabular+ (or \verb+\longtable+) command.
+
 \end{description}
-\item
-Some pages have loads of Greek text (several sentences in a row) with many
-Byzantine style ligatures and diacritics. It is most impractical to set up
-a framework of \verb+\textgreek{}+ commands, so the long bits are denoted
-by "Lots of [Greek]" or "Line of [Greek]" inside a single such command.
-For example pages 29 and 30.
-\item
-Page 35, line 21 gives a clear example of how capital letters at the beginning
-of centences are often messed up, either in the manuscript or by the printer.
-The 1629 Geneva edition has "..., non alio mense. fiebat enim..." while the
-1598 Lugduni edition has (p35, line 4) "..., non alio mense. Fiebat enim...".
-The period is still there, but the capital is lost.
-\item
-The table on page 38 (Tabula neomeniarum primi mensis Elidensis in annis
-periodi Olympicae) is problematic in many ways. It will probably not be 
-the last one to be so.
-\begin{itemize}
-  \item{}There are very many entries (76 rows and 5 main columns) making the
-  original small and hard to read (especially the Greek bits), and making it
-  hard to fit the transcribed table on a page.
-  \item{}There are Greek abbreviated words in the margin of the table. It is
-  hard to see what they say, and hard to find out what they are an abbreviation
-  of, and hard to know what they mean. There appear to be only 3 different
-  words. To save space, the were replaced by symbols, with a legend at the
-  end of the table.
-  \item{}The columns with numbers were manually padded out in the original.
-  In the transcription we get wildly varying widths  because the font we use
-  has proportional digits. We may want to use a font with monospace digits.
-  \item{}Rotated headers were needed to keep the columns narrow.
-  \item{}It will probably not be an improvement to change the table to a
-  horizontal layout. That will likely take up more space, and even be
-  less clear.
-\end{itemize}
-\end{itemize}
+
 
 %%=====
-\chapter{Litteral transcription}
+\chapter{Transcription}
+
+%%---
 \section{Entering text}
-\subsection{Flat text}
-Enter the text as simple flat text.
+
+Enter the text as simple flat text in the \TeX{} source code.
 Most of the text will consist of Latin,
 with bits of Greek (words, short phrases, sometimes longer quotes) and words
 in Hebrew, Arabic or Persian.
-In the Latin body text there are several special characters:
-\begin{itemize}
-\item The long s: 'ſ'. This can simply be entered as an 's'. The right glyph
-will appear due to the selected font features.
-\item The ampersand: '\&'. This must be escaped in the source with a backslash,
-like so: \verb;\&;
-\item Ligatures 'æ' and 'œ': These can be entered as Unicode characters.
-On a Mac~OS keyboard use \verb;Alt-'; for æ and \verb;Alt-q; for œ.
-\item The double-s character 'ß', sometimes seen in italic text (e.g. PDF p.45).
-Enter this with Alt-s.
-\item The 'ct' ligature, where a little loop is added that connects the tops
-of the c and the t.
-This is handled by a font feature.
-You can simply enter 'ct' in the source.
-Note that the original does not contain any 'st' ligatures in the same style
-as the 'ct' ligature, but many fonts will try to render them anyway.
-\item Other ligatures (ffi, ſt, etc): these are handled by the font and need
-not be entered as special codes in the source.
-Simply use the sequence of normal characters (\verb;ffi;, \verb;st;, etc).
-\item  Capital Q with swash: this is handled by the font features.
-Simply type a Q in the source.
-\item Vowel with bar ā, ē, ī, ō, ū: These can be entered as Unicode characters.
-The diacritical bar (macron) can be entered on Mac~OS (U.S. Extended or
-ABC Extended keyboard must be
-selected\footnote{The U.S. Extended keyboard layout was renamed to
-ABC Extended with the introduction of Mac OS X 10.11 El Capitan})
-with Alt-a followed by the vowel.
-\item Vowel with ogonek ę: This can be entered as a Unicode character.
-Can be entered on Mac~OS (U.S. Extended or ABC Extended keyboard must be
-selected\footnotemark[\value{footnote}]) with Alt-m followed by the vowel.
-\item It appears that sometimes a final 's' in a word is printed as what looks like a small question mark. E.g. Prolegomena p.XXIII (PDF p.50) has "Ioſephu?" and "Ioſepho?" near the bottom. For the time being, try to use a question mark here.
-\end{itemize}
+
+All text must be entered with Unicode UTF-8 encoding.
+For the Latin body text the 2x26 characters of the common Latin alphabet,
+without diacriticals will suffice, together with the common interpunction
+characters.
+For the Greek we use the modern 25+24 characters plus the diacriticals
+for the polytonic style.
+\\
 Some special text must be surrounded by commands:
 \begin{itemize}
-\item Roman numerals: \textsc{vii}.
-Enter them as lower case characters, surrounded by the \verb;\textsc{};
-command to make them small caps.
-The extra spacing between the characters is handled with a font feature.
 \item Greek, Hebrew, Arabic and Persian: First enter these as a placeholder,
 like so:
 \begin{itemize}
@@ -501,15 +509,17 @@ and settings as Arabic.
 The commands will handle the selection of a suitable font for that language. In
 later phase the placeholders will be filled in with the actual text, which can
 be entered as Unicode characters.
-\\
-For the Greek ligatures we will probably 
-have to resort to a special coding scheme, such as \verb+2<epsilon><iota>B;+ for
-"a 2 character ligature representing <epsilon><iota>,
-using the second ('B') of the available ligatures".
+
+If you feel so inclined, you can enter the foreign text, replacing the
+"\verb+[Greek]+" etcetera. If you have entered some foreign text but are
+unsure
+if it is correct, leave a question mark in brackets, like so: \verb+[?]+.
+
 \item Astrological symbols: For the astrological symbols used to represent the
 sun, moon and planets there is the \verb;\astro{}; command, which will select
 a suitable font. The symbols themselves can be entered in Unicode.
-\begin{table}[h]
+%\begin{table}[h]
+% table command disabled; we do not want to float this table.
 \begin{center}
 \begin{tabular}{c | c}
 \begin{tabular}{r l}
@@ -527,298 +537,980 @@ Saturn & U+2644 \\
 \end{tabular}
 \end{tabular}
 \end{center}
-\end{table}%
+%\end{table}%
+
+\item Roman numerals, such as ''\texttt{vii}''.
+Enter them as lower case characters, surrounded by the \verb;\rnum{};
+command. This command will show the numeral in small caps,
+with the appropriate spacing.
+See also section~\ref{subsec:roman_numerals} for details on this command.
+Note: Before the introduction of the \verb;\rnum{}; command,
+the \verb;\textsc{}; command was used. Older parts of the \TeX{} source
+may still use this command. These instances will be replaced eventually.
+
+\item Greek numerals, such as $\overline{\kappa\delta}$ can be entered using
+the specially created \verb+\gnum{}+ command,
+like this: \verb+\gnum{+$\kappa\delta$\verb+}+.
+Note that any Greek text needs to be in an environment that
+allows a Greek font.
+See section~\ref{subsec:greek_numerals} for details.
+
+\item Numbers with fractions:
+\begin{itemize}
+\item Use the \verb+\myfrac{numerator}{denominator}+ command to
+ render fractions.
+\item If a whole number precedes the fraction,
+(e.g. "365 1/4")
+put a non-break space tilde code '\verb+~+' between the number
+and the fraction: \verb+365~\myfrac{1}{4}+
+\end{itemize}
+
+\item Litera Dominicalis. These sunday letters have the form of a single
+capital letter (A through G).
+A small cap with lower-case size would be too small for these.
+Render them by using \verb+\textsc{}+,
+with a capital letter passed as a parameter,
+e.g. \verb+Litera Dominicalis \textsc{D}+.
+
+Sometimes a table will have a whole column of these letters.
+In those cases a simple capital letter is used.
+
+\item Italic text should be entered using the \verb+\textit{}+ command,
+rather than the \verb+\emph{}+ command.
+
+\item Block quotes which are line-by-line quotes from some source should be
+put in a \verb+verse+ environment
+(i.e. between \verb+\begin{verse}+ and \verb+\end{verse}+)
+rather than a \verb+quote+
+or \verb+quotation+ environment.
+
+\item Long dashes (often found as part of a quote) should be entered
+using the specially created command
+\verb+\emd{}+.
+Though it is possible to use a litteral em-dash in the Unicode source
+(code U+2014) this is very hard to distinguish from other types of dash
+in the monospaced source.
+The special \TeX{} code consisting of three normal dashes does not work
+in all fonts.
 
 \end{itemize}
 
-%
-\subsection{Chapter titles}
-The multi-line chapter titles can be immitated using the \verb;\head;
-command. It has three parameters:
+%%---
+\section{Textual cleanup}
+\label{sec:textual_cleanup}
+\begin{itemize}
+\item All ligatures are expanded
+	\begin{enumerate}
+	\item æ to ae
+	\item Æ to Ae (e.g. Aegyptica)
+	\end{enumerate}
+
+\item Long s is replaced with modern s. Tricky, as the long s looks almost
+exactly like an 'f'.
+
+\item Diacriticals will be expanded
+	\begin{itemize}
+	\item ā to am (sometimes an)
+	\item ō to on (sometimes om)
+	\item ē to en (sometimes em)
+	\item à (as a whole word) to ab
+	\item ë in poëta (p4,7) or Laërtius (p23,36) will be unchanged for now
+	\item è to ex? (p88, p184:28)
+	\item ȩ to ae
+	\end{itemize}
+
+\item "u" and "v" are used exchangeably in the original.
+These will be converted to modern style,
+ using a "u" if a vowel, and a "v" if a consonant.
+
+\item The ampersand \verb+&+ will be expanded as "et" in all cases.
+ Note that \verb+&+ has a special meaning in \LaTeX. If it ever needs to be
+ used literally in the text, it should be escaped with a backslash, as
+ \verb+\&+.
+
+\item \verb+&c.+ should be expanded as "et cetera" (two words). Though
+ "etcetera" (one word) is a word in English, in Latin it was two words.
+
+\item Abbreviated words are written in full
+ (see also Diacriticals above).
+	\begin{itemize}
+	\item "Quoq" becomes "quoque"
+	\item "propagatā" becomes "propagatam".
+	\item "nō" becomes "non"
+	\item "à" becomes "ab"
+	\item "Iulianae" is sometimes written with an 'e' with a cedille underneath
+	 it instead of the 'ae'. E.G. Prolegomena p~X.
+	 Same for "Iudaei".
+	\item Occasionally words are shortened using a period. These should be
+	expanded, but for a non-scholar it is hard to find the proper declension
+	required.
+	Example: "Kal." for Kalendae, Kalendarum, Kalendis, Kalendas or Kalends.
+	\end{itemize}
+
+\item Interpunction is done in modern style, and more consistent, e.g.:
+No space before a comma, period, colon, semicolon,
+ question mark or exclamation mark. One space after them.
+
+\item Often sentences starting with a \verb+q+ won't have this q capitalised.
+We will start each sentence with a capitalised word. Sometimes other initial
+letters won't have been capitalised either.
+
+\item The Greek in the original was printed in an imitation of the
+Byzantine Minuscule style of handwriting which was current at the time.
+This involves many, many ligatures and also many variant glyphs for single
+characters. All in all (also counting diacriticals) about 1500 glyphs are used.
+These can be very hard to read for the modern reader.
+
+Therefore all Greek phrases will be rendered using modern polytonic Greek
+script with Unicode encoding.\footnote{Also, it is very hard to find a font
+and an encoding to fully render all the minuscule glyphs used.}
+This has about 49 base glyphs (24 upper case, 24 normal lower case
+plus the word-final sigma) and about 233 extra glyphs for
+the polytonic diacriticals and iota subscripts.
+
+\end{itemize}
+
+%%---
+\section{Special things to pay attention to}
+\begin{itemize}
+\item Reading the interpunction can be very tricky where numbers are involved.
+Often there will be a period after an Arabic or roman number, while the
+construction of the phrases suggest that it is not intended as the end of
+the sentence. E.g. Liber Primus, p 17, line 10 and further.
+\item The difference between an 'f' and a 'long s' (ſ) can often be hard to see,
+ especially if followed by an 'i'. The printers used two ligatures which are
+ almost identical ('fi' and 'ſi'). In the original (as, indeed, in this
+ document if all goes well), the letters in the f-i ligature ('fi') are
+ connected at the height of the crossbar, while in the long s-i ligature ('ſi')
+ they are not connected there.
+\item It appears that sometimes a final 's' in a word is printed as what looks
+ like a small question mark. E.g. Prolegomena p.XXIII (PDF p.50) has "Ioſephu?"
+ and "Ioſepho?" near the bottom. Transliterate as 's'.
+\end{itemize}
+
+%%---
+\section{Further tips}
+\begin{itemize}
+\item To help entering Greek or Hebrew text, modern operating systems
+have a way to configure the keyboard for quick typing, or a virtual
+keyboard where you can click on the characters on the screen.
+If available (e.g. in OS~X) use of the 'Greek Polytonic' keyboard is
+preferred over the 'Greek' keyboard.
+
+\item While entering the Latin body text you can postpone entering the other
+languages and use a placeholder;
+ "\verb+[Greek]+" or
+ "\verb+[Hebrew]+".
+
+\item Any extra notes and remarks should go between square brackets
+
+\item Use other editions to compare the transcription. They often give a
+ different or no abbreviation, or different spacing.
+
+\end{itemize}
+
+
+%%---
+\section{Extra features to be added}
+\begin{itemize}
+\item Text will be divided into paragraphs to the best of our insights.
+\item Page headers and footers will be generated in a modern style.
+\item Table of Contents, Index, Glossary and Bibliography are generated
+automatically.
+\item List of Tables and List of Figures added.
+\item Lots of annotations to clarify the text.
+For example: Scaliger habitually quotes classics without giving a reference.
+We will add:
+    \begin{itemize}
+    \item The exact reference (Author, title of the work, section/page/verse)
+    \item If possible a link to an on-line version.
+    \item If misquoted, the actual quote.
+    \item An explanation why this quote is appropriate.
+    \end{itemize}
+\item Change the shape of tables to a modern style,
+with fewer horizontal lines and no
+vertical lines. Use the \verb+booktabs+ package, which has
+\verb+\toprule+,
+\verb+\midrule+ and
+\verb+\bottomrule+ commands.
+The documentation of the package also gives information on a good way
+to layout tables.
+\end{itemize}
+
+%%---
+\section{Line number references}
+To correlate this transcript to the original,  the lines
+in the PDF of the original will be numbered.
+The numbers will start with 1 on each page, and every 5th line will be marked
+with its number in the margin.
+
+These line numbers will have the form of annotations in the PDF, and will
+be added a chapter at the time, as the project advances.
+
+In the transcript each beginning of a sentence will be marked with
+the line number of the original
+in parentheses.
+
+%--
+\subsection{Commands for line numbers}
+Commands were created in the TeX source to add the line- and page-numbers:
+\begin{itemize}
+\item \verb+\lnr{<line number>}+ to add the line number to the beginning of
+a sentence.
+\item \verb+\plnr{<PDF page>}{<page nr>}{<line nr>}+ to use at the beginning
+of the first sentence on a new page in the original.
+Parameters are:
 \begin{enumerate}
-\item {\ttfamily\bfseries scalesize}: A factor by which the size of
-the font is multiplied. Usual values: 1.5, 2.0, 3.0, 3.3.
-\item {\ttfamily\bfseries spacing}: Influenzes the spacing between letters.
-The value is passed to the LetterSpacing fontfacility.
-Usual values: 25, 35, 40, 50, 60.
-\item {\ttfamily\bfseries text}: The text to put on the line.
+\item The PDF page number of the page in this particular scan of this particular
+copy of this particular edition of the book.
+This value is only used internally for now. Intended to be used to
+make links to the original PDF file.
+\item The page number as shown on the page. This will be printed in the output.
+\item The line number in the original where the sentence starts.
 \end{enumerate}
-Steps to make the lines match the original:
+\item \verb+\Rplnr{<PDF page>}{<page nr>}{<line nr>}+. This is the same as the
+ \verb+\plnr+ command, except that the page number will be printed as a roman
+ numeral rather than an Arabic number. Used for chapters that use roman numerals
+ as page numbers, such as the Prolegomena.
+\end{itemize}
+
+Note: \emph{Do not put spaces or newlines between these commands and the
+text that follows.} That would put an extra space in the output after
+the no-break-space that is programmed into the command.
+The text should always follow
+directly after the command. Correct example:\begin{quote}
+\verb+\lnr{23}Lore ipsum dolor savit+
+\end{quote}
+
+Sometimes printing the page and line number at the point in the source where
+a new page starts in the original is impractical.
+This might be because there is a section header, a quote or a table at the top
+of the page.
+For these cases we have the following command:
+\begin{itemize}
+\item \verb+\setpnrs{<PDF page>}{<page nr>}}+
+\end{itemize}
+This registers the page numbers without printing anything.
+After using this you can put a \verb+\plnr+ command later on the same page.
+
+%%---
+\section{General guidelines for the XeLaTeX code}
+The following guidelines are intended to make it easier to compare the
+tex file to the original.
+Note that \LaTeX treats a single newline as if it is a space. This means that
+breaking up a line in the tex file with a newline will not affect the outcome.
+Beware that a double newline (leaving a blank line) \emph{does} have a
+special meaning: it starts a new paragraph.
+\begin{itemize}
+\item A new sentence in the original should start at a new line in the tex file,
+preceded by one of the commands for line numbers listed in the previous section.
+\item The first full word on a line in the original should be at the start
+of a line in the tex file.
+Insert an extra newline before that word if necessary.
+\item No line in the tex file should be longer than 80 characters.
+Sometimes if the first two rules are followed, a tex line will come out
+longer than 80 characters. In that case, split the line in two or more,
+where each extra line is indented by one space.
+\end{itemize}
+The effect of these guidelines is that a non-indented new line
+in the tex file corresponds
+to either:
+\begin{itemize}
+\item The beginning of a sentence (marked with a \verb+\lnr{}+ command or
+its siblings).
+\item The first word of a line in the source text.
+\end{itemize}
+
+%--
+\subsection{Wrapping text around figures}
+Attempts to use \verb+wrapfigure+ to make the text flow around figures
+and tables were
+more trouble then their worth. In particular, the text would not start to
+flow until a new paragraph is started. Because we seldom start a new paragraph,
+we would have to start a paragraph on purpose (causing an indent) just for the
+wrapping. We will simply put the figures on their own, without wrapping.
+
+%%---
+\section{Underfull \textbackslash vbox}
+The warning\verb+ Underfull \vbox (Badness 10000) +in the console output is
+a sign that the system has trouble filling out the page vertically.
+\TeX{} will try to make the last line on the page touch the bottom
+of the \verb+\textheight+ box (this is in the default \verb+\flushbottom+
+mode, which can be overridden with the \verb+\raggedbottom+ command).
+When this warning occurs, it means that
+the available vertical whitespace had to be stretched beyond what is acceptable.
+Higher numbers for the badness (the value is topped off at 10000) mean more
+stretching.
+Each of these warnings will usually correspond to a visible uglyness in
+the output.
+
+Because the body text of the original has almost no paragraph breaks
+there will also be no paragraph breaks in the transcript.
+Many pages will be a wall of text, with no vertical whitespace
+at all.
+If \verb+\textheight+ is not an exact multiple of \verb+\baselineskip+
+then the system will have trouble with these pages.
+It \emph{is} a multiple by default, but any modification
+(such as altering the font size) will change this.
+
+When there is anything other than regular text on the page,
+such as a table or a section header, this will usually create only one
+vertical whitespace.
+This whitespace is then stretched to compensate for the change in height.
+
+Initially the compilation of the Prolegomena, Liber I and Liber II
+gave a total of 88 Underfull \textbackslash vbox warnings.
+To reduce that number the following measures were taken:
+\begin{itemize}
+\item Adjusting the \verb+\textheight+ to be an exact multiple of
+ \verb+\baselineskip+. This was done by setting the \verb+[lines=42]+
+option for the \verb+geometry+ package. This resolved 74 of the 88 warnings.
+\item Rearranging the structure of the document by manipulating or forcing
+tables and figures to a different location.
+This is done my altering the \verb+[htbp]+ selection of the table,
+or by moving the point in the tex file where the table is included.
+\item Adding explicit space using \verb+\bigskip+ or
+\verb+\vspace*{\fill}+, in cases where this space goes at the bottom of
+a page and the next page starts with a section header.
+\item Tuning the height of tables so they take up more or less a whole
+number of lines.
+This can be done by using the \verb+\arraystretch+ command.
+\end{itemize}
+These solutions left only two warnings, both involving a page with
+a sectionheader followed by a page which forces a this page to have
+one line too few.
+
+These last warnings may be resolved by
+changing the stretchability of section titles with the \verb+titlesec+
+package.
+As the effect would be to suppress the message without actually
+changing the appearance
+of the output, it was decided not to use this method.
+
+
+%%---
+\section{Tables}
+Scaliger uses many tables in his book, from very small ones to tables that
+span multiple pages.
+To ensure a uniform style and rendition of these tables, several techniques
+have been developed.
+
+%--
+\subsection{booktabs}
+For a better and more uniform appearance of the tables we use the
+\verb+booktabs+ package. This features (among others) the
+\verb+\toprule+, \verb+\midrule+ and \verb+\bottomrule+ commands.
+We also follow the rules given in the \verb+booktabs+ documentation, namely:
 \begin{enumerate}
-\item Set up a frame for each line of the form
- \verb;\vspace{0mm}\head{1.0}{0}{}\\;
-\item Surround the block with a command for small caps
-(\verb;{scshape … };) and for centering (\verb;\begin{center} … \end{center};)
-\item Fill in the text for all lines in the 3rd parameter of the \verb;\head;
-commands.
-\item For each line, adjust the scale so the height of the result matches 
-the height of the original.
-\item For each line, adjust the spacing so the width of the result matches
-the width of the original.
-\item Working from top to bottom, adjust values of the \verb;\vspace; commands
-to match the vertical position of each line to the original. For the first line
-use a negative value (usually -18mm) to move the line up.
+\item Never use vertical rules
+\item Never use double rules
 \end{enumerate}
-Spaces in these title lines will not come out well, because the LetterSpacing
-does not make the space itself wider. This gives the impression that as the
-spacing between the characters gets bigger, the space character disappears.
-Replace spaces with \verb;\hspace{1.0em};.
+This is quite different from the tables Scaliger uses.
+Nevertheless we will stick to them.
 
+%--
+\subsection{Naming scheme and testing}
+The body of each table is contained in a file in the "table" subdirectory.
+The name of each file has the form \verb+nnn-name-with-hyphens.tex+, where
+\verb+nnn+ is the three-digit page number (with leading zeroes as required).
+The \verb+name-with-hyphens+ part represents a short version of
+the title of the table.
+The numbers ensure that the table files appear in the same order in the
+directory as they do in the book.
+If there is more than one table on a page, then a letter is added after
+the number.
+So we have e.g.
+\verb+050a-menses-alexandreae.tex+ and
+\verb+050b-menses-bithyniorum.tex+.
+The names should be in all lower case
+with hyphens for spaces.
+This is for better compatibility with operating
+systems which do no allow diferent letter cases or spaces in their file names.
+See \textcolor{blue}{%
+\href{https://en.wikibooks.org/wiki/LaTeX/Basics}%
+{LaTeX Basics}%
+}, section 'Picking suitabe filenames'.
 
-%
-\subsection{Drop caps}
-Extra large initials in the first line of a chapter or section can be made
-with one of two commands: \verb;\dropcap; for normal drop caps,
-and \verb;\dropcapil; for illuminated drop caps.
+To quickly develop and test a new table, a \verb+test-table.tex+ file has
+been developped.
+This contains a minimal set of the document preamble, some "Lore ipsum"
+filler text, and an \verb+\input{}+ command to include the table.
+The main advantage of this setup is that compiling the test file (with only
+the one table under test) is a lot faster than re-compiling the whole
+chapter for each time you want to see the result of your changes.
+The test file also allows for experimenting with changes to the \TeX{} preamble
+without affecting the main file.
 
-Both have the same three parameters:
-\begin{enumerate}
-\item \texttt{lines}: The desired hight of the dropcap expressed as
-a number of lines.
-Count the lines in the original to find this value.
-\item \texttt{initial}: The initial letter.
-\item \texttt{caps}: The short bit of text after the initial which will be
-set as small caps.
-The first of these is usually upper case, the rest lower case.
-\end{enumerate}
-After setting up the drop cap you may find several lines of the text running
-into the drop cap. You can solve this by making artificial paragraphs by
-using \verb;\\ \p; instead of a blank line between the paragraphs. Do this
-for enough lines to clear the drop cap.\footnote{This problem might be solved
-by cooking our own lettrine command. This should be easy since we are already
-using the \texttt{wrapfig} package.}
+Once you are satisfied with the result you can copy and paste the inclusion
+code into the chapter file and see how the table looks in the main document.
 
-%
-\subsection{New page}
-A new page in the original should be reflected in the transcription by a
-\verb;\clearpage; command. This puts a page break in the transcription.
-Also put a line with the page number and PDF source page number in the form:\\
-\indent\texttt{p. 2 [pdf 85]}\\
-Make sure there are no blank lines around this command and this line. Otherwise
-the paragraph counter will be incremented. You may want to put a comment line
-here, which will show up as a marker in a different colour in a suitable
-source editor.
-
-%---
-\section{Common error messages}
+%--
+\subsection{Including the table in the body text}
+Use the \verb+\begin{table}[htbp]+ - \verb+\end{table}+ combination
+to float the tables (except long tables).
+The letters suggest the location of the table on the page, in order:
 \begin{description}
-\item[Undefined control sequence.] \hfill \\
-A common or normal command such as \verb;\chapter;
-is not recognised. You attempted to compile a source file meant for inclusion. Compile the root file (the one that has the \verb;\documentclass{}; command in it) instead. Often happens by pressing the TeXShop \texttt{Typeset} button in the window you are entering text in. Open the window with the root document and hit \texttt{Typeset} there.
-
-\item[Misplaced alignment tab character \&.] \hfill \\
-You forgot to escape the ampersand \& with a backslash, like so: \verb;\&;. The program expects the ampersand to be part of a table definition.
+\item[h "Here"] Try to put the table at the location of the command.
+Good typography (and presumably the rules of \TeX{}) does this only for very
+small tables (less than 1/3 of the height of the page).
+\item[t "Top"] Try to put the table at the top of a page, with body text
+underneath it.
+Good for tables less than 2/3 the height of the page.
+\item[b "Bottom"] Try to put the table at the bottom of a page, allowing for
+some body text above it.
+Allowable for tables less than 1/2 the height of the page.
+\item[p "Page"] Put the table on a special separate page for tables and figures.
+This should happen to tables which are more than 2/3 of the height of the page.
 \end{description}
+"Here" and "Bottom"
+tables are floated at paragraph breaks.
+Unfortunately the body text of the original
+hardly has any paragraph breaks,
+so these modes will rarely by employed naturally.
+For small tables which you want to be placed in "Here" mode
+it is advised to put a paragraph break (in the form of a blank line)
+right after the \verb+table+ command.
 
-%%=====
-\chapter{Implemented features}
-\section{Unicode}
-After using Mac OS TextEdit with RTF, which did not give enough control over formatting, and \LaTeX, which
-has bad support for Unicode, we switched to \XeLaTeX. This directly accepts UTF-8 as source input and allows
-putting pieces of Greek, Hebrew, Arabic and other languages in their original form in the source. The breaking point
-came when \LaTeX  made it impossible to produce the astrological signs for the planets.
+"Top" mode usually works, as this does not require a paragraph break.
+The text is broken off at the end of the previous page as normal,
+the table is put at the top of the page, and the text is continued
+below the table the same way the text would continue at the top of the
+page if the table was not there.
 
-\texttt{fontspec}
+The system seems to often prefer "Page" mode, even when "Top" mode is prefered
+and possible. To force "Top" mode in these cases, leave out the \verb+p+ code.
+However, do not do this for tables which take up more than 2/3 of the page.
 
-%---
-\section{Latin ligatures and long s}
-These are handled by choosing a suitable font and selecting the right font features. The text can than be entered
-as simple text with no extra codes and the font will automatically put in the 'st' and 'ct' ligatures, the long s (where
-appropriate) and the 'Q' with a swish.
+%=
+\subsubsection{Longtables}
+The longtable file should be included (using the \verb+\input+ command)
+ without the \verb+table+ environment.
+The table will begin at the point where the table file is included.
 
-Other ligatures and special characters must be entered manually. Select the U. S. Extended keyboard on Mac OS
-to enter these with an Alt-key combination. Use the 'Show Keyboard Viewer' feature to find out what Alt key combinations
-to use.
+\textbf{Important:} Due to a bug in the \verb+longtable+ package there
+\emph{must} be a blank line before the \verb+\longtable+ command.
+Otherwise the preceding paragraph will be affected in strange ways.
+
+There is another bug in \verb+longtable+ which shows when the table starts
+near the bottom of a page. This may cause a header for a continuation page
+to appear before the header for the first page.
+This may be worked around by shifting the point where the table starts.
+
+%==
+\subsection{Lead-in}
+Before the start of the table itself, some common elements are usually
+added in the table file:
 \begin{itemize}
-\item 'æ' and 'Æ' (Alt-' and Shift-Alt-', i.e. the single quote key next to the semicolon key).
-\item 'œ' and 'Œ' (Alt-q and Shift-Alt-q)
-\item ā, ē, ō, ū: vowels with a bar (macron) over them. The original sometimes uses these at the end of words
-as an abbreviation. Use the 'dead' key Alt-a first, followed by the vowel.
-\item The occasional 'regular' accented letter, e.g. á, à, ä, can be made with common Alt dead key combinations.
-\item Occasionally there is an abbreviation in the source that looks like a cedilla under the letter. E.g. "Iulianę" for "Iulianae".
-Use an Ogonek (looks like a mirrored cedilla) there, because our favourite font does not have an 'e' with a cedilla, but
-does haven an 'e' with ogonek. (Dead key: Alt-m)
+\item Put the whole thing in a \verb+tabnums+ environment.
+This will select the \verb+Number=Monospaced+ mode of the current font.
+Numbers where each digit has the same width make a table look a lot better.
+\item Select a general font size (\verb+\normalsize+, \verb+\small+,
+\verb+\footnotesize+ etcetera).
+\item Optionally modify the separation between columns with
+\verb+\setlength{\tablecolsep}{<size>}+.
+\item Optionally modify the distance between rows with
+\verb+\renewcommand{\arraystretch}{0.85}+.
 \end{itemize}
 
-The only special code required is for the ampersand character "\&", which is frequently used in the original. Because
-this character has special meaning in \XeTeX, it must be escaped with a backslash, like so: \verb;\&;.
-
-%---
-\section{Bigger paper, smaller margins}
-In order to get at least the same amount of text on a page in the litteral
-transcription as in the original, we would like to have matching paper size
-and margins.
-
-The paper size of the original is 217.6 x 338.3 mm. The closest available 
-standard paper size is legal, at 215.9 x 355.6 mm. This is 1.7 mm narrower
-(so almost the same width),
-and 17.3 mm longer. The \texttt{legalpaper} size is chosen with an option
-to the \verb;\documentclass{}; command.
-
-The standard margins of \texttt{legalpaper} are rather wide compared to the original. This has been adjusted with the \texttt{geometry} package, by setting new margin sizes explicitly in the options. These sizes have been measured from
-the original. The bottom margin has been enlarged to compensate for the above mentioned difference of 17.3 mm in the length of the paper.
-
-%---
-\section{Wrapping around tables and figures}
-The original contains some tables (e.g. PDF p. 88) and figures (e.g. PDF p. 91)
-where the text continues on the side of the table/figure, or "wraps" around it.
-We can get this effect by using the \texttt{wrapfig} package. This gives us the
-\texttt{wraptable} and \texttt{wrapfigure} commands. These replace the
-\texttt{tabular} and \texttt{figure} commands respectively.
-
-%---
-\section{Phrase numbering}
-We start every phrase from the source on a new line, and give every phrase a number. Numbering starts at 1 for
-a new chapter or section and can run over several pages. These numbers will serve to connect the transliterated
-and translated versions back to the original.
-
-It is unfeasible to try to match the layout of the original line-by-line, going to a new line on the exact same word
-or hyphenation as the original. This is because the font will not have identical properties to the original. Also,
-the original has some very odd spacing, especially around interpunction. Once we let go of this requirement, we can
-choose a layout which suits our needs.
-
-We could emulate the original and let the text run for pages on end without any paragraphs, but this has
-several disadvantages.
+%==
+\subsection{Column alignment}
+Use the following general rules for the alignment of the columns,
+by passing the proper choice of '\verb+r+', '\verb+l+' or '\verb+c+'
+ to the \verb+\tabular+ or \verb+\longtable+ command:
 \begin{itemize}
-\item The transcription will also be a wall of text. This makes it hard to compare the transcription to the original, because
-we need to search for the start of a phrase in both versions.
-\item This makes it hard to correlate the transliteration with the transcription. As the transcription generally expands
-a lot of characters, words and punctuation (e.g. \&) a 'free-hand' layout in the transliteration will not match the transcription
-line-by-line.
-\end{itemize}
-We chose for a solution where even the transcription has each phrase starting on a new line. Advantages:
-\begin{itemize}
-\item We can add numbers to identify each phrase. These numbers can then be used to easily compare the transliteration
-to the transcription.
-\item The translation can use these phrase numbers to refer to the original. Having each phrase start on a new line
-in the transcription start on a new line makes it easier to find the phrase being referred to.
+\item Text should be left aligned (right aligned for right-to-left scripts).
+\item Very short text can be centred
+\item Numbers should be right aligned
+\item Short numbers can be centred, but use padding with \verb+~+ for missing
+leading digits. (\verb+~8+ \verb+~9+ \verb+10+ \verb+11+.)
+\item For dates (such as "15 Martii") use two columns with the code
+\verb+r@{~}l+.
+This will make the separation between the day and the month line up
+over all rows.
 \end{itemize}
 
-\subsection{Problems}
+To make the horizontal rules stick out less, put a \verb+@{}+ at the beginning
+and the end of the list of column alignment descriptors, e.g.
+\begin{verbatim}
+\begin{longtable}[c]{@{}r  c  c  c  c  r@{~}l l l l l@{}}
+\end{verbatim}
+
+%==
+\subsection{Titles}
+If a title is written above the table in the original then put it over the
+table using:
+\begin{verbatim}
+\toprule
+\multicolumn{n}{c}{\Large\textsc{First line of header}}\\
+\multicolumn{n}{c}{\large\textsc{second line of header}}\\
+\toprule
+\end{verbatim}
+where \verb+n+ is the total number of columns.
+This makes the title appear in large size small caps.
+Note the capital \verb+Large+
+on the first line and the small \verb+large+ on the second line.
+The second line is of course only needed for long titles.
+
+If there is no title given in the original, simply put a \verb+\toprule+
+as the first line in the table.
+
+%%==
+\subsection{Column headers}
+It is advised to define commands for setting the font size for column headers.
+That way the font size of all columns can be changed in one go by adjusting
+these commands. E.g.:
+\begin{verbatim}
+\newcommand{\hsa}[1]{\normalsize{#1}} % Header text size: top row
+\newcommand{\hsb}[1]{\scriptsize{#1}} % Header text size: bottom row
+\end{verbatim}
+
+A column header should normally be in a
+\verb+\multicolumn{1}{c}{\hsb{column header}}+
+to centre it.
+
+Column headers might be so wide that the table becomes ungainly, or simply
+too wide for the page.
+For this we supply the \verb+\ch{sample string}{header text}+ command.
+This puts the header text in a \verb+parbox+ with a ragged right.
+The width of the parbox is set to the width of the \verb+sample string+
+parameter.
+The system will try to split \verb+header text+ into lines to fit
+the width of the box. Use something like:
+\begin{verbatim}
+	\ch{sample}{\hsb{Header for this column}}
+\end{verbatim}
+where the \verb+sample+ represents the widest column entry, or something like:
+\begin{verbatim}
+	\hsb{\ch{Character ann}{Character annorum collectorum}}
+\end{verbatim}
+when you want to regulate the width by using part of the header text itself.
+(In both cases, chose between \verb+\hsa+ and \verb+\hsb+ as appropriate.)
+Check the console output for Overfull or Underfull hbox messages to see
+if the width of the box is suitable.
+
+Put a \verb+\midrule+ below the headers.
+
+%%==
+\subsection{Multi-level column headers}
+In some tables columns are grouped together, with an extra header over
+the the group of columns and their headers.
+See for example
 \begin{itemize}
-\item Punctuation in the original is very sloppy.
-\item Some parts are very long, without any subdivision. E.g. the Prolegomena runs for
-50 pages with an estimated 900 phrases.
-\item As we start counting from 1 with each new section, the phrase number alone does not identify the phase. This will
-also require the chapter/section name or number.
+\item Tabula 1.3: Novilunia in mensibus tetraeterides Graecae
+(\verb+027-novilunia.tex+)
+\item Tabula 2.8: Menses Tetraeterici et Metonici
+(\verb+084a-menses-tetraeterici.tex+)
+\item Tabula 2.18: Characterismi mensium Iudaicorum
+(\verb+105-mensium-iudaicorum.tex+).
 \end{itemize}
 
+Construct these headers row by row.
+Use \verb+\multicolumn{n}{c}{\hsa{group header}}+ to span the group of columns,
+where \verb+n+ stands for the number of columns to span.
+Follow this by a set of \verb+\cmidrule(lr){p-q}+ commands, where the
+\verb+p+ and \verb+q+ represent the start- and endcolumn numbers
+that need to be spanned. The \verb+(lr)+ code shortens the rule on the
+left and right respectively. Use or omit these depending on what looks best.
+Next is another set of headers, this time with a column span of one:
+\verb+\multicolumn{1}{c}{\hsb{c-header}}+.
+Note the use of \verb+\hsa+ in the first row and \verb+\hsb+ in the second.
+Both rows of headers can use the \verb+\ch+ command to fit verbose headers
+into a narrow space.
 
-\texttt{mparhack}, with special commands defined
+Example from \verb+105-mensium-iudaicorum.tex+:
+\begin{verbatim}
+\toprule
+ ~ &
+ \multicolumn{3}{c}{Communis} &
+ \multicolumn{3}{c}{Embolimaeus}
+\\
+\cmidrule(lr){2-4}
+\cmidrule(lr){5-7}
+ ~ &
+ \multicolumn{1}{c}{\hsb Defectivus} &
+ \multicolumn{1}{c}{\hsb Ordinarius} &
+ \multicolumn{1}{c}{\hsb Abundans} &
+ \multicolumn{1}{c}{\hsb Defectivus} &
+ \multicolumn{1}{c}{\hsb Ordinarius} &
+ \multicolumn{1}{c}{\hsb Abundans}
+\\
+\midrule
+\end{verbatim}
 
-Counter \texttt{parcount}
+%%==
+\subsection{Vertical or slanted headers}
+Big tables with many columns will often have little room for the column headers.
+Schaliger will frequently write headers vertically.
+Try to avoid using vertical headers as much as possible.
+For those cases where it is unavoidable, we use the \verb+rotating+ package.
+This package provides the \verb+rotate+ and \verb+turn+ environments.
+Use
+\begin{quote}
+\verb+\begin{rotate}{\ang}...\end{rotate}+
+\end{quote}
+for all headers you want to rotate except the rightmost.
+For the rightmost header use
+\begin{quote}
+\verb+\begin{turn}{\ang}...\hspace*{3em}\end{turn}+
+\end{quote}
+The amount of rotation is in degrees, and for flexibility you should define
+a \verb+\ang+ command:
+\begin{quote}
+\verb+\newcommand{\ang}{60}+
+\end{quote}
+Preferred values for the rotation are 60 degrees and 75 degrees.
+For a vertical header use 90 degrees.
 
-Command \verb;\p;: put an isolated paragraph counter mark in the margin.
+The \verb+rotate+ environment allows for overlap of the boxes occupied by
+the adjacent headers (and anything above it).
+The \verb+turn+ environment reserves the box space for itself.
+Using a single \verb+turn+ will make sure the headers will not bleed into
+whatever is above them.
+This works best if the rightmost header is the longest of them all, but this
+is generaly not the case. To make it longer use the above mentioned
+\verb+\hspace*{}+ command, and adjust the space reserved so the headers
+no longer
+bleed over, but without creating too much white space above the headers.
+The star (\verb+*+) in the command is required to make it have effect at
+the end of the line (i.e. the end of the column header).
 
-Environment \texttt{parnumbers}: Automatically put paragraph counter marks in the margin
+%==
+\subsection{Long tables}
+For tables which are too large to fit on one page we use the \verb+longtable+
+package.
+Long tables should \emph{not} be surrounded by a
+\verb+\begin{table}[htbp]+ - \verb+\end{table}+ combination.
+To replace this combo and keep any settings and changes local to this table,
+surround it with a \verb+\begingroup+ - \verb+\endgroup+ combination.
 
-%---
-\section{Spaced small caps}
-In the original, all occurrences of small caps (in chapter/section titles, in roman numerals) have extra spacing between
-the characters. We can probably do this by setting a font feature for small caps fonts.
-Maybe use the \texttt{LetterSpace} font teature (\texttt{fontspec.pdf} sect 11.2)
-
-\chapter{Desired Features}
-\section{Fractions}
-See \texttt{fontspec.pdf} section 12.6
-
-%---
-\section{Margin letters on the same side as in the original}
-Due to limitations of the \verb;\marginpar{}; command, the margin letters must go on the same side as the
-paragraph numbers. We would like to have a system where we have better control over text in the margins.
-
-%---
-\section{Formatting chapter/section headers}
-We would like the headers at the start of each chapter (Pars) and each subsection (subject) to imitate the original.
-Scaligeri has a rather idiosyncratic way of titling his chapters, e.g. introducing his Liber Primus with:
+%-
+\subsubsection{First header}
+The part before the \verb+\endfirsthead+ command should contain:
 \begin{itemize}
-\item His full name, on three lines
-\item The title of the book: De Emendatione Temporum
-\item "Liber Primus." rather small below that.
+\item A \verb+\toprule+
+\item An addcontents line to put a reference to the first page of the table
+into the List of Tables (LoT), of the form
+\begin{verbatim}
+  \addcontentsline{lot}{section}{\protect\numberline{\thetable}Title}
+\end{verbatim}
+The \verb+\numberline{\thetable}+ combination will put the number of the
+table into the list, the same way other tables are listed.
+The \verb+\protect+ command prevents an error from using the \verb+\numberline+
+command here.
+\item The table header in the form
+\begin{verbatim}
+  \multicolumn{n}{c}{\Large\textsc{Tabula ...}}
+\end{verbatim}
+where \verb+n+ is the total number of columns. Adjust the text size
+(\verb+\Large+ in the example) so the header fits in a line and looks nice.
+\item A \verb+\toprule+ below the header
+\item The column headers
+\item A \verb+\midrule+
 \end{itemize}
-All this is written in centered, spaced out capitals in various sizes.
 
-The standard \LaTeX chapter titles for the book style are placed with lots of white space above and below them. Scaligeri has no space above the chapter titles.
+%-
+\subsubsection{Following headers}
+The part before the \verb+\endhead+ command should contain:
+\begin{itemize}
+\item A \verb+\toprule+
+\item The continuation table header in the form
+\begin{verbatim}
+  \multicolumn{n}{c}{\Large\textsc{Residuum tabulae ...}}
+\end{verbatim}
+where \verb+n+ is again the total number of columns.
+The text size
+(\verb+\Large+ in the example) should normally be the same as for the first
+header.
+Because this header is usually longer, you may need to make this header one
+size smaller.
+\item A \verb+\toprule+ below the header
+\item The column headers
+\item A \verb+\midrule+
+\end{itemize}
 
-Scaligeri's subjects have multi-line headers in centered, spaced out capitals. The first line has a bigger font size than
-subsequent lines (see e.g. pdf page 87)
+%-
+\subsubsection{Footers}
+The part before the \verb+\endfoot+ command should contain:
+\begin{itemize}
+\item A \verb+\bottomrule+
+\item A legendum for any substitution symbols used in the table,
+such as \super† and \super‡.
+Precede these with an \verb+\addlinespace+ to separate them from the bottom
+rule.
+\end{itemize}
 
-The \texttt{titlesec} package may work here.
+%-
+\subsubsection{Last footer}
+The part before the \verb+\endlastfoot+ command should contain:
+\begin{itemize}
+\item The same as what went before \verb+\endfoot+.
+\item An \verb+\addlinespace+
+\item A \verb+\caption[]{...}+ command to put the title below the table.
+The square brackets (\verb+[]+) prevent this command from adding to the List
+of Tables. That entry is handled in the First Header.
+\item A \verb+\label{tab:...}+ command to make it possible to refer to this
+table from the body text.
+\end{itemize}
 
-%---
-\section{Putting the right titles in the ToC}
+%--
+\subsection{Tuning the height}
+After the table is completed (and any time it is modified) it will be
+necessary to adjust the height of the table so that it does not cause
+Underfull \textbackslash vbox warnings.
 
-%---
-\section{A mechanism to mark and reference pages in the original PDF}
+To adjust the size follow these steps:
+\begin{enumerate}
+\item Put the \verb+\input+ command for the table file in the
+ test-table.tex file.
+\item Make sure the test file has \verb+\raggedbottom+
+ and the \verb+showframe+ option for the geometry package switched on.
+\item Have the command
+ \verb+\renewcommand{\arraystretch}{1.0000}+
+ in the table file. This usually goes right after the
+ \verb+\setlength{\tabcolsep}+ command.
+ Some tables may already use this command to adjust the appearance of
+ the table, you then start with a value different from 1.0000.
+\item Run LaTeX and examine the output.
+ If there is whitespace between the last line and the bottom of the
+ box shown by the \verb+showframe+ option, the table needs adjusting.
+\item Slightly increase the stretch parameter (start with around 1\%,
+ so 1.0100).
+\item See if the last line has been pushed over to the next page.
+ If it was, start decrementing the stretch.
+ If it was not, keep incrementing the stretch.
+\item Keep incrementing and decrementing the parameter by smaller and smaller
+ amounts until you find the value at which the line only just stays on the
+ page.
+ The baseline of the text should now fall on the bottom line of the box.
+ Call this value of the stretch parameter the high value.
+\item Repeat the cycle, starting with a slight decrement from the high value,
+ but now try to find the point at which the baseline just comes away
+ from the box.
+ Call this the low value.
+\item Calculate the average of the low value and the high value, and use
+ that as the final value for the arraystretch parameter.
+\end{enumerate}
+Don't forget to check if the table now looks nice in the main text, and does
+not cause an \verb+Underfull \vbox+ warning.
 
-%---
-\section{Page headers}
-Scaligeri uses as a header in the main body text:
+
+%%====
+\chapter{Specific issues per chapter}
+
+%%---
+\section{Prolegomena}
+\begin{itemize}
+\item
+The pages are numbered with roman numerals rather than Arabic numbers.
+The \verb+\Rplnr{}{}{}+ command
+was created to print the page numbers in roman numerals in the text.
+\item
+The Prolegomena in the original is basically a fifty page wall of text.
+Some attempts have been made to find places where the text changes the subject
+and insert a new paragraph there, but further work is needed.
+We may want to introduce sections or subsections.
+\SeeIssue{12}.
+\end{itemize}
+
+%%---
+\section{Liber Primus}
+\begin{itemize}
+\item
+There is frequent use of "à" as a word. After some consideration this
+is transcribed as the word "ab". Each occurrence is marked in comment.
+\item
+The word "scrupulus" (Lit: "small pebble"; also: 1/24 of an ounce)
+is often abbreviated. To expand these, the proper
+declination must be determined in each case. \SeeIssue{2}.
+\item
+Wrapping text around figures turned out to be impractical. We now will
+simply use a floating object for figures and tables.
+\item
+The tables can be simplified
+a lot, because there is no urgent need to imitate the original text.
+E.g. the headers
+for the Ostenta/Sexagesima conversion tables (Table 1.1) can now be written
+as a simple line of text,
+rather than broken up over three lines with different
+fonts and font sizes.
+\item
+Also for tables: the text in it can be a lot bigger, as the tables
+will now take up the whole width of a page anyway,
+rather than with the body text flowing around them
+\item
+To fine-tune the placement of tables and figures it turned out to be
+necessary to move the location where they are defined slightly forward or
+backward in the tex file. To make this easier, we put the code for tables
+ (and some figures) in separate files.
+This way we don't have to cut and paste large pieces of code if we want to
+move the definition of the table or figure. We now only have to move the
+\verb+\include{}+ command.
+\item
+All tables and figures will be given a caption and a label, so they can
+appear in a List of Tables/Figures, and can be referred to from within the
+text.
+\item
+Multi-line Greek and Latin quotes, e.g. p. 4, line 21
+can be done with the \verb+verse+ environment.
+\begin{verbatim}
+\begin{verse}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit,\\
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\\
+Ut enim ad minim veniam, quis nostrud exercitation ullamco\\
+laboris nisi ut aliquip ex ea commodo consequat.
+\end{verse}
+\end{verbatim}
+Which gives:
+\begin{verse}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit,\\
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\\
+Ut enim ad minim veniam, quis nostrud exercitation ullamco\\
+laboris nisi ut aliquip ex ea commodo consequat.
+\end{verse}
+This is nicely indented. New lines must be forced with \verb+\\+.
+The \verb+verse+ environment is preferred over the \verb+quote+ environment
+as it looks better with these forced newlines.
+
+Any text in italics, including quotes, should be surrounded by \verb+\textit{}+
+and not by \verb+\emph{}+.
+The \verb+\textit{}+ command more explicitly gives the desired effect.
+The \verb+\emph{}+ command may give a different effect, depending on the
+font or other settings.
+
+\item
+The word "poëta/poëtae" is used on page 4, lines 7 and 14. We are not sure
+what to do with the trema. For the time being we leave the trema as is.
+
+\item
+The image on page 11 (Figure 1.1: Lapis Levinii). We made a cleaned-up copy
+from an enlarged PDF page by editing nearly at the pixel level. It looks like
+Scaliger had a representation made for his book using typeset letters.
+E.g. the text "A latere dextro saxi" is obviously not on the stone itself.
+There is no indication
+of how he knew what the original looked like.
+
+\item
+Abbreviations:
 \begin{description}
-\item[On the left page] \hfill
-    \begin{description}
-    \item[Left] Page number (on the outside)
-    \item[Centre] His name (centered, small caps) \\
-      \textsc{Iosephi Scaligeri}
-    \item[Right] <nothing>
-    \end{description}
-\item[On the right page] \hfill
-    \begin{description}
-    \item[Left] <nothing>
-    \item[Centre] Book title + Chapter title (centered, small caps, abbreviated) \\
-       \textsc{De Emendat. Temporvm Lib. I}
-    \item[Right] Page number (on the outside)
-    \end{description}
+\item[scrup.]See above at "scrupulus".
+\item[Odyss.]For some declination of "Odysius" (by Homer). p4. ln 21.
+\item[Kal.]As in "Kalends Septembris" or some-such.
+\item[\&c.]Presumably this stands for "et cetera". NB: "etcetera" is an English
+word. In Latin it is two separate words.
+\item[Philostr. v.]p30, line 4.
+\item[Olynth.]p 32, line 21.
+\item[Oecon.]p 33, line 10.
 \end{description}
+\SeeIssue{2}.
 
-In the Prolegomena it is similar, but with roman numerals for the page numbers and only the chapter title
-\textsc{(Prolegomena.)} on both pages. 
+\item
+Some pages have loads of Greek text (several sentences in a row) with many
+Byzantine style ligatures and diacritics. It is most impractical to set up
+a framework of \verb+\textgreek{}+ commands, so the long bits are denoted
+by "Lots of [Greek]" or "Line of [Greek]" inside a single such command.
+For example pages 29 and 30.
+\item
+Page 35, line 21 gives a clear example of how capital letters at the beginning
+of sentences are often messed up, either in the manuscript or by the printer.
+The 1629 Geneva edition has "..., non alio mense. fiebat enim..." while the
+1598 Lugduni edition has (p35, line 4) "..., non alio mense. Fiebat enim...".
+The period is still there, but the capital is lost.
+\item
+The table on page 38 (Tabula neomeniarum primi mensis Elidensis in annis
+periodi Olympicae) is problematic in many ways. It will probably not be
+the last one to be so.
+\begin{itemize}
+  \item{}There are very many entries (76 rows and 5 main columns) making the
+  original small and hard to read (especially the Greek bits), and making it
+  hard to fit the transcribed table on a page.
+  \item{}There are Greek abbreviated words in the margin of the table. It is
+  hard to see what they say, and hard to find out what they are an abbreviation
+  of, and hard to know what they mean. There appear to be only 3 different
+  words. To save space, they were replaced by symbols, with a legend at the
+  end of the table.
+  \item{}The columns with numbers were manually padded out in the original.
+  In the transcription we get wildly varying widths  because the font we use
+  has proportional digits. We may want to use a font with monospace digits.
+  \item{}Rotated headers were needed to keep the columns narrow.
+  \item{}It will probably not be an improvement to change the table to a
+  horizontal layout. That will likely take up more space, and even be
+  less clear.
+\end{itemize}
+\end{itemize}
 
-The Dedication has no headers.
+%%---
+\section{Liber Secundus}
+\begin{itemize}
+\item
+The Hebrew month of Marchesvan is sometimes spelled as Marchesvvan and
+sometimes as Marcheswan. See in particular the end of page 99.
+Other spellings: Marcheschban (p116), Marcheschvvan (p131).
+\item
+We may want to choose a standard spelling for all Hebrew months.
+Then again, we may want to choose to keep the various spellings Scaliger uses.
+\item
+Spelling shorthand: the e-cedille (ȩ) for "ae".
+E.g. p100 line 26 and 28, p106:19, p114:7, p117:22, p119:32,
+p125:32,33,35, p132:21.
+\item
+We start to encounter a lot of Sunday Letters (Litera Dominicalis).
+See for example page 163 and 165.
+These have the form of a single capital letter.
+Making these small caps, with the height of lower case letters,
+is tempting, but they look too insignificant that way.
+We prefer to use \verb+\textsc{}+, with a capital letter passed as a parameter,
+e.g. \verb+Litera Dominicalis \textsc{D}+.
 
-The only package that gives sufficiently detailed control of the headers (and footers) is probably \texttt{titlesec}.
+Sometimes a table will have a whole column of these letters.
+In those cases a simple capital letter is used.
+\item
+Roman numerals sometimes appear within italics (e.g. p168:27-30).
+Currently using \verb+\rnum{}+ inside \verb+\textit{}+ renders well.
+The roman numerals appear as slanted small caps.
 
-%---
-\section{Footers}
-In the original, the footer has a link word on the right on each page. A link word is the same as the first word on the
-next page, which helped the setter and printer to make sure the pages appear in the right order.
-
-Most right-hand pages also have a Greek or Latin letter + sheet number before the link word.
-These were probably used to identify the gathering (a binding unit).
-
-The count goes:
-G, G 2, G 3, G 4, blank, blank, H, H 2, H 3, H 4, blank, blank, I, I 2, etcetera.
-This suggests that there are 3 sheets (bifolios) per gathering,
-with G, G 2 and G 3 on the front and G 4 on the back of the bifolio that has G 3 on the front.
-
-The count starts on the title page (PDF p. 16) with alpha. As the title page does not have a footer,
-the first actual mark is alpha 2 on PDF p. 18.
-This continues with
-beta (PDF p. 28, start of the Prolegomena), gamma, delta and epsilon.
-It ends with zeta (PDF p. 76), zeta 2 and finally zeta 3 (PDF p. 80, start of the ToC). PDF p. 82 does not have a zeta 4, against expectations. Also missing are the two blank pages in the zeta group. This leads to the conclusion that the zeta gathering only has two sheets, that is 8 pages
-(namely PDF p. 76-83).
-
-Liber I starts on PDF p. 84 with a chapter header, and has the Latin letter A as a mark. This continues with A 2, A 3,
-A 4, blank, blank, B, B 2, B 3, etcetera.
-
-After Z 4 (PDF p. 354) the sequence continues with Aa (PDF p. 360), Aa 2 (PDF p. 362), Aa 3, Aa 4, Bb (PDF p. 372),
-Bb 2, etc.
-
-After Zz 4 (PDF p. 630) it continues with Aaa (PDF p. 636), Aaa 2, etc.
-
-After Zzz 4 (PDF p. 912, page 7 of Index Orientalium vocum) we get PDF p. 918: the title page of "Veterum Graecorum Fragmenta Selecta", no footer, and then 'a 2' (PDF p. 920), 'a 3', 'a 4', blank, blank, 'b' (PDF p. 930), 'b 2', 'b 3', 'b 4', blank, blank, 'c', 'c 1', 'c 2', 'c 3', 'c 4' (PDF p. 972), which is the last mark in the book, which ends on PDF p. 976.
-
-Policy: because the footers in the original only contain information for the printer, we will leave this information out.
-We might use the footer space for our own information, e.g. for a PDF file page reference, a title of our transcription,
-and/or a version number of the transcription.
-
-%---
-\section{Indents for multi-line Greek quotes}
-
-%---
-\section{Exact ligature transcription for Greek}
-
-\texttt{RGreekl2 ?}
+Any changes to the \verb+\rnum{}+ command or the main font choice
+should check if the rendering inside
+italics works well.
+\item
+On p168:28 there is suddenly a random star symbol.
+A simple asterisk was used to represent this.
+\item
+Page 174 starts with a phrase with lots of apparent abbreviations,
+periods, small caps and capitalised words.
+It is not readily clear how this should be interpreted.
+\begin{quote}
+Hinc natae illae locutiones:
+ \texttt{A.} \texttt{D.} \texttt{IIII.} \texttt{EID.} hoc est, Ante diem
+quartum Eidus. item \texttt{EX A.D.IIII}, Ex ante diem \texttt{IIII}.Eidus.
+\end{quote}
+The phrases that follow mentions "\texttt{ANTE DIEM}", which suggests that
+that is what "\texttt{A.D.}" stands for.
+\item
+Page 183 has a block of small caps text at the top, similar to page 116.
+We use the same construct for both, with a centered parbox set to the width of
+the widest line.
+This uses a special variable "emenlen".
+Originally we used the \verb+\newlength+ command to declare this variable.
+But when we want to use the same variable a second time,
+we cannot use \verb+\newlength+
+again, as this gives a "command already defined" error.
+This could be solved by putting the \verb+\newlength{emenlen}+ command in the
+preamble, and then use it when needed.
+We prefer to use the alternative command \verb+\providelength{}+, which will
+define the variable if it does not yet exist,
+and do nothing if it already exists.
+This command can then be used in each instance of this construct.
+\item
+On p183:12 a reference is made to king Servius Tullius as "SeruI TullI".
+We do not know how to interpret this construction with a capital I at
+the end of the words.
+\item
+Passim, but e.g. p182, there is a frequent use of the term \textsc{coss.},
+in small caps and followed by a period.
+It almost always comes after a name.
+\item
+On p182 (and probably elsewhere) "A.U.C" (written "A.V.C") stands for
+"Ab Urbe Condita", from the founding of the city of Rome.
+\end{itemize}
 
 \end{document}
- 

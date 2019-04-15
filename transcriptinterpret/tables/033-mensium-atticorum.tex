@@ -1,0 +1,70 @@
+%%% Laterculum mensium Atticorum secundam anni quadrantes
+%%% Liber I p33
+%%
+%% Table more horizontally spread out to make it look better without
+%% text wrapping.
+%
+%% Names copied from Wikipedia: Attic calendar
+%% then modified to match the original
+%% - declension of quarter names θέρος -> θΕΡΙΝΟΙ
+%% - no accents on the capitals
+%% - Autumn: Φθινόπωρον -> ΟΠΩΡΙΝΟΙ
+%% - Μουνιχιών -> Μουνυχιών (ι -> υ)
+%% - Σκιροφοριών -> Σκιῤῥροφοριών (double ρ)
+%% Added numbers to ensure the reader knows the order of the months
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{0.5em}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{0.85}
+%%
+%% Four columns, one for each season
+\begin{tabular}{@{}llll@{}}
+\toprule
+\multicolumn{4}{ c }{\Large\textsc{Laterculum mensium Atticorum}} \\
+\multicolumn{4}{ c }{\Large\textsc{secundam anni quadrantes}} \\
+\toprule
+  \textgreek{Θερινοι}[?] & % Are the tonoi correct?
+  \textgreek{Οπωρινοι}[?] &
+  \textgreek{Χειμερινοι}[?] &
+  \textgreek{Εαρινοι}[?]
+\\
+  \textgreek{μηνες}[?] &
+  \textgreek{μηνες}[?] &
+  \textgreek{μηνες}[?] &
+  \textgreek{μηνες}[?]
+\\
+\midrule
+%%
+  \textgreek{Εκατομβαιών} &
+  \textgreek{Πυανεψιών} &
+  \textgreek{Γαμηλιών} &
+  \textgreek{Μουνυχιών}
+\\
+  \textgreek{Μεταγειτνιών} &
+  \textgreek{Μαιμακτηριών} &
+  \textgreek{Ανθεστηριών} &
+  \textgreek{Θαργηλιών}
+\\
+  \textgreek{Βοηδρομιών} &
+  \textgreek{Ποσειδεών} &
+  \textgreek{Ελαφηβολιών} &
+  \textgreek{Σκιῤῥοφοριών}
+\\
+\bottomrule
+\end{tabular}
+%
+\caption{Laterculum mensium Atticorum secundam anni quadrantes}
+\label{tab:p033}

@@ -1,0 +1,69 @@
+%%% Liber II p140, PDF 223
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Modify separation between columns
+%\setlength{\tabcolsep}{2.1pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.025} % Tuned to eliminate Underfull \vbox warnings
+%% Size of header text
+\newcommand{\hsb}{\footnotesize}
+\newcommand{\hsc}{\normalsize}
+%
+\newcommand{\da}{\scriptsize{†}}
+\newcommand{\db}{\scriptsize{‡}}
+%%
+\begin{tabular}{@{} c@{~}c r *{7}{c} c @{}}
+\toprule
+\multicolumn{11}{c}{\Large\textsc{Heccaedecaeteris Paschalis}} \\
+\multicolumn{11}{c}{\large\textsc{Hippolyti episcopi}} \\
+\multicolumn{11}{c}{\normalsize\textsc{ab anno primo Imperatoris Alexandri}} \\
+\toprule
+ \da&    &  Eidib. April.
+         & G & F & E & D & C & B & A & \rnum{i} \\
+    &    &  \rnum{iiii} Non. April.
+         & D & C & B & C & B & A & G & \rnum{ii} \\
+    &\db & \rnum{xii}\altsep\rnum{xi} Kal. April.
+         & A & G & F & E & D & C & B & \rnum{iii} \\
+ \da&    & \rnum{v} Eid. April.
+         & G & F & E & D & C & B & A & \rnum{iiii} \\
+    &    &  \rnum{iiii} Kal. April.
+         & D & C & B & A & G & F & E & \rnum{v} \\
+    &    &  \rnum{xv} Kal. April.
+         & A & G & F & E & D & C & B & \rnum{vi} \\
+ \da&\db &  Non. April.
+         & G & F & E & D & C & B & A & \rnum{vii} \\
+    &    &  \rnum{viii} Kal. April.
+         & D & C & B & A & G & F & E & \rnum{viii} \\
+ \da&    &  Eidib. April.
+         & C & B & A & G & F & E & D & \rnum{ix} \\
+    &    &  \rnum{iiii} Non. April.
+         & G & F & E & D & C & B & A & \rnum{x} \\
+    &\db & \rnum{xii}\altsep\rnum{xi} Kal. April.
+         & D & C & B & A & G & F & E & \rnum{xi} \\
+ \da&    & \rnum{v} Eid. April.
+         & C & B & A & G & F & E & D & \rnum{xii} \\
+    &    &  \rnum{iiii} Kal. April.
+         & G & F & E & D & C & B & A & \rnum{xiii} \\
+    &    &  \rnum{xv} Kal. April.
+         & D & C & B & A & G & F & E & \rnum{xiiii} \\
+ \da&\db &  Non. April.
+         & C & B & A & G & F & E & D & \rnum{xv} \\
+    &    &  \rnum{viii} Kal. April.
+         & G & F & E & D & C & B & A & \rnum{xvi} \\
+\bottomrule
+\addlinespace
+ & & \multicolumn{1}{l}{\super\da \footnotesize Embol.} &
+\multicolumn{5}{l}{\super\db \footnotesize Bissex.}\\
+\end{tabular}
+%
+\end{tabnums}

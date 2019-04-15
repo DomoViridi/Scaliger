@@ -1,0 +1,90 @@
+%%% Test a table
+%
+% Set the \input{} to the table you want to test, then typeset this file
+%
+\documentclass[12pt,twoside,a4paper]{book}
+\usepackage[lines=42,showframe]{geometry}
+\usepackage{array} % allow row distance change with \arraystretch
+%
+\usepackage{lipsum}
+\usepackage{rotating} % Make it possible to rotate headers
+\usepackage[normalsize]{caption} % Keep captions to (long)tables normal sized
+\usepackage{longtable}% Allow for split of the table over more than one page
+\usepackage{booktabs} % To get nice table layout
+%
+% To include graphics in tables
+\usepackage{graphicx}
+%
+%% Settings from the main text we also need for the test
+\usepackage{fontspec}
+\setmainfont{Hoefler Text}
+%\setmainfont{Hoefler Text}[Numbers={Monospaced,Uppercase}]
+%\setmainfont{Times New Roman}[]
+\newfontfamily\greekfont{Times New Roman}
+\newfontfamily\hebrewfont{Arial Hebrew}
+\newfontfamily\arabicfont{Arial Unicode MS}
+\newfontfamily\astrofont{Menlo}
+\newcommand\astro[1]{{\astrofont #1}}
+%
+% Fixed-width number environment for tables. Hoefler Text is inverted
+\newenvironment{tabnums}{\addfontfeature{Numbers={Proportional}}}{}
+%%
+% Allow hypertext links in the PDF for ToC, LoT etc.
+% Hyperref manual advises to load this last
+% Bidi insists you load hyperref *before* bidi (which is part of polyglossia)
+\usepackage[colorlinks]{hyperref}
+
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\setotherlanguage{hebrew}
+\setotherlanguage{arabic}
+%
+\newcommand{\rnum}[1]{\textsc{#1}} % Roman numerals
+\newcommand{\altsep}{\slash{}} % Separator between alternative values in tables
+%
+\newlength{\cw} % Column width for \parbox headers
+\newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
+%
+% \ruleover{string}
+% \ruleover[scale]{string}
+\makeatletter
+\newlength{\ROver@width} % width of the string
+\newlength{\ROver@height} % height of the string
+\newlength{\ROver@thick} % thickness of the line
+\newcommand{\ruleover}[2][0.75]{%
+  \settoheight{\ROver@height}{#2}% Get height of original text
+  \settowidth{\ROver@width}{#2}% Get width of original text
+  \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
+  \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
+  \setlength{\ROver@height}{#1\ROver@height}% Calculate shrunken height
+  \makebox[0pt][l]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \rule[1.3333\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
+}
+\makeatother
+
+\newcommand{\gnum}[1]{\ruleover{#1}} % Greek number
+\newcommand{\gnums}[2]{\ruleover[#1]{#2}} % Scaled Greek number
+\newcommand{\super}[1]{\textsuperscript{#1}} % Superscript outside of math code
+
+\raggedbottom
+
+\begin{document}
+
+%% Longtable version
+%\input{tables/112-periodi-magnae-hagarenorum.tex}
+%% Regular table version
+%\begin{table}[htbp]
+%  \input{tables/117-noviluniorum-samaritanorum.tex}
+%\end{table}
+
+\input{lipsum.tex}
+%
+\begin{table}[tb]
+  \input{tables/156-paschali-occidentalium.tex}
+\end{table}
+%
+\input{lipsum.tex}
+%
+\listoftables
+\end{document}

@@ -1,0 +1,48 @@
+%%% Liber II p79
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{3pt}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.3}
+%% Size of header text
+\newcommand{\hts}{\scriptsize}
+%% Width of a column
+\newcommand{\cwd}{3em}
+%%
+\begin{tabular}{@{}c c r@{} }
+\toprule
+\multicolumn{3}{c}{\Large\textsc{Tabella}}\\
+\multicolumn{3}{c}{\large\textsc{characterismi}}\\
+\multicolumn{3}{c}{\large\textsc{periodorum}}\\
+\toprule
+\hts{\ch{Enneadeca}{En\-nea\-de\-ca\-e\-te\-ri\-des}} &
+\hts{\ch{Enneadec.}{Cha\-rac\-ter En\-nea\-dec.}} &
+\multicolumn{1}{c}{~}
+\\
+\midrule
+ \rnum{i}    &  5 & 0   \\
+ \rnum{ii}   &  1 & 19  \\
+ \rnum{iii}  &  4 & 38  \\
+ \rnum{iiii} &  7 & 57  \\
+ \rnum{v}    &  3 & 76  \\
+ \rnum{vi}   &  6 & 95  \\
+ \rnum{vii}  &  2 & 114 \\
+\bottomrule
+\end{tabular}
+%
+\caption{Characterismi Periodorum}
+\label{tab:p079b}
+\end{tabnums}

@@ -1,0 +1,165 @@
+%%% Liber I p38
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+\footnotesize
+%\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{0.5em}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{0.85}
+%
+%% Different daggers
+\newcommand{\dsize}{\scriptsize}
+\newcommand{\dc}{{\dsize †}}
+\newcommand{\da}{{\dsize ‡}}
+\newcommand{\db}{{◊}}
+%% The angle with which to slant
+\newcommand{\ang}{60}
+%% Text size of the headers
+\newcommand{\hdsize}{\scriptsize}
+%% Define the column headers so both sub-tables are the same
+\newcommand{\hdr}{%
+\begin{tabular}[t]{r rrr r@{~}l r l}
+~ &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\hdsize Anni periodi\end{rotate}} &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\hdsize Cyclus Lunnae\end{rotate}} &
+\multicolumn{1}{c}{\begin{rotate}{\ang}\hdsize Dies collecti\end{rotate}} &
+\multicolumn{2}{c}{\begin{rotate}{\ang}\hdsize
+  \parbox[t]{3.5cm}{Neomenia\\\hspace*{5pt}1. mensis}
+\end{rotate}} &
+\multicolumn{2}{l}{\begin{turn}{\ang}\hdsize \textgreek{περιτταὶ ἡμέραι}\end{turn}}
+}
+%%
+% Implemented as two subtables side-by-side
+\begin{tabular}{@{}lc@{}}
+\toprule
+\multicolumn{2}{ c }{\Large\textsc{Tabula neomeniarum primi mensis}} \\
+\multicolumn{2}{ c }{\large\textsc{Elidensis in annis periodi Olympicae}} \\
+\toprule
+% Left subtable
+\hdr % tabular command and column headers
+\\
+\cmidrule{2-7}
+  ~ &  1 &  5 &  392 &  9&Iulii & 0 & \dc \\
+  ~ &  2 &  6 &  754 &  5&Aug. & 27 & \\
+  ~ &  3 &  7 & 1116 &  2&Aug. & 24 & \\
+\db &  4 &  8 & 1476 & 29&Iul. & 20 \\
+\cmidrule{2-7}
+  ~ &  5 &  9 & 1838 & 24&Iul. & 15 \\
+  ~ &  6 & 10 & 2200 & 21&Iul. & 12 \\
+  ~ &  7 & 11 & 2562 & 18&Iul. &  9 \\
+\da &  8 & 12 & 2923 & 14&Iul. &  5 \\
+\cmidrule{2-7}
+  ~ &  9 & 13 & 3315 & 10&Iul. &  1 & \dc \\
+  ~ & 10 & 14 & 3677 &  6&Aug. & 28 \\
+  ~ & 11 & 15 & 4039 &  3&Aug. & 25 \\
+\da & 12 & 16 & 4400 & 30&Iul. & 21 \\
+\cmidrule{2-7}
+  ~ & 13 & 17 & 4702 & 26&Iul. & 17 \\
+  ~ & 14 & 18 & 5124 & 23&Iul. & 14 \\
+  ~ & 15 & 19 & 5480 & 20&Iul. & 11 \\
+\da & 16 &  1 & 5846 & 16&Iul. &  7 \\
+\cmidrule{2-7}
+  ~ & 17 &  2 & 6208 & 12&Iul. &  3 \\
+  ~ & 18 &  3 & 6600 &  9&Iul. &  0 & \dc \\
+  ~ & 19 &  4 & 6962 &  5&Aug. & 27 \\
+\db & 20 &  5 & 7322 &  1&Aug. & 23 \\
+\cmidrule{2-7}
+  ~ & 21 &  6 & 7686 & 27&Iul. & 18 \\
+  ~ & 22 &  7 & 8047 & 24&Iul. & 15 \\
+  ~ & 23 &  8 & 8409 & 21&Iul. & 12 \\
+\da & 24 &  9 & 8770 & 17&Iul. &  8 \\
+\cmidrule{2-7}
+  ~ & 25 & 10 &  9133 & 13&Iul. &  4 \\
+  ~ & 26 & 11 &  9524 & 10&Iul. &  1 & \dc  \\
+  ~ & 27 & 12 &  9886 &  6&Aug. & 28 \\
+\da & 28 & 13 & 10247 &  2&Aug. & 24 \\
+\cmidrule{2-7}
+  ~ & 29 & 14 & 10609 & 29&Iul. & 20 \\
+  ~ & 30 & 15 & 10971 & 26&Iul. & 17 \\
+  ~ & 31 & 16 & 11333 & 23&Iul. & 14 \\
+\da & 32 & 17 & 11694 & 19&Iul. & 10 \\
+\cmidrule{2-7}
+  ~ & 33 & 18 & 12056 & 29&Iul. &  6 \\
+  ~ & 34 & 19 & 12418 & 26&Iul. &  3 \\
+  ~ & 35 &  1 & 12810 & 23&Iul. &  0 & \dc  \\
+\da & 36 &  2 & 13171 & 19&Aug. & 26 \\
+\cmidrule{2-7}
+  ~ & 37 &  3 & 13533 & 31&Iul. & 22 \\
+  ~ & 38 &  4 & 13895 & 28&Iul. & 19 \\
+  ~ & 39 &  5 & 14257 & 25&Iul. & 16 \\
+\db & 40 &  6 & 14617 & 21&Iul. & 12 \\
+\cmidrule{2-7}
+\end{tabular}
+%% next column
+&
+%%
+% Right subtable
+\hdr % tabular command and column headers
+\\
+\cmidrule{2-7}
+  ~ & 41 &  7 & 14979 & 16&Iul. &  7 \\
+  ~ & 42 &  8 & 15341 & 13&Iul. &  4 \\
+  ~ & 43 &  9 & 15733 & 10&Iul. &  1 & \dc  \\
+\da & 44 & 10 & 16094 &  5&Aug. & 27 \\
+\cmidrule{2-7}
+  ~ & 45 & 11 & 16456 &  1&Aug. & 23 \\
+  ~ & 46 & 12 & 16818 & 29&Iul. & 20 \\
+  ~ & 47 & 13 & 17180 & 26&Iul. & 27 \\
+\da & 48 & 14 & 17541 & 22&Iul. & 13 \\
+\cmidrule{2-7}
+  ~ & 49 & 15 & 17903 & 18&Iul. &  9 \\
+  ~ & 50 & 16 & 18265 & 15&Iul. &  6 \\
+  ~ & 51 & 17 & 18627 & 12&Iul. &  3 & \dc  \\
+\da & 52 & 18 & 19017 &  7&Aug. & 29 \\
+\cmidrule{2-7}
+  ~ & 53 & 19 & 19379 &  3&Aug. & 25 \\
+  ~ & 54 &  1 & 19741 & 31&Iul. & 22 \\
+  ~ & 55 &  2 & 20103 & 28&Iul. & 19 \\
+\da & 56 &  3 & 20464 & 24&Iul. & 14 \\
+\cmidrule{2-7}
+  ~ & 57 &  4 & 20826 & 20&Iul. & 11 \\
+  ~ & 58 &  5 & 21188 & 17&Iul. &  8 \\
+  ~ & 59 &  6 & 21550 & 14&Iul. &  5 \\
+\db & 60 &  7 & 21940 & 10&Iul. &  1 & \dc  \\
+\cmidrule{2-7}
+  ~ & 61 &  8 & 22302 &  4&Aug. & 26 \\
+  ~ & 62 &  9 & 22664 &  1&Aug. & 23 \\
+  ~ & 63 & 10 & 23026 & 29&Iul. & 20 \\
+\da & 64 & 11 & 23388 & 25&Iul. & 16 \\
+\cmidrule{2-7}
+  ~ & 65 & 12 & 23750 & 21&Iul. & 12 \\
+  ~ & 66 & 13 & 24112 & 18&Iul. &  9 \\
+  ~ & 67 & 14 & 24474 & 15&Iul. &  6 \\
+\da & 68 & 15 & 24865 & 11&Iul. &  2 & \dc  \\
+\cmidrule{2-7}
+  ~ & 69 & 16 & 25227 &  6&Aug. & 28 \\
+  ~ & 70 & 17 & 25589 &  3&Aug. & 25 \\
+  ~ & 71 & 18 & 25951 & 31&Iul. & 22 \\
+\da & 72 & 19 & 26312 & 27&Iul. & 18 \\
+\cmidrule{2-7}
+  ~ & 73 &  1 & 26674 & 23&Iul. & 14 \\
+  ~ & 74 &  2 & 27036 & 20&Iul. & 11 \\
+  ~ & 75 &  3 & 27398 & 17&Iul. &  8 \\
+\da & 76 &  4 & 27759 & 13&Iul. &  4 \\
+\cmidrule{2-7}
+\\
+~ & \multicolumn{5}{l}{\super\dc{} \textgreek{ἐμβολ.}}\\
+~ & \multicolumn{5}{l}{\super\da{} \textgreek{ἐξαιρ.}}\\
+~ & \multicolumn{5}{l}{\super\db{} \textgreek{δισεξαιρεσιμαῖος [?]}}\\
+\end{tabular}
+\end{tabular}
+%
+\caption{Neomeniarum primi mensis Elidensis in annis periodi Olympicae}
+\label{tab:p038}
+\end{tabnums}

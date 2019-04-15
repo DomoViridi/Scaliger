@@ -1,0 +1,51 @@
+%%% Liber II p65
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{1.6pt}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{0.90}
+%% Angle to rotate the headers
+\newcommand{\ang}{70}
+%%
+\begin{tabular}[t]{r ccc r@{~}l r}
+\toprule
+\multicolumn{7}{c}{\Large\textsc{Octaeteris Cleostrati}}\\
+\toprule
+~ &
+\begin{rotate}{\ang}\parbox[b]{4em}{\footnotesize Anni\\octaeteridis}\end{rotate} &
+\begin{turn}{\ang}\parbox[b]{4em}{\footnotesize Cyclus\\Lunnae}\end{turn} &
+\begin{rotate}{\ang}\parbox[b]{4em}{\footnotesize Litera\\Dominicalis}\end{rotate} &
+~ & &
+%\begin{rotate}{\ang}\hspace{5pt}\parbox[t]{3.5cm}{Neomenia\\1. mensis}\end{rotate} &
+\parbox[b]{2em}{\footnotesize Dies\\collecti}
+\\
+\midrule
+\scriptsize{†}
+  &  1 & 18 &  E  &  8&Ianua. &  384 \\
+~ &  2 & 19 & D C & 27&Ian.   &  738 \\
+\scriptsize{†}
+  &  3 &  1 &  B  & 15&Ian.   & 1122 \\
+~ &  4 &  2 &  A  &  3&Febr.  & 1476 \\
+~ &  5 &  3 &  G  & 23&Ian.   & 1830 \\
+\scriptsize{†}
+  &  6 &  4 & F E & 12&Ian.   & 2214 \\
+~ &  7 &  5 &  D  & 30&Ian.   & 2568 \\
+~ &  8 &  6 &  C  & 19&Ian.   & 2922 \\
+\bottomrule
+\addlinespace
+~ & \multicolumn{5}{l}{\footnotesize \super{†} \textgreek{Εμβολ.}}\\
+\end{tabular}
+%
+\caption{Octaeteris Cleostrati}
+\label{tab:p065}

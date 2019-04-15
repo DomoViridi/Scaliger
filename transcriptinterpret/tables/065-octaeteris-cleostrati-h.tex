@@ -1,0 +1,41 @@
+%%% Liber II p65
+%% Version with a horizontal layout, with one column per annum
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+%\tiny
+%\scriptsize
+%\footnotesize
+\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{3pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.1}
+%% Angle to rotate the headers
+%\newcommand{\ang}{60}
+%%
+\begin{tabular}{@{}l cccccccc@{}}
+\toprule
+Anni octaeteridis &
+1\super{†} & 2 & 3\super{†} & 4 & 5 & 6\super{†} & 7 & 8 \\
+Cyclus Lunnae &
+18 & 19 & 1 & 2 & 3 & 4 & 5 & 6 \\
+Litera Dominicalis &
+E & D C & B & A & G & F E & D & C \\
+~ &
+%Neomenia 1. mensis &
+8 Ian. & 27 Ian. & 15 Ian. & 3 Febr. & 23 Ian. & 12 Ian. & 30 Ian. & 19 Ian. \\
+Dies collecti &
+384 &  738 & 1122 & 1476 & 1830 & 2214 & 2568 & 2922 \\
+\bottomrule
+\addlinespace
+~ & \multicolumn{5}{l}{\footnotesize \super{†} \textgreek{Εμβολ.}}\\
+\end{tabular}
+%
+\caption{Octaeteris Cleostrati}
+\label{tab:p065}

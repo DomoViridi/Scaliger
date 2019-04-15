@@ -1,3 +1,4 @@
+% !TEX useTabs
 % !TEX TS-program = xelatex
 % !TEX encoding = UTF-8 Unicode
 % this template is specifically designed to be typeset with XeLaTeX;
@@ -15,7 +16,9 @@
 
 %%% Geometry package to make the margins better match the original
 %% use [showframe] to show the frames
-%\usepackage[top=18mm, bottom=55mm, inner=24mm, outer=38mm]{geometry}
+%% lines=nn reduces 'Underfull \vbox' messages by making \textheight match
+%% an integer number of lines.
+\usepackage[showframe,lines=42]{geometry}
 
 %%% Allow generation of pseudo-latin body text for testing
 %% Optional parameter [x-y] where x and y are numbers: generate paragraph
@@ -26,32 +29,19 @@
 \usepackage{array}
 
 %%% Control the layout of chapter headers
-\usepackage{titlesec}
+%\usepackage{titlesec}
 
 %%% Disable chapter/section numbering.
 %\setcounter{secnumdepth}{0}
 %%  Put Chapters/Sections/Subsections in the Table of Contents
 \setcounter{tocdepth}{3}
 
-%%% Allow the text to flow around tables and figures.
-%% (Must load before bidi package, i.e. before polyglossia package)
-% We might need this for chapters with actual figures (in contrast to just
-% dropcaps)
-\usepackage{wrapfig}
-
 \usepackage{fontspec} % Openfont specifications for XeTeX;
 % fontspec automatically loads xltxtra and xunicode, both of which are needed.
-% Though using \vfrac{}{} (part of xltxtra) without explicit loading of
-% xltxtra does not work.
-\usepackage{xltxtra}
 
-%% Required to keep captions to tables normal sized
-%% Used in table in Liber Primus, page 43
-\usepackage[normalsize]{caption}
-
-%% Package to split the table over more than one page
-%% Used in table in Liber Primus, page 43
-\usepackage{longtable}
+%%% Numerical fractions
+%% Supplies the \sfrac{<num>}[<separator>]{<denom>} command
+\usepackage{xfrac}
 
 %%% Enable vertical text
 %% Used in table in Liber Primus, page 27
@@ -60,20 +50,24 @@
 %% Also in table in Liber Primus, page 43
 \usepackage{rotating}
 
+%% Required to keep captions to tables normal sized
+%% Used in table in Liber Primus, page 43
+% Caption doc says it must go *after* rotating package
+% It must go *before* the longtable package
+% or it won't work on longtable captions
+\usepackage[normalsize]{caption}
+
+%% Package to split the table over more than one page
+%% Used in table in Liber Primus, page 43
+\usepackage{longtable}
+
 %%% Control the way page headers look
 %\userpackage{fancyheadings}
 %% Package needs to be downloaded specially
 
-%%% Main body text is in latin. We want:
-%% Modern typesetting
-%% The long s shown as 's'
-%% No ligatures
-%% No swishes, not on 'Q' nor on anything else
-%% Modern numbers
+%%% Main body text is in latin.
 \setmainfont{Hoefler Text}[
 ]
-%\setmainfont{Times New Roman}[
-%]
 
 %%% Add a font that supports Greek
 %\newfontfamily\greekfont{Arial Unicode MS}
@@ -81,6 +75,7 @@
 
 %%% Add a font that supports Hebrew
 \newfontfamily\hebrewfont{Arial Hebrew}
+%\newfontfamily\hebrewfont{SBL Hebrew}
 
 %%% Add a font that supports Arabic
 \newfontfamily\arabicfont{Arial Unicode MS}
@@ -93,45 +88,13 @@
 %%% Add a font for the references to line numbers in the original
 \newfontfamily\nrfont{Helvetica}
 
-%%% Dummy Command to make header of any size
-%% use: head{<scalesize>}{<spacing>}{<text>}
-%% <scalesize> is a sizefactor relative to normal size
-%% <spacing> is the LetterSpace parameter
-\newcommand\head[3]{}
+%% Environment to set numbers to non-proportional
+%% Useful for tables
+%% Put inside { and } to keep the effect local
+% Oddly, commands for Hoefler Text appear to be inverted
+% "Proportional" sets to Monospaced, while "Monospaced" sets to Proportional
+\newenvironment{tabnums}{\addfontfeature{Numbers={Proportional}}}{}
 
-%%% Commands to number paragraphs
-%% http://tex.stackexchange.com/questions/10513/automatically-assign-a-number-to-every-paragraph
-%% get marginpars to always show up on the correct side (need to compile twice)
-\usepackage{mparhack}
-
-%% No indent on paragraphs, because we make a paragraph out of each sentence.
-%\setlength\parindent{0cm}
-
-%% Command \parnum to format the paragraph counter number
-%% (in bold, arabic numbers)
-\newcommand\parnum{%
-    \bfseries\footnotesize\arabic{parcount}%
-}
-
-%% Special paragraph counter which resets with every 'subject'
-%% (represented as a subsection)
-\newcounter{parcount}[subsection]
-
-%% Command for an isolated paragraph counter mark
-%% Useful e.g. for big, multi-paragraph spanning Initials
-\newcommand\p{%
-%    \stepcounter{parcount}%
-%    \leavevmode\marginpar[\hfill\parnum]{\parnum}%
-}
-
-%% Define an environment to use in the source.
-\newenvironment{parnumbers}{%
-%    \par%
-%    \everypar{%
-%        \stepcounter{parcount}%
-%        \leavevmode\marginpar[\hfill\parnum]{\parnum}%
-%    }%
-}{}
 
 %%% Commands to refer to line numbers in the original
 %% Each beginning of a sentence is marked with the line number in the original
@@ -176,19 +139,99 @@
 	\nrfont(\Roman{sourcepagenr}:{{#3}})~\normalfont%
 }
 
-%% Our own cookup to put letters in the margin to indicate quarters of a
-%% page (A-D) as used in the original.
-%% Uses mparhack.
-%% Because of limitations of \marginpar{} the margin letters must go
-%% on the same side as the paragraph numbers. We put them a bit further
-%% away from the body text to make them more distinct.
-\newcommand\mletter[1]{}
+%% Command \setpnrs{PDFpage}{page}
+%% Register and the PDF page number and the source page number
+%% Do not print the page number and line number.
+%% To be used when a new page has begun but it is impractical to
+%% use \plnr{}{}{}, e.g. when there is a section header or a tabel at the top
+%% Can be followed by a \plnr{}{}{} later on the page
+\newcommand{\setpnrs}[2]{%
+	\setcounter{pdfpagenr}{{#1}}%
+	\setcounter{sourcepagenr}{{#2}}%
+}
 
-%%% No drop caps (illuminated initial letters)
-%% Dummy commands that just print the text
-\newcommand\dropcap[3]{{#2}{#3}}
-\newcommand\dropcapQ[3]{{#2}{#3}}
-\newcommand\dropcapil[3]{{#2}{#3}}
+%%% Show numerical fractions.
+%% Usage: \myfrac{<num>}{<den>}
+%% Adjust the separator character and the spacing depending on the font used
+%% to whatever looks nice
+%% The fraction slash (U+2044) and spacings of 0.25ex/0.1ex
+%% works rather well with Hoefler Text, Times New Roman and SBL BibLit
+\newcommand{\myfrac}[2]{%
+\sfrac{#1}[\hspace{0.25ex}⁄\hspace{0.1ex}]{#2}%
+}
+
+%%% Special command for roman numerals
+%% Usage: \rnum{<roman numeral>}
+%% Example: \rnum{mdclxviii}
+\newcommand{\rnum}[1]{%
+\textsc{#1}%
+}
+
+%%% Separator for alternative numerical values
+%% Scaliger writes alternative values (usually in tables) with a period
+%% between them. We prefer a slash.
+%% This command gives us the flexability to change the separator for the
+%% whole document in one go.
+%% Used e.g. in tables p027 and p034
+\newcommand{\altsep}{\slash{}}
+
+%%% Parbox column header \ch{sizetext}{\desiredfontsize{text}}
+%% Puts a column header inside a parbox so it can be split over multiple lines
+%% The first parameter usually the entry in the column which is the widest.
+%% The width of that string is used as the width of the parbox.
+%% The \raggedright solves the 'Underful \hbox' messages. 
+% 'column width' length to be used for the parbox
+\newlength{\cw}
+%
+\newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
+
+% \ruleover{string}
+% \ruleover[scale]{string}
+% Command to put a rule (line) over a given string.
+% The string is shrunk to 0.75 of its original size and the rule will
+% be draw at the original height of the string. An alternative scale
+% factor can be given as an optional parameter.
+% Scales outside the range 0.5..1.0 do not look nice.
+% Uses graphicx package
+\makeatletter
+\newlength{\ROver@width} % width of the string
+\newlength{\ROver@height} % height of the string
+\newlength{\ROver@thick} % thickness of the line
+\newcommand{\ruleover}[2][0.75]{%
+  \settoheight{\ROver@height}{#2}% Get height of original text
+  \settowidth{\ROver@width}{#2}% Get width of original text
+  \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
+  \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
+  \setlength{\ROver@height}{#1\ROver@height}% Calculate shrunken height
+  \makebox[0pt][l]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \rule[1.3333\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
+}
+\makeatother
+
+%% Define Greek Number command using \ruleover{} with default scaling
+\newcommand{\gnum}[1]{\ruleover{#1}}
+
+%% Greek Number command with extra parameter for scaling
+\newcommand{\gnums}[2]{\ruleover[#1]{#2}}
+
+%% Superscript outside of math mode
+%% '\super' became unavailable after TeX Live 2017 update, so we define it here
+\newcommand{\super}[1]{\textsuperscript{#1}}
+
+%%% Command for em dash
+%% We could use a litteral unicode em-dash (—), but that is hard to distinguish
+%% from other dashes in the source code.
+%% We could also use the LaTeX command "\textemdash", but that is a bit verbose
+%% The TeX "---" code does not work in all fonts (particularly our Greek font).
+\newcommand{\emd}{—}
+
+%%% Booktabs package for nice looking tables
+\usepackage{booktabs}
+
+%%% Allow hypertext links in the PDF for ToC, LoT etc.
+%% Hyperref manual advises to load this last
+%% Bidi insists you load hyperref *before* bidi (which is part of polyglossia)
+\usepackage[colorlinks]{hyperref}
 
 %%% Use polyglossia to handle multiple languages
 %% We have (at least): latin, polytonic greek, hebrew, arabic, persian
@@ -217,15 +260,27 @@
 %% the word spacing sloppy
 \sloppy
 
+%% Allow empty space at the end of a page when otherwise overstretching
+%% and Underfull \vbox would occur
+%\raggedbottom
+
 %%% Tell XeTeX where to look for graphics files
 %% Note: all file paths are relative to the root document, i.e.
 %% the tex file that is passed as an argument to the compiler.
 %% In other words: this file.
 \graphicspath{{./img/}}
 
+%%% Command to get a "Pars" entry in the ToC
+\newcommand{\pars}[1]{%
+	\addcontentsline{toc}{chapter}{\numberline{}#1}%
+}
+
 %%% Give Table of Contents the same name as in the original
-\renewcommand{\contentsname}{Conspectus omnium capitum}
-% === Does not appear to work
+\addto\captionslatin{\renewcommand{\contentsname}{Conspectus omnium capitum}}
+% "\addto\captionslatin" part is required because we use the polyglossia package
+
+%%% What are usually chapters are called "Liber" here
+\addto\captionslatin{\renewcommand{\chaptername}{Liber}}
 
 %%% Pre-define a string to use in the left-page header
 \newcommand{\shorttitle}{De Emendatione Temporum}
@@ -243,7 +298,7 @@
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/prolegomena,./tex/liber-primus}
+\includeonly{./tex/prolegomena,./tex/liber-primus,./tex/liber-secundus}
 
 \begin{document}
 
@@ -285,6 +340,7 @@
 \include{./tex/index-graecarum-vocum}
 \include{./tex/index-orientalium-vocum}
 \include{./tex/errata}
+\listoftables
 
 \backmatter
 \include{./tex/operis-finis}

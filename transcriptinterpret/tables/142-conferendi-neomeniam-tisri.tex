@@ -1,0 +1,49 @@
+%%% Liber II p140, PDF 223
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{2.1pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.085} % Tuned to eliminate Underfull \vbox warnings
+%% Size of header text
+\newcommand{\hsb}{\footnotesize}
+\newcommand{\hsc}{\normalsize}
+%
+\newcommand{\da}{\scriptsize{†}}
+%%
+\begin{tabular}{@{} r r r *{12}{r} @{}}
+\toprule
+\multicolumn{15}{c}{\Large\textsc{Tabula conferendi neomeniam Tisri}} \\
+\multicolumn{15}{c}{\large\textsc{Iudaici cum mensibus Hegirae}} \\
+\toprule
+  \multicolumn{3}{l}{\hsb{\ch{Anni cycli}{Anni cycli Iudaici}}} &
+  \hsc{0} & \hsc{19} & \hsc{38} & \hsc{57} & \hsc{76} & \hsc{95} &
+  \hsc{114} & \hsc{133} & \hsc{152} & \hsc{171} & \hsc{190} & \hsc{209}
+\\
+\cmidrule(r){1-3} \cmidrule(l){4-15}
+ 3. &  2. &  1. &  9 &  4 & 11 &  6 &  1 &  8 &  3 & 10 &  5 & 12 &  7 &  2 \\
+ 6. &  5. &  4. & 10 &  5 & 12 &  7 &  2 &  9 &  4 & 11 &  6 &  1 &  8 &  3 \\
+    &  8. &  7. & 11 &  6 &  1 &  8 &  3 & 10 &  5 & 12 &  7 &  2 &  9 &  4 \\
+11. & 10. &  9. & 12 &  7 &  2 &  9 &  4 & 11 &  6 &  1 &  8 &  3 & 10 &  5 \\
+14. & 13. & 12. &  1 &  8 &  3 & 10 &  5 & 12 &  7 &  2 &  9 &  4 & 11 &  6 \\
+17. & 16. & 15. &  2 &  9 &  4 & 11 &  6 &  1 &  8 &  3 & 10 &  5 & 12 &  7 \\
+    & 19. & 18. &  3 & 10 &  5 & 12 &  7 &  2 &  9 &  4 & 11 &  6 &  1 &  8 \\
+\bottomrule
+\end{tabular}
+%
+\caption{Conferendi neomeniam Tisri Iudaici cum mensibus Hegirae}
+\label{tab:p142}
+%
+\end{tabnums}

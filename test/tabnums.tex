@@ -1,0 +1,126 @@
+%%% Test tabular number font and properties
+%
+% Font with Monospaced numbers, useful for tables
+%
+\documentclass[12pt,a4paper]{book}
+%\documentclass[draft,a4paper]{book}
+%% use [showframe] to show the frames
+\usepackage[showframe,lines=42]{geometry}
+% Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
+\usepackage{lipsum}
+\usepackage{rotating} % Make it possible to rotate headers
+\usepackage[normalsize]{caption} % Keep captions to (long)tables normal sized
+% Caption doc says it must go *after* rotating package
+% It must go *before* the longtable package
+% or it won't work on longtable captions
+\usepackage{longtable}% Allow for split of the table over more than one page
+\usepackage{booktabs} % To get nice table layout
+%
+% To include graphics in tables
+\usepackage{graphicx}
+%
+%% Settings from the main text we also need for the test
+\usepackage{fontspec}
+\setmainfont{Hoefler Text}[
+%\setmainfont{SBL BibLit}[
+%Numbers={Monospaced,OldStyle}
+]
+%\setmainfont{Times New Roman}[]
+\newfontfamily\greekfont{SBL BibLit}
+\newfontfamily\hebrewfont{SBL BibLit}
+\newfontfamily\arabicfont{Arial Unicode MS}
+\newfontfamily\astrofont{Menlo}
+\newcommand\astro[1]{{\astrofont #1}}
+%%
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\setotherlanguage{hebrew}
+\setotherlanguage{arabic}
+%
+\newcommand{\rnum}[1]{\textsc{#1}} % Roman numerals
+\newcommand{\altsep}{\slash{}} % Separator between alternative values in tables
+%
+\newlength{\cw} % Column width for \parbox headers
+\newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
+%
+% \ruleover{string}
+% \ruleover[scale]{string}
+% Command to put a rule (line) over a given string.
+% The string is shrunk to 0.75 of its original size and the rule will
+% be draw at the original height of the string. An alternative scale
+% factor can be given as an optional parameter.
+% Scales outside the range 0.5..1.0 do not look nice.
+% Uses graphicx package
+\makeatletter
+\newlength{\ROver@width} % width of the string
+\newlength{\ROver@height} % height of the string
+\newlength{\ROver@thick} % thickness of the line
+\newcommand{\ruleover}[2][0.75]{%
+  \settoheight{\ROver@height}{#2}% Get height of original text
+  \settowidth{\ROver@width}{#2}% Get width of original text
+  \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
+  \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
+  \setlength{\ROver@height}{#1\ROver@height}% Calculate shrunken height
+  \makebox[0pt][l]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \rule[1.3333\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
+}
+\makeatother
+
+%% Define Greek Number command using \ruleover{} with default scaling
+\newcommand{\gnum}[1]{\ruleover{#1}}
+
+%% Greek Number command with extra parameter for scaling
+\newcommand{\gnums}[2]{\ruleover[#1]{#2}}
+
+%% Set numbers to non-proportional
+%% Useful for tables
+%% Put inside { and } to keep the effect local
+\newcommand{\tabnums}{\addfontfeature{Numbers={Proportional}}}
+
+\begin{document}
+
+\lipsum
+
+
+\textgreek{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΦΧαβγδεζηθικλμνξοπρστυφχψωΧ}
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzX
+
+"defecit idem sidus \textgreek{φαμηνυὼθ \gnum{κδ}},
+ sequente \textgreek{\gnum{κε}, μηνὸς Σκιῤῥοφοριῶνος}."
+
+Sufficient, souflee, terific, wiffling, 321114569870.
+
+% Use \tabnums to set the desired tabular numbers mode in the table
+{ 
+\tabnums
+\begin{tabular}{r r r r l}
+ 1 & 2 & 3 & 876543 &Some Regular \\
+ 44 & 55 & 66 & 7654321 &Text Goes\\
+ 777 & 88888 & 999 & 54321098 & In The Last\\
+ {\addfontfeature{Numbers=}11111} &  
+  {\addfontfeature{Numbers=Proportional}11111} & 111 & 11111111 \\
+ {\addfontfeature{Numbers=Monospaced}98888} &
+ {\addfontfeature{Numbers=Monospaced}12345} & 5678 & 987654321 & Column\\
+\end{tabular}
+}\\
+%
+
+\begin{description}
+%[align=left]
+\item[Ligatures and small caps:]~\\
+Sufficient, \textsc{SoufleE}, terific, wiffling, 321114569870.
+{\addfontfeature{Numbers=Monospaced}321114569870}
+\item[OldStyle/Lowercase numbers between Lining/Uppercase numbers:]~\\
+{\addfontfeature{Numbers=Uppercase}321114569870}{\addfontfeature{Numbers=Lowercase}321114569870}{\addfontfeature{Numbers=Uppercase}321114569870}
+\item[Monospaced numbers between Proportional numbers:]~\\
+{\addfontfeature{Numbers=Proportional}321114569870}{\addfontfeature{Numbers=Monospaced}321114569870}{\addfontfeature{Numbers=Proportional}321114569870}
+\item[OldStyle numbers height and Lining numbers height:]~\\
+{\addfontfeature{Numbers=Uppercase}6868686868}{\addfontfeature{Numbers=Lowercase}6868686868}{\addfontfeature{Numbers=Uppercase}6868686868}
+\end{description}
+
+\section{New Section Header}
+Followed by some \textit{Italic text} as an example.
+How about some \emph{emphasis} to make a point?
+\end{document}

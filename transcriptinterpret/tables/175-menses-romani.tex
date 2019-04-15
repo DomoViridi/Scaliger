@@ -1,0 +1,54 @@
+%%% Liber II p175, PDF 258
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{2.0pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.0284} % Tuned to eliminate Underfull \vbox
+%% Size of header text
+\newcommand{\hts}{\scriptsize}
+%% Width of a column
+\newcommand{\cwd}{4em}
+%
+\newcommand{\da}{\scriptsize{†}}
+%%
+\begin{tabular}{@{} l r r r r @{}}
+\toprule
+  \ch{Februarius}{\hts{Menses Romani}} &
+  \ch{\hts{collecti}}{\hts{Dies collecti}} &
+  \ch{\hts{Horae}}{\hts{Horae}} &
+  \ch{\hts{mensium}}{\hts{Dies mensium proscorum}} &
+  \ch{\hts{mensium}}{\hts{Dies mensium Romanorum}}
+\\
+\midrule
+Martius    &  29 & 14 & 29 & 31 \\
+Aprilis    &  59 & ~4 & 30 & 29 \\
+Maius      &  88 & 18 & 29 & 31 \\
+Iunius     & 118 & ~8 & 30 & 29 \\
+Quintilis  & 147 & 22 & 29 & 31 \\
+Sextilis   & 177 & 12 & 30 & 29 \\
+September  & 207 & ~2 & 30 & 29 \\
+October    & 236 & 16 & 29 & 31 \\
+November   & 266 & ~6 & 30 & 29 \\
+December   & 295 & 20 & 29 & 29 \\
+Ianuarius  & 325 & 10 & 30 & 29 \\
+Februarius & 355 & ~0 & 30 & 28 \\
+\bottomrule
+\end{tabular}
+%
+\caption{Menses Romani}
+\label{tab:p175}
+%
+\end{tabnums}

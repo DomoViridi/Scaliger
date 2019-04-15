@@ -1,0 +1,70 @@
+%%% Liber 2 p158, PDF 241
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.0} % Tuned to eliminate Underfull \vbox warnings
+%
+%% Width of a column
+\newcommand{\cwd}{4.0em}
+%% Define reference symbols
+\newcommand{\da}{{\scriptsize †}}
+\newcommand{\db}{{\scriptsize ‡}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: top row
+\newcommand{\hsa}[1]{\footnotesize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\scriptsize{#1}}
+%
+\newcommand{\hdrB}{%
+ \multicolumn{1}{c}{\hsb{\parbox[b]{\cwd}{\raggedright Cyclus Solis.}}} &
+ \multicolumn{1}{c}{\hsb{\parbox[b]{\cwd}{\raggedright Litera Domin.}}}
+}
+%
+\newcommand{\hdrs}{%
+ \hdrB & \hspace*{1em} & \hdrB \\
+ \cmidrule(l){1-2} \cmidrule(l){4-5}
+}
+%
+\begin{tabular}[c]{@{} cc c cc @{}}
+\toprule
+\multicolumn{5}{c}{\Large\textsc{Elenchus Periodi}} \\
+\multicolumn{5}{c}{\large\textsc{Theophili et Cyrilli}} \\
+\toprule
+ \hdrs % Column headers from the above definition
+%%
+  12 &  G  && 20 &  D \\
+  23 &  G  && ~3 &  D \\
+  ~6 &  G  && 14 &  D \\
+  17 & A G && 25 & E D \\
+  28 &  A  && ~8 &  E \\
+  11 &  A  && 19 &  E \\
+  22 &  A  && ~2 &  E \\
+  ~5 & B A && 13 & F E \\
+  16 &  B  && 24 &  F \\
+  27 &  B  && ~7 &  F \\
+  10 &  B  && 18 &  F \\
+  21 & C B && ~1 & G F \\
+  ~4 &  C  && \\
+  15 &  C  && \\
+  26 &  C  && \\
+  ~9 & D C && \\
+\bottomrule
+\end{tabular}
+\caption{Elenchus periodi Theophili et Cyrilli}
+\label{tab:p158}
+\end{tabnums}

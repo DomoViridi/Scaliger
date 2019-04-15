@@ -1,0 +1,395 @@
+%%% Test settings to reduce "Underfull \vbox (badness 10000)" warnings
+%
+% Issue #175
+%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+%\documentclass[twoside]{book}
+\documentclass[draft,12pt,twoside,a4paper]{book}
+%% use [showframe] to show the frames
+\usepackage[showframe,lines=42]{geometry}
+%% Changes in page geometry must go after the geometry package
+%% or (better) passed as parameters to the geometry package
+%% lines=n sets \textheight to n*\baselineskip - (\baselineskip - pointsize)
+%\setlength{\baselineskip}{14.78825pt}
+%\textheight=584pt
+%\setlength{\textheight}{200pt}
+%
+% Generate dummy filler text; command: \lipsum[n] or \lipsum[n-m] or \lipsum
+\usepackage{lipsum}
+\usepackage{array}
+
+%%% Control the layout of chapter headers
+\usepackage{titlesec}
+
+\setcounter{tocdepth}{3}
+\usepackage{fontspec} % Openfont specifications for XeTeX;
+\usepackage{xfrac} % Also loads:
+% amstext, amsgen, graphicx, graphics, trig, l3keys2e, textcop, xtemplate
+\usepackage{rotating} % Make it possible to rotate headers
+\usepackage[normalsize]{caption} % Keep captions to (long)tables normal sized
+% Caption doc says it must go *after* rotating package
+% It must go *before* the longtable package
+% or it won't work on longtable captions
+\usepackage{longtable}% Allow for split of the table over more than one page
+
+% Settings from the main text we also need for the test
+%\setmainfont{Helvetica}[]
+\setmainfont{Hoefler Text}[]
+\newfontfamily\greekfont{Times New Roman}
+\newfontfamily\hebrewfont{Arial Hebrew}
+\newfontfamily\arabicfont{Arial Unicode MS}
+\newfontfamily\astrofont{Menlo}
+\newcommand\astro[1]{{\astrofont #1}}
+\newfontfamily\nrfont{Helvetica}
+%% Environment to set numbers to non-proportional
+% Oddly, commands for Hoefler Text appear to be inverted
+% "Proportional" sets to Monospaced, while "Monospaced" sets to Proportional
+\newenvironment{tabnums}{\addfontfeature{Numbers={Proportional}}}{}
+%
+%%% Commands to refer to line numbers in the original
+\newcounter{sourcepagenr}
+\newcounter{pdfpagenr}
+\newcommand{\lnr}[1]{\nrfont({#1})~\normalfont}
+\newcommand{\plnr}[3]{%
+	\setcounter{pdfpagenr}{{#1}}%
+	\setcounter{sourcepagenr}{{#2}}%
+	\nrfont(\arabic{sourcepagenr}:{{#3}})~\normalfont%
+}
+\newcommand{\Rplnr}[3]{%
+	\setcounter{pdfpagenr}{{#1}}%
+	\setcounter{sourcepagenr}{{#2}}%
+	\nrfont(\Roman{sourcepagenr}:{{#3}})~\normalfont%
+}
+\newcommand{\setpnrs}[2]{%
+	\setcounter{pdfpagenr}{{#1}}%
+	\setcounter{sourcepagenr}{{#2}}%
+}
+%
+\newcommand{\myfrac}[2]{%
+\sfrac{#1}[\hspace{0.25ex}⁄\hspace{0.1ex}]{#2}%
+}
+\newcommand{\rnum}[1]{%
+\textsc{#1}%
+}
+\newcommand{\altsep}{\slash{}}
+\newlength{\cw} % Column width for \parbox headers
+\newcommand{\ch}[2]{\settowidth{\cw}{#1}\parbox[b]{\cw}{\raggedright#2}}
+% \ruleover{string}
+% \ruleover[scale]{string}
+% Command to put a rule (line) over a given string.
+% The string is shrunk to 0.75 of its original size and the rule will
+% be draw at the original height of the string. An alternative scale
+% factor can be given as an optional parameter.
+% Scales outside the range 0.5..1.0 do not look nice.
+% Uses graphicx package
+\makeatletter
+\newlength{\ROver@width} % width of the string
+\newlength{\ROver@height} % height of the string
+\newlength{\ROver@thick} % thickness of the line
+\newcommand{\ruleover}[2][0.75]{%
+  \settoheight{\ROver@height}{#2}% Get height of original text
+  \settowidth{\ROver@width}{#2}% Get width of original text
+  \setlength{\ROver@thick}{0.5333pt}% Set pre-shrink thickness of rule
+  \setlength{\ROver@width}{#1\ROver@width}% Calculate shrunken width
+  \setlength{\ROver@height}{#1\ROver@height}% Calculate shrunken height
+  \makebox[0pt][l]{\scalebox{#1}{#2}}% Print the text with shrinking
+  \rule[1.3333\ROver@height]{\ROver@width}{#1\ROver@thick}% Draw bar
+}
+\makeatother
+%% Define Greek Number command using \ruleover{} with default scaling
+\newcommand{\gnum}[1]{\ruleover{#1}}
+%% Greek Number command with extra parameter for scaling
+\newcommand{\gnums}[2]{\ruleover[#1]{#2}}
+%
+\newcommand{\super}[1]{\textsuperscript{#1}}
+\newcommand{\emd}{—}
+\usepackage{booktabs}
+%%
+\usepackage[quiet]{polyglossia}
+\setmainlanguage{latin}
+\setotherlanguage{greek}
+\setotherlanguage{hebrew}
+\setotherlanguage{arabic}
+\setotherlanguage{english}
+%
+%% Prevent text from going outside the margins, by making
+%% the word spacing sloppy
+\sloppy
+
+%% Allow empty space at the end of a page when otherwise overstretching
+%% and Underfull \vbox would occur
+%\raggedbottom
+
+%% The \usepackage{titlesec} command must go *before* polyglossia,
+%% but commands fom titlesec must go *after* the polyglossia commands.
+%\titlespacing*{\command}{left}{before}{after}[right]
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus 0.2ex}{2.3ex plus 0.2ex}
+%\titlespacing*{\section}{0pt}{3.5ex}{2.3ex}
+
+\graphicspath{{./img/}}
+\newcommand{\pars}[1]{%
+	\addcontentsline{toc}{chapter}{\numberline{}#1}%
+}
+\addto\captionslatin{\renewcommand{\contentsname}{Conspectus omnium capitum}}
+\addto\captionslatin{\renewcommand{\chaptername}{Liber}}
+\newcommand{\shorttitle}{De Emendatione Temporum}
+\newcommand{\shortauthor}{Iosephi Scaligeri}
+\newcommand{\setheaders}[2]{%
+\markboth{\sc{\hfill{}#1\hfill}}{\sc{\hfill{}#2\hfill}}%
+}
+
+%%%========================================================%%%
+
+\begin{document}
+
+%% Top matter
+\title{De Emendatione Temporum}
+\author{Julius J. Scaliger}
+\pagestyle{myheadings}
+\setheaders{}{}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
+Curabitur dictum gravida mauris.
+Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna.
+Donec vehicula augue eu neque.
+Pellentesque habitant morbi tristique senectus et netus et malesuada
+ fames ac turpis egestas.
+Mauris ut leo.
+Cras viverra metus rhoncus sem.
+Nulla et lectus vestibulum urna fringilla ultrices.
+Phasellus eu tellus sit amet tortor gravida placerat.
+Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
+Praesent eget sem vel leo ultrices bibendum.
+Aenean faucibus.
+Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla.
+Curabitur auctor semper nulla.
+
+\section{Short section header}
+Donec varius orci eget risus.
+Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
+Duis eget orci sit amet orci dignissim rutrum.
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi.
+Morbi auctor lorem non justo.
+Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus.
+Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna,
+ vitae ornare odio metus a mi.
+Morbi ac orci et nisl hendrerit mollis.
+Suspendisse ut massa.
+Cras nec ante.
+Pellentesque a nulla.
+Cum sociis natoque penatibus et magnis dis parturient montes,
+ nascetur ridiculus mus.
+Aliquam tincidunt urna.
+Nulla ullamcorper vestibulum turpis.
+Pellentesque cursus luctus mauris.
+Nulla malesuada porttitor diam.
+Donec felis erat, congue non, volutpat at, tincidunt tristique, libero.
+Vivamus viverra fermentum felis.
+Donec nonummy pellentesque ante.
+Phasellus adipiscing semper elit.
+Proin fermentum massa ac quam.
+Sed diam turpis, molestie vitae, placerat a, molestie nec, leo.
+Maecenas lacinia.
+Nam ipsum ligula, eleifend at, accumsan nec, suscipit a, ipsum.
+Morbi blandit ligula feugiat magna.
+Nunc eleifend consequat lorem.
+Sed lacinia nulla vitae enim.
+Pellentesque tincidunt purus vel magna.
+Integer non enim.
+Praesent euismod nunc eu purus.
+Donec bibendum quam in tellus.
+Nullam cursus pulvinar lectus.
+Donec et mi.
+Nam vulputate metus eu enim.
+Vestibulum pellentesque felis eu massa.
+Ax\rule{3mm}{3.2ex}xgZ
+Quisque ullamcorper placerat ipsum.
+Cras nibh.
+Morbi vel justo vitae lacus tincidunt ultrices.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+In hac habitasse platea dictumst.
+Integer tempus convallis augue.
+Etiam facilisis.
+Nunc elementum fermentum wisi.
+Aenean placerat.
+Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam,
+ ac pulvinar elit purus eget enim.
+Nunc vitae tortor.
+Proin tempus nibh sit amet nisl.
+Vivamus quis tortor vitae risus porta vehicula.
+Fusce mauris.
+Vestibulum luctus nibh at lectus.
+Sed bibendum, nulla a faucibus semper, leo velit ultricies tellus,
+ ac venenatis arcu wisi vel nisl.
+Vestibulum diam.
+Aliquam pellentesque, augue quis sagittis posuere, turpis lacus congue quam,
+ in hendrerit risus eros eget felis.
+Maecenas eget erat in sapien mattis porttitor.
+Vestibulum porttitor.
+Nulla facilisi.
+Sed a turpis eu lacus commodo facilisis.
+Morbi fringilla, wisi in dignissim internum.
+Primo primo primo primo, primo primo primo primo primo, primo primo.
+Secundo, secundo secundo secundo secundo, secundo secundo.
+Intertum, justo lectus sagittis dui, et vehicula libero dui cursus dui.
+Mauris tempor ligula sed lacus.
+Duis cursus enim ut augue.
+Cras ac magna.
+Cras nulla.
+Nulla egestas.
+Curabitur a leo.
+Quisque egestas wisi eget nunc.
+Nam feugiat lacus vel est.
+Curabitur consectetuer.
+Suspendisse vel felis.
+Ut lorem lorem, interdum eu, tincidunt sit amet, laoreet vitae, arcu.
+Aenean faucibus pede eu ante.
+Praesent enim elit, rutrum at, molestie non, nonummy vel, nisl.
+Ut lectus eros, malesuada sit amet, fermentum eu, sodales cursus, magna.
+Donec eu purus.
+Quisque vehicula, urna sed ultricies auctor, pede lorem egestas dui,
+ et convallis elit erat sed nulla.
+Donec luctus.
+Curabitur et nunc.
+Aliquam dolor odio, commodo pretium, ultricies non, pharetra in, velit.
+Integer arcu est, nonummy in, fermentum faucibus, egestas vel, odio.
+Sed commodo posuere pede.
+Mauris ut est.
+Ut quis purus.
+Sed ac odio.
+Sed vehicula hendrerit sem.
+Duis non odio.
+Morbi ut dui.
+Sed accumsan risus eget odio.
+In hac habitasse platea dictumst.
+Pellentesque non elit.
+Fusce sed justo eu urna porta tincidunt.
+Mauris felis odio, sollicitudin sed, volutpat a, ornare ac, erat.
+Morbi quis dolor.
+Donec pellentesque, erat ac sagittis semper, nunc dui lobortis purus,
+ quis congue purus metus ultricies tellus.
+Proin et quam.
+Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+ per inceptos hymenaeos.
+Praesent sapien turpis, fermentum vel, eleifend faucibus, vehicula eu, lacus.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+\section{A longer section title, which should be at least two lines long.}
+Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
+Curabitur dictum gravida mauris.
+Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna.
+Donec vehicula augue eu neque.
+Pellentesque habitant morbi tristique senectus et netus et malesuada
+ fames ac turpis egestas.
+Mauris ut leo.
+Cras viverra metus rhoncus sem.
+Nulla et lectus vestibulum urna fringilla ultrices.
+Phasellus eu tellus sit amet tortor gravida placerat.
+Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
+Praesent eget sem vel leo ultrices bibendum.
+Aenean faucibus.
+Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla.
+Curabitur auctor semper nulla.
+Donec varius orci eget risus.
+Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
+Duis eget orci sit amet orci dignissim rutrum.
+Fusce adipiscing justo nec ante.
+Nullam in enim.
+Pellentesque felis orci, sagittis ac, malesuada et, facilisis in, ligula.
+Nunc non magna sit amet mi aliquam dictum.
+In mi.
+Curabitur sollicitudin justo sed quam.
+Aenean imperdiet.
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+posuere cubilia Curae; Donec lacinia nonummy lectus.
+Proin vel urna.
+Fusce sit amet orci ac magna iaculis pharetra.
+Duis sagittis massa in tellus.
+Aenean vel velit vel felis consectetuer pharetra.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
+Curabitur dictum gravida mauris.
+Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna.
+Donec vehicula augue eu neque.
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+ ac turpis egestas.
+Mauris ut leo.
+Cras viverra metus rhoncus sem.
+Nulla et lectus vestibulum urna fringilla ultrices.
+Phasellus eu tellus sit amet tortor gravida placerat.
+Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
+Praesent eget sem vel leo ultrices bibendum.
+Aenean faucibus.
+Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla.
+Curabitur auctor semper nulla.
+Donec varius orci eget risus.
+Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
+Duis eget orci sit amet orci dignissim rutrum.
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi.
+Morbi auctor lorem non justo.
+Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus.
+Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna,
+ vitae ornare odio metus a mi.
+Morbi ac orci et nisl hendrerit mollis.
+Suspendisse ut massa.
+Cras nec ante.
+Pellentesque a nulla.
+Cum sociis natoque penatibus et magnis dis parturient montes,
+ nascetur ridiculus mus.
+Aliquam tincidunt urna.
+Nulla ullamcorper vestibulum turpis.
+Pellentesque cursus luctus mauris.
+Nulla malesuada porttitor diam.
+Donec felis erat, congue non, volutpat at, tincidunt tristique, libero.
+Vivamus viverra fermentum felis.
+Donec nonummy pellentesque ante.
+Phasellus adipiscing semper elit.
+Proin fermentum massa ac quam.
+Sed diam turpis, molestie vitae, placerat a, molestie nec, leo.
+Maecenas lacinia.
+Nam ipsum ligula, eleifend at, accumsan nec, suscipit a, ipsum.
+Morbi blandit ligula feugiat magna.
+Nunc eleifend consequat lorem.
+Sed lacinia nulla vitae enim.
+Pellentesque tincidunt purus vel magna.
+Integer non enim.
+Praesent euismod nunc eu purus.
+Donec bibendum quam in tellus.
+Nullam cursus pulvinar lectus.
+Donec et mi.
+Nam vulputate metus eu enim.
+Vestibulum pellentesque felis eu massa.
+Quisque ullamcorper placerat ipsum.
+Cras nibh.
+Morbi vel justo vitae lacus tincidunt ultrices.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+In hac habitasse platea dictumst.
+Integer tempus convallis augue.
+Etiam facilisis.
+Nunc elementum fermentum wisi.
+Aenean placerat.
+Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam,
+ ac pulvinar elit purus eget enim.
+Nunc vitae tortor.
+Proin tempus nibh sit amet nisl.
+Vivamus quis tortor vitae risus porta vehicula.
+Fusce mauris.
+Vestibulum luctus nibh at lectus.
+Sed bibendum, nulla a faucibus semper, leo velit ultricies tellus,
+ ac venenatis arcu wisi vel nisl.
+Vestibulum diam.
+Aliquam pellentesque, augue quis sagittis posuere, turpis lacus congue quam,
+ in hendrerit risus eros eget felis.
+Maecenas eget erat in sapien mattis porttitor.
+
+\begin{itemize}
+\item textheight: \the\textheight
+\item baselineskip: \the\baselineskip
+\end{itemize}
+
+\tableofcontents{}
+\end{document}
