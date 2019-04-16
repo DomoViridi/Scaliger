@@ -1,5 +1,6 @@
 % !TEX root = ../test-table.tex
 %%% Liber II p121, PDF 204
+%%% Two-column version, shorter than the original
 %%
 %%% Count out columns for fixed-width source font
 % 000000011111111112222222222333333333344444444445555555555666666666677777777778
@@ -21,13 +22,19 @@
 %% Size of header text
 \newcommand{\hts}{\footnotesize}
 %
-%%
-\begin{tabular}{@{}r r r r}
-\toprule
+%% Generate the column headers
+\newcommand{\hdrs}{%
  \ch{\hts Iuliani}{\hts{Cycli Iuliani}} &
  \ch{\hts Arabici}{\hts{Anni Arabici}} &
  \ch{\hts Menses}{\hts{Menses Arabici}} &
  \ch{\hts Numerus}{\hts{Numerus cyclorum}}
+}
+%%
+\begin{tabular}{@{}l c c@{}}
+\toprule
+
+\begin{tabular}{@{}r r r r}
+\hdrs
 \\
 \midrule
    19 &   19 &  7 &   1 \\
@@ -42,6 +49,15 @@
   190 &  195 & 10 &  10 \\
   209 &  215 &  5 &  11 \\
   228 &  235 &  0 &  12 \\
+\bottomrule
+\end{tabular}
+%% next column
+& \hspace*{3ex} &
+%%
+\begin{tabular}{@{}r r r r}
+\hdrs
+\\
+\midrule
   456 &  470 &  0 &  24 \\
   684 &  705 &  0 &  36 \\
   912 &  940 &  0 &  48 \\
@@ -53,6 +69,9 @@
  2280 & 2350 &  0 & 105 \\
  4560 & 4700 &  0 & 112 \\
 \bottomrule
+ \\
+ \\
+\end{tabular}
 \end{tabular}
 %
 \caption{Anni et menses Arabici in cycli Iuliani}
