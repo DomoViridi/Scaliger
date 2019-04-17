@@ -298,7 +298,7 @@
 %%%========================================================%%%
 
 %% list the parts we want to compile
-\includeonly{./tex/prolegomena,./tex/liber-primus,./tex/liber-secundus}
+\includeonly{./front/prolegomena,./lib1/liber-primus,./lib2/liber-secundus}
 
 \begin{document}
 
@@ -313,10 +313,10 @@
 %\input{../test/dropcap}
 
 \frontmatter
-\include{./tex/title}
-\include{./tex/dedication}
-\include{./tex/greek-quotes}
-\include{./tex/prolegomena}
+\include{./front/title}
+\include{./front/dedication}
+\include{./front/greek-quotes}
+\include{./front/prolegomena}
 
 % Clear our self-defined headers
 \setheaders{}{}
@@ -326,24 +326,24 @@
 \tableofcontents{}
 
 \mainmatter
-\include{./tex/liber-primus}
-\include{./tex/liber-secundus}
-\include{./tex/liber-tertius}
-\include{./tex/liber-quartus}
-\include{./tex/liber-quintus}
-\include{./tex/liber-sextus}
-\include{./tex/liber-septimus}
+\include{./lib1/liber-primus}
+\include{./lib2/liber-secundus}
+\include{./lib3/liber-tertius}
+\include{./lib4/liber-quartus}
+\include{./lib5/liber-quintus}
+\include{./lib6/liber-sextus}
+\include{./lib7/liber-septimus}
 
 \appendix
-\include{./tex/nomenclator}
-\include{./tex/index-rerum-et-verborum}
-\include{./tex/index-graecarum-vocum}
-\include{./tex/index-orientalium-vocum}
-\include{./tex/errata}
+\include{./post/nomenclator}
+\include{./post/index-rerum-et-verborum}
+\include{./post/index-graecarum-vocum}
+\include{./post/index-orientalium-vocum}
+\include{./post/errata}
 \listoftables
 
 \backmatter
-\include{./tex/operis-finis}
-\include{./tex/fragmenta-selecta}
+\include{./post/operis-finis}
+\include{./post/fragmenta-selecta}
 
 \end{document}
