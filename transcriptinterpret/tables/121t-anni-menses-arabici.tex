@@ -18,7 +18,8 @@
 %% Modify separation between columns
 \setlength{\tabcolsep}{2.1pt}
 %% Modify distance between rows
-\renewcommand{\arraystretch}{1.008} % Tuned to eliminate Underfull \vbox
+% High value: 1.030921; Low value: 1.030037 
+\renewcommand{\arraystretch}{1.030479} % Tuned to eliminate Underfull \vbox
 %% Size of header text
 \newcommand{\hts}{\footnotesize}
 %
@@ -51,9 +52,9 @@
   228 &  235 &  0 &  12 \\
 \bottomrule
 \end{tabular}
-%% next column
+%% space between columns
 & \hspace*{3ex} &
-%%
+%% next column
 \begin{tabular}{@{}r r r r}
 \hdrs
 \\
