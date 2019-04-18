@@ -462,6 +462,14 @@ in it) instead.
 Often happens by pressing the TeXShop \texttt{Typeset} button in the window
 you are entering text in.
 Open the window with the root document and hit \texttt{Typeset} there.
+To make it easier for you, you can also place a command of the form
+\begin{verbatim}
+  % !TEX root = <path to root document>
+\end{verbatim}
+near the top of the included file.
+This will tell TeXShop where to find the main document and compile that rather
+than the included file when you hit the \texttt{Typeset} button.
+The path is relative to the included document.
 
 \item[Misplaced alignment tab character \&.] \hfill \\
 You forgot to escape the ampersand (\&) with a backslash, like so: \verb;\&;.
@@ -495,23 +503,29 @@ for the polytonic style.
 \\
 Some special text must be surrounded by commands:
 \begin{itemize}
-\item Greek, Hebrew, Arabic and Persian: First enter these as a placeholder,
+\item Greek, Hebrew, Arabic and other Semitic languages:
+First enter these as a placeholder,
 like so:
 \begin{itemize}
-\item\verb;\greektext{[Greek]};
-\item\verb;\hebrewtext{[Hebrew]};
-\item\verb;\arabicfont{[Arabic]};
-\item\verb;\arabicfont{[Persian]};
+\item\verb;\greektext{}[Greek];
+\item\verb;\hebrewtext{}[Hebrew];
+\item\verb;\arabicfont{}[Arabic];
+\item\verb;\arabicfont{}[Persian];
 \end{itemize}
-There is no specific command for Persian, as it uses the same font
-and settings as Arabic.
-\\
-The commands will handle the selection of a suitable font for that language. In
-later phase the placeholders will be filled in with the actual text, which can
+The commands will handle the selection of a suitable font for that language.
+These placeholders will eventually be filled in with the actual text, which can
 be entered as Unicode characters.
 
-If you feel so inclined, you can enter the foreign text, replacing the
-"\verb+[Greek]+" etcetera. If you have entered some foreign text but are
+The clarifying text (\verb+[Greek]+ etc.) must be outside the command,
+because the font selected for the languages may not support latin characters.
+
+There are, for now, no specific commands for the other Semitic languages,
+as they have not yet been identified.
+As a stopgap, use the \verb+\arabicfont{}+ for any unidentified text.
+
+If you feel so inclined and are able, you can enter the foreign text,
+removing the clarifying text.
+If you have entered some foreign text but are
 unsure
 if it is correct, leave a question mark in brackets, like so: \verb+[?]+.
 
@@ -544,9 +558,6 @@ Enter them as lower case characters, surrounded by the \verb;\rnum{};
 command. This command will show the numeral in small caps,
 with the appropriate spacing.
 See also section~\ref{subsec:roman_numerals} for details on this command.
-Note: Before the introduction of the \verb;\rnum{}; command,
-the \verb;\textsc{}; command was used. Older parts of the \TeX{} source
-may still use this command. These instances will be replaced eventually.
 
 \item Greek numerals, such as $\overline{\kappa\delta}$ can be entered using
 the specially created \verb+\gnum{}+ command,
@@ -788,7 +799,7 @@ This might be because there is a section header, a quote or a table at the top
 of the page.
 For these cases we have the following command:
 \begin{itemize}
-\item \verb+\setpnrs{<PDF page>}{<page nr>}}+
+\item \verb+\setpnrs{<PDF page>}{<page nr>}+
 \end{itemize}
 This registers the page numbers without printing anything.
 After using this you can put a \verb+\plnr+ command later on the same page.
