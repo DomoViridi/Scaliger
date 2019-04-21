@@ -1,0 +1,99 @@
+% XeLaTeX can use any Mac OS X font. See the setromanfont command below.
+% Input to XeLaTeX is full Unicode, so Unicode characters can be typed
+% directly into the source.
+
+% The next lines tell TeXShop to typeset with xelatex, and to open and
+% save the source with Unicode encoding.
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+\documentclass{report}
+
+\usepackage{geometry}
+%% See geometry.pdf to learn the layout options. There are lots.
+
+\geometry{a4paper}         %% ... or a4paper or a5paper or ...
+%\geometry{landscape}      %% Activate for rotated page geometry
+
+%\usepackage[parfill]{parskip}
+%% Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+
+% Will Robertson's fontspec.sty can be used to simplify font choices.
+% To experiment, open /Applications/Font Book to examine the fonts provided
+% on Mac OS X,
+% and change "Hoefler Text" to any of these choices.
+
+\usepackage{fontspec,xltxtra,xunicode}
+%\setmainfont{Hoefler Text}
+
+\setmainfont{Times New Roman}
+% Chosen font needs to be able to show Greek characters koppa and sampi.
+% Preferably should also have small caps.
+
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+% Use color to mark the hyperlinks
+\usepackage{color}
+
+%%% Booktabs package for nice looking tables
+\usepackage{booktabs}
+
+% Allow hypertext links to external documents/websites
+% Hyperref manual advises to load this last
+% Bidi insists you load hyperref *before* bidi (which is part of polyglossia)
+\usepackage[colorlinks]{hyperref}
+
+%% Command to create a hyperlink to an Issue on GitHub
+%% Parameter: the issue number on GitHub
+\newcommand{\SeeIssue}[1]{%
+See \textcolor{blue}{%
+\href{https://github.com/DomoViridi/Scaliger/issues/#1}%
+{Issue \#{#1}}%
+} on GitHub%
+}
+
+\title{Title}
+\author{Erik Groenhuis}
+\date{\today} % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\tableofcontents{}
+
+% For many users, the previous commands will be enough.
+% If you want to directly input Unicode, add an Input Menu or Keyboard
+% to the menu bar using the International Panel in System Preferences.
+% Unicode must be typeset using a font containing the appropriate characters.
+% Remove the comment signs below for examples.
+
+% \newfontfamily{\A}{Geeza Pro}
+% \newfontfamily{\H}[Scale=0.9]{Lucida Grande}
+% \newfontfamily{\J}[Scale=0.85]{Osaka}
+
+% Here are some multilingual Unicode fonts: this is Arabic text:
+% {\A السلام عليكم}, this is Hebrew: {\H שלום},
+% and here's some Japanese: {\J 今日は}.
+
+%%=====
+\chapter{First Chapter}
+
+
+
+%%---
+\section{A Section}
+
+%--
+\subsection{A Subsection}
+
+\end{document}
