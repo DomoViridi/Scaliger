@@ -14,13 +14,17 @@ the line numbers only need to be added once per source-PDF.
 
 The procedure to add the line numbers to the source PDF goes roughly as follows:
 
-- 'xfdfgen' is a program written in C by domoviridi which generates an xfdf
-  file.
+- 'xfdfnotes' is a program written in C (source in xfdfgen.c) by domoviridi
+  which generates an xfdf file to stdout.
      This xfdf file describes all the annotations to be added to one or more
-  chapters of the PDF original, based on a configuration file (usually called
-  'annots.cfg'.
-     These annotations are of the "freetext" type, with the simple "content"
-  subtype.
+  chapters of the PDF original. These annotations are of the "freetext" type,
+  with the simple "content" subtype.
+  The program uses a configuration file. The name of this configuration file
+  (usually called 'annots.cfg') is passed to the program as a parameter.
+  Example invocation:
+         xfdfnotes annots.cfg >notes.xfdf
+  The values in the configuration file can be tweaked to make the line numbers
+  appear more or less in the correct position in the PDF. 
 
 - Adobe Acrobat is used to load the PDF original and import the xfdf file.
   Then the annotations need to be manually adjusted to match the scanned
@@ -31,6 +35,11 @@ The procedure to add the line numbers to the source PDF goes roughly as follows:
   This adjustment needs to be done page-by-page, by hand.
 
 - The annotations can then be exported again from Adobe Acrobat as an xfdf file.
+
+  Select "Comment" in the toolbar on the right. Select the "..." for a menu
+  of more options, and select "Export All To Data File ...". In the dialogue
+  window that opens select "Acrobat XFDF Files" as "Format:", set a suitable
+  name at "Save As:", and the directory you want.
   These exported annotations wil be of the "freetext" type, but with the
   "contents-richtext" subtype.
     Note: do not simply save the PDF from Adobe Acrobat, as this will give a
