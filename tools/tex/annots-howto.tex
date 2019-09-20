@@ -12,7 +12,7 @@
 % 000000011111111112222222222333333333344444444445555555555666666666677777777778
 % 345678901234567890123456789012345678901234567890123456789012345678901234567890
 
-\documentclass{report}
+\documentclass{article}
 
 \usepackage{geometry}
 %% See geometry.pdf to learn the layout options. There are lots.
@@ -62,7 +62,7 @@ See \textcolor{blue}{%
 } on GitHub%
 }
 
-\title{Title}
+\title{How to add line number annotations to a PDF}
 \author{Erik Groenhuis}
 \date{\today} % Activate to display a given date or no date
 
@@ -86,14 +86,130 @@ See \textcolor{blue}{%
 % and here's some Japanese: {\J 今日は}.
 
 %%=====
-\chapter{First Chapter}
+%\chapter{First Chapter}
 
 
 
 %%---
-\section{A Section}
+\section{Summary}
+\begin{enumerate}
+\item Generate line number annotations in XFDF form with the xfdfnotes program.
+\item Load the generated annotations into Adobe Acrobat,
+ together with the source PDF.
+\item Manually adjust the annotations to the desired position.
+\item Export the annotations as a new XFDF file.
+\item Clean up the XFDF with the xsltproc command.
+\item Import the clean XFDF into the source PDF.
+\item Export the modified PDF
+\end{enumerate}
+
+
+%%---
+\section{Detailed steps}
 
 %--
-\subsection{A Subsection}
+\subsection{Generate line number annotations}
+\texttt{xfdfnotes} is a program written in \texttt{C}
+(source in \texttt{xfdfgen.c}) by domoviridi
+which generates an xfdf file to stdout.
+This XFDF file describes all the annotations to be added to one or more
+chapters of the PDF original.
+These annotations are of the "freetext" type,
+with the simple "content" subtype.
 
+The program uses a configuration file. The name of this configuration file
+(usually called 'annots.cfg') is passed to the program as a parameter.
+Example invocation:
+  
+\begin{verb}
+         xfdfnotes annots.cfg >notes.xfdf
+\end{verb}
+
+The values in the configuration file can be tweaked to make the line numbers
+appear more or less in the correct position in the PDF. 
+
+%--
+\subsection{Load annotations into Adobe Acrobat}
+\label{subsec:load}
+Adobe Acrobat is used to combine the annotations with the source PDF.
+Preferably use a "clean" version of the PDF, i.e. one without any annotations
+in it.
+Acrobat is very slow while handling files with many annotations.
+The fewer annotations there are, the quicker it responds.
+
+The PDF original and the XFDF file can be combined in two ways:
+\begin{itemize}
+\item Load the XFDF file into Adobe Acrobat.
+The PDF will then be automatically loaded too.
+The name and path of the PDF is in the XFDF file
+(as an \verb+<f>+ tag, near the end of the file)
+\item First load the PDF into Adobe Acrobat and then import the XFDF file.
+\end{itemize}
+
+    
+%--
+\subsection{Adjust the annotations}
+The annotations need to be manually adjusted to match the scanned text.
+Most commonly the line numbers need to be moved up or down slightly.
+  Sometimes tables, images or section headings make it necessary to remove
+  some of the higher line numbers.
+Remember that only body text lines should be inluded in the line count.
+  
+This adjustment needs to be done page-by-page, by hand.
+It is advisable to start with the last page and work backwards.
+That way Adobe Acrobat will run more smoothly.
+
+%--
+\subsection{Export the annotations}
+The annotations can then be exported again from Adobe Acrobat as an xfdf file.
+\begin{itemize}
+\item Select \textbf{Comment} in the toolbar on the right.
+\item Select the \textbf{...} for a menu of more options,
+and select \textbf{Export All To Data File ...} from that menu.
+\item In the dialogue window that opens
+look for \textbf{Format:} and select \textbf{Acrobat XFDF Files}.
+\item At \textbf{Save As:} set at suitable name, and the directory you want.
+\end{itemize}
+
+Note: do not simply save the PDF from Adobe Acrobat, as this will give a
+very bloated version of the file (800 MB rather than 78 MB).
+
+%--
+\subsection{Clean the XFDF}
+The annotations exported in the previous step
+ wil be of the \emph{freetext} type,
+ but with the \emph{contents-richtext} subtype.
+These can be converted back to the much simpler and compact form,
+ using the \emph{freetext/content} type again.
+The script \texttt{'annotform.xslt'}
+ was developed to perform this transformation.
+Command:
+\begin{quote}
+  \texttt{xsltproc tools/annotform.xslt 1629-export.xfdf >nuts.xfdf}
+\end{quote}
+Where:
+\begin{description}
+\item[\texttt{xsltproc}] is a command  which perform XSL transformations.
+It can transform XML documents into other XML documents.
+The command is part of the XSLT library for GNOME, and can be found
+on \texttt{xmlsoft.org}.
+\item[\texttt{tools/annotform.xslt}] is a specialy crafted script,
+which is included in this package.
+\item[\texttt{1629-export.xfdf}] is the XML file describing the annotations
+which was produced in the previous step.
+\item[\texttt{>nuts.xfdf}] redirects the output of the command to a file,
+in this case called \texttt{nuts.xfdf}
+\end{description}
+
+%--
+\subsection{Import the clean XFDF}
+Adobe Acrobat can then be used to load the source PDF and import the
+simplified xfdf, similarly to the description in section \ref{subsec:load}.
+  
+  
+%--
+\subsection{Export the new PDF}
+Without making any changes, save the PDF.
+If all went well, you now have a PDF with the new line numbers added,
+which is still less than 100 MB in size.
 \end{document}
