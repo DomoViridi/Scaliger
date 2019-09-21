@@ -1,8 +1,8 @@
 Scaliger
 ========
 
-Transcription and translation of "De Emendatione Temporum" by Joseph Justus Scaliger
-------------------------------------------------------------------------------------
+Transcription of "De Emendatione Temporum" by Joseph Justus Scaliger
+--------------------------------------------------------------------
 
 "De Emendatione Temporum" has been at the root of modern chronology, i.e. the art of counting the
 days, connecting ancient and modern dating of documents, and converting dates between calendars.
@@ -19,7 +19,6 @@ out of focus or moved, fine details that are lost.
 * Being mere images of the pages, the texts can not be searched.
 * The Latin spelling is irregular, with 'u' and 'v' used interchangeably, and manuscript
 shorthands such as 'quoq;' for 'quoque' remaining in the typeset book.
-* The text is in Latin, a language not mastered by many researchers of today.
 * The text is peppered with Greek fragments. These were typeset to immitate the handwriting
 as closely as possible, making them even harder to read than the typeset Latin.
 * There are also (though fewer) fragments in Hebrew, Arabic and other oriental languages,
@@ -30,38 +29,27 @@ fragments.
 For the modern reader, this means an examination of this work will be tough going. This project
 hopes to make the work available to a wider audience, by:
 * transcribing to a modern typesetting, with consistent spelling.
-* translating into English.
 * re-publishing the work as a modern electronic book.
 
 
 Transcribing to a modern typesetting
 ------------------------------------
-File: `transscriptinterpret/de-emendatione-temporum-interpret.tex`, the interpreted transcript.
+File: `transscript/de-emendatione-temporum-interpret.tex`, the transcript.
 
-Using the transcription of the original, or the scanned original, a version with modern typesetting is made.
+Using the scanned original, a version with modern typesetting is made.
 * 'v' and 'u' are converted, writing 'u' for a vowel and 'v' for a consonant.
 * Ligatures are expanded: 'æ' becomes 'ae', 'œ' becomes 'oe'
 * All long s-s are converted to the modern 's'.
-* Shortenings are expanded to full words.
-* Quotes in Greek are converted to a modern writing style with only 25 different lower case glyphs.
+* Shortenings are expanded to full words where practical.
+* Quotes in Greek are converted to a modern polytonic writing style with only 25 different lower case glyphs.
 * A similar simplification will be done with quotes in other languages.
-
-
-Translating into English
-------------------------
-Using the modern typesetting, a translation is made. Being a translation from Latin, this might
-be a rather contorted use of English where a faithful translation is more important that readability.
-A sentence in the original will roughly match a sentence in the translation.
-
-We might want to add a second file, containing a more flowing translation.
 
 
 Re-publishing the work
 ----------------------
-As the most ambitious goal, we aim for a modern re-publishing as an electronic English book.
-This will include a Table of Contents, extensive index and list of references. There will be
-many annotations to clarify the translations or comment on the accuracy of Scaliger.
-
+As the most ambitious goal, we aim for a modern re-publishing as an electronic book.
+This will include a Table of Contents, extensive index and list of references.
+Annotations will be added with more detail to quotes given by Scaliger.
 For example: in Book 1, page 4 (De horis et Partibus Diei Reliquis) in the first sentence he writes:
 
 "ut poëta inquit, *Demeret emeritis cum iuga Phoebus equis*."
@@ -75,9 +63,7 @@ A full annotation would:
 * Give details of what is quoted (Ovid, Fasti IV, phrase 688 [April 19])
 * Give an external reference to an on-line document containing the work by Ovid
 * Give the original quote from Ovid
-* Give a translation (with reference) of Ovid: *Phoebus had already unyoked his weary horses.*
-* Explain to the modern reader why this quote is relevant.
-* Give a comment on why the quote by Scaliger is different from the original.
+* Give a comment on why the quote by Scaliger is different from the original (e.g. "Probably quoted from memory".
 
 In the index there will be links to:
 * Ovid
@@ -88,7 +74,7 @@ In the index there will be links to:
 
 The originals
 -------------
-So far (October 2013) the following copies have become available on Google books:
+On October 2013 the following copies had become available on Google books:
 * 1583 Lutetiae - Jos_Scaliger_J_C_fil_Opus_novum_de_emend.pdf (Bib. Coll. Pictav. S. J.; Bibliothèque S.J., Les Fonteines, 60 - Chantilly)
 * 1598 Lugduni - Iosephi_Scaligeri_Iuli_Caesaris_f_Opus_d.pdf (Universiteitsbibliotheek Gent 900000105603)
 * 1629 Geneva - Josephi_Scaligeri_Opus_novum_de_emendati.pdf (Bibliotheque de la ville de Lyon)
@@ -103,5 +89,3 @@ Hopefully we can compile a full list of publications. Possibly we can create an 
 For this transcription we will focus on the latest edition available at the start of the project. Presumably in the latest edition the author will have made the most corrections and additions, and best reflect his intentions.
 
 We will be using `1629 Geneva - Opus_de_emendatione_temporum_hac_postrem.pdf`. To allow references to page numbers in the scanned PDF, a copy of this file is included in the source package.
-
-
