@@ -1,0 +1,88 @@
+%%% Liber 3 p193, PDF 276
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Width of a column
+\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+\newcommand{\da}{{\tiny †}}
+\newcommand{\db}{{\scriptsize o}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: row above row above bottom row
+\newcommand{\hsc}[1]{\small{#1}}
+%% Header text size: row above bottom row
+\newcommand{\hsb}[1]{\scriptsize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsa}[1]{\tiny{#1}}
+%% Generate the column headers
+\newcommand{\hdrC}{%
+  \multicolumn{6}{c}{\hsc{Periodus prior}} &
+  &
+  \multicolumn{6}{c}{\hsc{Periodus altera}}  
+}
+%
+\newcommand{\hdrB}{%
+  \multicolumn{4}{c}{\hsb{Pars Prior.}} &
+  &
+  \multicolumn{3}{c}{\hsb{Pars Poster.}}  
+}
+%
+\newcommand{\hdrA}{%
+  \ch{888}{\hsa{Dies collecti}} &
+  \ch{81}{\hsa{Feria}}&
+  \ch{88}{\hsa{Horae}} &
+  \ch{1888}{\hsa{Scrup.}} &
+  &
+  \ch{81}{\hsa{Dies}} &
+  \ch{88}{\hsa{Horae}} &
+  \ch{1888}{\hsa{Scrup.}}
+}
+%
+\newcommand{\hdrs}{%
+ ~ & \hdrB \\
+\cmidrule(lr){2-5} \cmidrule(lr){7-9}
+ ~ & \hdrA \\
+}
+%
+\begin{tabular}[c]{@{} r rrrr c rrr @{}}
+\toprule
+\multicolumn{9}{c}{\Large\textsc{Tabella Mensium}} \\
+\toprule
+\hdrs % Column headers from the above definition
+\midrule
+%%
+ 1 &  29 & 1 & 12 &  793 && 0 & 11 & 287 \\
+ 2 &  59 & 3 &  1 &  506 && 0 & 22 & 574 \\
+ 3 &  88 & 4 & 14 &  219 && 1 &  9 & 861 \\
+ 4 & 118 & 6 &  2 & 1012 && 1 & 21 &  68 \\
+ 5 & 147 & 7 & 15 &  725 && 2 &  8 & 355 \\
+ 6 & 177 & 2 &  4 &  438 && 2 & 19 & 642 \\
+ 7 & 206 & 3 & 17 &  151 && 3 &  6 & 929 \\
+ 8 & 236 & 5 &  5 &  944 && 3 & 18 & 136 \\
+ 9 & 265 & 6 & 18 &  657 && 4 &  5 & 423 \\
+10 & 295 & 1 &  7 &  370 && 4 & 16 & 710 \\
+11 & 324 & 2 & 20 &   83 && 5 &  3 & 997 \\
+12 & 354 & 4 &  8 &  876 && 5 & 15 & 204 \\
+13 & 383 & 5 & 21 &  589 && 6 &  2 & 491 \\
+\bottomrule
+\end{tabular}
+\caption{Tabella Mensium}
+\label{tab:p193}
+\end{tabnums}
