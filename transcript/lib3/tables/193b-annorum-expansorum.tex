@@ -1,0 +1,99 @@
+%%% Liber 3 p193, PDF 276
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Width of a column
+\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+\newcommand{\da}{{\tiny †}}
+\newcommand{\db}{{\scriptsize o}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: row above row above bottom row
+\newcommand{\hsc}[1]{\small{#1}}
+%% Header text size: row above bottom row
+\newcommand{\hsb}[1]{\scriptsize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsa}[1]{\tiny{#1}}
+%% Generate the column headers
+%
+\newcommand{\hdrB}{%
+  ~ &
+  \multicolumn{3}{c}{\hsb{Epactae.}} &
+  &
+  \multicolumn{3}{c}{\hsb{Novilunia.}}  
+}
+%
+\newcommand{\hdrA}{%
+  \ch{888}{\hsa{Anni expansi}} &
+  \ch{81}{\hsa{Epact.}}&
+  \ch{88}{\hsa{Hor.}} &
+  \ch{1888}{\hsa{Scrup.}} &
+  &
+  \ch{81}{\hsa{Feria.}} &
+  \ch{88}{\hsa{Hor.}} &
+  \ch{1888}{\hsa{Scrup.}}
+}
+%
+\newcommand{\hdrs}{%
+\hdrB \\
+\cmidrule(lr){2-4} \cmidrule(lr){6-8}
+\hdrA \\
+}
+%
+\begin{tabular}[c]{@{} r rrr c rrr l@{}}
+\toprule
+\multicolumn{9}{c}{\Large\textsc{Tabella Annorum}} \\
+\multicolumn{9}{c}{\large\textsc{Expansorum}} \\
+\toprule
+\hdrs % Column headers from the above definition
+\midrule
+%%
+ 1 & 10 & 15 &  204 && 4 &  8 &  876 & ~\\
+ 2 & 21 &  6 &  408 && 1 & 17 &  672 & ~\\
+ 3 &  2 &  8 &  899 && 7 & 15 &  181 & \da \\
+ 4 & 13 &  0 &   23 && 4 & 23 & 1057 & ~\\
+ 5 & 23 & 15 &  227 && 2 &  8 &  853 & ~\\
+ 6 &  4 & 17 &  718 && 1 &  6 &  362 & \da \\
+ 7 & 15 &  8 &  922 && 5 & 15 &  158 & ~\\
+ 8 & 26 &  0 &   46 && 2 & 23 & 1034 & ~\\
+ 9 &  7 &  2 &  537 && 1 & 21 &  543 & \da \\
+10 & 17 & 17 &  741 && 6 &  6 &  339 & ~\\
+11 & 28 &  8 &  945 && 5 &  3 &  928 & \da \\
+12 &  9 & 11 &  356 && 2 & 12 &  724 & ~\\
+13 & 20 &  2 &  560 && 6 & 21 &  520 & ~\\
+14 &  1 &  4 & 1051 && 5 & 19 &   29 & \da \\
+15 & 11 & 20 &  175 && 3 &  3 &  905 & ~\\
+16 & 22 & 11 &  379 && 7 & 12 &  701 & ~\\
+17 &  3 & 13 &  870 && 6 & 10 &  210 & \da \\
+18 & 14 &  4 & 1074 && 3 & 19 &    6 & ~\\
+19 & 24 & 20 &  198 && 1 &  3 &  882 & ~\\
+20 &  5 & 22 &  689 && 7 &  1 &  391 & \da \\
+21 & 16 & 13 &  893 && 4 & 10 &  187 & ~\\
+22 & 27 &  5 &   17 && 1 & 18 & 1063 & ~\\
+23 &  8 &  7 &  508 && 7 & 16 &  572 & \da \\
+24 & 18 & 22 &  712 && 5 &  1 &  368 & ~\\
+25 &  0 &  1 &  123 && 3 & 22 &  957 & \da \\
+\bottomrule
+\addlinespace[5pt]
+ & \multicolumn{3}{l}{\footnotesize\super{†}Emb.}
+\end{tabular}
+\caption{Tabella Mensium}
+\label{tab:p193}
+\end{tabnums}
