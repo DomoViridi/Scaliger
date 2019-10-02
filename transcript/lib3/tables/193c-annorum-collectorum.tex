@@ -1,0 +1,83 @@
+%%% Liber 3 p193, PDF 276
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Width of a column
+\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+\newcommand{\da}{{\tiny †}}
+\newcommand{\db}{{\scriptsize o}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: row above row above bottom row
+\newcommand{\hsc}[1]{\small{#1}}
+%% Header text size: row above bottom row
+\newcommand{\hsb}[1]{\scriptsize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsa}[1]{\tiny{#1}}
+%% Generate the column headers
+%
+\newcommand{\hdrA}{%
+  \ch{888}{\hsa{Anni collecti}} &
+  \ch{81}{\hsa{Dies.}}&
+  \ch{88}{\hsa{Hor.}} &
+  \ch{1888}{\hsa{Scrup.}} &
+  &
+  \ch{81}{\hsa{Feria.}} &
+  \ch{88}{\hsa{Hor.}} &
+  \ch{1888}{\hsa{Scrup.}}
+}
+%
+\newcommand{\hdrs}{%
+\hdrA \\
+}
+%
+\begin{tabular}[c]{@{} r rrr c rrr @{}}
+\toprule
+\multicolumn{8}{c}{\Large\textsc{Tabella Annorum}} \\
+\multicolumn{8}{c}{\large\textsc{Collectorum}} \\
+\toprule
+\hdrs % Column headers from the above definition
+\midrule
+%%
+  25 & 0 &  1 &  123 && 3 & 22 &  957 \\
+  50 & 0 &  2 &  246 && 7 & 21 &  834 \\
+  75 & 0 &  3 &  369 && 4 & 20 &  711 \\
+ 100 & 0 &  4 &  492 && 1 & 19 &  588 \\
+ 125 & 0 &  5 &  615 && 5 & 18 &  465 \\
+ 150 & 0 &  6 &  738 && 2 & 17 &  342 \\
+ 175 & 0 &  7 &  861 && 6 & 16 &  219 \\
+ 200 & 0 &  8 &  984 && 3 & 15 &   96 \\
+ 225 & 0 & 10 &   27 && 7 & 13 & 1053 \\
+ 250 & 0 & 11 &  150 && 4 & 12 &  930 \\
+ 500 & 0 & 22 &  300 && 2 &  1 &  780 \\
+ 750 & 1 &  9 &  450 && 6 & 14 &  630 \\
+1000 & 1 & 20 &  600 && 4 &  3 &  480 \\
+1250 & 2 &  7 &  750 && 1 & 16 &  330 \\
+1500 & 2 & 18 &  900 && 6 &  5 &  180 \\
+1750 & 3 &  5 & 1050 && 3 & 18 &   30 \\
+2000 & 3 & 17 &  120 && 1 &  6 &  960 \\
+2250 & 4 &  4 &  270 && 5 & 19 &  810 \\
+2500 & 4 & 15 &  420 && 3 &  8 &  660 \\
+5000 & 5 &  2 &  570 && 6 & 17 &  240 \\
+\bottomrule
+\end{tabular}
+\caption{Tabella Annorum Collectorum}
+\label{tab:p193c}
+\end{tabnums}
