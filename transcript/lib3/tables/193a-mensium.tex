@@ -8,9 +8,9 @@
 %% Select a general font size (uncomment one from the list)
 %\tiny
 %\scriptsize
-%\footnotesize
+\footnotesize
 %\small
-\normalsize
+%\normalsize
 %% Center the whole table left-right
 \centering
 %% Modify separation between columns
@@ -25,19 +25,11 @@
 \newcommand{\db}{{\scriptsize o}}
 %% The angle with which to slant
 \newcommand{\ang}{90}
-%% Header text size: row above row above bottom row
-\newcommand{\hsc}[1]{\small{#1}}
 %% Header text size: row above bottom row
-\newcommand{\hsb}[1]{\scriptsize{#1}}
+\newcommand{\hsb}[1]{\small{#1}}
 %% Header text size: bottom row
 \newcommand{\hsa}[1]{\tiny{#1}}
 %% Generate the column headers
-\newcommand{\hdrC}{%
-  \multicolumn{6}{c}{\hsc{Periodus prior}} &
-  &
-  \multicolumn{6}{c}{\hsc{Periodus altera}}  
-}
-%
 \newcommand{\hdrB}{%
   \multicolumn{4}{c}{\hsb{Pars Prior.}} &
   &
@@ -83,6 +75,6 @@
 13 & 383 & 5 & 21 &  589 && 6 &  2 & 491 \\
 \bottomrule
 \end{tabular}
-\caption{Tabella Mensium}
+\caption{Mensium}
 \label{tab:p193a}
 \end{tabnums}
