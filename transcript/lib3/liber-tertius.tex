@@ -389,13 +389,37 @@ antevertit cyclum anni aequabilis die uno.
 quoties summa annorum Aegyptiorum, aut Armeniorum,
 aut Persicorum excedit 500 annos, aut paulo amplius.
 \lnr{7}Melius igitur
-% 3 tables
 per characterem et feriam diei methodum
 Lunae tractabis.
+%
+\begin{table}[p]
+  % define table height
+  \newcommand{\tabh}{\textheight}
+%  \setlength{\tabcolsep}{0.0ex}
+%  \centering
+  \begin{tabular}{r @{\hspace{0.02\textwidth}} r}
+%  \resizebox{0.45\textwidth}{!}{%
+    \begin{minipage}[][\tabh][t]{0.45\textwidth}
+      \input{lib3/tables/193a-mensium.tex}
+      \bigskip
+      \input{lib3/tables/193c-annorum-collectorum.tex}
+    \end{minipage}
+%  }
+&
+%  \resizebox{0.45\textwidth}{!}{%
+    \begin{minipage}[][\tabh][t]{0.53\textwidth}
+      \input{lib3/tables/193b-annorum-expansorum.tex}
+    \end{minipage}
+%  }
+\\
+%    \addlinespace[0.85in] % force a lot of space to make room for the captions
+  \end{tabular}
+\end{table}
+%
 \lnr{9}Cuius rei
 gratia Tabulas duplices tibi confecimus
 in mensibus, annis expansis
-et collectis per periodos suas.
+et collectis per periodos suas.\super{p.~\pageref{tab:p193a}}
 \lnr{13}Cuius usus duplex, ut et ipsa duplex.
 \lnr{14}Aut enim per partem anteriorem,
 aut per posteriorem, operari
