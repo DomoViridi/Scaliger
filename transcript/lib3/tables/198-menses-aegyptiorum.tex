@@ -1,0 +1,67 @@
+%%% Liber III p198, PDF 280
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{2.0pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.000} % Tuned to eliminate Underfull \vbox
+% Just lucky? No stretch required :-)
+%% Size of header text
+\newcommand{\hts}{\scriptsize}
+%% Width of a column
+\newcommand{\cwd}{4em}
+%
+\newcommand{\da}{\scriptsize{†}}
+%%
+\begin{tabular}{@{} l r r @{}}
+\toprule
+  \ch{Aegyptiorum}{Menses Aegyptiorum} &
+  \ch{\hts{Dies men-}}{\hts{Dies mensium collecti}} &
+  \ch{\hts{Character}}{\hts{Character mensium}}
+\\
+\midrule
+\textgreek{θώθ}[?]
+ &  30 & 0 \\
+\textgreek{παοφί}[?]
+ &  60 & 2 \\
+\textgreek{ἀθύρ}[?]
+ &  90 & 4 \\
+\textgreek{χοιάκ}[?]
+ & 120 & 6 \\
+\textgreek{τυβί}[?]
+ & 150 & 1 \\
+\textgreek{μεχείρ}[?]
+ & 180 & 3 \\
+\textgreek{φαμενώθ}[?]
+ & 210 & 5 \\
+\textgreek{φαρμουθί}[?]
+ & 240 & 7 \\
+\textgreek{παχών}[?]
+ & 270 & 2 \\
+\textgreek{παὒνί}[?]
+ & 300 & 4 \\
+\textgreek{ἐπιφί}[?]
+ & 330 & 6 \\
+\textgreek{μεσορί}[?]
+ & 360 & 1 \\
+\textgreek{ἐπαγόμεναι}[?]
+ & 365 & 3 \\
+\bottomrule
+\end{tabular}
+%
+\caption{Menses Aegyptiorum}
+\label{tab:p198}
+%
+\end{tabnums}
