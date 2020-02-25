@@ -37,7 +37,7 @@
   ~ &
   \multicolumn{3}{c}{\hsb{Pars anterior.}} &
 %  &
-  \multicolumn{3}{c}{\hsb{Pars posterior.}}  
+  \multicolumn{4}{c}{\hsb{Pars posterior.}}  
 }
 %
 \newcommand{\hdrA}{%
@@ -46,47 +46,61 @@
   \ch{\hsa{Hor.}}{\hsa{Hor.}} &
   \ch{\hsa{Scrup.}}{\hsa{Scrup.}} &
 %  &
-  \ch{\hsa{Dies.}}{\hsa{Dies.}} &
+  \ch{\hsa{Dies.}}{\hsa{Dies.}} & & % leave room for correction mark
   \ch{\hsa{Hor.}}{\hsa{Hor.}} &
   \ch{\hsa{Scrup.}}{\hsa{Scrup.}}
 }
 %
 \newcommand{\hdrs}{%
 \hdrB && \hdrB\\
-\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){10-12} \cmidrule(lr){13-15}
+\cmidrule(lr){2-4} \cmidrule(lr){5-8} \cmidrule(lr){11-13} \cmidrule(lr){14-17}
 \hdrA && \hdrA\\
 }
 %
-\begin{tabular}[c]{@{} r rrr rrr c r rrr rrr @{}}
+\begin{tabular}[c]{@{} r rrr r@{}lrr c r rrr r@{}lrr @{}}
 \toprule
-\multicolumn{15}{c}{\Large\textsc{Anni per Cyclos Collecti}} \\
+\multicolumn{17}{c}{\Large\textsc{Anni per Cyclos Collecti}} \\
 \toprule
 \hdrs % Column headers from the above definition
 \midrule
 %%
-  25 & 3 & 22 &  957 & 0 &  1 &  123 &&  525 & 6 &  0 &  657 & 0 & 23 &  423 \\
-  50 & 7 & 21 &  834 & 0 &  2 &  246 &&  550 & 2 & 23 &  534 & 1 &  0 &  546 \\
-  75 & 4 & 20 &  711 & 0 &  3 &  369 &&  575 & 6 & 22 &  411 & 1 &  1 &  669 \\
- 100 & 1 & 19 &  588 & 0 &  4 &  492 &&  600 & 3 & 21 &  288 & 1 &  2 &  792 \\
- 125 & 5 & 18 &  465 & 0 &  5 &  615 &&  625 & 1 & 20 &  165 & 1 &  3 &  915 \\
- 150 & 2 & 17 &  342 & 0 &  6 &  738 &&  650 & 4 & 19 &   42 & 1 &  4 & 1038 \\
- 175 & 6 & 16 &  219 & 0 &  7 &  861 &&  675 & 1 & 17 &  999 & 1 &  6 &   81 \\
- 200 & 3 & 15 &   96 & 0 &  8 &  984 &&  700 & 5 & 16 &  876 & 1 &  7 &  204 \\
- 225 & 7 & 13 & 1053 & 0 & 10 &   27 &&  725 & 2 & 15 &  753 & 1 &  8 &  327 \\
- 250 & 4 & 12 &  930 & 0 & 11 &  150 &&  750 & 6 & 14 &  630 & 1 &  9 &  450 \\
- 275 & 1 & 11 &  807 & 0 & 12 &  273 &&  775 & 3 & 13 &  507 & 1 & 10 &  573 \\
- 300 & 5 & 10 &  684 & 0 & 13 &  396 &&  800 & 7 & 12 &  384 & 1 & 11 &  696 \\
- 325 & 2 &  9 &  561 & 0 & 14 &  519 &&  825 & 4 & 11 &  261 & 1 & 12 &  819 \\
- 350 & 6 &  8 &  438 & 0 & 15 &  642 &&  850 & 1 & 10 &  138 & 1 & 13 &  942 \\
- 375 & 3 &  7 &  315 & 0 & 16 &  765 &&  875 & 5 &  9 &   15 & 1 & 14 & 1065 \\
- 400 & 7 &  6 &  192 & 0 & 17 &  888 &&  900 & 2 &  7 &  972 & 1 & 16 &  108 \\
- 425 & 4 &  5 &   96 & 0 & 18 & 1011 &&  925 & 6 &  6 &  849 & 1 & 17 &  231 \\
- 450 & 1 &  3 & 1026 & 0 & 20 &   54 &&  950 & 3 &  5 &  726 & 1 & 18 &  354 \\
- 475 & 5 &  2 &  903 & 0 & 21 &  177 &&  975 & 7 &  4 &  603 & 1 & 19 &  477 \\
- 500 & 2 &  1 &  780 & 0 & 22 &  300 && 1000 & 4 &  3 &  480 & 1 & 20 &  600 \\
-     &   &    &      &   &    &      && 2000 & 1 &  6 &  960 & 1 & 17 &  120 \\
-     &   &    &      &   &    &      && 3000 & 5 & 10 &  360 & 1 & 13 &  720 \\
+  25 & 3 & 22 &  957 & 0&&  1 &  123 &&  525 & 6 &  0 &  657 & 0&& 23 &  423 \\
+  50 & 7 & 21 &  834 & 0&&  2 &  246 &&  550 & 2 & 23 &  534 & 1&&  0 &  546 \\
+  75 & 4 & 20 &  711 & 0&&  3 &  369 &&  575 & 6 & 22 &  411 & 1&&  1 &  669 \\
+ 100 & 1 & 19 &  588 & 0&&  4 &  492 &&  600 & 3 & 21 &  288 & 1&&  2 &  792 \\
+ 125 & 5 & 18 &  465 & 0&&  5 &  615 &&  625 & 1 & 20 &  165 & 1&&  3 &  915 \\
+ 150 & 2 & 17 &  342 & 0&&  6 &  738 &&  650 & 4 & 19 &   42 & 1&&  4 & 1038 \\
+ 175 & 6 & 16 &  219 & 0&&  7 &  861 &&  675 & 1 & 17 &  999 & 1&&  6 &   81 \\
+ 200 & 3 & 15 &   96 & 0&&  8 &  984 &&  700 & 5 & 16 &  876 & 1&&  7 &  204 \\
+ 225 & 7 & 13 & 1053 & 0&& 10 &   27 &&  725 & 2 & 15 &  753 & 1&&  8 &  327 \\
+ 250 & 4 & 12 &  930 & 0&& 11 &  150 &&  750 & 6 & 14 &  630 & 1&&  9 &  450 \\
+ 275 & 1 & 11 &  807 & 0&& 12 &  273 &&  775 & 3 & 13 &  507 & 1&& 10 &  573 \\
+ 300 & 5 & 10 &  684 & 0&& 13 &  396 &&  800 & 7 & 12 &  384 & 1&& 11 &  696 \\
+ 325 & 2 &  9 &  561 & 0&& 14 &  519 &&  825 & 4 & 11 &  261 & 1&& 12 &  819 \\
+ 350 & 6 &  8 &  438 & 0&& 15 &  642 &&  850 & 1 & 10 &  138 & 1&& 13 &  942 \\
+ 375 & 3 &  7 &  315 & 0&& 16 &  765 &&  875 & 5 &  9 &   15 & 1&& 14 & 1065 \\
+ 400 & 7 &  6 &  192 & 0&& 17 &  888 &&  900 & 2 &  7 &  972 & 1&& 16 &  108 \\
+ 425 & 4 &  5 &   96 & 0&& 18 & 1011 &&  925 & 6 &  6 &  849 & 1&& 17 &  231 \\
+ 450 & 1 &  3 & 1026 & 0&& 20 &   54 &&  950 & 3 &  5 &  726 & 1&& 18 &  354 \\
+ 475 & 5 &  2 &  903 & 0&& 21 &  177 &&  975 & 7 &  4 &  603 & 1&& 19 &  477 \\
+ 500 & 2 &  1 &  780 & 0&& 22 &  300 && 1000 & 4 &  3 &  480 & 1&& 20 &  600 \\
+     &   &    &      &  &&    &      && 2000 & 1 &  6 &  960 & 3&\super{*}
+ & 17 &  120 \\
+     &   &    &      &  &&    &      && 3000 & 5 & 10 &  360 & 5&\super{*}
+ & 13 &  720 \\
 \bottomrule
+\addlinespace[5pt]
+\multicolumn{3}{r}{\footnotesize\super{*}In originalis: 1}
+% 1598 edition has this too.
+% The corrected values were calculated by following the pattern, where the total
+% number of scrupules increases by 48120 for every 1000 anni, and where horae
+% are 1080 scrupules, and dies are 24 horae.
+% The values in the Hor. and Scrup. columns for rows 2000 and 3000 *do* match
+% this pattern in the original.
+% This might be an obvious oversight by the writer or the typesetter, simply
+% continuing the string of '1' values in that column.
+% However, if the "Dies" column is supposed to have modulo 2 values, then
+% the value of 1 would be correct after all.
 \end{tabular}
 \caption{Anni per Cyclos Collecti}
 \label{tab:p203a}
