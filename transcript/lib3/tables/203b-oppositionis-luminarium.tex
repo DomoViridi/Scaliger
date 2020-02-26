@@ -1,0 +1,86 @@
+%%% Liber 3 p203b, PDF 286
+%% Layout based on Liber 3 p203a
+% !TEX root = ../../test-table.tex
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+\footnotesize
+%\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.2}
+%
+%% Width of a column
+\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+\newcommand{\da}{{\tiny †}}
+\newcommand{\db}{{\scriptsize o}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: row above bottom row
+\newcommand{\hsb}[1]{\footnotesize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsa}[1]{\tiny{#1}}
+%% Generate the column headers
+%
+\newcommand{\hdrB}{%
+  ~ & ~ &
+  \multicolumn{3}{c}{\hsb{Pars anterior}} &
+%  &
+  \multicolumn{3}{c}{\hsb{Pars posterior}}  
+}
+%
+\newcommand{\hdrA}{%
+  \ch{\hsa{Men-}}{\hsa{Men\-ses}} &
+  \ch{\hsa{men-}}{\hsa{Dies mensium}} &
+  \ch{\hsa{Feria}}{\hsa{Feria}}&
+  \ch{\hsa{Hor.}}{\hsa{Hor.}} &
+  \ch{\hsa{Scrup.}}{\hsa{Scrup.}} &
+%  &
+  \ch{\hsa{Dies}}{\hsa{Dies}} &
+  \ch{\hsa{Hor.}}{\hsa{Hor.}} &
+  \ch{\hsa{Scrup.}}{\hsa{Scrup.}}
+}
+%
+\newcommand{\hdrs}{%
+\hdrB \\
+\cmidrule(lr){3-5} \cmidrule(lr){6-8}
+\hdrA \\
+}
+%
+\begin{tabular}[c]{@{} r r rrr rrr @{}}
+\toprule
+\multicolumn{8}{c}{\large\textsc{Tabella Oppositionis}} \\
+\multicolumn{8}{c}{\normalsize\textsc{Luminarium per Menses}} \\
+\toprule
+\hdrs % Column headers from the above definition
+\midrule
+%%
+  1 &  14 &  7 & 18 &  396 & 15 &  5 &  684 \\
+  2 &  44 &  2 &  7 &  109 & 15 & 16 &  971 \\
+  3 &  73 &  3 & 19 &  902 & 16 &  4 &  178 \\
+  4 & 103 &  5 &  8 &  615 & 16 & 15 &  465 \\
+  5 & 132 &  6 & 21 &  328 & 17 &  2 &  752 \\
+  6 & 162 &  1 & 10 &   41 & 17 & 13 & 1039 \\
+  7 & 191 &  2 & 22 &  834 & 18 &  1 &  246 \\
+  8 & 221 &  4 & 11 &  547 & 18 & 12 &  533 \\
+  9 & 251 &  6 &  0 &  260 & 18 & 23 &  820 \\
+ 10 & 280 &  7 & 12 & 1053 & 19 & 11 &   27 \\
+ 11 & 310 &  2 &  1 &  766 & 19 & 22 &  314 \\
+ 12 & 339 &  3 & 14 &  479 & 20 &  9 &  601 \\
+\bottomrule
+\addlinespace[5pt]
+\end{tabular}
+\caption{Oppositionis Luminarium per Menses}
+\label{tab:p203b}
+\end{tabnums}
