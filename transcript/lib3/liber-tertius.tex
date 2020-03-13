@@ -1052,6 +1052,27 @@ Chaldaicam: neque alio differunt, nisi quod epochen % Sic; same in 1598 ed
 implicitam habent.
 %
 % Two tables p203
+\begin{table}[p]
+  % define table height
+  \newcommand{\tabh}{\textheight}
+%  \setlength{\tabcolsep}{0.0ex}
+  \centering
+  \begin{tabular}{c @{\hspace{0.06\textwidth}} c}
+%  \resizebox{0.45\textwidth}{!}{%
+    \begin{minipage}[][\tabh][t]{0.43\textwidth}
+      \input{lib3/tables/203a-anni-per-cyclos.tex}
+    \end{minipage}
+%  }
+&
+%  \resizebox{0.45\textwidth}{!}{%
+    \begin{minipage}[][\tabh][t]{0.45\textwidth}
+      \input{lib3/tables/203b-oppositionis-luminarium.tex}
+    \end{minipage}
+%  }
+\\
+%    \addlinespace[0.85in] % force a lot of space to make room for the captions
+  \end{tabular}
+\end{table}
 %
 \lnr{34}Tabulam autem \textgreek{εἰκοσιπενταετηρίδος}[?] duplicem
 fecimus, ut pugillar bipatens, quod vocat Ausonius.
