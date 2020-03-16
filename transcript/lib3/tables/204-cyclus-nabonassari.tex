@@ -1,0 +1,111 @@
+%%% Liber 3 p204, PDF 287
+%% Layout based on Liber 3 p203b
+% !TEX root = ../../test-table.tex
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.1} % Not Tuned
+%
+%% Width of a column
+\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+%\newcommand{\da}{{\scriptsize Emb.\hspace*{2ex}}}
+\newcommand{\da}{{\tiny †}}
+\newcommand{\db}{{\scriptsize o}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: row above bottom row
+\newcommand{\hsb}[1]{\small{#1}}
+%% Header text size: bottom row
+\newcommand{\hsa}[1]{\tiny{#1}}
+%% Generate the column headers
+%
+\newcommand{\hdrB}{%
+  ~ &
+  \multicolumn{4}{c}{\hsb{Pars anterior}} &
+%  &
+  \multicolumn{3}{c}{\hsb{Pars posterior}}  
+}
+%
+\newcommand{\hdrAa}{%
+  \ch{\hsa{Nabo.}}{\hsa{Anni Nabo.}} &
+  \ch{\hsa{novil.}}{\hsa{Ter\-mi\-ni no\-vil.}} &
+  \ch{\hsa{Feria}}{\hsa{Feria}}&
+  \ch{\hsa{Hor.}}{\hsa{Hor.}} &
+  \ch{\hsa{Scrup.}}{\hsa{Scrup.}} &
+%  &
+  \ch{\hsa{Dies}}{\hsa{Dies}} &
+  \ch{\hsa{Hor.}}{\hsa{Hor.}} &
+  \ch{\hsa{Scrup.}}{\hsa{Scrup.}}
+}
+%
+\newcommand{\hdrAb}{%
+  \ch{\hsa{Nabo.}}{\hsa{Anni Nabo.}} &
+  \ch{\hsa{Feria}}{\hsa{Feria}}&
+  \ch{\hsa{Hor.}}{\hsa{Hor.}} &
+  \ch{\hsa{Scrup.}}{\hsa{Scrup.}} &
+%
+  \ch{\hsa{Thoth.}}{\hsa{Dies Thoth.}} &
+  \ch{XXVIII}{\hsa{Epactae}}
+}
+%
+\newcommand{\hdrs}{%
+\hdrB \\
+\cmidrule(lr){2-5} \cmidrule(lr){6-8}
+\hdrAa & & \hdrAb \\
+}
+%
+\begin{tabular}[c]{@{} r r rrr rrr l @{\hspace{4ex}} r rrr r l @{}}
+\toprule
+\multicolumn{15}{c}{\Large\textsc{Cyclus Nabonassari per}} \\
+\multicolumn{15}{c}{\large\textsc{Annos Expansos}} \\
+\toprule
+\hdrs % Column headers from the above definition
+\midrule
+%%
+  1& 24& 6& 17& 770&  5&  6&  310&     &  1 & 7 & 12 &  538 & 25 & V \\
+  2& 14& 4&  2& 566& 15& 21&  514&     &  2 & 4 & 21 &  334 & 15 & XV \\
+  3&  3& 1& 11& 362& 26& 12&  718& \da &  3 & 2 &  6 &  130 &  4 & XXV \\
+  4& 22& 7&  8& 951&  7& 15&  129&     &  4 & 1 &  3 &  719 & 23 & VII \\
+  5& 11& 4& 17& 747& 18&  6&  333&     &  5 & 5 & 12 &  815 & 12 & XVIII \\
+  6&  1& 2&  2& 543& 28& 21&  537& \da &  6 & 2 & 21 &  311 &  2 & XXVIII \\
+  7& 20& 1&  0&  52&  9& 23& 1028&     &  7 & 1 & 18 &  896 & 21 & IX \\
+  8&  9& 5&  8& 928& 20& 15&  152& \da &  8 & 6 &  3 &  692 & 10 & XX \\
+  9& 28& 4&  5& 437&  1& 17&  643&     &  9 & 5 &  1 &  201 & 29 & I \\
+ 10& 17& 1& 15& 233& 12&  8&  847&     & 10 & 2 &  9 & 1077 & 18 & XII \\
+ 11&  7& 6&  0&  29& 22& 23& 1051& \da & 11 & 6 & 18 &  873 &  8 & XXII \\
+ 12& 25& 4& 21& 618&  4&  2&  462&     & 12 & 5 & 16 &  382 & 26 & IIII \\
+ 13& 15& 2&  6& 414& 14& 17&  666&     & 13 & 5 &  1 &  178 & 16 & XIIII \\
+ 14&  4& 6& 15& 210& 25&  8&  870& \da & 14 & 7 &  9 & 1074 &  5 & XXV \\
+ 15& 23& 5& 12& 799&  6& 11&  281&     & 15 & 6 &  7 &  563 & 24 & VI \\
+ 16& 12& 2& 21& 595& 17&  2&  485&     & 16 & 3 & 16 &  359 & 13 & XVII \\
+ 17&  2& 7&  6& 391& 27& 17&  689& \da & 17 & 1 &  1 &  155 &  3 & XXVIII \\
+ 18& 21& 6&  3& 980&  8& 20&  100&     & 18 & 6 & 22 &  744 & 22 & XVIII \\
+ 19& 10& 3& 12& 779& 19& 11&  304& \da & 19 & 4 &  7 &  540 & 11 & XIX \\
+ 20& 29& 2& 10& 285&  0& 13&  795&     & 20 & 3 &  5 &   49 & 30 & X \\
+ 21& 18& 6& 19&  81& 11&  4&  999&     & 21 & 7 & 13 &  925 & 19 & XI \\
+ 22&  8& 4&  3& 957& 21& 20&  123& \da & 22 & 4 & 22 &  721 &  9 & XXI \\
+ 23& 27& 3&  1& 466&  2& 22&  614&     & 23 & 3 & 20 &  730 & 28 & II \\
+ 24& 16& 7& 10& 262& 13& 13&  818&     & 24 & 1 &  5 &   26 & 17 & XIII \\
+ 25&  5& 4& 19&  58& 24&  4& 1022& \da & 25 & 5 & 13 &  898 &  6 & XXIIII \\
+\bottomrule
+\addlinespace[5pt]
+\multicolumn{3}{r}{\footnotesize\super{\da}Emb.}
+\end{tabular}
+\caption{Cyclus Nabonassari per Annos Expansos}
+\label{tab:p204}
+\end{tabnums}
