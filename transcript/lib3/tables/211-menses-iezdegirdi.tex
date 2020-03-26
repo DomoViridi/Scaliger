@@ -1,0 +1,50 @@
+%%% Liber III p211, PDF 294
+%% Layout based on Liber 3 p207
+% !TEX root = ../../test-table.tex
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{2.0pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.000} % Not Tuned to eliminate Underfull \vbox
+%% Size of header text
+\newcommand{\hts}{\small}
+%% Width of a column
+\newcommand{\cwd}{4em}
+%
+\newcommand{\da}{\scriptsize{†}}
+%%
+\begin{tabular}{@{} r l c @{}}
+\toprule
+\textarabic{فروردین}[Persian] & \textit{Phrurdin Mensis} & 0 \\
+\textarabic{اردیبهشت}[Persian] & \textit{Adar Pahaschth Mensis} & 2 \\
+\textarabic{خرداد}[Persian] & \textit{Chardad Mensis} & 4 \\
+\textarabic{تیر}[Persian] & \textit{Thir Mensis} & 6 \\
+\textarabic{اَمرداد}[Persian] & \textit{Marded Mensis} & 1 \\
+\textarabic{شهریور}[Persian] & \textit{Schehariz Mensis} & 3 \\
+\textarabic{مهر}[Persian] & \textit{Mehar Mensis} & 5 \\
+\textarabic{آبان}[Persian] & \textit{Aben Mensis} & 7 \\
+\textarabic{آذر}[Persian] & \textit{Adar Mensis} & 2 \\
+\textarabic{دی}[Persian] & \textit{Di Mensis} & 4 \\
+\textarabic{بهمن}[Persian] & \textit{Behemen Mensis} & 6 \\
+\textarabic{اسفند}[Persian] & \textit{Asphandar Mensis} & 1 \\
+\textarabic{}[Persian] & \textit{Musteraka, \textgreek{ἐπαγόμεναι}[?]} & 3 \\
+\bottomrule
+\end{tabular}
+%
+\caption{[Menses Iezdegirdi]}
+\label{tab:p211}
+%
+\end{tabnums}
