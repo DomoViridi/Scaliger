@@ -1,0 +1,102 @@
+%%% Liber 3 p212, PDF 295
+%% Layout based on Liber 3 p203b
+% !TEX root = ../../test-table.tex
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+\footnotesize
+%\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.0} % Not tuned
+%
+%% Width of a column
+\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+\newcommand{\da}{{\tiny †}}
+\newcommand{\db}{{\scriptsize o}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: row above bottom row
+\newcommand{\hsb}[1]{\footnotesize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsa}[1]{\tiny{#1}}
+%% Generate the column headers
+%
+\newcommand{\hdrB}{%
+  ~ & ~ & ~ &
+  \multicolumn{3}{c}{\hsb{Pars anterior}} &
+  &
+  \multicolumn{3}{c}{\hsb{Pars posterior}}  
+}
+%
+\newcommand{\hdrA}{%
+  &
+  \ch{\hsa{Anni}}{\hsa{Anni cycli}} &
+  &
+  \ch{\hsa{Feria}}{\hsa{Feria}}&
+  \ch{\hsa{Horae}}{\hsa{Horae}} &
+  \ch{\hsa{Scrup.}}{\hsa{Scrup.}} &
+  &
+  \ch{\hsa{Feria}}{\hsa{Feria}} &
+  \ch{\hsa{Horae}}{\hsa{Horae}} &
+  \ch{\hsa{Scrup.}}{\hsa{Scrup.}}
+}
+%
+\newcommand{\hdrs}{%
+\hdrB \\
+\cmidrule(lr){4-6} \cmidrule(lr){8-10}
+\hdrA \\
+}
+%
+\begin{tabular}[c]{@{} r r r rrr l@{\hspace{2em}} rrr @{}}
+\toprule
+\multicolumn{10}{c}{\Large\textsc{Novilunia Phrurdin}} \\
+\multicolumn{10}{c}{\large\textsc{Iezdegird in icosipen-}} \\
+\multicolumn{10}{c}{\normalsize\textsc{teride Alexandriae}} \\
+\toprule
+\hdrs % Column headers from the above definition
+\midrule
+%%
+\da &  1 &   7 &  2 & 19 &   98 && 22 &  4 &  982 \\
+    &  2 &  26 &  1 & 16 &  687 &&  3 &  7 &  393 \\
+    &  3 &  16 &  6 &  1 &  483 && 13 & 22 &  597 \\
+\da &  4 &   5 &  3 & 10 &  279 && 24 & 14 &  801 \\
+    &  5 &  24 &  2 &  7 &  868 &&  5 & 16 &  132 \\
+    &  6 &  13 &  6 & 16 &  664 && 16 &  7 &  416 \\
+\da &  7 &   3 &  4 &  1 &  460 && 26 & 22 &  620 \\
+    &  8 &  21 &  2 & 22 & 1040 &&  8 &  1 &   31 \\
+\da &  9 &  11 &  7 &  7 &  845 && 18 & 16 &  235 \\
+    & 10 &  30 &  6 &  5 &  354 && 29 & 18 &  726 \\
+    & 11 &  19 &  3 & 14 &  150 && 10 &  9 &  930 \\
+\da & 12 &   8 &  7 & 22 & 1026 && 21 &  1 &   54 \\
+    & 13 &  27 &  6 & 20 &  535 &&  2 &  3 &  545 \\
+    & 14 &  17 &  4 &  5 &  331 && 12 & 18 &  749 \\
+\da & 15 &   6 &  1 & 14 &  127 && 23 &  9 &  953 \\
+    & 16 &  25 &  7 & 11 &  716 &&  4 & 12 &  364 \\
+    & 17 &  14 &  4 & 20 &  512 && 15 &  3 &  568 \\
+\da & 18 &   4 &  2 &  5 &  308 && 25 & 18 &  772 \\
+    & 19 &  23 &  1 &  2 &  897 &&  6 & 21 &  183 \\
+    & 20 &  12 &  5 & 11 &  593 && 17 & 12 &  487 \\
+\da & 21 &   1 &  2 & 20 &  489 && 28 &  3 &  591 \\
+    & 22 &  20 &  1 & 17 & 1078 &&  9 &  6 &    2 \\
+\da & 23 &  10 &  6 &  2 &  874 && 19 & 21 &  206 \\
+    & 24 &  29 &  5 &  0 &  383 &&  0 & 23 &  697 \\
+    & 25 &  18 &  2 &  9 &  179 && 11 & 14 &  901 \\
+\bottomrule
+\addlinespace[5pt]
+\multicolumn{3}{r}{\footnotesize\super{\da}Emb.}
+\end{tabular}
+\caption{Novilunia Phrurdin Iezdegird in icosipenteride Alexandriae}
+\label{tab:p212}
+\end{tabnums}
