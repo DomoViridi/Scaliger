@@ -1,0 +1,123 @@
+%%% Liber III p216
+%% Layout based on Liber 3 p200
+% !TEX root = ../../test-table.tex
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+\setlength{\tabcolsep}{3.0pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.0}
+%
+%% Define a smaller dagger (unfortunalely tiny is already the smallest)
+\newcommand{\da}{{\tiny †}}
+%% The angle with which to slant
+\newcommand{\ang}{80}
+%% Header text size: slanted text
+\newcommand{\hsb}[1]{\scriptsize{#1}}
+%% Header text size: horizontal text
+\newcommand{\hsa}[1]{\scriptsize{#1}}
+%% Width of a column
+\newcommand{\cwd}{1.0em}
+\newcommand{\cwdb}{3.9em}
+%%
+%% Header item command
+\newcommand{\hdrB}[1]{%
+  \parbox[b]{\cwd}{%
+    \hsb{%
+      \begin{rotate}{\ang}#1\end{rotate}%
+    }%
+  }%
+}
+%%
+%%
+\begin{tabular}[c]{@{} c  l l l l l l l l l l l l l  c c c c @{}}
+%%
+\toprule
+%% Table title
+\multicolumn{18}{c}{\Large\textsc{Laterculum neomeniae omnium mensium}}\\
+\multicolumn{18}{c}{\large\textsc{in annis Armeniorum et Iezdegird}}\\
+\toprule
+% Add space after rule because rotated text only take normal text height:
+\\[3ex]
+%% Table header
+% upper row
+\hsa{\multirow[b]{2}{\cwdb}[-2\baselineskip]{%
+Anni cy-\\cli Solis\\Armen.\\et Pers.}} &
+\hdrB{Sahami} &
+\hdrB{Theri} &
+\hdrB{Cagutz} &
+
+\hdrB{Arats} &
+\hdrB{Mahich} &
+\hdrB{Arichi} &
+
+\hdrB{Aheli} &
+\hdrB{Mariri} &
+\hdrB{Marchats} &
+
+\hdrB{Harvvaisis} &
+\hdrB{Navvasari} &
+\hdrB{Huri} &
+\hdrB{Musteraka} &
+
+\hsa{\multirow[b]{2}{\cwdb}[0ex]{%
+Cyclus Solis Armen. intra 760 in cyclo Iulia.}}
+ &
+\hsa{\multirow[b]{2}{\cwdb}[0ex]{%
+Cyclus Solis Armen. intra 2224 in cyclo Iul.}}
+ &
+\hsa{\multirow[b]{2}{\cwdb}[0ex]{%
+Cyclus Solis Iezdegird intra 668 in cyclo Iul.}}
+ &
+\hsa{\multirow[b]{2}{\cwdb}[\baselineskip]{%
+Cyclus Solis Iezdegird intra 2228 incyclo Iul.}} 
+% Add space after rule because rotated text only take normal text height:
+\\[5ex]
+%
+%% lower row
+&
+
+\hdrB{Phrurdin} &
+\hdrB{Adarpahaschth} &
+\hdrB{Chardad} &
+
+\hdrB{Thir} &
+\hdrB{Mardad} &
+\hdrB{Shahariz} &
+
+\hdrB{Mehar} &
+\hdrB{Aban} &
+\hdrB{Adar} &
+
+\hdrB{Di} &
+\hdrB{Bchemen} &
+\hdrB{Asphandar} &
+\hdrB{Musteraka} \\
+%% Table body
+\midrule
+%%
+23~ &
+4 & 6 & 1 & 3 & 5 & 7 & 2 & 4 & 6 & 1 & 3 & 5 & 7 &
+ 8  & 28 & 25 & 24 \\
+%
+%
+\bottomrule
+%%
+\end{tabular}
+%
+\caption{Neomeniae omnium mensium in annis Armeniorum et Iezdegird}
+\label{tab:p216}
+%
+\end{tabnums}
