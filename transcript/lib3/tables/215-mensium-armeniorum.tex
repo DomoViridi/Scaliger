@@ -1,0 +1,58 @@
+%%% Liber III p215, PDF 298
+%% Layout based on Liber 2 p171
+% !TEX root = ../../test-table.tex
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{2.1pt}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.035} % Tuned for Latin text
+%% Size of header text
+\newcommand{\hts}{\scriptsize}
+%
+%% Header text size: bottom row
+\newcommand{\hsb}[1]{\small{#1}}
+%%
+\begin{tabular}{@{} c r l r@{}l @{}}
+% @{}l: extra column for footnote marker
+\toprule
+\multicolumn{4}{c}{\Large\textsc{Mensium Armeniorum}} \\
+\multicolumn{4}{c}{\large\textsc{nomina}} \\
+\toprule
+%%%%%%%%
+% NOTE: after filling in the Arabic names the size of the table needs
+% to be re-tuned by adjusting \arraystretch above.
+ I    & \textarabic{}[Arabic] & \textit{Sahami}           &  30 \\
+ II   & \textarabic{}[Arabic] & \textit{Theri}            &  60 \\
+ III  & \textarabic{}[Arabic] & \textit{Cagutsch}         &  90 \\
+ IIII & \textarabic{}[Arabic] & \textit{Arats}            & 120 \\
+ V    & \textarabic{}[Arabic] & \textit{Mahich}           & 150 \\
+ VI   & \textarabic{}[Arabic] & \textit{Arich}            & 180 \\
+ VII  & \textarabic{}[Arabic] & \textit{Ahili}            & 210 \\
+ VIII & \textarabic{}[Arabic] & \textit{Mariri}           & 240 \\
+ IX   & \textarabic{}[Arabic] & \textit{Marchats}         & 270 \\
+ X    & \textarabic{}[Arabic] & \textit{Harvvatsis}       & 300&\super{*} \\
+ XI   & \textarabic{}[Arabic] & \textit{Navvasari}        & 330 \\
+ XII  & \textarabic{}[Arabic] & \textit{Huri}             & 360 \\
+      & \textarabic{}[Arabic] & \textit{Musterakath}      & 365 \\
+\bottomrule
+\addlinespace[5pt]
+\multicolumn{2}{l}{\footnotesize\super{*}In originalis: 30}
+\end{tabular}
+%
+\caption{Mensium Armeniorum nomina}
+\label{tab:p215}
+%
+\end{tabnums}
