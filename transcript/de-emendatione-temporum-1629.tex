@@ -61,6 +61,13 @@
 %% Used in table in Liber Primus, page 43
 \usepackage{longtable}
 
+%%% Booktabs package for nice looking tables
+\usepackage{booktabs}
+
+%%% Multirow to allow spanning of cells in tables over more than one row
+%% [longtable] option fixes a bug in longtable involving \\* and \cline
+\usepackage[longtable]{multirow}
+
 %%% Control the way page headers look
 %\userpackage{fancyheadings}
 %% Package needs to be downloaded specially
@@ -224,9 +231,6 @@
 %% We could also use the LaTeX command "\textemdash", but that is a bit verbose
 %% The TeX "---" code does not work in all fonts (particularly our Greek font).
 \newcommand{\emd}{—}
-
-%%% Booktabs package for nice looking tables
-\usepackage{booktabs}
 
 %%% Allow hypertext links in the PDF for ToC, LoT etc.
 %% Hyperref manual advises to load this last
