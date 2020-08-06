@@ -63,6 +63,12 @@
 
 %%% Booktabs package for nice looking tables
 \usepackage{booktabs}
+%
+%% Extension to booktabs: variation on \bottomrule, with room for a footnote
+%% (The command \footnoterule already exists, for regular footnotes)
+\newcommand{\footrule}{%
+  \bottomrule\addlinespace[\belowrulesep]
+}
 
 %%% Multirow to allow spanning of cells in tables over more than one row
 %% [longtable] option fixes a bug in longtable involving \\* and \cline
