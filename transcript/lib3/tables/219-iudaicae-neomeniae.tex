@@ -1,0 +1,86 @@
+%%% Liber 3 p219, PDF 302
+%% Layout based on Liber 3 p218b-generalis-noviluniorum.tex
+% !TEX root = ../../test-table.tex
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+\footnotesize
+%\small
+%\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{1.0ex}
+%% Modify distance between rows
+\renewcommand{\arraystretch}{1.0265} % Tuned 1.0265 - 10296
+%
+%% Width of a column
+\newcommand{\cwd}{3.2em}
+%% Define reference symbols
+\newcommand{\da}{{\tiny †}}
+\newcommand{\db}{{\scriptsize o}}
+%% The angle with which to slant
+\newcommand{\ang}{90}
+%% Header text size: row above bottom row
+\newcommand{\hsb}[1]{\footnotesize{#1}}
+%% Header text size: bottom row
+\newcommand{\hsa}[1]{\scriptsize{#1}}
+%% Header text size: parbox header
+\newcommand{\hsp}[1]{\tiny{#1}}
+%% Generate the column headers
+%
+\newcommand{\hdrA}{%
+  ~ &
+  \multicolumn{6}{c}{\hsa{Iudaicae Neomeniae}} &
+  \multicolumn{1}{c}{\hsa{Thoth}}
+}
+%
+\newcommand{\hdrs}{%
+\hdrA \\
+\cmidrule(r){1-1} \cmidrule(lr){2-4}
+\cmidrule(lr){5-7} \cmidrule(l){8-8}
+}
+%
+\begin{tabular}[c]{@{} r lrr lll r @{}}
+\toprule
+\hdrs % Column headers from the above definition
+\midrule
+%%
+ 1 & 7 & 13 &  370 &  5 &      &   & 12 \\
+ 2 & 4 & 22 &  166 & 15 &      &   & 13 \\
+ 3 & 2 &  6 & 1042 & 26 & Adar & 2 & 14 \\
+ 4 & 1 &  4 &  551 &  7 &      &   & 15 \\
+ 5 & 5 & 13 &  347 & 18 &      &   & 16 \\
+ 6 & 2 & 22 &  143 & 28 & Adar & 2 & 17 \\
+ 7 & 1 & 19 &  732 &  9 &      &   & 18 \\
+ 8 & 6 &  4 &  528 & 20 & Adar & 2 & 19 \\
+ 9 & 5 &  2 &   37 &  1 &      &   &  1 \\
+10 & 2 & 10 &  913 & 12 &      &   &  2 \\
+11 & 6 & 19 &  709 & 22 & Adar & 2 &  3 \\
+12 & 5 & 17 &  218 &  4 &      &   &  4 \\
+13 & 3 & 12 &   14 & 14 &      &   &  5 \\
+14 & 7 & 10 &  890 & 25 & Adar & 2 &  6 \\
+15 & 6 &  8 &  399 &  6 &      &   &  7 \\
+16 & 3 & 17 &  195 & 17 & Adar & 2 &  8 \\
+17 & 1 &  1 & 1071 & 27 & Adar & 1 &  9 \\
+18 & 6 & 23 &  580 &  8 &      &   & 10 \\
+19 & 4 &  8 &  376 & 19 & Adar & 2 & 11 \\
+20 & 3 &  5 &  965 &  0 &      &   & 12 \\
+21 & 5 & 14 &  761 & 11 &      &   & 13 \\
+22 & 4 & 23 &  557 & 22 & Adar & 2 & 14 \\
+23 & 3 & 21 &   66 &  2 &      &   & 15 \\
+24 & 1 &  5 &  942 & 14 &      &   & 16 \\
+25 & 5 & 14 &  738 & 12 & Adar & 2 & 17 \\
+\midrule
+&&&&&&&\hsp{\ch{Cyclus}{Cyclus \astro{☽} Iud.}} \\
+\bottomrule
+\end{tabular}
+\caption{[Iudaicae Neomeniae]}
+\label{tab:p219}
+\end{tabnums}
