@@ -1,0 +1,51 @@
+%%% Liber III p210, PDF 293
+%% Layout based on Liber 3 p198
+% !TEX root = ../../test-table.tex
+%%
+%%% Count out columns for fixed-width source font
+% 000000011111111112222222222333333333344444444445555555555666666666677777777778
+% 345678901234567890123456789012345678901234567890123456789012345678901234567890
+%
+\begin{tabnums} % Select monospaced numbers
+%% Select a general font size (uncomment one from the list)
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+\normalsize
+%% Center the whole table left-right
+\centering
+%% Modify separation between columns
+%\setlength{\tabcolsep}{2.0pt}
+%% Modify distance between rows
+%\renewcommand{\arraystretch}{1.000} % Not Tuned to eliminate Underfull \vbox
+%% Size of header text
+\newcommand{\hts}{\scriptsize}
+%% Width of a column
+\newcommand{\cwd}{4em}
+%
+\newcommand{\da}{\scriptsize{†}}
+%%
+\begin{tabular}{@{} r@{ }l r@{ }l @{}}
+\toprule
+\multicolumn{4}{c}{\Large\textsc{Musteraka}} \\
+\toprule
+28&Martii     & 23&Martii \\
+27&Aprilis    & 22&Aprilis \\
+27&Maii       & 22&Maii \\
+26&Iunii      & 21&Iunii \\
+26&Iulius     & 21&Iulius \\
+25&Augusti    & 20&Augusti \\
+24&Septembris & 19&Septembris \\
+24&Octobris   & 19&Octobris \\
+23&Novembris  & 18&Novembris \\
+23&Decembris  & 18&Decembris\\
+22&Ianuarii   & 17&Ianuarii \\
+21&Februarii  & 16&Februarii\\
+\bottomrule
+\end{tabular}
+%
+\caption{Musteraka}
+\label{tab:p210a}
+%
+\end{tabnums}
