@@ -90,7 +90,10 @@
 %% Side-by-side tables
 \begin{table}[tbh]
   % define table height
-  \newcommand{\tabh}{0.563\textheight}
+  % Tune this so that:
+  % - Body text is clear of lowest table caption
+  % - Body text touches bottom of text frame
+  \newcommand{\tabh}{0.61252\textheight} % 0.6118 - 0.61252
 %  \setlength{\tabcolsep}{0.0ex}
   \centering
   \begin{tabular}{c @{\hspace{0.06\textwidth}} c}
