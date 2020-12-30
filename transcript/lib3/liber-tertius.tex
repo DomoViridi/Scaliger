@@ -2410,6 +2410,24 @@ moniti nullas epactas invenient.
 %====
 \section{De novarum Indiarum Anno}
 % Capitalisation follows ToC
+%
+%% Side-by-side tables
+\begin{table}[tbh]
+  % define table height
+  \newcommand{\tabh}{0.61252\textheight} % 0.6118 - 0.61252
+%  \setlength{\tabcolsep}{0.0ex}
+  \centering
+  \begin{tabular}{c @{\hspace{0.06\textwidth}} c}
+    \begin{minipage}[][\tabh][t]{0.43\textwidth}
+      \input{lib3/tables/224a-menses-mexicani.tex}
+    \end{minipage}
+&
+    \begin{minipage}[][\tabh][t]{0.45\textwidth}
+      \input{lib3/tables/224b-dierum-mexicani.tex}
+    \end{minipage}
+  \end{tabular}
+\end{table}
+%
 \lnr{17}Non potuit opportuniore loco mentio iniici anni Mexicanorum,
 et totius illius magnae Perusianae continentis, quam hic.
 %% Tables: Menses Mexicani & Appellationes dierum mensis mexicani.
