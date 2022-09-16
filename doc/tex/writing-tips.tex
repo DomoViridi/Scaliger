@@ -66,6 +66,7 @@ See \textcolor{blue}{%
 \author{Erik Groenhuis}
 \date{\today} % Activate to display a given date or no date
 
+%%======================================================================
 \begin{document}
 \maketitle
 
@@ -642,21 +643,26 @@ These will be converted to modern style,
 \item \verb+&c.+ should be expanded as "et cetera" (two words). Though
  "etcetera" (one word) is a word in English, in Latin it was two words.
 
-\item Abbreviated words are written in full
+\item Some obvious abbreviations should be expanded
  (see also Diacriticals above).
 	\begin{itemize}
-	\item "Quoq" becomes "quoque"
+	\item "Quoq;" becomes "quoque"
 	\item "propagatā" becomes "propagatam".
 	\item "nō" becomes "non"
 	\item "à" becomes "ab"
 	\item "Iulianae" is sometimes written with an 'e' with a cedille underneath
-	 it instead of the 'ae'. E.G. Prolegomena p~X.
+	 it instead of the 'ae'. E.G. Prolegomena page~X.
 	 Same for "Iudaei".
-	\item Occasionally words are shortened using a period. These should be
-	expanded, but for a non-scholar it is hard to find the proper declension
-	required.
-	Example: "Kal." for Kalendae, Kalendarum, Kalendis, Kalendas or Kalends.
 	\end{itemize}
+
+\item On the other hand, most abbreviated words should be transcribed
+unchanged.
+Though it is tempting to expand these to full words, any time we do this
+would mean we second-guess Scaliger. 
+A frequently occurring example is "Kal.",
+which can stand for Kalendae, Kalendarum, Kalendis, Kalendas or Kalends.
+As a general policy, we should not try to "improve" on the original text,
+and leave such an abbreviation as-is.
 
 \item Interpunction is done in modern style, and more consistent, e.g.:
 No space before a comma, period, colon, semicolon,
@@ -808,7 +814,7 @@ After using this you can put a \verb+\plnr+ command later on the same page.
 \section{General guidelines for the XeLaTeX code}
 The following guidelines are intended to make it easier to compare the
 tex file to the original.
-Note that \LaTeX treats a single newline as if it is a space. This means that
+Note that \LaTeX{} treats a single newline as if it is a space. This means that
 breaking up a line in the tex file with a newline will not affect the outcome.
 Beware that a double newline (leaving a blank line) \emph{does} have a
 special meaning: it starts a new paragraph.
