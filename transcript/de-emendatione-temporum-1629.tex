@@ -106,7 +106,15 @@
 %% Put inside { and } to keep the effect local
 % Oddly, commands for Hoefler Text appear to be inverted
 % "Proportional" sets to Monospaced, while "Monospaced" sets to Proportional
-\newenvironment{tabnums}{\addfontfeature{Numbers={Proportional}}}{}
+\newenvironment{tabnums}{\addfontfeature{RawFeature=
+{Number Spacing=Proportional Numbers}}}{}
+%% Sep 2022: Changed from "Numbers={Proportional}" to
+%% RawFeature={Number Spacing=Proportional Numbers}}
+%% due to a bug in TexLive 2020 or possibly poor support in the Apple version
+%% of Hoefler Text.
+%% We still need to set Proportional to get Monospaced.
+%% The raw names come from the developer.apple.com/fonts
+%% TrueType Reference Manual - Font Feature Registry
 
 
 %%% Commands to refer to line numbers in the original
