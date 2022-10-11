@@ -75,8 +75,10 @@
 \usepackage[longtable]{multirow}
 
 %%% Control the way page headers look
-%\userpackage{fancyheadings}
-%% Package needs to be downloaded specially
+%% "fancyheader" package is obsolete
+%\usepackage{fancyhdr}
+%% NOTE: This package introduces a \footrule command, which clashes with
+%% our private \footrule command.
 
 %%% Main body text is in latin.
 \setmainfont{Hoefler Text}[
