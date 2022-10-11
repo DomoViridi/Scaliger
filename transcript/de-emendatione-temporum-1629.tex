@@ -65,8 +65,9 @@
 \usepackage{booktabs}
 %
 %% Extension to booktabs: variation on \bottomrule, with room for a footnote
-%% (The command \footnoterule already exists, for regular footnotes)
-\newcommand{\footrule}{%
+%% (The command \footnoterule already exists, for regular footnotes,
+%%  and the command \footrule clashes with the fancyheader package.)
+\newcommand{\tabfootrule}{%
   \bottomrule\addlinespace[\belowrulesep]
 }
 
@@ -77,8 +78,8 @@
 %%% Control the way page headers look
 %% "fancyheader" package is obsolete
 %\usepackage{fancyhdr}
-%% NOTE: This package introduces a \footrule command, which clashes with
-%% our private \footrule command.
+%% NOTE: This package introduces a \footrule command, which clashed with
+%% our private \footrule command. So our \footrule was renamed to \tabfootrule
 
 %%% Main body text is in latin.
 \setmainfont{Hoefler Text}[
