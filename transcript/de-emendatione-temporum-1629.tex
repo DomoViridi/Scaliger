@@ -67,9 +67,11 @@
 %% Extension to booktabs: variation on \bottomrule, with room for a footnote
 %% (The command \footnoterule already exists, for regular footnotes,
 %%  and the command \footrule clashes with the fancyheader package.)
-\newcommand{\tabfootrule}{%
-  \bottomrule\addlinespace[\belowrulesep]
-}
+\makeatletter
+\newcommand{\tfr@nostar}{\bottomrule}
+\newcommand{\tfr@star}{\midrule}
+\newcommand{\tabfootrule}{\@ifstar{}{\tfr@nostar}}
+\makeatother
 
 %%% Multirow to allow spanning of cells in tables over more than one row
 %% [longtable] option fixes a bug in longtable involving \\* and \cline
