@@ -67,11 +67,9 @@
 %% Extension to booktabs: variation on \bottomrule, with room for a footnote
 %% (The command \footnoterule already exists, for regular footnotes,
 %%  and the command \footrule clashes with the fancyheader package.)
-\usepackage{xparse}
-\NewDocumentCommand\tabfootrule{s}{\IfBooleanTF{#1}
-  {\midrule}%
-  {\bottomrule}%
-}
+\usepackage{suffix}
+\newcommand\tabfootrule{\bottomrule}
+\WithSuffix\newcommand\tabfootrule*{\midrule}
 
 %%% Multirow to allow spanning of cells in tables over more than one row
 %% [longtable] option fixes a bug in longtable involving \\* and \cline
