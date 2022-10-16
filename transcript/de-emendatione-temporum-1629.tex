@@ -65,11 +65,10 @@
 \usepackage{booktabs}
 %
 %% Extension to booktabs: variation on \bottomrule, with room for a footnote
-%% (The command \footnoterule already exists, for regular footnotes,
-%%  and the command \footrule clashes with the fancyheader package.)
-\usepackage{suffix}
-\newcommand\tabfootrule{\bottomrule}
-\WithSuffix\newcommand\tabfootrule*{\midrule}
+%% (The command \footnoterule already exists, for regular footnotes)
+\newcommand{\footrule}{%
+  \bottomrule\addlinespace[\belowrulesep]
+}
 
 %%% Multirow to allow spanning of cells in tables over more than one row
 %% [longtable] option fixes a bug in longtable involving \\* and \cline
@@ -78,8 +77,8 @@
 %%% Control the way page headers look
 %% "fancyheader" package is obsolete
 %\usepackage{fancyhdr}
-%% NOTE: This package introduces a \footrule command, which clashed with
-%% our private \footrule command. So our \footrule was renamed to \tabfootrule
+%% NOTE: This package introduces a \footrule command, which clashes with
+%% our private \footrule command.
 
 %%% Main body text is in latin.
 \setmainfont{Hoefler Text}[
@@ -322,8 +321,8 @@
 \includeonly{
 %  ./front/prolegomena,
 %  ./lib1/liber-primus,
-  ./lib2/liber-secundus,
-%  ./lib3/liber-tertius
+%  ./lib2/liber-secundus,
+  ./lib3/liber-tertius
 }
 
 \begin{document}
